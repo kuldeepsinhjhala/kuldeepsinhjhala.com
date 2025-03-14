@@ -1,5 +1,5 @@
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-
 
 function FloatingPaths({ position }) {
 	const paths = Array.from({ length: 36 }, (_, i) => ({
@@ -83,7 +83,11 @@ export default function Home({ title = "Kuldeepsinh Jhala" }) {
 						))}
 					</h1>
 					<div className="inline-block group relative bg-gradient-to-b from-black/10 to-white/10 dark:from-white/10 dark:to-black/10 p-px rounded-2xl backdrop-blur-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
-						<button className="px-6 py-3 rounded-lg font-medium transition-all duration-300 bg-amber-700 text-black">Learn More</button>
+						<Link to="/about-me">
+							<button className="px-6 py-3 rounded-lg font-medium transition-all duration-300 bg-amber-700 text-black">
+								Learn More
+							</button>
+						</Link>
 					</div>
 				</motion.div>
 			</div>
