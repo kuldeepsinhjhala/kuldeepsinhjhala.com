@@ -8,8 +8,6 @@ import {
 	AnimatePresence,
 } from "framer-motion";
 import {
-	Moon,
-	Sun,
 	ChevronDown,
 	ExternalLink,
 	GitlabIcon as GitHub,
@@ -190,7 +188,7 @@ export default function Portfolio() {
 		};
 	}, []);
 
-	const [theme, setTheme] = useState("light");
+	const [theme, setTheme] = useState("dark");
 	const [activeSection, setActiveSection] = useState("about");
 	const [isExpanded, setIsExpanded] = useState({});
 	const sectionRefs = {
@@ -208,14 +206,9 @@ export default function Portfolio() {
 	const headerOpacity = useTransform(scrollY, [0, 100], [1, 0.8]);
 
 	useEffect(() => {
-		// Check if user prefers dark mode
-		if (
-			window.matchMedia &&
-			window.matchMedia("(prefers-color-scheme: dark)").matches
-		) {
-			setTheme("dark");
-			document.documentElement.classList.add("dark");
-		}
+		// Always set dark mode
+		setTheme("dark");
+		document.documentElement.classList.add("dark");
 
 		// Add scroll event listener to update active section
 		const handleScroll = () => {
@@ -560,7 +553,7 @@ export default function Portfolio() {
 		status: "Under review",
 		journal: "International Journal Of Applied and Computational Mathematics",
 		advisor:
-			"Dr. Viral Kapadia (Deputy Director at Computer Centre, Associate Professor MSU)",
+			"Dr. Viral Kapadia (Deputy Director at Computer Centre & Associate Professor, MSU)",
 		description:
 			"Quint Sort is an innovative hybrid sorting algorithm that combines the strengths of quick sort and count sort to deliver enhanced performance and efficiency. This algorithm dynamically assesses the arrangement of input elements and adapts its strategy accordingly.",
 		highlights: [
@@ -643,35 +636,11 @@ export default function Portfolio() {
 	];
 
 	return (
-		<div
-			className={`min-h-screen w-full ${
-				theme === "dark" ? "dark" : ""
-			} transition-colors duration-300`}>
+		<div className="min-h-screen w-full dark transition-colors duration-300">
 			{/* Animated Gradient Background */}
 			<div className="fixed inset-0 -z-10 overflow-hidden">
-				{/* Light mode background */}
-				<div
-					className={`absolute inset-0 ${
-						theme === "light" ? "opacity-100" : "opacity-0"
-					} transition-opacity duration-1000`}>
-					{/* Main gradient background */}
-					<div className="absolute inset-0 bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50"></div>
-
-					{/* Animated gradient orbs */}
-					<div className="absolute top-0 left-0 w-[80vw] h-[80vw] rounded-full bg-gradient-to-r from-amber-200/30 via-orange-300/30 to-yellow-200/30 blur-3xl animate-blob-slow"></div>
-					<div className="absolute top-1/3 right-1/4 w-[50vw] h-[50vw] rounded-full bg-gradient-to-l from-amber-300/20 via-yellow-200/20 to-orange-100/20 blur-3xl animate-blob-slow-reverse animation-delay-2000"></div>
-					<div className="absolute bottom-1/4 right-1/3 w-[60vw] h-[60vw] rounded-full bg-gradient-to-t from-yellow-200/20 via-amber-100/20 to-orange-200/20 blur-3xl animate-blob animation-delay-4000"></div>
-
-					{/* Subtle pulse effects */}
-					<div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,165,0,0.1),transparent_60%)] animate-pulse-slow"></div>
-					<div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(255,215,0,0.1),transparent_50%)] animate-pulse-slow animation-delay-3000"></div>
-				</div>
-
-				{/* Dark mode background */}
-				<div
-					className={`absolute inset-0 ${
-						theme === "dark" ? "opacity-100" : "opacity-0"
-					} transition-opacity duration-1000`}>
+				{/* Dark mode background only */}
+				<div className="absolute inset-0">
 					{/* Main gradient background */}
 					<div className="absolute inset-0 bg-gradient-to-br from-gray-950 via-slate-900 to-gray-900"></div>
 
@@ -720,14 +689,13 @@ export default function Portfolio() {
 							))}
 						</nav>
 
-						<motion.button
+						<motion.div
 							initial={{ opacity: 0, x: 20 }}
 							animate={{ opacity: 1, x: 0 }}
 							transition={{ duration: 0.5 }}
-							onClick={toggleTheme}
-							className="p-2 rounded-full bg-neutral-100/80 dark:bg-neutral-800/80 text-neutral-700 dark:text-neutral-300 backdrop-blur-sm">
-							{theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
-						</motion.button>
+							className="w-10">
+							{/* Spacer to maintain layout */}
+						</motion.div>
 					</div>
 				</motion.header>
 
