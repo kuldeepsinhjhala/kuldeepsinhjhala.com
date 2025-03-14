@@ -1506,7 +1506,7 @@ export default function Portfolio() {
 							whileInView={{ opacity: 1, y: 0 }}
 							transition={{ duration: 0.5 }}
 							viewport={{ once: true, margin: "-100px" }}
-							className="backdrop-blur-sm bg-white/70 dark:bg-black/30 rounded-xl p-8 shadow-lg border border-white/20 dark:border-white/10">
+							className="backdrop-blur-sm bg-white/70 dark:bg-black/30 rounded-xl p-8 mt-8 shadow-lg border border-white/20 dark:border-white/10">
 							<div className="grid md:grid-cols-1 gap-8">
 								<div>
 									<h3 className="text-xl font-semibold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-amber-600 to-amber-400 dark:from-amber-400 dark:to-amber-200">
