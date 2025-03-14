@@ -4,6 +4,7 @@ import {
 	Route,
 	RouterProvider,
 } from "react-router-dom";
+import { Analytics } from "@vercel/analytics/react";
 import Home from "./pages/home";
 import AboutMe from "./pages/AboutMe";
 

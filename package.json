@@ -12,6 +12,7 @@
   "dependencies": {
     "@shadcn/ui": "^0.0.4",
     "@tailwindcss/vite": "^4.0.6",
+    "@vercel/analytics": "^1.5.0",
     "framer-motion": "^12.4.10",
     "lucide-react": "^0.479.0",
     "react": "^19.0.0",
