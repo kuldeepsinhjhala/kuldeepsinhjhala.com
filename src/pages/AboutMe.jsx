@@ -559,7 +559,8 @@ export default function Portfolio() {
 		title: "Quint Sorting Algorithm",
 		status: "Under review",
 		journal: "International Journal Of Applied and Computational Mathematics",
-		advisor: "Dr. Viral Kapadia (Deputy Director at Computer Centre, MSU)",
+		advisor:
+			"Dr. Viral Kapadia (Deputy Director at Computer Centre, Associate Professor MSU)",
 		description:
 			"Quint Sort is an innovative hybrid sorting algorithm that combines the strengths of quick sort and count sort to deliver enhanced performance and efficiency. This algorithm dynamically assesses the arrangement of input elements and adapts its strategy accordingly.",
 		highlights: [
