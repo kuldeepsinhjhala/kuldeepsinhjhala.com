@@ -256,7 +256,7 @@ export default function Portfolio() {
 		email: "kuldeephjhala@gmail.com",
 		phone: "+91 9726413743",
 		linkedin: "www.linkedin.com/in/kuldeepsinh--jhala",
-		github: "github.com/kuldeepsinhjhala",
+		github: "https://github.com/kuldeepjhala-dev",
 		image:
 			"https://media.licdn.com/dms/image/v2/D4D03AQHkz0uJr2FBEQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1708545280468?e=1747267200&v=beta&t=4SQCXb02Wh4xV1kkmt5BXc4eIcGuw2nEuxMHHGjFJQQ",
 		about:
