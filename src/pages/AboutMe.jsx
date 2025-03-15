@@ -206,7 +206,7 @@ export default function Portfolio() {
 	const headerOpacity = useTransform(scrollY, [0, 100], [1, 0.8]);
 
 	useEffect(() => {
-		// Always set dark mode
+		// Always set dark mode without checking system preferences
 		setTheme("dark");
 		document.documentElement.classList.add("dark");
 
@@ -230,11 +230,13 @@ export default function Portfolio() {
 		return () => window.removeEventListener("scroll", handleScroll);
 	}, []);
 
-	const toggleTheme = () => {
-		const newTheme = theme === "light" ? "dark" : "light";
-		setTheme(newTheme);
-		document.documentElement.classList.toggle("dark");
-	};
+	/*
+const toggleTheme = () => {
+  const newTheme = theme === "light" ? "dark" : "light"
+  setTheme(newTheme)
+  document.documentElement.classList.toggle("dark")
+}
+*/
 
 	const scrollToSection = (section) => {
 		sectionRefs[section].current.scrollIntoView({ behavior: "smooth" });
@@ -256,7 +258,7 @@ export default function Portfolio() {
 		email: "kuldeephjhala@gmail.com",
 		phone: "+91 9726413743",
 		linkedin: "www.linkedin.com/in/kuldeepsinh--jhala",
-		github: "github.com/kuldeepjhala-dev",
+		github: "github.com/kuldeepsinhjhala",
 		image:
 			"https://media.licdn.com/dms/image/v2/D4D03AQHkz0uJr2FBEQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1708545280468?e=1747267200&v=beta&t=4SQCXb02Wh4xV1kkmt5BXc4eIcGuw2nEuxMHHGjFJQQ",
 		about:
@@ -552,8 +554,7 @@ export default function Portfolio() {
 		title: "Quint Sorting Algorithm",
 		status: "Under review",
 		journal: "International Journal Of Applied and Computational Mathematics",
-		advisor:
-			"Dr. Viral Kapadia (Deputy Director at Computer Centre & Associate Professor, MSU)",
+		advisor: "Dr. Viral Kapadia (Deputy Director at Computer Centre, MSU)",
 		description:
 			"Quint Sort is an innovative hybrid sorting algorithm that combines the strengths of quick sort and count sort to deliver enhanced performance and efficiency. This algorithm dynamically assesses the arrangement of input elements and adapts its strategy accordingly.",
 		highlights: [
@@ -567,6 +568,7 @@ export default function Portfolio() {
 			"Data Structures",
 			"Performance Analysis",
 			"C++",
+			"Python",
 		],
 	};
 
@@ -636,7 +638,7 @@ export default function Portfolio() {
 	];
 
 	return (
-		<div className="min-h-screen w-full dark transition-colors duration-300">
+		<div className="min-h-screen w-full dark">
 			{/* Animated Gradient Background */}
 			<div className="fixed inset-0 -z-10 overflow-hidden">
 				{/* Dark mode background only */}
@@ -1506,7 +1508,7 @@ export default function Portfolio() {
 							whileInView={{ opacity: 1, y: 0 }}
 							transition={{ duration: 0.5 }}
 							viewport={{ once: true, margin: "-100px" }}
-							className="backdrop-blur-sm bg-white/70 dark:bg-black/30 rounded-xl p-8 mt-8 shadow-lg border border-white/20 dark:border-white/10">
+							className="backdrop-blur-sm bg-white/70 dark:bg-black/30 rounded-xl p-8 shadow-lg border border-white/20 dark:border-white/10">
 							<div className="grid md:grid-cols-1 gap-8">
 								<div>
 									<h3 className="text-xl font-semibold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-amber-600 to-amber-400 dark:from-amber-400 dark:to-amber-200">
