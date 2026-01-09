@@ -1,0 +1,103 @@
+@import "tailwindcss";
+
+/*
+  COLOR SYSTEM - Use ONLY these colors throughout the website
+  
+  Usage in Tailwind classes:
+  - bg-bg, bg-card, bg-gold, etc.
+  - text-head, text-body, text-gold, etc.
+  - border-gold, border-card, etc.
+  
+  Usage in inline styles:
+  - style={{ color: 'var(--c-head)' }}
+  - style={{ backgroundColor: 'var(--c-bg)' }}
+  
+  Core Palette (95% usage):
+  - bg: Global background (#0A192F)
+  - card: Component backgrounds (#112240)
+  - head: Primary text/headings (#E6F1FF)
+  - body: Secondary text/paragraphs (#8892B0)
+  - gold: Accent color for buttons/borders (#C9A66B)
+  
+  Functional Palette (5% usage):
+  - success: Success states (#64FFDA)
+  - error: Error states (#FF6B6B)
+  - shadow: Drop shadows (#020C1B)
+*/
+
+:root {
+  /* THEME */
+  --c-bg:       #0A192F;
+  --c-card:     #112240;
+  --c-head:     #E6F1FF;
+  --c-body:     #8892B0;
+  --c-gold:     #C9A66B;
+
+  /* UTILITY */
+  --c-success:  #64FFDA;
+  --c-error:    #FF6B6B;
+  --c-shadow:   #020C1B;
+}
+
+body {
+  background-color: var(--c-bg);
+  color: var(--c-body);
+}
+
+/* Custom scrollbar for code editor style */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--c-card);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--c-gold);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--c-head);
+}
+
+/* Tab bar horizontal scrollbar */
+.tab-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: var(--c-gold) var(--c-card);
+}
+
+.tab-scrollbar::-webkit-scrollbar {
+  height: 8px;
+}
+
+.tab-scrollbar::-webkit-scrollbar-track {
+  background: var(--c-card);
+}
+
+.tab-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--c-gold);
+  border-radius: 4px;
+}
+
+.tab-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--c-head);
+}
+
+/* Tooltip animation */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.2s ease-out forwards;
+}

@@ -1,2 +1,0 @@
-//Frequent used functions
-//Api calls in function, so just call the function

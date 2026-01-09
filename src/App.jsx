@@ -1,27 +1,24 @@
-import {
-	createBrowserRouter,
-	createRoutesFromElements,
-	Route,
-	RouterProvider,
-} from "react-router-dom";
-import { Analytics } from "@vercel/analytics/react";
-import Home from "./pages/home";
-import AboutMe from "./pages/AboutMe";
+import { useState } from 'react'
+import { BrowserRouter } from 'react-router-dom'
+import Loader from './components/Loader'
+import AppRoutes from './routes/AppRoutes'
 
 function App() {
-	const router = createBrowserRouter(
-		createRoutesFromElements(
-			<Route>
-				<Route path="/" element={<Home />}></Route>
-				<Route path="/about-me" element={<AboutMe />}></Route>
-			</Route>,
-		),
-	);
-	return (
-		<>
-			<RouterProvider router={router} />
-		</>
-	);
+  const [isLoading, setIsLoading] = useState(true)
+
+  const handleLoaderComplete = () => {
+    setIsLoading(false)
+  }
+
+  return (
+    <BrowserRouter>
+      {isLoading ? (
+        <Loader onComplete={handleLoaderComplete} />
+      ) : (
+        <AppRoutes />
+      )}
+    </BrowserRouter>
+  )
 }
 
-export default App;
+export default App
