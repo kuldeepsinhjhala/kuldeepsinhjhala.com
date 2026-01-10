@@ -1,6 +1,7 @@
 import { Routes, Route } from 'react-router-dom'
 import { TabProvider } from '../context/TabContext'
 import { CopilotProvider, useCopilot } from '../context/CopilotContext'
+import { NavbarProvider } from '../context/NavbarContext'
 import Navbar from '../components/Navbar'
 import SearchBar from '../components/SearchBar'
 import TabBar from '../components/TabBar'
@@ -25,8 +26,10 @@ function AppContent() {
     <div className="flex h-screen overflow-hidden">
       <Navbar />
       <div 
-        className="flex-1 md:ml-64 flex flex-col h-screen overflow-hidden transition-all duration-300"
-        style={{ marginRight: isOpen ? '320px' : '0' }}
+        className="flex-1 flex flex-col h-screen overflow-hidden transition-all duration-300"
+        style={{ 
+          marginLeft: 'var(--navbar-width, 0px)'
+        }}
       >
           <div className="flex-shrink-0">
             <SearchBar />
@@ -58,7 +61,9 @@ function AppRoutes() {
   return (
     <TabProvider>
       <CopilotProvider>
-        <AppContent />
+        <NavbarProvider>
+          <AppContent />
+        </NavbarProvider>
       </CopilotProvider>
     </TabProvider>
   )

@@ -1,17 +1,19 @@
 import { useCopilot } from '../context/CopilotContext'
+import { useNavbar } from '../context/NavbarContext'
 
 function CopilotButton() {
   const { isOpen, setIsOpen } = useCopilot()
+  const { isOpen: isNavbarOpen } = useNavbar()
 
-  // Only show when panel is closed
-  if (isOpen) return null
+  // Hide button when panel is open or navbar is open (on mobile)
+  if (isOpen || isNavbarOpen) return null
 
   return (
     <button
       onClick={() => setIsOpen(true)}
-      className="hidden lg:flex fixed items-center gap-1.5 px-2 bg-bg border border-gold/20 rounded text-head hover:border-gold hover:ring-1 hover:ring-gold/50 transition-all z-30 group"
+      className="flex fixed items-center gap-1.5 px-2 bg-bg border border-gold/20 rounded text-head hover:border-gold hover:ring-1 hover:ring-gold/50 transition-all z-50 group"
       style={{ 
-        top: '8px', 
+        bottom: '16px', 
         right: '16px',
         height: '32px',
         boxSizing: 'border-box'

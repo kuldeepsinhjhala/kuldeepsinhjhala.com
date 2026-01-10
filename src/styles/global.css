@@ -46,8 +46,8 @@ body {
 
 /* Custom scrollbar for code editor style */
 ::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
+  width: 6px;
+  height: 6px;
 }
 
 ::-webkit-scrollbar-track {
@@ -56,7 +56,7 @@ body {
 
 ::-webkit-scrollbar-thumb {
   background: var(--c-gold);
-  border-radius: 5px;
+  border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -66,23 +66,44 @@ body {
 /* Tab bar horizontal scrollbar */
 .tab-scrollbar {
   scrollbar-width: thin;
-  scrollbar-color: var(--c-gold) var(--c-card);
+  scrollbar-color: transparent transparent;
 }
 
 .tab-scrollbar::-webkit-scrollbar {
-  height: 8px;
+  height: 4px;
 }
 
 .tab-scrollbar::-webkit-scrollbar-track {
-  background: var(--c-card);
+  background: transparent;
 }
 
 .tab-scrollbar::-webkit-scrollbar-thumb {
-  background: var(--c-gold);
-  border-radius: 4px;
+  background: transparent;
+  border-radius: 2px;
 }
 
 .tab-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: transparent;
+}
+
+/* Show scrollbar on hover or when scrolling */
+.tab-scrollbar-hover:hover,
+.tab-scrollbar-hover.scrolling {
+  scrollbar-color: var(--c-gold) var(--c-card);
+}
+
+.tab-scrollbar-hover:hover::-webkit-scrollbar-track,
+.tab-scrollbar-hover.scrolling::-webkit-scrollbar-track {
+  background: var(--c-card);
+}
+
+.tab-scrollbar-hover:hover::-webkit-scrollbar-thumb,
+.tab-scrollbar-hover.scrolling::-webkit-scrollbar-thumb {
+  background: var(--c-gold);
+}
+
+.tab-scrollbar-hover:hover::-webkit-scrollbar-thumb:hover,
+.tab-scrollbar-hover.scrolling::-webkit-scrollbar-thumb:hover {
   background: var(--c-head);
 }
 

@@ -9,6 +9,32 @@ function CopilotPanel() {
   const [input, setInput] = useState('')
   const messagesEndRef = useRef(null)
 
+  // Handle panel state based on screen size
+  useEffect(() => {
+    const handleResize = () => {
+      const width = window.innerWidth
+      if (width >= 768) {
+        // Auto-open on screens >= 768px
+        setIsOpen(true)
+      } else {
+        // Auto-close on screens < 768px
+        setIsOpen(false)
+      }
+    }
+
+    // Check on mount - ensure panel opens if screen is >= 768px
+    const initialWidth = window.innerWidth
+    if (initialWidth >= 768) {
+      setIsOpen(true)
+    } else {
+      setIsOpen(false)
+    }
+
+    // Listen for resize events
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [setIsOpen])
+
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
   }
@@ -38,8 +64,17 @@ function CopilotPanel() {
 
   return (
     <>
+      {/* Overlay for mobile screens (≤425px) */}
+      {isOpen && (
+        <div 
+          className="hidden max-[425px]:block fixed inset-0 bg-shadow/80 z-40"
+          onClick={() => setIsOpen(false)}
+        ></div>
+      )}
 
-      <div className={`hidden lg:flex flex-col bg-card border-l border-gold/20 w-80 h-screen fixed right-0 top-0 transition-transform duration-300 z-40 ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+      <div className={`flex flex-col bg-card border-l border-gold/20 w-80 max-[425px]:w-full max-[425px]:border-l-0 h-screen fixed right-0 top-0 transition-transform duration-300 z-50 rounded-tl-2xl rounded-bl-2xl ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}
+        style={{ backgroundColor: 'var(--c-card)' }}
+      >
         {/* Header */}
         <div className="px-4 py-3 border-b border-gold/10 flex items-center justify-between">
           <div className="flex items-center gap-2">
