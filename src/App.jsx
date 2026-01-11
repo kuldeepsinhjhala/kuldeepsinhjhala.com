@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { BrowserRouter } from 'react-router-dom'
-import Loader from './components/Loader'
+import TerminalLoader from './components/TerminalLoader'
 import AppRoutes from './routes/AppRoutes'
 
 function App() {
@@ -13,7 +13,7 @@ function App() {
   return (
     <BrowserRouter>
       {isLoading ? (
-        <Loader onComplete={handleLoaderComplete} />
+        <TerminalLoader onComplete={handleLoaderComplete} />
       ) : (
         <AppRoutes />
       )}
