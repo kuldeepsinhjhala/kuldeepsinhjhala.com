@@ -1,0 +1,194 @@
+{
+    // ==============================
+    // GLOBAL BLOG METADATA
+    // ==============================
+    "meta": {
+      "title": "word",                     // Blog section title shown on UI
+      "subtitle": "multiple words",         // Subtitle shown below title
+      "description": "paragraph",           // Used for SEO & meta description
+    },
+  
+    // ==============================
+    // BLOG LEVEL SETTINGS (UI + BEHAVIOR)
+    // ==============================
+    "settings": {
+      "defaultAuthorId": "word",             // Reference to authors[]
+      "enableSearch": true,                  // Enable frontend search
+      "enableCategories": true,              // Enable category filter
+      "enableTags": true,                    // Enable tag filter
+      "enableFeaturedPosts": true,           // Highlight featured posts
+      "enablePagination": true,              // Enable pagination
+      "postsPerPage": number,                // Example: 6
+  
+      "sorting": {
+        "default": "word",                   // published | updated | title
+        "order": "word"                      // asc | desc
+      }
+    },
+  
+    // ==============================
+    // AUTHORS (SCALABLE FOR MULTI-AUTHOR)
+    // ==============================
+    "authors": [
+      {
+        "id": "word",                        // Unique author ID
+        "name": "multiple words",            // Full name
+        "avatar": "path",                    // Image path or URL
+        "bio": "paragraph",                  // Short author bio
+        "social": {
+          "github": "url",
+          "linkedin": "url",
+          "twitter": "url",
+          "website": "url"
+        },
+      }
+    ],
+  
+    // ==============================
+    // BLOG POSTS ARRAY
+    // ==============================
+    "posts": [
+      {
+        // ------------------------------
+        // IDENTIFICATION
+        // ------------------------------
+        "id": "word",                        // Unique post ID
+  
+        // ------------------------------
+        // STATUS & VISIBILITY
+        // ------------------------------
+        "status": {
+          "featured": true,                  // Highlight on blog page
+          "pinned": false,                   // Stick to top
+        },
+  
+        // ------------------------------
+        // CONTENT (MAIN BODY)
+        // ------------------------------
+        "content": {
+          "title": "multiple words",          // Blog title
+          "slug": "word-word-word",           // URL slug
+          "excerpt": "paragraph",             // Short preview text
+  
+          // Body format:
+          // markdown → string
+          "body": "paragraph"
+        },
+  
+        // ------------------------------
+        // AUTHOR REFERENCE
+        // ------------------------------
+        "authorId": "word",                  // Must match authors[].id
+  
+        // ------------------------------
+        // TAXONOMY (FILTERING & SEARCH)
+        // ------------------------------
+        "taxonomy": {
+          "category": "word",                // Single category
+          "tags": [
+            "word",
+            "multiple words",
+            "multiple words"
+          ]
+        },
+  
+        // ------------------------------
+        // DATE INFORMATION
+        // ------------------------------
+        "dates": {
+          "published": "date",               // YYYY-MM-DD
+          "updated": "date"                  // YYYY-MM-DD
+        },
+  
+        // ------------------------------
+        // MEDIA ASSETS
+        // ------------------------------
+        "media": {
+          "coverImage": {
+            "src": "path",
+            "alt": "multiple words"
+          },
+          "thumbnail": "path",               // Optional smaller image
+          "ogImage": "path"                  // For social sharing
+        },
+  
+        // ------------------------------
+        // READING METRICS (STATIC)
+        // ------------------------------
+        "reading": {
+          "readTimeMinutes": number,         // Example: 8
+          "wordCount": number,               // Example: 1500
+          "difficulty": "word"               // beginner | intermediate | advanced
+        },
+  
+        // ------------------------------
+        // SEO METADATA
+        // ------------------------------
+        "seo": {
+          "metaTitle": "multiple words",
+          "metaDescription": "paragraph",
+          "keywords": [
+            "word",
+            "multiple words",
+            "multiple words"
+          ],
+          "canonicalUrl": "path"
+        },
+  
+        // ------------------------------
+        // NAVIGATION HELPERS
+        // ------------------------------
+        "navigation": {
+          "showInList": true,                // Show in blog listing
+          "showInSearch": true,              // Include in search
+          "previousPostId": "word or null",
+          "nextPostId": "word or null"
+        },
+  
+        // ------------------------------
+        // EXTENSIBILITY ZONE (VERY IMPORTANT)
+        // ------------------------------
+        "custom": {
+          // Add ANY future data here without breaking schema
+          // Examples:
+          // series, sponsor, experimentFlags, uiOverrides
+        }
+      }
+    ],
+  
+    // ==============================
+    // CATEGORY DEFINITIONS
+    // ==============================
+    "categories": [
+      {
+        "id": "word",
+        "label": "multiple words",
+        "description": "paragraph"
+      }
+    ],
+  
+    // ==============================
+    // TAG DEFINITIONS
+    // ==============================
+    "tags": [
+      "word",
+      "multiple words",
+      "multiple words"
+    ],
+  
+    // ==============================
+    // PAGINATION META (FRONTEND CALCULATED)
+    // ==============================
+    "pagination": {
+      "totalPosts": number,
+      "totalPages": number
+    },
+  
+    // ==============================
+    // GLOBAL CUSTOM EXTENSION
+    // ==============================
+    "custom": {
+      // UI hints, experiments, A/B tests, flags
+    }
+  }
+  

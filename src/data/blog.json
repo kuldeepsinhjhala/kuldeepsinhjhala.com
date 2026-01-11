@@ -1,0 +1,338 @@
+{
+  "meta": {
+    "title": "Tech Insights Blog",
+    "subtitle": "Deep dives into modern software engineering",
+    "description": "A collection of in-depth technical articles covering web development, backend systems, cloud infrastructure, and best practices followed by software engineers."
+  },
+  "settings": {
+    "defaultAuthorId": "kuldeep",
+    "enableSearch": true,
+    "enableCategories": true,
+    "enableTags": true,
+    "enableFeaturedPosts": true,
+    "enablePagination": true,
+    "postsPerPage": 6,
+    "sorting": {
+      "default": "published",
+      "order": "desc"
+    }
+  },
+  "authors": [
+    {
+      "id": "kuldeep",
+      "name": "Kuldeep Sinh Jhala",
+      "avatar": "/images/authors/kuldeep.png",
+      "bio": "Software engineer specializing in full-stack development, scalable backend systems, and cloud-native deployments.",
+      "social": {
+        "github": "https://github.com/kuldeepsinhjhala",
+        "linkedin": "https://linkedin.com/in/kuldeepsinhjhala",
+        "twitter": "https://twitter.com/kuldeepsinhjhala",
+        "website": "https://kuldeepsinhjhala.com"
+      }
+    }
+  ],
+  "posts": [
+    {
+      "id": "mern-architecture-guide",
+      "status": {
+        "featured": true,
+        "pinned": true
+      },
+      "content": {
+        "title": "Understanding MERN Stack Architecture",
+        "slug": "understanding-mern-stack-architecture",
+        "excerpt": "A complete breakdown of how MongoDB, Express, React, and Node.js work together in real-world applications.",
+        "body": "The MERN stack is a popular full-stack JavaScript architecture used to build scalable web applications. This article explains each layer of the stack, how data flows between frontend and backend, and best practices for structuring a production-ready MERN project."
+      },
+      "authorId": "kuldeep",
+      "taxonomy": {
+        "category": "web-development",
+        "tags": ["mern", "javascript", "full stack"]
+      },
+      "dates": {
+        "published": "2026-01-05",
+        "updated": "2026-01-08"
+      },
+      "media": {
+        "coverImage": {
+          "src": "/images/blogs/mern-cover.png",
+          "alt": "MERN stack architecture diagram"
+        },
+        "thumbnail": "/images/blogs/mern-thumb.png",
+        "ogImage": "/images/blogs/mern-og.png"
+      },
+      "reading": {
+        "readTimeMinutes": 10,
+        "wordCount": 1800,
+        "difficulty": "beginner"
+      },
+      "seo": {
+        "metaTitle": "MERN Stack Architecture Explained",
+        "metaDescription": "Understand MERN stack architecture and learn how to structure scalable full-stack JavaScript applications.",
+        "keywords": ["mern stack", "full stack javascript", "node react"],
+        "canonicalUrl": "/blogs/understanding-mern-stack-architecture"
+      },
+      "navigation": {
+        "showInList": true,
+        "showInSearch": true,
+        "previousPostId": null,
+        "nextPostId": "jwt-authentication-nodejs"
+      },
+      "custom": {
+        "series": {
+          "name": "Full Stack Fundamentals",
+          "order": 1
+        },
+        "learningObjectives": [
+          "Understand MERN components",
+          "Learn request-response flow",
+          "Structure scalable projects"
+        ],
+        "codeExamples": [
+          "express-api-structure",
+          "react-folder-structure"
+        ],
+        "estimatedImpact": {
+          "careerLevel": ["student", "junior developer"],
+          "useCases": ["portfolio projects", "startup apps"]
+        }
+      }
+    },
+    {
+      "id": "jwt-authentication-nodejs",
+      "status": {
+        "featured": true,
+        "pinned": false
+      },
+      "content": {
+        "title": "JWT Authentication in Node.js Explained",
+        "slug": "jwt-authentication-nodejs-explained",
+        "excerpt": "A practical guide to implementing secure JWT-based authentication in Node.js applications.",
+        "body": "JWT authentication allows stateless and scalable authentication for APIs. This article explains how tokens are created, validated, refreshed, and secured using best practices such as HTTP-only cookies and middleware-based route protection."
+      },
+      "authorId": "kuldeep",
+      "taxonomy": {
+        "category": "backend",
+        "tags": ["nodejs", "jwt", "authentication"]
+      },
+      "dates": {
+        "published": "2026-01-07",
+        "updated": "2026-01-09"
+      },
+      "media": {
+        "coverImage": {
+          "src": "/images/blogs/jwt-cover.png",
+          "alt": "JWT authentication flow diagram"
+        },
+        "thumbnail": "/images/blogs/jwt-thumb.png",
+        "ogImage": "/images/blogs/jwt-og.png"
+      },
+      "reading": {
+        "readTimeMinutes": 9,
+        "wordCount": 1600,
+        "difficulty": "intermediate"
+      },
+      "seo": {
+        "metaTitle": "JWT Authentication in Node.js",
+        "metaDescription": "Learn how JWT authentication works in Node.js with real-world security practices.",
+        "keywords": ["jwt auth", "nodejs security", "api authentication"],
+        "canonicalUrl": "/blogs/jwt-authentication-nodejs-explained"
+      },
+      "navigation": {
+        "showInList": true,
+        "showInSearch": true,
+        "previousPostId": "mern-architecture-guide",
+        "nextPostId": "react-performance-optimization"
+      },
+      "custom": {
+        "securityFocus": [
+          "token expiration",
+          "refresh tokens",
+          "http-only cookies"
+        ],
+        "middlewarePatterns": [
+          "auth-guard",
+          "role-based-access"
+        ],
+        "commonMistakes": [
+          "storing tokens in localStorage",
+          "no token rotation"
+        ]
+      }
+    },
+    {
+      "id": "react-performance-optimization",
+      "status": {
+        "featured": false,
+        "pinned": false
+      },
+      "content": {
+        "title": "React Performance Optimization Techniques",
+        "slug": "react-performance-optimization-techniques",
+        "excerpt": "Learn how to optimize React applications for speed and better user experience.",
+        "body": "React performance issues often come from unnecessary re-renders and inefficient state management. This article covers memoization, lazy loading, code splitting, and profiling techniques to build fast and responsive applications."
+      },
+      "authorId": "kuldeep",
+      "taxonomy": {
+        "category": "frontend",
+        "tags": ["react", "performance", "optimization"]
+      },
+      "dates": {
+        "published": "2026-01-09",
+        "updated": "2026-01-10"
+      },
+      "media": {
+        "coverImage": {
+          "src": "/images/blogs/react-perf-cover.png",
+          "alt": "React performance optimization"
+        },
+        "thumbnail": "/images/blogs/react-perf-thumb.png",
+        "ogImage": "/images/blogs/react-perf-og.png"
+      },
+      "reading": {
+        "readTimeMinutes": 8,
+        "wordCount": 1400,
+        "difficulty": "intermediate"
+      },
+      "seo": {
+        "metaTitle": "React Performance Optimization Guide",
+        "metaDescription": "Improve React app performance using proven optimization techniques.",
+        "keywords": ["react optimization", "frontend performance", "react best practices"],
+        "canonicalUrl": "/blogs/react-performance-optimization-techniques"
+      },
+      "navigation": {
+        "showInList": true,
+        "showInSearch": true,
+        "previousPostId": "jwt-authentication-nodejs",
+        "nextPostId": "aws-deployment-basics"
+      },
+      "custom": {
+        "toolsMentioned": [
+          "React Profiler",
+          "Chrome DevTools"
+        ],
+        "optimizationChecklist": [
+          "useMemo",
+          "useCallback",
+          "lazy loading"
+        ],
+        "performanceMetrics": [
+          "first contentful paint",
+          "time to interactive"
+        ]
+      }
+    },
+    {
+      "id": "aws-deployment-basics",
+      "status": {
+        "featured": false,
+        "pinned": false
+      },
+      "content": {
+        "title": "Deploying Applications on AWS: Basics",
+        "slug": "deploying-applications-on-aws-basics",
+        "excerpt": "An introduction to deploying web applications on AWS using EC2 and Nginx.",
+        "body": "AWS provides scalable infrastructure for deploying applications. This article introduces EC2 instances, security groups, reverse proxy configuration with Nginx, and enabling HTTPS using SSL certificates."
+      },
+      "authorId": "kuldeep",
+      "taxonomy": {
+        "category": "cloud",
+        "tags": ["aws", "deployment", "devops"]
+      },
+      "dates": {
+        "published": "2026-01-10",
+        "updated": "2026-01-11"
+      },
+      "media": {
+        "coverImage": {
+          "src": "/images/blogs/aws-cover.png",
+          "alt": "AWS deployment architecture"
+        },
+        "thumbnail": "/images/blogs/aws-thumb.png",
+        "ogImage": "/images/blogs/aws-og.png"
+      },
+      "reading": {
+        "readTimeMinutes": 11,
+        "wordCount": 1900,
+        "difficulty": "beginner"
+      },
+      "seo": {
+        "metaTitle": "AWS Deployment Basics for Developers",
+        "metaDescription": "Learn the fundamentals of deploying applications on AWS.",
+        "keywords": ["aws deployment", "ec2 nginx", "cloud deployment"],
+        "canonicalUrl": "/blogs/deploying-applications-on-aws-basics"
+      },
+      "navigation": {
+        "showInList": true,
+        "showInSearch": true,
+        "previousPostId": "react-performance-optimization",
+        "nextPostId": null
+      },
+      "custom": {
+        "servicesUsed": [
+          "EC2",
+          "Nginx",
+          "Elastic IP"
+        ],
+        "deploymentSteps": [
+          "server setup",
+          "reverse proxy",
+          "ssl configuration"
+        ],
+        "recommendedNextTopics": [
+          "CI/CD pipelines",
+          "Docker deployment"
+        ]
+      }
+    }
+  ],
+  "categories": [
+    {
+      "id": "web-development",
+      "label": "Web Development",
+      "description": "Full-stack and modern web development topics."
+    },
+    {
+      "id": "backend",
+      "label": "Backend",
+      "description": "Server-side development and API design."
+    },
+    {
+      "id": "frontend",
+      "label": "Frontend",
+      "description": "UI engineering and client-side performance."
+    },
+    {
+      "id": "cloud",
+      "label": "Cloud & DevOps",
+      "description": "Cloud infrastructure and deployment practices."
+    }
+  ],
+  "tags": [
+    "mern",
+    "javascript",
+    "nodejs",
+    "react",
+    "aws",
+    "jwt",
+    "deployment"
+  ],
+  "pagination": {
+    "totalPosts": 4,
+    "totalPages": 1
+  },
+  "custom": {
+    "uiHints": {
+      "layout": "grid",
+      "highlightFeatured": true
+    },
+    "experiments": [
+      "new-blog-card-design",
+      "reading-progress-bar"
+    ],
+    "analytics": {
+      "trackReads": true,
+      "trackScrollDepth": true
+    }
+  }
+}

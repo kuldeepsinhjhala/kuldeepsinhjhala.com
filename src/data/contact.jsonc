@@ -1,0 +1,227 @@
+{
+  // ==============================
+  // PAGE LEVEL META
+  // ==============================
+  "meta": {
+    "title": "multiple words",          // Page heading (e.g., Get In Touch)
+    "subtitle": "paragraph",            // Supporting text below title
+    "description": "paragraph",         // SEO description
+    "language": "word",                 // Example: en
+    "lastUpdated": "date",              // YYYY-MM-DD
+    "version": "word"                   // Optional content/schema version
+  },
+
+  // ==============================
+  // PRIMARY CONTACT INFORMATION
+  // ==============================
+  "contact": {
+    // ------------------------------
+    // EMAIL DETAILS
+    // ------------------------------
+    "email": {
+      "primary": "email",
+      "secondary": "email or empty",
+      "label": "word",
+      "icon": "word",
+      "visibility": "word",             // public | private
+      "custom": {}
+    },
+
+    // ------------------------------
+    // PHONE / MOBILE DETAILS
+    // ------------------------------
+    "phone": {
+      "primary": "phone number",
+      "secondary": "phone number or empty",
+      "label": "word",
+      "icon": "word",
+
+      // Optional direct communication links
+      "whatsapp": "url",
+      "telegram": "url",
+      "signal": "url",
+
+      "visibility": "word",             // public | private
+      "custom": {}
+    },
+
+    // ------------------------------
+    // LOCATION DETAILS
+    // ------------------------------
+    "location": {
+      "address": "paragraph",
+      "city": "word",
+      "state": "word",
+      "country": "word",
+      "postalCode": "word",
+
+      "coordinates": {
+        "lat": number,
+        "lng": number
+      },
+
+      "timezone": "word",               // Example: IST (UTC+5:30)
+      "label": "word",
+      "icon": "word",
+      "mapLink": "url",
+      "custom": {}
+    },
+
+    // ------------------------------
+    // AVAILABILITY / STATUS
+    // ------------------------------
+    "availability": {
+      "status": "word",                 // available | busy | unavailable
+      "message": "paragraph",
+      "responseTime": "multiple words",
+      "workingHours": {
+        "days": "multiple words",
+        "time": "multiple words"
+      },
+      "custom": {}
+    }
+  },
+
+  // ==============================
+  // SOCIAL MEDIA & ONLINE PRESENCE
+  // ==============================
+  "social": {
+    // Core platforms
+    "linkedin": {
+      "username": "word",
+      "url": "url",
+      "label": "word",
+      "icon": "word",
+      "visible": true
+    },
+
+    "github": {
+      "username": "word",
+      "url": "url",
+      "label": "word",
+      "icon": "word",
+      "visible": true
+    },
+
+    "twitter": {
+      "username": "word",
+      "url": "url",
+      "label": "word",
+      "icon": "word",
+      "visible": true
+    },
+
+    "instagram": {
+      "username": "word",
+      "url": "url",
+      "label": "word",
+      "icon": "word",
+      "visible": true
+    },
+
+    "medium": {
+      "username": "word",
+      "url": "url",
+      "label": "word",
+      "icon": "word",
+      "visible": true
+    },
+
+    // Optional / future platforms
+    "devto": {
+      "username": "word",
+      "url": "url",
+      "visible": false
+    },
+
+    "stackoverflow": {
+      "userId": "word",
+      "url": "url",
+      "visible": false
+    },
+
+    "youtube": {
+      "channelName": "multiple words",
+      "url": "url",
+      "visible": false
+    },
+
+    "custom": {
+      // Any new social platform goes here
+    }
+  },
+
+  // ==============================
+  // CONTACT FORM CONFIGURATION
+  // ==============================
+  "form": {
+    "enabled": true,                    // Disable if no backend
+    "note": "paragraph",                // Inform users if form is static
+
+    "fields": [
+      {
+        "name": "word",
+        "label": "word",
+        "type": "word",                 // text | email | textarea | select
+        "required": true,
+        "placeholder": "multiple words",
+        "rows": number,                // Only for textarea
+        "options": ["word", "word"],    // Only for select
+        "custom": {}
+      }
+    ],
+
+    "submit": {
+      "endpoint": "path or empty",      // Empty if no backend
+      "method": "word",                 // POST | GET
+      "successMessage": "paragraph",
+      "errorMessage": "paragraph",
+      "fallbackMessage": "paragraph"    // If form is disabled
+    },
+
+    "custom": {}
+  },
+
+  // ==============================
+  // PREFERRED CONTACT METHODS
+  // ==============================
+  "preferredContact": [
+    {
+      "method": "word",                // email | linkedin | whatsapp
+      "label": "word",
+      "description": "paragraph",
+      "icon": "word",
+      "priority": number
+    }
+  ],
+
+  // ==============================
+  // RESPONSE TIME INFORMATION
+  // ==============================
+  "responseTime": {
+    "average": "multiple words",
+    "note": "paragraph",
+    "custom": {}
+  },
+
+  // ==============================
+  // UI / DISPLAY HINTS (OPTIONAL)
+  // ==============================
+  "uiHints": {
+    "showIcons": true,
+    "showLabels": true,
+    "groupSocialLinks": true,
+    "layout": "word"                   // card | list | grid
+  },
+
+  // ==============================
+  // EXTENSIBILITY ZONE (VERY IMPORTANT)
+  // ==============================
+  "custom": {
+    // Add any future data here
+    // Examples:
+    // recruiterNotes
+    // contactTracking
+    // experiments
+  }
+}

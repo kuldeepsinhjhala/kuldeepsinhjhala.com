@@ -1,0 +1,61 @@
+{
+  "hero": {
+    "greeting": "Hi, my name is",
+    "name": "Kuldeep Sinh Jhala",
+    "title": "Software Engineer | Backend Developer",
+    "subtitle": "Building scalable backend systems and transitioning to Java backend engineering",
+    "description": "Software Engineer with 2+ years of experience building backend systems using Node.js, Express.js, Sequelize, and MS SQL Server. Currently transitioning towards Java backend engineering with the goal of cracking top product-based companies.",
+    "cta": {
+      "primary": {
+        "text": "View My Work",
+        "link": "/projects",
+        "type": "internal"
+      },
+      "secondary": {
+        "text": "Get In Touch",
+        "link": "/contact",
+        "type": "internal"
+      }
+    }
+  },
+  "highlights": [
+    {
+      "icon": "code",
+      "title": "Backend Development",
+      "description": "2+ years building scalable APIs and systems"
+    },
+    {
+      "icon": "database",
+      "title": "Database Design",
+      "description": "Expert in SQL Server and relational schema design"
+    },
+    {
+      "icon": "architecture",
+      "title": "System Architecture",
+      "description": "Multi-layer architecture and microservices"
+    }
+  ],
+  "stats": [
+    {
+      "label": "Years of Experience",
+      "value": "2+",
+      "suffix": ""
+    },
+    {
+      "label": "Projects Completed",
+      "value": "10+",
+      "suffix": ""
+    },
+    {
+      "label": "Technologies",
+      "value": "15+",
+      "suffix": ""
+    }
+  ],
+  "featured": {
+    "show": true,
+    "section": "projects",
+    "limit": 3
+  }
+}
+

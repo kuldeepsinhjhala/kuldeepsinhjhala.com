@@ -1,0 +1,71 @@
+{
+  "title": "My Journey",
+  "subtitle": "A timeline of my career and learning path",
+  "timeline": [
+    {
+      "id": "journey-1",
+      "year": "2022",
+      "month": "Present",
+      "type": "career",
+      "title": "Software Engineer",
+      "organization": "Current Company",
+      "location": "Vadodara, Gujarat, India",
+      "description": "Building backend systems with Node.js, Express.js, and MS SQL Server. Designed multi-layer architectures and implemented secure authentication systems.",
+      "achievements": [
+        "Built 5+ production-grade APIs",
+        "Designed complex relational database schemas",
+        "Implemented JWT-based authentication"
+      ],
+      "skills": ["Node.js", "Express.js", "SQL Server", "JWT"],
+      "icon": "briefcase"
+    },
+    {
+      "id": "journey-2",
+      "year": "2024",
+      "month": "Ongoing",
+      "type": "learning",
+      "title": "Java Backend Development",
+      "organization": "Self-Learning",
+      "location": "Online",
+      "description": "Transitioning to Java backend engineering. Learning Java, Spring Boot, and DSA to prepare for top product-based companies.",
+      "achievements": [
+        "Learning Java fundamentals",
+        "Practicing Data Structures & Algorithms",
+        "System Design concepts"
+      ],
+      "skills": ["Java", "DSA", "System Design"],
+      "icon": "book"
+    },
+    {
+      "id": "journey-3",
+      "year": "2022",
+      "month": "Graduated",
+      "type": "education",
+      "title": "Bachelor's Degree",
+      "organization": "University Name",
+      "location": "City, State",
+      "description": "Completed degree in Computer Science/Engineering with focus on software development and database systems.",
+      "achievements": [
+        "Graduated with honors",
+        "Final year project on database systems"
+      ],
+      "skills": ["Computer Science", "Database Systems"],
+      "icon": "graduation-cap"
+    }
+  ],
+  "milestones": [
+    {
+      "id": "milestone-1",
+      "year": "2024",
+      "title": "First Production Deployment",
+      "description": "Successfully deployed full-stack application on AWS EC2 with NGINX"
+    },
+    {
+      "id": "milestone-2",
+      "year": "2023",
+      "title": "Authentication System Mastery",
+      "description": "Implemented complete JWT, cookies, and session-based authentication"
+    }
+  ]
+}
+

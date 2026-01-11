@@ -1,0 +1,157 @@
+{
+  "title": "Skills",
+  "subtitle": "Technical skills and competencies",
+  "categories": [
+    {
+      "id": "backend",
+      "name": "Backend Development",
+      "icon": "server",
+      "skills": [
+        {
+          "name": "Node.js",
+          "level": "advanced",
+          "years": 2,
+          "description": "Building scalable server-side applications"
+        },
+        {
+          "name": "Express.js",
+          "level": "advanced",
+          "years": 2,
+          "description": "RESTful API development and middleware"
+        },
+        {
+          "name": "Java",
+          "level": "beginner",
+          "years": 0,
+          "description": "Currently learning for backend development"
+        }
+      ]
+    },
+    {
+      "id": "database",
+      "name": "Database",
+      "icon": "database",
+      "skills": [
+        {
+          "name": "MS SQL Server",
+          "level": "advanced",
+          "years": 2,
+          "description": "Database design, optimization, and complex queries"
+        },
+        {
+          "name": "Sequelize ORM",
+          "level": "intermediate",
+          "years": 2,
+          "description": "Object-relational mapping and migrations"
+        },
+        {
+          "name": "SQL",
+          "level": "advanced",
+          "years": 2,
+          "description": "Complex queries, stored procedures, triggers"
+        }
+      ]
+    },
+    {
+      "id": "frontend",
+      "name": "Frontend",
+      "icon": "code",
+      "skills": [
+        {
+          "name": "React",
+          "level": "intermediate",
+          "years": 1,
+          "description": "Component-based UI development"
+        },
+        {
+          "name": "JavaScript",
+          "level": "advanced",
+          "years": 2,
+          "description": "ES6+, async programming, DOM manipulation"
+        },
+        {
+          "name": "HTML/CSS",
+          "level": "advanced",
+          "years": 2,
+          "description": "Semantic HTML and modern CSS"
+        }
+      ]
+    },
+    {
+      "id": "tools",
+      "name": "Tools & Technologies",
+      "icon": "tools",
+      "skills": [
+        {
+          "name": "Git & GitHub",
+          "level": "intermediate",
+          "years": 2,
+          "description": "Version control and collaboration"
+        },
+        {
+          "name": "AWS EC2",
+          "level": "intermediate",
+          "years": 1,
+          "description": "Cloud deployment and server management"
+        },
+        {
+          "name": "NGINX",
+          "level": "intermediate",
+          "years": 1,
+          "description": "Reverse proxy and load balancing"
+        },
+        {
+          "name": "Linux",
+          "level": "intermediate",
+          "years": 1,
+          "description": "Ubuntu server setup and management"
+        }
+      ]
+    },
+    {
+      "id": "soft",
+      "name": "Soft Skills",
+      "icon": "users",
+      "skills": [
+        {
+          "name": "Problem Solving",
+          "level": "advanced",
+          "description": "Analytical thinking and debugging"
+        },
+        {
+          "name": "Team Collaboration",
+          "level": "advanced",
+          "description": "Working in agile teams"
+        },
+        {
+          "name": "Communication",
+          "level": "intermediate",
+          "description": "Technical documentation and presentations"
+        }
+      ]
+    }
+  ],
+  "skillLevels": {
+    "beginner": {
+      "label": "Beginner",
+      "percentage": 25,
+      "color": "#8892B0"
+    },
+    "intermediate": {
+      "label": "Intermediate",
+      "percentage": 50,
+      "color": "#C9A66B"
+    },
+    "advanced": {
+      "label": "Advanced",
+      "percentage": 75,
+      "color": "#64FFDA"
+    },
+    "expert": {
+      "label": "Expert",
+      "percentage": 100,
+      "color": "#64FFDA"
+    }
+  }
+}
+

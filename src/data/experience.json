@@ -1,0 +1,53 @@
+{
+  "title": "Work Experience",
+  "subtitle": "Professional experience and roles",
+  "experiences": [
+    {
+      "id": "exp-1",
+      "role": "Software Engineer",
+      "company": "Company Name",
+      "location": "Vadodara, Gujarat, India",
+      "type": "full-time",
+      "startDate": "2022-01",
+      "endDate": "present",
+      "current": true,
+      "description": "Building and maintaining backend APIs using Node.js, Express.js, Sequelize, and MS SQL Server. Designed full 5-layer architecture (routes, controllers, services, repositories, models).",
+      "responsibilities": [
+        "Developed and maintained RESTful APIs for production applications",
+        "Designed and implemented multi-layer architecture for scalable systems",
+        "Implemented secure authentication and authorization using JWT, cookies, and sessions",
+        "Worked on complex relational database schemas and optimized queries",
+        "Collaborated with frontend teams to integrate APIs",
+        "Deployed applications on AWS EC2 with NGINX reverse proxy"
+      ],
+      "achievements": [
+        "Built 5+ production-grade backend systems",
+        "Reduced API response time by 40% through query optimization",
+        "Implemented role-based access control for multi-user environments"
+      ],
+      "technologies": [
+        "Node.js",
+        "Express.js",
+        "Sequelize ORM",
+        "MS SQL Server",
+        "JWT",
+        "REST APIs",
+        "AWS EC2",
+        "NGINX"
+      ],
+      "skills": [
+        "Backend Development",
+        "API Design",
+        "Database Design",
+        "Authentication & Authorization",
+        "System Architecture"
+      ]
+    }
+  ],
+  "totalExperience": {
+    "years": 2,
+    "months": 0,
+    "display": "2+ years"
+  }
+}
+

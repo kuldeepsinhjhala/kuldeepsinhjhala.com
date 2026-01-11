@@ -1,0 +1,278 @@
+{
+  "title": "Projects",
+  "subtitle": "Portfolio of my work and projects",
+  "projects": [
+    {
+      "id": "project-1",
+      "title": "NIRF Ranking Database System",
+      "description": "Designed a complete SQL Server database based on India's NIRF ranking parameters. Created multiple relational tables (universities, faculty, students, research, etc.) and populated them with large-scale realistic data while maintaining foreign key integrity.",
+      "longDescription": "A comprehensive database system that models India's National Institutional Ranking Framework (NIRF) parameters. The system includes tables for universities, faculty members, students, research publications, infrastructure, and rankings. Implemented complex relationships and constraints to ensure data integrity.",
+      "category": "database",
+      "type": "personal",
+      "status": "completed",
+      "startDate": "2023-06",
+      "endDate": "2023-08",
+      "technologies": [
+        "MS SQL Server",
+        "SQL",
+        "Database Design"
+      ],
+      "features": [
+        "Multiple relational tables with foreign keys",
+        "Large-scale realistic data population",
+        "Complex query optimization",
+        "Data integrity constraints"
+      ],
+      "challenges": [
+        "Designing complex relationships",
+        "Maintaining referential integrity",
+        "Optimizing queries for large datasets"
+      ],
+      "solutions": [
+        "Normalized database design",
+        "Indexed foreign keys",
+        "Query optimization techniques"
+      ],
+      "images": [
+        {
+          "url": "/images/projects/nirf-1.png",
+          "alt": "NIRF Database Schema"
+        }
+      ],
+      "links": {
+        "github": "https://github.com/kuldeepsinhjhala/nirf-database",
+        "demo": "",
+        "documentation": ""
+      },
+      "highlight": true,
+      "order": 1
+    },
+    {
+      "id": "project-2",
+      "title": "Document Semantic Mapping System",
+      "description": "Built a Python-based system that semantically maps data from dynamic input Word documents to structured output formats using OpenAI APIs while preserving layout, headings, and document structure. Exported final results to Word and PDF.",
+      "longDescription": "An intelligent document processing system that uses AI to extract and map content from unstructured Word documents to structured formats. The system preserves document formatting, headings, and layout while transforming the content according to predefined templates.",
+      "category": "ai",
+      "type": "professional",
+      "status": "completed",
+      "startDate": "2023-09",
+      "endDate": "2023-11",
+      "technologies": [
+        "Python",
+        "OpenAI API",
+        "Word Processing",
+        "PDF Generation"
+      ],
+      "features": [
+        "Semantic content extraction",
+        "Layout preservation",
+        "Multi-format export (Word, PDF)",
+        "Template-based mapping"
+      ],
+      "challenges": [
+        "Handling dynamic document structures",
+        "Preserving formatting during transformation",
+        "API rate limiting"
+      ],
+      "solutions": [
+        "Flexible parsing algorithms",
+        "Format-aware processing",
+        "Batch processing with retries"
+      ],
+      "images": [
+        {
+          "url": "/images/projects/document-mapping-1.png",
+          "alt": "Document Mapping Interface"
+        }
+      ],
+      "links": {
+        "github": "",
+        "demo": "",
+        "documentation": ""
+      },
+      "highlight": true,
+      "order": 2
+    },
+    {
+      "id": "project-3",
+      "title": "Modular Site-Based Management System",
+      "description": "Developed backend APIs for a complex modular system where users log in, select sites and modules, and manage dependent data (haMaterial, haSchedule, etc.) using linked dropdowns and relational logic.",
+      "longDescription": "A comprehensive management system with role-based access control. Users can select multiple sites and modules, with data dependencies managed through cascading dropdowns and complex relational queries. Implemented secure authentication and authorization.",
+      "category": "backend",
+      "type": "professional",
+      "status": "completed",
+      "startDate": "2023-03",
+      "endDate": "2023-05",
+      "technologies": [
+        "Node.js",
+        "Express.js",
+        "Sequelize ORM",
+        "MS SQL Server",
+        "JWT",
+        "REST APIs"
+      ],
+      "features": [
+        "Multi-site and multi-module support",
+        "Role-based access control",
+        "Cascading dropdowns",
+        "Complex relational data management",
+        "Secure authentication"
+      ],
+      "challenges": [
+        "Managing complex data relationships",
+        "Optimizing cascading queries",
+        "Implementing secure authorization"
+      ],
+      "solutions": [
+        "Efficient database queries",
+        "Caching strategies",
+        "Middleware-based authorization"
+      ],
+      "images": [
+        {
+          "url": "/images/projects/management-system-1.png",
+          "alt": "Management System Dashboard"
+        }
+      ],
+      "links": {
+        "github": "",
+        "demo": "",
+        "documentation": ""
+      },
+      "highlight": true,
+      "order": 3
+    },
+    {
+      "id": "project-4",
+      "title": "Full Stack Deployment Architecture",
+      "description": "Deployed React frontend on Firebase Hosting and Node.js + Python backends on AWS EC2 with NGINX reverse proxy, SSL, custom domains, and systemd services without PM2.",
+      "longDescription": "A production-ready deployment setup with multiple services. Configured NGINX as reverse proxy, set up SSL certificates, configured custom domains, and created systemd services for automatic startup and management.",
+      "category": "devops",
+      "type": "personal",
+      "status": "completed",
+      "startDate": "2023-12",
+      "endDate": "2024-01",
+      "technologies": [
+        "AWS EC2",
+        "NGINX",
+        "Firebase Hosting",
+        "SSL",
+        "Linux",
+        "systemd",
+        "Domain Configuration"
+      ],
+      "features": [
+        "Multi-service deployment",
+        "Reverse proxy configuration",
+        "SSL certificate setup",
+        "Custom domain configuration",
+        "Systemd service management"
+      ],
+      "challenges": [
+        "Configuring NGINX for multiple services",
+        "SSL certificate management",
+        "Service startup and monitoring"
+      ],
+      "solutions": [
+        "NGINX configuration files",
+        "Let's Encrypt for SSL",
+        "Systemd unit files"
+      ],
+      "images": [
+        {
+          "url": "/images/projects/deployment-1.png",
+          "alt": "Deployment Architecture"
+        }
+      ],
+      "links": {
+        "github": "https://github.com/kuldeepsinhjhala/deployment-setup",
+        "demo": "",
+        "documentation": ""
+      },
+      "highlight": false,
+      "order": 4
+    },
+    {
+      "id": "project-5",
+      "title": "Authentication System Deep Dive",
+      "description": "Implemented complete authentication and authorization flows including JWT, cookies, sessions, role-based middleware, and secure API access across multi-user environments.",
+      "longDescription": "A comprehensive authentication system supporting multiple authentication methods. Implemented JWT tokens, HTTP-only cookies, server-side sessions, and role-based access control with middleware validation.",
+      "category": "backend",
+      "type": "personal",
+      "status": "completed",
+      "startDate": "2023-01",
+      "endDate": "2023-02",
+      "technologies": [
+        "Node.js",
+        "Express.js",
+        "JWT",
+        "Cookies",
+        "Sessions",
+        "Middleware"
+      ],
+      "features": [
+        "JWT token-based authentication",
+        "HTTP-only cookie support",
+        "Server-side session management",
+        "Role-based authorization",
+        "Secure API access"
+      ],
+      "challenges": [
+        "Managing multiple auth methods",
+        "Token refresh mechanisms",
+        "Session security"
+      ],
+      "solutions": [
+        "Unified auth middleware",
+        "Refresh token rotation",
+        "Secure session storage"
+      ],
+      "images": [
+        {
+          "url": "/images/projects/auth-system-1.png",
+          "alt": "Authentication Flow"
+        }
+      ],
+      "links": {
+        "github": "https://github.com/kuldeepsinhjhala/auth-system",
+        "demo": "",
+        "documentation": ""
+      },
+      "highlight": false,
+      "order": 5
+    }
+  ],
+  "categories": [
+    {
+      "id": "all",
+      "name": "All Projects",
+      "icon": "grid"
+    },
+    {
+      "id": "backend",
+      "name": "Backend",
+      "icon": "server"
+    },
+    {
+      "id": "database",
+      "name": "Database",
+      "icon": "database"
+    },
+    {
+      "id": "ai",
+      "name": "AI/ML",
+      "icon": "brain"
+    },
+    {
+      "id": "devops",
+      "name": "DevOps",
+      "icon": "cloud"
+    },
+    {
+      "id": "fullstack",
+      "name": "Full Stack",
+      "icon": "layers"
+    }
+  ]
+}
+

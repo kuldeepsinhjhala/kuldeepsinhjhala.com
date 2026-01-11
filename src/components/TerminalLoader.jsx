@@ -164,7 +164,7 @@ function TerminalLoader({
             {/* Welcome Message */}
             <div className="text-gold/80 mb-4 text-xs md:text-sm">
               <span className="text-gold/60">┌─</span>
-              <span className="mx-2">Portfolio Loader v1.0</span>
+              <span className="mx-2">Welcome to Kuldeep's Portfolio v1.0</span>
               <span className="text-gold/60">─┐</span>
             </div>
             
