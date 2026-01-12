@@ -1,0 +1,135 @@
+{
+  "meta": {
+    "title": "Achievements",
+    "subtitle": "Recognitions, milestones, and measurable accomplishments across academics and professional work",
+    "description": "A curated list of academic, professional, and technical achievements highlighting impact, growth, and recognition."
+  },
+  "achievements": [
+    {
+      "id": "college-management-system-project",
+      "title": "Successful Development of College Management System",
+      "category": "professional",
+      "type": "project-milestone",
+      "description": "Designed and developed a full-scale college management system covering admissions, student records, faculty management, and reporting modules, demonstrating real-world application of backend and full stack engineering principles.",
+      "date": {
+        "achievedOn": "2024-06-20",
+        "year": "2024"
+      },
+      "organization": {
+        "name": "Gujarat Technological University",
+        "type": "university",
+        "website": "https://www.gtu.ac.in",
+        "logo": "/images/organizations/gtu-logo.png"
+      },
+      "impact": {
+        "summary": "Improved academic data handling and system modularity",
+        "metrics": [
+          {
+            "label": "Modules implemented",
+            "value": "8",
+            "unit": "modules"
+          },
+          {
+            "label": "Concurrent users supported",
+            "value": "100+",
+            "unit": "users"
+          }
+        ]
+      },
+      "skillsDemonstrated": [
+        "Backend Architecture Design",
+        "Database Schema Modeling",
+        "REST API Development"
+      ],
+      "evidence": {
+        "certificateUrl": "https://www.gtu.ac.in/results",
+        "proofUrl": "https://github.com/kuldeepsinhjhala",
+        "media": [
+          {
+            "type": "image",
+            "url": "https://kuldeepsinhjhala.com/assets/projects/cms-dashboard.png",
+            "caption": "College Management System dashboard overview"
+          }
+        ]
+      },
+      "visibility": {
+        "featured": true,
+        "public": true
+      },
+      "custom": {
+        "relatedProject": "college-management-system",
+        "recognitionLevel": "institutional",
+        "notes": "Project was evaluated as part of final year assessment and received positive feedback for system design and scalability."
+      }
+    },
+    {
+      "id": "aws-cloud-practitioner-certification",
+      "title": "AWS Cloud Practitioner Essentials Certification",
+      "category": "certification",
+      "type": "professional-certification",
+      "description": "Earned AWS Cloud Practitioner certification by demonstrating foundational knowledge of AWS services, cloud concepts, security, pricing models, and architectural best practices.",
+      "date": {
+        "achievedOn": "2023-11-05",
+        "year": "2023"
+      },
+      "organization": {
+        "name": "Amazon Web Services",
+        "type": "company",
+        "website": "https://aws.amazon.com",
+        "logo": "/images/organizations/aws-logo.png"
+      },
+      "impact": {
+        "summary": "Strengthened cloud fundamentals and deployment confidence",
+        "metrics": [
+          {
+            "label": "Certification level",
+            "value": "Foundational",
+            "unit": "level"
+          }
+        ]
+      },
+      "skillsDemonstrated": [
+        "Cloud Computing Fundamentals",
+        "AWS Core Services",
+        "Cloud Security Basics"
+      ],
+      "evidence": {
+        "certificateUrl": "https://aws.amazon.com/certification",
+        "proofUrl": "https://www.credly.com",
+        "media": [
+          {
+            "type": "image",
+            "url": "https://kuldeepsinhjhala.com/assets/certificates/aws-cloud-practitioner.png",
+            "caption": "AWS Cloud Practitioner certification badge"
+          }
+        ]
+      },
+      "visibility": {
+        "featured": false,
+        "public": true
+      },
+      "custom": {
+        "relatedProject": "aws-deployment-basics",
+        "recognitionLevel": "international",
+        "notes": "Certification reinforced practical understanding of deploying and managing applications on AWS infrastructure."
+      }
+    }
+  ],
+  "categories": [
+    {
+      "id": "professional",
+      "label": "Professional Achievements",
+      "description": "Achievements related to real-world projects, work experience, and applied engineering outcomes."
+    },
+    {
+      "id": "certification",
+      "label": "Certifications",
+      "description": "Recognized certifications earned from global platforms and technology providers."
+    }
+  ],
+  "stats": {
+    "totalAchievements": "2",
+    "featuredCount": "1",
+    "lastUpdated": "2026-01-12"
+  }
+}

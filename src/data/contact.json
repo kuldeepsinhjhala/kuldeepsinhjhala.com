@@ -1,0 +1,76 @@
+{
+  "meta": {
+    "title": "Get In Touch",
+    "subtitle": "Feel free to reach out for collaboration, freelance work, or technical discussions. I am always open to meaningful conversations and opportunities.",
+    "description": "Contact page for Kuldeep Sinh Jhala. Reach out via email, LinkedIn, or WhatsApp for software development, cloud, and full-stack related opportunities."
+  },
+  "contact": {
+    "email": {
+      "primary": "kuldeepsinhjhala@gmail.com"
+    },
+    "phone": {
+      "primary": "+91-9000000000",
+      "whatsapp": "https://wa.me/919000000000"
+    },
+    "location": {
+      "city": "Vadodara",
+      "state": "Gujarat",
+      "country": "India"
+    }
+  },
+  "social": {
+    "linkedin": {
+      "username": "kuldeepsinhjhala",
+      "url": "https://www.linkedin.com/in/kuldeepsinhjhala",
+      "label": "LinkedIn",
+      "icon": "linkedin"
+    },
+    "github": {
+      "username": "kuldeepsinhjhala",
+      "url": "https://github.com/kuldeepsinhjhala",
+      "label": "GitHub",
+      "icon": "github"
+    },
+    "twitter": {
+      "username": "kuldeepsinhjhala",
+      "url": "https://twitter.com/kuldeepsinhjhala",
+      "label": "Twitter",
+      "icon": "twitter"
+    },
+    "instagram": {
+      "username": "kuldeepsinhjhala",
+      "url": "https://www.instagram.com/kuldeepsinhjhala",
+      "label": "Instagram",
+      "icon": "instagram"
+    },
+    "medium": {
+      "username": "kuldeep-sinh-jhala",
+      "url": "https://medium.com/@kuldeep-sinh-jhala",
+      "label": "Medium",
+      "icon": "medium"
+    }
+  },
+  "preferredContact": [
+    {
+      "method": "email",
+      "label": "Email",
+      "description": "Best way to reach me for detailed discussions, project proposals, or formal communication.",
+      "icon": "mail",
+      "priority": 1
+    },
+    {
+      "method": "linkedin",
+      "label": "LinkedIn",
+      "description": "Connect with me professionally for networking, job opportunities, or collaboration.",
+      "icon": "linkedin",
+      "priority": 2
+    },
+    {
+      "method": "whatsapp",
+      "label": "WhatsApp",
+      "description": "Quick communication for urgent queries or short discussions.",
+      "icon": "whatsapp",
+      "priority": 3
+    }
+  ]
+}
