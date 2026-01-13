@@ -78,25 +78,28 @@ function BlogCard({ post, author, onClick, className = '' }) {
   return (
     <article
       className={`
-        group relative bg-card border border-gold/20 rounded-lg overflow-hidden
+        group relative bg-card/90 backdrop-blur-sm border border-gold/20 rounded-lg overflow-hidden
         hover:border-gold hover:ring-1 hover:ring-gold/50
-        transition-all duration-300 cursor-pointer
+        transition-all duration-300 cursor-pointer shadow-lg
         ${postData.featured ? 'ring-2 ring-gold/30' : ''}
         ${postData.pinned ? 'border-l-4 border-l-gold' : ''}
         ${className}
       `}
+      style={{
+        boxShadow: '0 10px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(201, 166, 107, 0.05)'
+      }}
       onClick={handleClick}
     >
       {/* Featured/Pinned Badge */}
       {(postData.featured || postData.pinned) && (
         <div className="absolute top-3 right-3 z-10 flex gap-2">
           {postData.pinned && (
-            <span className="px-2 py-1 bg-gold/20 text-gold text-xs font-medium rounded">
+            <span className="px-2 py-1 bg-gold/20 backdrop-blur-sm text-gold text-xs font-medium rounded border border-gold/30 shadow-sm">
               Pinned
             </span>
           )}
           {postData.featured && (
-            <span className="px-2 py-1 bg-success/20 text-success text-xs font-medium rounded">
+            <span className="px-2 py-1 bg-success/20 backdrop-blur-sm text-success text-xs font-medium rounded border border-success/30 shadow-sm">
               Featured
             </span>
           )}
@@ -123,7 +126,7 @@ function BlogCard({ post, author, onClick, className = '' }) {
         {/* Category */}
         {postData.category && (
           <div className="mb-2">
-            <span className="inline-block px-2 py-1 bg-gold/10 text-gold text-xs font-medium rounded">
+            <span className="inline-block px-2 py-1 bg-gold/20 backdrop-blur-sm text-gold text-xs font-medium rounded border border-gold/30 shadow-sm">
               {postData.category}
             </span>
           </div>
@@ -147,7 +150,7 @@ function BlogCard({ post, author, onClick, className = '' }) {
             {postData.tags.slice(0, 3).map((tag, index) => (
               <span
                 key={index}
-                className="px-2 py-1 bg-bg text-body text-xs rounded border border-gold/10"
+                className="px-2 py-1 bg-card/90 backdrop-blur-sm text-body text-xs rounded border border-gold/10 shadow-sm"
               >
                 #{tag}
               </span>

@@ -1,97 +1,65 @@
+
 {
-  "title": "Connect on Social Media",
-  "subtitle": "Follow me and stay connected",
+  "meta": {
+    "title": "Connect on Social Media",
+    "subtitle": "Find me across professional, social, and content platforms where I share my work, learnings, and updates.",
+    "description": "Social media and online profiles of Kuldeepsinh Jhala including professional networking, code repositories, and content platforms."
+  },
   "profiles": [
     {
       "id": "github",
       "platform": "GitHub",
+      "platformType": "professional",
       "username": "kuldeepsinhjhala",
+      "handle": "@kuldeepsinhjhala",
       "url": "https://github.com/kuldeepsinhjhala",
       "displayUrl": "github.com/kuldeepsinhjhala",
-      "icon": "github",
-      "color": "#181717",
-      "description": "Code repositories and open-source projects",
-      "verified": false,
-      "followers": 0,
-      "active": true,
+      "description": "My primary code repository where I share backend projects, full stack applications, experiments, and open-source learning work.",
       "order": 1
     },
     {
       "id": "linkedin",
       "platform": "LinkedIn",
+      "platformType": "professional",
       "username": "kuldeepsinhjhala",
-      "url": "https://linkedin.com/in/kuldeepsinhjhala",
+      "handle": "@kuldeepsinhjhala",
+      "url": "https://www.linkedin.com/in/kuldeepsinhjhala",
       "displayUrl": "linkedin.com/in/kuldeepsinhjhala",
-      "icon": "linkedin",
-      "color": "#0077B5",
-      "description": "Professional network and career updates",
-      "verified": false,
-      "followers": 0,
-      "active": true,
+      "description": "Professional profile highlighting my work experience, skills, education, and career journey as a software engineer.",
       "order": 2
     },
     {
       "id": "twitter",
       "platform": "Twitter",
-      "username": "kuldepsinhjhala",
-      "url": "https://twitter.com/kuldepsinhjhala",
-      "displayUrl": "twitter.com/kuldepsinhjhala",
-      "icon": "twitter",
-      "color": "#1DA1F2",
-      "description": "Tech thoughts and updates",
-      "verified": false,
-      "followers": 0,
-      "active": true,
+      "platformType": "social",
+      "username": "kuldeepsinhjhala",
+      "handle": "@kuldeepsinhjhala",
+      "url": "https://twitter.com/kuldeepsinhjhala",
+      "displayUrl": "twitter.com/kuldeepsinhjhala",
+      "description": "Occasionally share thoughts on technology, learning experiences, and insights related to software development.",
       "order": 3
-    },
-    {
-      "id": "medium",
-      "platform": "Medium",
-      "username": "@kuldeepsinhjhala",
-      "url": "https://medium.com/@kuldeepsinhjhala",
-      "displayUrl": "medium.com/@kuldeepsinhjhala",
-      "icon": "medium",
-      "color": "#000000",
-      "description": "Technical articles and blog posts",
-      "verified": false,
-      "followers": 0,
-      "active": true,
-      "order": 4
     },
     {
       "id": "instagram",
       "platform": "Instagram",
+      "platformType": "social",
       "username": "kuldeepsinhjhala",
-      "url": "https://instagram.com/kuldeepsinhjhala",
+      "handle": "@kuldeepsinhjhala",
+      "url": "https://www.instagram.com/kuldeepsinhjhala",
       "displayUrl": "instagram.com/kuldeepsinhjhala",
-      "icon": "instagram",
-      "color": "#E4405F",
-      "description": "Personal updates and behind-the-scenes",
-      "verified": false,
-      "followers": 0,
-      "active": true,
+      "description": "Personal space where I share moments from daily life, learning journey, and occasional tech-related updates.",
+      "order": 4
+    },
+    {
+      "id": "medium",
+      "platform": "Medium",
+      "platformType": "content",
+      "username": "kuldeep-sinh-jhala",
+      "handle": "@kuldeep-sinh-jhala",
+      "url": "https://medium.com/@kuldeep-sinh-jhala",
+      "displayUrl": "medium.com/@kuldeep-sinh-jhala",
+      "description": "Technical writing platform where I publish articles on backend development, system design basics, and software engineering concepts.",
       "order": 5
-    }
-  ],
-  "groups": [
-    {
-      "id": "professional",
-      "name": "Professional",
-      "profiles": ["github", "linkedin"],
-      "icon": "briefcase"
-    },
-    {
-      "id": "social",
-      "name": "Social",
-      "profiles": ["twitter", "instagram"],
-      "icon": "users"
-    },
-    {
-      "id": "content",
-      "name": "Content",
-      "profiles": ["medium"],
-      "icon": "book"
     }
   ]
 }
-

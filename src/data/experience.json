@@ -1,0 +1,428 @@
+{
+  "meta": {
+    "title": "Work Experience",
+    "subtitle": "Professional experience building scalable backend systems, full stack applications, and cloud-based solutions across multiple projects and roles.",
+    "description": "Detailed overview of professional work experience including roles, responsibilities, projects, achievements, and technologies used in real-world software engineering environments."
+  },
+  "summary": {
+    "headline": "Backend-Focused Full Stack Software Engineer",
+    "overview": "Experienced software engineer with a strong focus on backend development, REST API design, database architecture, and cloud deployments. Proven ability to build scalable systems, collaborate with cross-functional teams, and deliver production-ready solutions.",
+    "currentRole": "Software Engineer",
+    "currentCompany": "Independent Projects and Freelance",
+    "companyUrl": "https://kuldeepsinhjhala.com",
+    "custom": {
+      "availability": "Open to opportunities",
+      "preferredDomains": ["Backend Systems", "Cloud Infrastructure", "Full Stack Applications"]
+    }
+  },
+  "experiences": [
+    {
+      "id": "software-engineer-freelance",
+      "role": "Software Engineer",
+      "level": "mid",
+      "type": "freelance",
+      "company": {
+        "name": "Independent Consulting",
+        "industry": "Software Development and IT Services",
+        "size": "small",
+        "website": "https://kuldeepsinhjhala.com",
+        "logo": "/images/companies/freelance.png",
+        "description": "Provided end-to-end software development services including backend API development, frontend integration, database design, and cloud deployment for multiple small and medium-sized clients."
+      },
+      "location": {
+        "city": "Vadodara",
+        "state": "Gujarat",
+        "country": "India",
+        "remote": true,
+        "hybrid": false,
+        "onsite": false
+      },
+      "duration": {
+        "startDate": "2023-07",
+        "endDate": "present",
+        "current": true
+      },
+      "description": "Worked as a freelance software engineer delivering production-grade applications with a strong emphasis on clean architecture, security, and scalability.",
+      "responsibilities": [
+        "Designed and implemented RESTful APIs using Node.js and Express",
+        "Developed database schemas and optimized queries in SQL Server and PostgreSQL",
+        "Deployed and maintained applications on AWS using EC2, Nginx, and SSL"
+      ],
+      "achievements": [
+        {
+          "title": "Improved API Performance",
+          "description": "Optimized backend APIs by refactoring database queries and implementing caching strategies.",
+          "impact": "performance",
+          "metrics": {
+            "value": "40",
+            "unit": "percent"
+          },
+          "referenceUrl": "https://aws.amazon.com/architecture",
+          "custom": {
+            "techniques": [
+              "query optimization",
+              "indexing",
+              "caching"
+            ]
+          }
+        }
+      ],
+      "projects": [
+        {
+          "name": "College Management System",
+          "description": "Developed a modular college management system covering admissions, faculty management, student records, and reporting.",
+          "role": "Backend and System Architect",
+          "technologies": [
+            "Node.js",
+            "Express",
+            "SQL Server",
+            "React"
+          ],
+          "outcome": "Delivered a scalable system successfully used for academic demonstrations and internal workflows.",
+          "url": "https://github.com/kuldeepsinhjhala",
+          "custom": {
+            "architecture": "Layered architecture",
+            "authentication": "JWT-based"
+          }
+        },
+        {
+          "name": "Portfolio and Blog Platform",
+          "description": "Built a personal portfolio website with dynamic blog rendering using structured JSON and Markdown.",
+          "role": "Full Stack Developer",
+          "technologies": [
+            "React",
+            "Vite",
+            "Tailwind CSS",
+            "Node.js"
+          ],
+          "outcome": "Successfully launched a fast, SEO-optimized personal site with structured content management.",
+          "url": "https://kuldeepsinhjhala.com",
+          "custom": {
+            "features": [
+              "Markdown rendering",
+              "Responsive design",
+              "SEO metadata"
+            ]
+          }
+        }
+      ],
+      "technologies": {
+        "languages": [
+          "JavaScript",
+          "Python"
+        ],
+        "frameworks": [
+          "Node.js",
+          "Express",
+          "React"
+        ],
+        "databases": [
+          "SQL Server",
+          "PostgreSQL"
+        ],
+        "cloud": [
+          "AWS EC2",
+          "AWS RDS"
+        ],
+        "devOps": [
+          "Nginx",
+          "PM2"
+        ],
+        "tools": [
+          "Git",
+          "Docker"
+        ],
+        "custom": {
+          "monitoring": [
+            "CloudWatch"
+          ],
+          "os": [
+            "Ubuntu"
+          ]
+        }
+      },
+      "skills": [
+        "Backend Architecture",
+        "REST API Design",
+        "Cloud Deployment"
+      ],
+      "collaboration": {
+        "teamSize": "4",
+        "crossFunctional": true,
+        "stakeholders": [
+          "Clients",
+          "Designers"
+        ],
+        "methodologies": [
+          "Agile",
+          "Scrum"
+        ]
+      },
+      "feedback": {
+        "rating": "5",
+        "review": "Delivered high-quality solutions on time with clear communication and strong technical expertise.",
+        "source": "Client Feedback",
+        "sourceUrl": "https://www.linkedin.com"
+      }
+    },
+    {
+      "id": "assoc-software-engineer-nexus",
+      "role": "Associate Software Engineer",
+      "level": "junior",
+      "type": "full-time",
+      "company": {
+        "name": "Nexus InfoSystems",
+        "industry": "FinTech and Enterprise Solutions",
+        "size": "medium",
+        "website": "https://example-nexus.com",
+        "logo": "/images/companies/nexus.png",
+        "description": "A leading provider of financial technology solutions and enterprise resource planning software for the banking sector."
+      },
+      "location": {
+        "city": "Ahmedabad",
+        "state": "Gujarat",
+        "country": "India",
+        "remote": false,
+        "hybrid": true,
+        "onsite": false
+      },
+      "duration": {
+        "startDate": "2021-06",
+        "endDate": "2023-06",
+        "current": false
+      },
+      "description": " contributed to the core banking module development, focusing on secure transaction processing and third-party API integrations.",
+      "responsibilities": [
+        "Developed secure RESTful endpoints for transaction processing using Java Spring Boot",
+        "Collaborated with frontend teams to integrate APIs with Angular dashboards",
+        "Wrote comprehensive unit and integration tests to ensure 99% code coverage"
+      ],
+      "achievements": [
+        {
+          "title": "Automated Reconciliation Process",
+          "description": "Built a script to automate daily transaction reconciliation, reducing manual effort for the finance team.",
+          "impact": "efficiency",
+          "metrics": {
+            "value": "15",
+            "unit": "hours/week"
+          },
+          "referenceUrl": "https://example-nexus.com/case-studies",
+          "custom": {
+            "techniques": [
+              "cron jobs",
+              "batch processing"
+            ]
+          }
+        }
+      ],
+      "projects": [
+        {
+          "name": "Loan Processing Module",
+          "description": "Engineered the backend logic for a loan eligibility calculator and application tracking system.",
+          "role": "Backend Developer",
+          "technologies": [
+            "Java",
+            "Spring Boot",
+            "MySQL",
+            "Redis"
+          ],
+          "outcome": "Reduced loan approval turnaround time by 30% through automated eligibility checks.",
+          "url": null,
+          "custom": {
+            "architecture": "Microservices",
+            "authentication": "OAuth2"
+          }
+        }
+      ],
+      "technologies": {
+        "languages": [
+          "Java",
+          "SQL"
+        ],
+        "frameworks": [
+          "Spring Boot",
+          "Hibernate",
+          "Angular"
+        ],
+        "databases": [
+          "MySQL",
+          "Redis"
+        ],
+        "cloud": [
+          "Azure"
+        ],
+        "devOps": [
+          "Jenkins",
+          "Docker"
+        ],
+        "tools": [
+          "Jira",
+          "Bitbucket"
+        ],
+        "custom": {
+          "monitoring": [
+            "Dynatrace"
+          ],
+          "os": [
+            "Linux"
+          ]
+        }
+      },
+      "skills": [
+        "Microservices",
+        "Database Normalization",
+        "Unit Testing"
+      ],
+      "collaboration": {
+        "teamSize": "8",
+        "crossFunctional": true,
+        "stakeholders": [
+          "Product Managers",
+          "QA Engineers"
+        ],
+        "methodologies": [
+          "Waterfall",
+          "Agile"
+        ]
+      },
+      "feedback": {
+        "rating": "4.8",
+        "review": "Fast learner who quickly adapted to the enterprise ecosystem and consistently delivered bug-free code.",
+        "source": "Internal Performance Review",
+        "sourceUrl": null
+      }
+    },
+    {
+      "id": "web-dev-intern-codecrafters",
+      "role": "Web Development Intern",
+      "level": "entry",
+      "type": "internship",
+      "company": {
+        "name": "CodeCrafters Studio",
+        "industry": "Digital Marketing & Web Design",
+        "size": "micro",
+        "website": "https://example-codecrafters.com",
+        "logo": "/images/companies/codecrafters.png",
+        "description": "A creative agency focused on building responsive websites and e-commerce stores for local businesses."
+      },
+      "location": {
+        "city": "Vadodara",
+        "state": "Gujarat",
+        "country": "India",
+        "remote": true,
+        "hybrid": false,
+        "onsite": false
+      },
+      "duration": {
+        "startDate": "2021-01",
+        "endDate": "2021-05",
+        "current": false
+      },
+      "description": "Assisted senior developers in building and maintaining client websites, focusing on frontend responsiveness and CMS management.",
+      "responsibilities": [
+        "Converted Figma designs into responsive HTML/CSS layouts",
+        "Assisted in debugging JavaScript issues on client WordPress sites",
+        "Optimized images and assets for faster page load speeds"
+      ],
+      "achievements": [
+        {
+          "title": "Mobile Responsiveness Overhaul",
+          "description": "Updated legacy CSS for 3 major client sites to ensure full mobile compatibility.",
+          "impact": "usability",
+          "metrics": {
+            "value": "20",
+            "unit": "percent increase in mobile traffic"
+          },
+          "referenceUrl": null,
+          "custom": {
+            "techniques": [
+              "Media Queries",
+              "Flexbox"
+            ]
+          }
+        }
+      ],
+      "projects": [
+        {
+          "name": "Local Restaurant Booking UI",
+          "description": "Built the frontend interface for a table reservation form integrated with a PHP backend.",
+          "role": "Frontend Intern",
+          "technologies": [
+            "HTML5",
+            "CSS3",
+            "JavaScript",
+            "jQuery"
+          ],
+          "outcome": "Enabled the client to take online reservations for the first time during the pandemic.",
+          "url": "https://example-restaurant.com",
+          "custom": {
+            "architecture": "Monolithic",
+            "authentication": "None"
+          }
+        }
+      ],
+      "technologies": {
+        "languages": [
+          "JavaScript",
+          "PHP"
+        ],
+        "frameworks": [
+          "jQuery",
+          "Bootstrap"
+        ],
+        "databases": [
+          "MySQL"
+        ],
+        "cloud": [
+          "cPanel"
+        ],
+        "devOps": [
+          "FTP"
+        ],
+        "tools": [
+          "VS Code",
+          "Figma"
+        ],
+        "custom": {
+          "monitoring": [
+            "Google Analytics"
+          ],
+          "os": [
+            "Windows"
+          ]
+        }
+      },
+      "skills": [
+        "Responsive Design",
+        "Frontend Basics",
+        "Debugging"
+      ],
+      "collaboration": {
+        "teamSize": "3",
+        "crossFunctional": false,
+        "stakeholders": [
+          "Senior Developers"
+        ],
+        "methodologies": [
+          "Kanban"
+        ]
+      },
+      "feedback": {
+        "rating": "5",
+        "review": "Showed great enthusiasm and attention to detail in UI implementation.",
+        "source": "Internship Mentor",
+        "sourceUrl": null
+      }
+    }
+  ],
+  "totalExperience": {
+    "years": "2",
+    "months": "6"
+  },
+  "skillsSummary": {
+    "primary": ["Backend Development", "Node.js"],
+    "secondary": ["React", "Cloud Computing"],
+    "tools": ["Git", "Docker", "AWS"],
+    "portfolioUrl": "https://kuldeepsinhjhala.com"
+  }
+}

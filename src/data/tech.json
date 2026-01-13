@@ -1,190 +1,37 @@
 {
-  "title": "Technology Stack",
-  "subtitle": "Technologies, frameworks, and tools I work with",
+  "meta": {
+    "title": "Tech Stack",
+    "subtitle": "Technologies, tools, and platforms I have worked with and continue to learn.",
+    "description": "A concise overview of my technical skill set including programming languages, frameworks, databases, and tools."
+  },
+
   "categories": [
     {
-      "id": "languages",
-      "name": "Programming Languages",
-      "icon": "code",
+      "id": "word",
+      "name": "multiple words",
+      "description": "paragraph",
+
       "technologies": [
         {
-          "name": "JavaScript",
-          "type": "language",
-          "proficiency": "advanced",
-          "years": 2,
-          "logo": "",
-          "description": "Primary language for backend and frontend development"
-        },
-        {
-          "name": "Java",
-          "type": "language",
-          "proficiency": "learning",
-          "years": 0,
-          "logo": "",
-          "description": "Currently learning for backend development"
-        },
-        {
-          "name": "SQL",
-          "type": "language",
-          "proficiency": "advanced",
-          "years": 2,
-          "logo": "",
-          "description": "Database queries and optimization"
-        },
-        {
-          "name": "Python",
-          "type": "language",
-          "proficiency": "intermediate",
-          "years": 1,
-          "logo": "",
-          "description": "Scripting and automation"
+          "id": "word",
+          "name": "multiple words",
+          "type": "word",                 
+
+          "description": "paragraph",
+
+          "usedFor": [
+            "multiple words",
+            "multiple words"
+          ],
+
+          "usedIn": [
+            "multiple words",
+            "multiple words"
+          ],
+
+          "level": "word"                
         }
       ]
-    },
-    {
-      "id": "frameworks",
-      "name": "Frameworks & Libraries",
-      "icon": "layers",
-      "technologies": [
-        {
-          "name": "Express.js",
-          "type": "framework",
-          "proficiency": "advanced",
-          "years": 2,
-          "logo": "",
-          "description": "Web application framework for Node.js"
-        },
-        {
-          "name": "React",
-          "type": "library",
-          "proficiency": "intermediate",
-          "years": 1,
-          "logo": "",
-          "description": "UI library for building interfaces"
-        },
-        {
-          "name": "Sequelize",
-          "type": "orm",
-          "proficiency": "intermediate",
-          "years": 2,
-          "logo": "",
-          "description": "Promise-based Node.js ORM"
-        }
-      ]
-    },
-    {
-      "id": "databases",
-      "name": "Databases",
-      "icon": "database",
-      "technologies": [
-        {
-          "name": "MS SQL Server",
-          "type": "database",
-          "proficiency": "advanced",
-          "years": 2,
-          "logo": "",
-          "description": "Relational database management system"
-        },
-        {
-          "name": "MySQL",
-          "type": "database",
-          "proficiency": "intermediate",
-          "years": 1,
-          "logo": "",
-          "description": "Open-source relational database"
-        }
-      ]
-    },
-    {
-      "id": "cloud",
-      "name": "Cloud & DevOps",
-      "icon": "cloud",
-      "technologies": [
-        {
-          "name": "AWS EC2",
-          "type": "cloud",
-          "proficiency": "intermediate",
-          "years": 1,
-          "logo": "",
-          "description": "Cloud computing platform"
-        },
-        {
-          "name": "NGINX",
-          "type": "server",
-          "proficiency": "intermediate",
-          "years": 1,
-          "logo": "",
-          "description": "Web server and reverse proxy"
-        },
-        {
-          "name": "Firebase Hosting",
-          "type": "hosting",
-          "proficiency": "intermediate",
-          "years": 1,
-          "logo": "",
-          "description": "Static web hosting"
-        },
-        {
-          "name": "Linux",
-          "type": "os",
-          "proficiency": "intermediate",
-          "years": 1,
-          "logo": "",
-          "description": "Ubuntu server administration"
-        }
-      ]
-    },
-    {
-      "id": "tools",
-      "name": "Development Tools",
-      "icon": "wrench",
-      "technologies": [
-        {
-          "name": "Git",
-          "type": "vcs",
-          "proficiency": "intermediate",
-          "years": 2,
-          "logo": "",
-          "description": "Version control system"
-        },
-        {
-          "name": "Postman",
-          "type": "api",
-          "proficiency": "intermediate",
-          "years": 2,
-          "logo": "",
-          "description": "API testing and development"
-        },
-        {
-          "name": "VS Code",
-          "type": "editor",
-          "proficiency": "advanced",
-          "years": 2,
-          "logo": "",
-          "description": "Code editor"
-        }
-      ]
-    }
-  ],
-  "learning": [
-    {
-      "name": "Java",
-      "description": "Backend development with Spring Boot",
-      "startDate": "2024-01",
-      "resources": ["Online courses", "Practice projects"]
-    },
-    {
-      "name": "Data Structures & Algorithms",
-      "description": "Problem-solving and interview preparation",
-      "startDate": "2024-01",
-      "resources": ["LeetCode", "Coding challenges"]
-    },
-    {
-      "name": "System Design",
-      "description": "Scalable system architecture",
-      "startDate": "2024-01",
-      "resources": ["Books", "Case studies"]
     }
   ]
 }
-

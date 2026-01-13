@@ -1,71 +1,290 @@
 {
-  "title": "My Journey",
-  "subtitle": "A timeline of my career and learning path",
+  "meta": {
+    "title": "My Journey",
+    "subtitle": "From learning fundamentals of computer engineering to building real-world backend systems and cloud-deployed applications.",
+    "description": "A detailed chronological journey covering my education, continuous learning, professional growth, challenges, transitions, and achievements as a software engineer."
+  },
+  "overview": {
+    "headline": "Learning, Building, and Evolving Through Experience",
+    "summary": "My journey is a continuous process of learning, experimenting, failing, improving, and building. Starting from academic foundations, I gradually transitioned into real-world software development, focusing heavily on backend systems, databases, authentication, and cloud infrastructure while maintaining a strong full stack mindset.",
+    "currentFocus": "Scalable backend systems, system design fundamentals, and cloud-native architecture",
+    "longTermGoal": "To grow into a senior backend and system design engineer capable of designing distributed systems that are reliable, secure, and performance-oriented at scale.",
+    "custom": {
+      "inspiration": "Solving real problems through clean engineering",
+      "values": ["Consistency", "Ownership", "Clean architecture", "Long-term thinking"]
+    }
+  },
   "timeline": [
     {
-      "id": "journey-1",
-      "year": "2022",
-      "month": "Present",
-      "type": "career",
-      "title": "Software Engineer",
-      "organization": "Current Company",
-      "location": "Vadodara, Gujarat, India",
-      "description": "Building backend systems with Node.js, Express.js, and MS SQL Server. Designed multi-layer architectures and implemented secure authentication systems.",
-      "achievements": [
-        "Built 5+ production-grade APIs",
-        "Designed complex relational database schemas",
-        "Implemented JWT-based authentication"
+      "id": "early-interest",
+      "time": {
+        "year": "2016",
+        "month": "June",
+        "day": null,
+        "startDate": "2016-06-01",
+        "endDate": "2017-03-31",
+        "duration": "10 months"
+      },
+      "type": "personal",
+      "title": "Initial Interest in Computers and Technology",
+      "subtitle": "Curiosity-driven exploration phase",
+      "organization": {
+        "name": "Self Learning",
+        "type": "self",
+        "role": "Student",
+        "website": "https://www.wikipedia.org",
+        "logo": "/images/journey/self-learning.png"
+      },
+      "location": {
+        "city": "Vadodara",
+        "state": "Gujarat",
+        "country": "India",
+        "mode": "self"
+      },
+      "description": "This phase marked the beginning of my interest in computers, where I started exploring how software, operating systems, and basic programming concepts worked out of pure curiosity.",
+      "activities": [
+        "Explored basic computer operations and system usage",
+        "Learned fundamentals of logic and problem solving informally"
       ],
-      "skills": ["Node.js", "Express.js", "SQL Server", "JWT"],
-      "icon": "briefcase"
+      "achievements": [
+        {
+          "title": "Built First Logical Programs",
+          "description": "Successfully wrote simple logic-based programs that strengthened my interest in programming.",
+          "impact": "interest development",
+          "metrics": {
+            "value": "10+",
+            "unit": "programs"
+          },
+          "custom": {
+            "language": "Basic programming concepts"
+          }
+        }
+      ],
+      "skills": [
+        "Logical Thinking",
+        "Problem Curiosity"
+      ],
+      "reflection": {
+        "challenges": "Lack of structured guidance and resources.",
+        "learnings": "Curiosity is a strong driver for long-term learning.",
+        "mindset": "Exploratory and inquisitive"
+      },
+      "media": {
+        "images": ["/images/journey/early-1.png", "/images/journey/early-2.png"],
+        "documents": ["/documents/early-notes.pdf"],
+        "links": ["https://www.wikipedia.org"]
+      },
+      "icon": "lightbulb",
+      "color": "yellow",
+      "status": {
+        "highlighted": false,
+        "featured": false,
+        "visibility": "public"
+      }
     },
     {
-      "id": "journey-2",
-      "year": "2024",
-      "month": "Ongoing",
-      "type": "learning",
-      "title": "Java Backend Development",
-      "organization": "Self-Learning",
-      "location": "Online",
-      "description": "Transitioning to Java backend engineering. Learning Java, Spring Boot, and DSA to prepare for top product-based companies.",
-      "achievements": [
-        "Learning Java fundamentals",
-        "Practicing Data Structures & Algorithms",
-        "System Design concepts"
-      ],
-      "skills": ["Java", "DSA", "System Design"],
-      "icon": "book"
-    },
-    {
-      "id": "journey-3",
-      "year": "2022",
-      "month": "Graduated",
+      "id": "diploma-start",
+      "time": {
+        "year": "2018",
+        "month": "July",
+        "day": null,
+        "startDate": "2018-07-01",
+        "endDate": "2021-06-15",
+        "duration": "3 years"
+      },
       "type": "education",
-      "title": "Bachelor's Degree",
-      "organization": "University Name",
-      "location": "City, State",
-      "description": "Completed degree in Computer Science/Engineering with focus on software development and database systems.",
-      "achievements": [
-        "Graduated with honors",
-        "Final year project on database systems"
+      "title": "Started Diploma in Computer Engineering",
+      "subtitle": "Foundation of programming and computer science",
+      "organization": {
+        "name": "Government Polytechnic Vadodara",
+        "type": "college",
+        "role": "Diploma Student",
+        "website": "https://www.gpvadodara.ac.in",
+        "logo": "/images/education/gpv-logo.png"
+      },
+      "location": {
+        "city": "Vadodara",
+        "state": "Gujarat",
+        "country": "India",
+        "mode": "onsite"
+      },
+      "description": "This phase established my academic foundation in computer engineering, covering programming, databases, operating systems, and networking concepts.",
+      "activities": [
+        "Studied DBMS, Operating Systems, Computer Networks, and OOP concepts",
+        "Worked on academic mini-projects and lab assignments"
       ],
-      "skills": ["Computer Science", "Database Systems"],
-      "icon": "graduation-cap"
-    }
-  ],
-  "milestones": [
-    {
-      "id": "milestone-1",
-      "year": "2024",
-      "title": "First Production Deployment",
-      "description": "Successfully deployed full-stack application on AWS EC2 with NGINX"
+      "achievements": [
+        {
+          "title": "Graduated with Distinction",
+          "description": "Completed diploma education with strong academic performance and hands-on understanding.",
+          "impact": "academic excellence",
+          "metrics": {
+            "value": "78",
+            "unit": "percent"
+          },
+          "custom": {
+            "gpaScale": "10"
+          }
+        }
+      ],
+      "skills": [
+        "Programming Fundamentals",
+        "Database Concepts",
+        "Structured Problem Solving"
+      ],
+      "reflection": {
+        "challenges": "Understanding abstract computer science concepts initially.",
+        "learnings": "Strong fundamentals are non-negotiable for growth.",
+        "mindset": "Disciplined and improvement-focused"
+      },
+      "media": {
+        "images": ["/images/journey/diploma-1.png", "/images/journey/diploma-2.png"],
+        "documents": ["/documents/diploma-certificate.pdf"],
+        "links": ["https://www.gpvadodara.ac.in"]
+      },
+      "icon": "school",
+      "color": "blue",
+      "status": {
+        "highlighted": true,
+        "featured": true,
+        "visibility": "public"
+      }
     },
     {
-      "id": "milestone-2",
-      "year": "2023",
-      "title": "Authentication System Mastery",
-      "description": "Implemented complete JWT, cookies, and session-based authentication"
+      "id": "self-learning-phase",
+      "time": {
+        "year": "2020",
+        "month": "April",
+        "day": null,
+        "startDate": "2020-04-01",
+        "endDate": "2022-12-31",
+        "duration": "2 years, 8 months"
+      },
+      "type": "learning",
+      "title": "Intensive Self-Learning and Skill Building",
+      "subtitle": "Transition from academic learning to industry-oriented skills",
+      "organization": {
+        "name": "Online Platforms and Self Study",
+        "type": "online",
+        "role": "Independent Learner",
+        "website": "https://developer.mozilla.org",
+        "logo": "/images/journey/online-learning.png"
+      },
+      "location": {
+        "city": "Vadodara",
+        "state": "Gujarat",
+        "country": "India",
+        "mode": "online"
+      },
+      "description": "Parallel to academics, I invested significant time in self-learning modern web development, backend engineering, and tooling used in the software industry.",
+      "activities": [
+        "Learned JavaScript, Node.js, Express, and REST API concepts",
+        "Practiced Git, debugging, and clean coding practices"
+      ],
+      "achievements": [
+        {
+          "title": "Built Multiple Practice Projects",
+          "description": "Completed several self-initiated projects to solidify understanding of backend and frontend integration.",
+          "impact": "skill acceleration",
+          "metrics": {
+            "value": "12+",
+            "unit": "projects"
+          },
+          "custom": {
+            "focus": "Backend-first projects"
+          }
+        }
+      ],
+      "skills": [
+        "JavaScript",
+        "Backend Fundamentals",
+        "Version Control"
+      ],
+      "reflection": {
+        "challenges": "Managing time between academics and self-learning.",
+        "learnings": "Consistency compounds faster than short bursts of effort.",
+        "mindset": "Self-driven and persistent"
+      },
+      "media": {
+        "images": ["/images/journey/learning-1.png", "/images/journey/learning-2.png"],
+        "documents": ["/documents/learning-notes.pdf"],
+        "links": ["https://developer.mozilla.org", "https://nodejs.org"]
+      },
+      "icon": "book",
+      "color": "orange",
+      "status": {
+        "highlighted": false,
+        "featured": false,
+        "visibility": "public"
+      }
+    },
+    {
+      "id": "professional-work",
+      "time": {
+        "year": "2023",
+        "month": "July",
+        "day": null,
+        "startDate": "2023-07-01",
+        "endDate": "present",
+        "duration": "1.5+ years"
+      },
+      "type": "career",
+      "title": "Professional Software Engineering Work",
+      "subtitle": "Real-world backend systems and cloud deployments",
+      "organization": {
+        "name": "Independent Projects and Freelance",
+        "type": "self",
+        "role": "Software Engineer",
+        "website": "https://kuldeepsinhjhala.com",
+        "logo": "/images/companies/freelance.png"
+      },
+      "location": {
+        "city": "Vadodara",
+        "state": "Gujarat",
+        "country": "India",
+        "mode": "remote"
+      },
+      "description": "Currently working on real-world software systems focusing on backend APIs, database architecture, authentication mechanisms, and AWS-based deployments.",
+      "activities": [
+        "Designed scalable REST APIs and backend services",
+        "Handled cloud infrastructure, security, and deployment workflows"
+      ],
+      "achievements": [
+        {
+          "title": "Delivered Production-Ready Systems",
+          "description": "Successfully delivered backend-heavy applications with secure authentication and optimized performance.",
+          "impact": "system stability and performance",
+          "metrics": {
+            "value": "40",
+            "unit": "percent improvement"
+          },
+          "custom": {
+            "focusArea": "Performance and scalability"
+          }
+        }
+      ],
+      "skills": [
+        "Backend Architecture",
+        "Cloud Engineering",
+        "System Thinking"
+      ],
+      "reflection": {
+        "challenges": "Taking ownership of end-to-end system reliability.",
+        "learnings": "Designing for scale requires foresight and discipline.",
+        "mindset": "Ownership-driven and quality-focused"
+      },
+      "media": {
+        "images": ["/images/journey/work-1.png", "/images/journey/work-2.png"],
+        "documents": ["/documents/project-summary.pdf"],
+        "links": ["https://kuldeepsinhjhala.com"]
+      },
+      "icon": "briefcase",
+      "color": "purple",
+      "status": {
+        "highlighted": true,
+        "featured": true,
+        "visibility": "public"
+      }
     }
   ]
 }
-

@@ -11,12 +11,14 @@ function CopilotButton() {
   return (
     <button
       onClick={() => setIsOpen(true)}
-      className="flex fixed items-center gap-1.5 px-2 bg-bg border border-gold/20 rounded text-head hover:border-gold hover:ring-1 hover:ring-gold/50 transition-all z-50 group"
+      className="flex fixed items-center gap-1.5 px-2 border border-gold/20 rounded text-head hover:border-gold hover:ring-1 hover:ring-gold/50 transition-all z-50 group"
       style={{ 
         bottom: '16px', 
         right: '16px',
         height: '32px',
-        boxSizing: 'border-box'
+        boxSizing: 'border-box',
+        backgroundColor: '#112240',
+        opacity: 1
       }}
       aria-label="Open Cursor Copilot"
     >

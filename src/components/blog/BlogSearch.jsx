@@ -63,11 +63,14 @@ function BlogSearch({
           onChange={handleChange}
           placeholder={placeholder}
           className="
-            w-full pl-10 pr-10 py-3 bg-card border border-gold/20 rounded
+            w-full pl-10 pr-10 py-3 bg-card/90 backdrop-blur-sm border border-gold/20 rounded
             text-head placeholder:text-body/50
             focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold/50
-            transition-all duration-200
+            transition-all duration-200 shadow-lg
           "
+          style={{
+            boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2), 0 0 10px rgba(201, 166, 107, 0.05)'
+          }}
         />
 
         {/* Clear Button */}

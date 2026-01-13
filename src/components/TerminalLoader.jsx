@@ -1,16 +1,15 @@
 import { useState, useEffect, useRef } from 'react'
+import logo from '../assets/logo.png'
 
 function TerminalLoader({ 
   lines = [
-    '> initializing app',
-    '> connecting to server',
-    '> loading modules...',
-    '> compiling assets',
-    '> optimizing performance',
-    '> setting up environment',
-    '> ready to launch'
+    '[INFO] Starting spring runtime',
+    '[INFO] Initializing application context',
+    '[INFO] Loading beans',
+    '[INFO] Container started',
+    '[INFO] Application ready'
   ],
-  speed = 50,
+  speed = 30,
   show = true,
   className = '',
   onComplete
@@ -19,6 +18,8 @@ function TerminalLoader({
   const [currentLineIndex, setCurrentLineIndex] = useState(0)
   const [currentCharIndex, setCurrentCharIndex] = useState(0)
   const [isTyping, setIsTyping] = useState(false)
+  const [showLogo, setShowLogo] = useState(false)
+  const [terminalVisible, setTerminalVisible] = useState(true)
   const timeoutRef = useRef(null)
   const intervalRef = useRef(null)
   const linesRef = useRef(lines)
@@ -88,17 +89,25 @@ function TerminalLoader({
             setCurrentLineIndex(nextLineIndex)
             setCurrentCharIndex(0)
             intervalRef.current = setInterval(typeNextChar, speed)
-          }, 500) // Wait 500ms between lines
+          }, 150) // Wait 150ms between lines
         } else {
           // All lines completed
           setIsTyping(false)
           clearInterval(intervalRef.current)
-          // Call onComplete after a brief delay to show the final cursor
+          // Wait a moment, then fade out terminal and show logo
+          timeoutRef.current = setTimeout(() => {
+            setTerminalVisible(false)
+            // Show logo after terminal fades out
+            setTimeout(() => {
+              setShowLogo(true)
+              // Call onComplete after logo is shown
           if (onComplete) {
             timeoutRef.current = setTimeout(() => {
               onComplete()
-            }, 1000) // Wait 1 second after completion before calling onComplete
+                }, 2000) // Show logo for 2 seconds
           }
+            }, 300) // Small delay for fade transition
+          }, 1000) // Wait 1 second after terminal completes
         }
       }
     }
@@ -125,6 +134,53 @@ function TerminalLoader({
   const isCurrentLineComplete = currentCharIndex >= currentLine.length
   const allLinesComplete = !isTyping && currentLineIndex >= linesRef.current.length - 1 && isCurrentLineComplete
 
+  // Show logo screen after terminal
+  if (showLogo) {
+    return (
+      <div 
+        className={`fixed inset-0 z-50 flex items-center justify-center ${className}`}
+        style={{ 
+          backgroundColor: 'var(--c-shadow)',
+          backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(201, 166, 107, 0.05) 1px, transparent 0)',
+          backgroundSize: '20px 20px'
+        }}
+      >
+        {/* Light background highlights */}
+        <div 
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background: 'radial-gradient(ellipse 80% 60% at 50% 50%, rgba(201, 166, 107, 0.08) 0%, transparent 70%)'
+          }}
+        />
+        <div 
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background: 'radial-gradient(ellipse 60% 40% at 30% 30%, rgba(230, 241, 255, 0.05) 0%, transparent 60%)'
+          }}
+        />
+        <div 
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background: 'radial-gradient(ellipse 50% 35% at 70% 70%, rgba(201, 166, 107, 0.06) 0%, transparent 55%)'
+          }}
+        />
+        
+        {/* Logo with simple animation */}
+        <div className="relative">
+          <img 
+            src={logo} 
+            alt="Kuldeepsinh Jhala Logo" 
+            className="h-32 md:h-48 lg:h-64 w-auto object-contain opacity-0"
+            style={{
+              filter: 'brightness(0) invert(1) sepia(100%) saturate(200%) hue-rotate(20deg)',
+              animation: 'simpleFadeIn 0.8s ease-out 0.2s forwards'
+            }}
+          />
+        </div>
+      </div>
+    )
+  }
+
   return (
     <div 
       className={`fixed inset-0 z-50 flex items-center justify-center ${className}`}
@@ -135,7 +191,11 @@ function TerminalLoader({
       }}
     >
       {/* Terminal Window */}
-      <div className="w-full max-w-3xl mx-4 md:mx-8 animate-fade-in">
+      <div 
+        className={`w-full max-w-3xl mx-4 md:mx-8 transition-opacity duration-300 ${
+          terminalVisible ? 'opacity-100' : 'opacity-0'
+        }`}
+      >
         {/* Terminal Header */}
         <div className="bg-card/80 backdrop-blur-sm border border-gold/20 rounded-t-lg px-4 py-2.5 flex items-center justify-between shadow-lg">
           <div className="flex items-center gap-2">
@@ -160,24 +220,24 @@ function TerminalLoader({
           }}
         >
           {/* Terminal Content */}
-          <div className="font-mono text-gold text-sm md:text-base leading-relaxed">
-            {/* Welcome Message */}
-            <div className="text-gold/80 mb-4 text-xs md:text-sm">
-              <span className="text-gold/60">┌─</span>
-              <span className="mx-2">Welcome to Kuldeep's Portfolio v1.0</span>
-              <span className="text-gold/60">─┐</span>
-            </div>
-            
-            <div className="space-y-2.5 md:space-y-3">
+          <div className="text-gold text-sm md:text-base leading-relaxed" style={{ fontFamily: '"JetBrains Mono", "Fira Code", monospace' }}>
+              <div className="space-y-1.5 md:space-y-2">
               {displayedLines.map((line, index) => {
+                  // Split line to separate [INFO] from the rest
+                  const infoMatch = line.match(/^(\[INFO\])(.*)$/)
+                  const infoPart = infoMatch ? infoMatch[1] + ' ' : ''
+                  const textPart = infoMatch ? infoMatch[2] : line
+                  
                 if (index === currentLineIndex && isTyping) {
                   // Current line being typed
                   return (
                     <div key={index} className="flex items-center group">
-                      <span className="text-gold/60 mr-2 select-none">$</span>
-                      <span className="text-gold">{line}</span>
+                        {infoPart && (
+                          <span style={{ color: '#3fb950', fontFamily: '"JetBrains Mono", "Fira Code", monospace' }}>{infoPart}</span>
+                        )}
+                        <span className="text-gold" style={{ fontFamily: '"JetBrains Mono", "Fira Code", monospace' }}>{textPart}</span>
                       {!isCurrentLineComplete && (
-                        <span className="inline-block w-2.5 h-5 bg-gold ml-1.5 animate-blink-cursor shadow-[0_0_8px_rgba(201,166,107,0.8)]"></span>
+                          <span className="inline-block text-gold ml-1 animate-blink-cursor" style={{ fontFamily: '"JetBrains Mono", "Fira Code", monospace' }}>▌</span>
                       )}
                     </div>
                   )
@@ -185,29 +245,20 @@ function TerminalLoader({
                 // Completed lines
                 return (
                   <div key={index} className="flex items-center opacity-90">
-                    <span className="text-gold/60 mr-2 select-none">$</span>
-                    <span className="text-gold">{line}</span>
+                      {infoPart && (
+                        <span style={{ color: '#3fb950', fontFamily: '"JetBrains Mono", "Fira Code", monospace' }}>{infoPart}</span>
+                      )}
+                      <span className="text-gold" style={{ fontFamily: '"JetBrains Mono", "Fira Code", monospace' }}>{textPart}</span>
                   </div>
                 )
               })}
               
               {allLinesComplete && (
-                <div className="flex items-center mt-4 pt-4 border-t border-gold/10">
-                  <span className="text-gold/60 mr-2 select-none">$</span>
-                  <span className="inline-block w-2.5 h-5 bg-gold ml-1.5 animate-blink-cursor shadow-[0_0_8px_rgba(201,166,107,0.8)]"></span>
-                </div>
-              )}
-            </div>
-
-            {/* Status Indicator */}
-            {isTyping && (
-              <div className="mt-6 pt-4 border-t border-gold/10">
-                <div className="flex items-center gap-2 text-gold/60 text-xs">
-                  <div className="w-1.5 h-1.5 bg-gold rounded-full animate-pulse"></div>
-                  <span>Processing...</span>
-                </div>
+                  <div className="flex items-center mt-2">
+                    <span className="inline-block text-gold ml-0 animate-blink-cursor" style={{ fontFamily: '"JetBrains Mono", "Fira Code", monospace' }}>▌</span>
               </div>
             )}
+              </div>
           </div>
         </div>
       </div>

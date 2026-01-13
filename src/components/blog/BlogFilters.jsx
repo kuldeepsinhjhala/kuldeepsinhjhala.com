@@ -65,12 +65,15 @@ function BlogFilters({
                   key={category.id}
                   onClick={() => handleCategoryClick(category.id === 'all' ? '' : category.id)}
                   className={`
-                    px-4 py-2 rounded transition-all duration-200 text-sm font-medium
+                    px-4 py-2 rounded transition-all duration-200 text-sm font-medium backdrop-blur-sm
                     ${isActive
-                      ? 'bg-gold text-bg border border-gold'
-                      : 'bg-card text-body border border-gold/20 hover:border-gold hover:text-head'
+                      ? 'bg-gold text-bg border border-gold shadow-lg'
+                      : 'bg-card/90 backdrop-blur-sm text-body border border-gold/20 hover:border-gold hover:text-head shadow-md'
                     }
                   `}
+                  style={!isActive ? {
+                    boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2), 0 0 10px rgba(201, 166, 107, 0.05)'
+                  } : {}}
                 >
                   {category.label || category.id}
                 </button>
@@ -93,12 +96,15 @@ function BlogFilters({
                   key={index}
                   onClick={() => handleTagClick(tag)}
                   className={`
-                    px-3 py-1.5 rounded transition-all duration-200 text-xs font-medium
+                    px-3 py-1.5 rounded transition-all duration-200 text-xs font-medium backdrop-blur-sm
                     ${isSelected
-                      ? 'bg-gold/20 text-gold border border-gold'
-                      : 'bg-card text-body border border-gold/10 hover:border-gold/30 hover:text-head'
+                      ? 'bg-gold/20 text-gold border border-gold shadow-md'
+                      : 'bg-card/90 backdrop-blur-sm text-body border border-gold/10 hover:border-gold/30 hover:text-head shadow-sm'
                     }
                   `}
+                  style={!isSelected ? {
+                    boxShadow: '0 2px 10px rgba(0, 0, 0, 0.15), 0 0 5px rgba(201, 166, 107, 0.03)'
+                  } : {}}
                 >
                   #{tag}
                 </button>

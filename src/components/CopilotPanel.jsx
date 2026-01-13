@@ -12,31 +12,8 @@ function CopilotPanel() {
   const [isLoading, setIsLoading] = useState(false)
   const messagesEndRef = useRef(null)
 
-  // Handle panel state based on screen size
-  useEffect(() => {
-    const handleResize = () => {
-      const width = window.innerWidth
-      if (width >= 768) {
-        // Auto-open on screens >= 768px
-        setIsOpen(true)
-      } else {
-        // Auto-close on screens < 768px
-        setIsOpen(false)
-      }
-    }
-
-    // Check on mount - ensure panel opens if screen is >= 768px
-    const initialWidth = window.innerWidth
-    if (initialWidth >= 768) {
-      setIsOpen(true)
-    } else {
-      setIsOpen(false)
-    }
-
-    // Listen for resize events
-    window.addEventListener('resize', handleResize)
-    return () => window.removeEventListener('resize', handleResize)
-  }, [setIsOpen])
+  // Note: Panel auto-open/close hint is now handled in CopilotContext
+  // This component just responds to the isOpen state
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })

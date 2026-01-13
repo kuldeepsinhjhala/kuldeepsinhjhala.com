@@ -65,12 +65,15 @@ function BlogPagination({
         onClick={() => handlePageClick(currentPage - 1)}
         disabled={currentPage === 1}
         className={`
-          px-4 py-2 rounded border transition-all duration-200
+          px-4 py-2 rounded border transition-all duration-200 backdrop-blur-sm shadow-md
           ${currentPage === 1
-            ? 'bg-card border-gold/10 text-body/50 cursor-not-allowed'
-            : 'bg-card border-gold/20 text-head hover:border-gold hover:bg-gold/10'
+            ? 'bg-card/70 backdrop-blur-sm border-gold/10 text-body/50 cursor-not-allowed'
+            : 'bg-card/90 backdrop-blur-sm border-gold/20 text-head hover:border-gold hover:bg-gold/10'
           }
         `}
+        style={currentPage !== 1 ? {
+          boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2), 0 0 10px rgba(201, 166, 107, 0.05)'
+        } : {}}
         aria-label="Previous page"
       >
         <svg
@@ -109,12 +112,15 @@ function BlogPagination({
               key={page}
               onClick={() => handlePageClick(page)}
               className={`
-                min-w-[40px] px-3 py-2 rounded border transition-all duration-200 text-sm font-medium
+                min-w-[40px] px-3 py-2 rounded border transition-all duration-200 text-sm font-medium backdrop-blur-sm shadow-md
                 ${isActive
-                  ? 'bg-gold text-bg border-gold'
-                  : 'bg-card border-gold/20 text-head hover:border-gold hover:bg-gold/10'
+                  ? 'bg-gold text-bg border-gold shadow-lg'
+                  : 'bg-card/90 backdrop-blur-sm border-gold/20 text-head hover:border-gold hover:bg-gold/10'
                 }
               `}
+              style={!isActive ? {
+                boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2), 0 0 10px rgba(201, 166, 107, 0.05)'
+              } : {}}
               aria-label={`Go to page ${page}`}
               aria-current={isActive ? 'page' : undefined}
             >
@@ -129,12 +135,15 @@ function BlogPagination({
         onClick={() => handlePageClick(currentPage + 1)}
         disabled={currentPage === totalPages}
         className={`
-          px-4 py-2 rounded border transition-all duration-200
+          px-4 py-2 rounded border transition-all duration-200 backdrop-blur-sm shadow-md
           ${currentPage === totalPages
-            ? 'bg-card border-gold/10 text-body/50 cursor-not-allowed'
-            : 'bg-card border-gold/20 text-head hover:border-gold hover:bg-gold/10'
+            ? 'bg-card/70 backdrop-blur-sm border-gold/10 text-body/50 cursor-not-allowed'
+            : 'bg-card/90 backdrop-blur-sm border-gold/20 text-head hover:border-gold hover:bg-gold/10'
           }
         `}
+        style={currentPage !== totalPages ? {
+          boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2), 0 0 10px rgba(201, 166, 107, 0.05)'
+        } : {}}
         aria-label="Next page"
       >
         <svg

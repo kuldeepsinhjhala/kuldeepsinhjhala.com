@@ -1,52 +1,43 @@
 {
-  "title": "Resume",
-  "subtitle": "Download my resume or view online",
-  "resume": {
-    "available": true,
-    "version": "2.0",
-    "lastUpdated": "2024-01-15",
-    "formats": [
-      {
-        "type": "pdf",
-        "url": "/resume/kuldeep-sinh-jhala-resume.pdf",
-        "size": "245 KB",
-        "download": true
+  "meta": {
+    "title": "Resume",
+    "subtitle": "Download and view different versions of my resume tailored for specific roles and skill focus areas.",
+    "description": "Resume section containing multiple PDF versions with one active resume displayed by default.",
+    "lastUpdated": "2026-01-13"
+  },
+  "resumes": [
+    {
+      "id": "backend-focused-resume",
+      "title": "Backend Software Engineer Resume",
+      "file": {
+        "name": "Kuldeep_Sinh_Jhala_Backend_Engineer.pdf",
+        "url": "/resumes/Kuldeep_Sinh_Jhala_Backend_Engineer.pdf",
+        "size": "420 KB",
+        "pages": 2
       },
-      {
-        "type": "docx",
-        "url": "/resume/kuldeep-sinh-jhala-resume.docx",
-        "size": "128 KB",
-        "download": true
-      }
-    ],
-    "onlineView": {
-      "enabled": true,
-      "url": "/resume/view"
+      "active": true
+    },
+    {
+      "id": "fullstack-resume",
+      "title": "Full Stack Software Engineer Resume",
+      "file": {
+        "name": "Kuldeep_Sinh_Jhala_Full_Stack_Engineer.pdf",
+        "url": "/resumes/Kuldeep_Sinh_Jhala_Full_Stack_Engineer.pdf",
+        "size": "450 KB",
+        "pages": 2
+      },
+      "active": false
+    },
+    {
+      "id": "cloud-devops-resume",
+      "title": "Cloud and DevOps Engineer Resume",
+      "file": {
+        "name": "Kuldeep_Sinh_Jhala_Cloud_DevOps_Engineer.pdf",
+        "url": "/resumes/Kuldeep_Sinh_Jhala_Cloud_DevOps_Engineer.pdf",
+        "size": "410 KB",
+        "pages": 2
+      },
+      "active": false
     }
-  },
-  "summary": {
-    "professionalSummary": "Software Engineer with 2+ years of experience building backend systems using Node.js, Express.js, Sequelize, and MS SQL Server. Experienced in designing multi-layer architectures, implementing secure authentication, and working with complex relational schemas. Currently transitioning towards Java backend engineering with the goal of cracking top product-based companies.",
-    "keyHighlights": [
-      "2+ years of backend development experience",
-      "Expert in Node.js, Express.js, and MS SQL Server",
-      "Strong foundation in database design and optimization",
-      "Experience with AWS deployment and NGINX configuration",
-      "Currently learning Java and DSA for career advancement"
-    ],
-    "objective": "To leverage my backend development expertise and transition to Java backend engineering, contributing to scalable systems at top product-based companies while continuously learning and growing."
-  },
-  "sections": {
-    "experience": true,
-    "education": true,
-    "skills": true,
-    "projects": true,
-    "certifications": true
-  },
-  "contact": {
-    "email": "kuldeephjhala@gmail.com",
-    "phone": "+91 9726413743",
-    "location": "Vadodara, Gujarat, India",
-    "linkedin": "https://linkedin.com/in/kuldeepsinhjhala",
-    "github": "https://github.com/kuldeepsinhjhala"
-  }
+  ]
 }

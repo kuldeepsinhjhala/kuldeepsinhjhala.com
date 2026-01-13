@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useCallback, useEffect } from 'react'
+import { createContext, useContext, useState, useCallback, useEffect, useRef } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 
 const TabContext = createContext()
@@ -47,6 +47,7 @@ export const TabProvider = ({ children }) => {
   }
 
   const [tabs, setTabs] = useState(initializeTabs)
+  const isOpeningTabRef = useRef(false)
 
   // Handle first load vs refresh
   useEffect(() => {
@@ -66,6 +67,12 @@ export const TabProvider = ({ children }) => {
 
   // Sync active tab with current route and save to localStorage
   useEffect(() => {
+    // Skip if we're in the middle of opening a tab (to prevent duplicates)
+    if (isOpeningTabRef.current) {
+      isOpeningTabRef.current = false
+      return
+    }
+
     setTabs(prevTabs => {
       const currentPath = location.pathname
       const hasTab = prevTabs.some(tab => tab.path === currentPath)
@@ -78,7 +85,7 @@ export const TabProvider = ({ children }) => {
           isActive: tab.path === currentPath
         }))
       } else {
-        // Route changed but no tab exists (e.g., from mobile menu)
+        // Route changed but no tab exists (e.g., from mobile menu or direct navigation)
         // Don't auto-create tab, just update active state
         updatedTabs = prevTabs.map(tab => ({
           ...tab,
@@ -95,6 +102,9 @@ export const TabProvider = ({ children }) => {
   }, [location.pathname])
 
   const openTab = useCallback((path, label) => {
+    // Set flag to prevent useEffect from creating duplicate tab
+    isOpeningTabRef.current = true
+    
     setTabs(prevTabs => {
       // Check if tab already exists
       const existingTab = prevTabs.find(tab => tab.path === path)

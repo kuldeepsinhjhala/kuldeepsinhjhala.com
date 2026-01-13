@@ -1,61 +1,120 @@
 {
+  "meta": {
+    "title": "Kuldeepsinh Jhala | Software Engineer",
+    "subtitle": "Backend-focused full stack engineer building scalable systems and cloud-native applications",
+    "description": "Personal portfolio of Kuldeepsinh Jhala showcasing backend engineering expertise, full stack projects, cloud deployments, and a journey of continuous learning in software engineering.",
+    "language": "en",
+    "lastUpdated": "2026-01-13",
+    "version": "v1"
+  },
   "hero": {
     "greeting": "Hi, my name is",
-    "name": "Kuldeep Sinh Jhala",
-    "title": "Software Engineer | Backend Developer",
-    "subtitle": "Building scalable backend systems and transitioning to Java backend engineering",
-    "description": "Software Engineer with 2+ years of experience building backend systems using Node.js, Express.js, Sequelize, and MS SQL Server. Currently transitioning towards Java backend engineering with the goal of cracking top product-based companies.",
-    "cta": {
-      "primary": {
-        "text": "View My Work",
-        "link": "/projects",
-        "type": "internal"
-      },
-      "secondary": {
-        "text": "Get In Touch",
-        "link": "/contact",
-        "type": "internal"
-      }
+    "name": "Kuldeepsinh Jhala",
+    "designation": "Software Engineer",
+    "tagline": "Building scalable backend systems with clean architecture",
+    "subtitle": "Backend-focused full stack developer with a strong foundation in system design and cloud infrastructure.",
+    "description": "I am a software engineer with hands-on experience in building backend-heavy applications, REST APIs, database-driven systems, and deploying them on cloud platforms. I enjoy solving real-world problems through clean code, thoughtful architecture, and continuous learning.",
+    "profile": {
+      "image": "/images/profile/kuldeep-profile.png",
+      "alt": "Kuldeepsinh Jhala profile photo"
     }
   },
-  "highlights": [
-    {
-      "icon": "code",
-      "title": "Backend Development",
-      "description": "2+ years building scalable APIs and systems"
-    },
-    {
-      "icon": "database",
-      "title": "Database Design",
-      "description": "Expert in SQL Server and relational schema design"
-    },
-    {
-      "icon": "architecture",
-      "title": "System Architecture",
-      "description": "Multi-layer architecture and microservices"
-    }
-  ],
   "stats": [
     {
+      "id": "experience",
       "label": "Years of Experience",
-      "value": "2+",
-      "suffix": ""
+      "value": "2.5",
+      "suffix": "+",
+      "description": "Hands-on experience working with backend systems, full stack development, and cloud deployments.",
+      "icon": "briefcase"
     },
     {
-      "label": "Projects Completed",
-      "value": "10+",
-      "suffix": ""
+      "id": "projects",
+      "label": "Projects Built",
+      "value": "15",
+      "suffix": "+",
+      "description": "Personal, academic, and freelance projects covering backend APIs, full stack apps, and system design.",
+      "icon": "layers"
     },
     {
-      "label": "Technologies",
-      "value": "15+",
-      "suffix": ""
+      "id": "technologies",
+      "label": "Technologies Used",
+      "value": "20",
+      "suffix": "+",
+      "description": "Worked with a wide range of languages, frameworks, databases, and cloud tools.",
+      "icon": "code"
     }
   ],
-  "featured": {
-    "show": true,
-    "section": "projects",
-    "limit": 3
-  }
+  "currentFocus": {
+    "label": "Currently Working On",
+    "items": [
+      {
+        "title": "Backend System Design",
+        "description": "Improving skills in designing scalable, maintainable backend systems with proper layering and architecture.",
+        "icon": "server"
+      },
+      {
+        "title": "Cloud Infrastructure on AWS",
+        "description": "Hands-on work with AWS services such as EC2, RDS, Nginx, and SSL for production-ready deployments.",
+        "icon": "cloud"
+      },
+      {
+        "title": "Performance Optimization",
+        "description": "Optimizing database queries, API response times, and overall system performance.",
+        "icon": "zap"
+      }
+    ]
+  },
+  "techStack": {
+    "title": "Technology Stack Snapshot",
+    "categories": [
+      {
+        "name": "Backend",
+        "items": ["Node.js", "Express", "REST APIs", "JWT Authentication"]
+      },
+      {
+        "name": "Frontend",
+        "items": ["React", "Vite", "Tailwind CSS"]
+      },
+      {
+        "name": "Database",
+        "items": ["SQL Server", "PostgreSQL", "MongoDB"]
+      },
+      {
+        "name": "Cloud & DevOps",
+        "items": ["AWS EC2", "AWS RDS", "Nginx", "Docker"]
+      },
+      {
+        "name": "Tools",
+        "items": ["Git", "GitHub", "Postman", "VS Code"]
+      }
+    ]
+  },
+  "quickLinks": [
+    {
+      "label": "View Projects",
+      "icon": "folder",
+      "url": "/projects"
+    },
+    {
+      "label": "Read Blogs",
+      "icon": "book",
+      "url": "/blog"
+    },
+    {
+      "label": "My Journey",
+      "icon": "map",
+      "url": "/journey"
+    },
+    {
+      "label": "Contact Me",
+      "icon": "mail",
+      "url": "/contact"
+    },
+    {
+      "label": "GitHub Profile",
+      "icon": "github",
+      "url": "https://github.com/kuldeepsinhjhala"
+    }
+  ]
 }
-

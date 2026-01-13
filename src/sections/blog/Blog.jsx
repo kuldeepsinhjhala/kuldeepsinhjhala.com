@@ -196,7 +196,7 @@ function Blog() {
   // Loading state
   if (loading) {
     return (
-      <div className="bg-bg min-h-screen p-4 md:p-8 lg:p-12">
+      <div className="bg-dotted min-h-screen p-4 md:p-8 lg:p-12">
         <div className="flex items-center justify-center min-h-[60vh]">
           <div className="text-center">
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gold mx-auto mb-4"></div>
@@ -210,7 +210,7 @@ function Blog() {
   // No data state
   if (!data) {
     return (
-      <div className="bg-bg min-h-screen p-4 md:p-8 lg:p-12">
+      <div className="bg-dotted min-h-screen p-4 md:p-8 lg:p-12">
         <div className="max-w-7xl mx-auto">
           <div className="text-center py-12">
             <h1 className="text-head text-3xl font-bold mb-4">Blog</h1>
@@ -227,7 +227,7 @@ function Blog() {
   const subtitle = meta.subtitle || ''
 
   return (
-    <div className="bg-bg min-h-screen p-4 md:p-8 lg:p-12">
+    <div className="bg-dotted min-h-screen p-4 md:p-8 lg:p-12">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <header className="mb-8 md:mb-12">
@@ -257,7 +257,12 @@ function Blog() {
             {/* Filters */}
             <div className="lg:col-span-1">
               {(settings.enableCategories || settings.enableTags) && (
-                <div className="bg-card border border-gold/20 rounded-lg p-4 md:p-6">
+                <div 
+                  className="bg-card/90 backdrop-blur-sm border border-gold/20 rounded-lg p-4 md:p-6 shadow-lg"
+                  style={{
+                    boxShadow: '0 10px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(201, 166, 107, 0.05)'
+                  }}
+                >
                   <BlogFilters
                     categories={categories}
                     tags={tags}
@@ -272,13 +277,21 @@ function Blog() {
               )}
 
               {/* Sort Options */}
-              <div className="mt-4 bg-card border border-gold/20 rounded-lg p-4">
+              <div 
+                className="mt-4 bg-card/90 backdrop-blur-sm border border-gold/20 rounded-lg p-4 shadow-lg"
+                style={{
+                  boxShadow: '0 10px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(201, 166, 107, 0.05)'
+                }}
+              >
                 <h3 className="text-head text-sm font-semibold mb-3">Sort By</h3>
                 <div className="space-y-2">
                   <select
                     value={sortBy}
                     onChange={(e) => setSortBy(e.target.value)}
-                    className="w-full px-3 py-2 bg-bg border border-gold/20 rounded text-head text-sm focus:outline-none focus:border-gold"
+                    className="w-full px-3 py-2 bg-card/90 backdrop-blur-sm border border-gold/20 rounded text-head text-sm focus:outline-none focus:border-gold shadow-md"
+                    style={{
+                      boxShadow: '0 2px 10px rgba(0, 0, 0, 0.15), 0 0 5px rgba(201, 166, 107, 0.03)'
+                    }}
                   >
                     <option value="published">Published Date</option>
                     <option value="updated">Updated Date</option>
@@ -287,7 +300,10 @@ function Blog() {
                   <select
                     value={sortOrder}
                     onChange={(e) => setSortOrder(e.target.value)}
-                    className="w-full px-3 py-2 bg-bg border border-gold/20 rounded text-head text-sm focus:outline-none focus:border-gold"
+                    className="w-full px-3 py-2 bg-card/90 backdrop-blur-sm border border-gold/20 rounded text-head text-sm focus:outline-none focus:border-gold shadow-md"
+                    style={{
+                      boxShadow: '0 2px 10px rgba(0, 0, 0, 0.15), 0 0 5px rgba(201, 166, 107, 0.03)'
+                    }}
                   >
                     <option value="desc">Descending</option>
                     <option value="asc">Ascending</option>
@@ -328,7 +344,12 @@ function Blog() {
                   })}
                 </div>
               ) : (
-                <div className="bg-card border border-gold/20 rounded-lg p-12 text-center">
+                <div 
+                  className="bg-card/90 backdrop-blur-sm border border-gold/20 rounded-lg p-12 text-center shadow-lg"
+                  style={{
+                    boxShadow: '0 10px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(201, 166, 107, 0.05)'
+                  }}
+                >
                   <svg
                     className="w-16 h-16 text-body/50 mx-auto mb-4"
                     fill="none"
@@ -355,7 +376,10 @@ function Blog() {
                         setSelectedCategory('')
                         setSelectedTags([])
                       }}
-                      className="mt-4 px-4 py-2 bg-gold/20 text-gold rounded hover:bg-gold/30 transition-colors"
+                      className="mt-4 px-4 py-2 bg-gold/20 backdrop-blur-sm text-gold rounded border border-gold/30 hover:bg-gold/30 transition-colors shadow-md"
+                      style={{
+                        boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2), 0 0 10px rgba(201, 166, 107, 0.05)'
+                      }}
                     >
                       Clear all filters
                     </button>
