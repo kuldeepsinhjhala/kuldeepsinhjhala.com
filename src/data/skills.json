@@ -1,27 +1,27 @@
 {
   "meta": {
     "title": "Skills",
-    "subtitle": "A practical overview of the technical and professional skills I have developed through education, projects, and real-world experience.",
-    "description": "Skills section highlighting technologies, tools, and concepts I have learned and applied while working on academic, personal, and professional software engineering projects."
+    "subtitle": "A practical overview of the technical and professional skills I have developed through real-world software development and cloud deployments.",
+    "description": "Skills section highlighting backend, frontend, database, cloud, and professional capabilities gained through end-to-end software delivery, AWS deployments, and production-grade applications."
   },
   "categories": [
     {
       "id": "backend",
       "name": "Backend Development",
-      "description": "Skills related to server-side development, API design, authentication, and business logic implementation.",
+      "description": "Skills related to server-side development, API design, authentication, authorization, and sustainable backend architecture.",
       "skills": [
         {
           "id": "nodejs",
           "name": "Node.js",
           "type": "technical",
-          "description": "Used Node.js to build scalable backend services, REST APIs, and authentication systems with a focus on clean architecture and maintainability.",
+          "description": "Used Node.js to build scalable, maintainable backend systems including REST APIs, authentication flows, and business logic layers following clean architecture principles.",
           "learnedFrom": [
-            "Self-study through documentation and tutorials",
-            "Hands-on project development"
+            "Self-study through official documentation",
+            "Building real-world backend projects"
           ],
           "usedIn": [
-            "College Management System",
-            "Portfolio and Blog Platform"
+            "Enterprise-style backend systems",
+            "Full stack production applications"
           ],
           "level": "advanced"
         },
@@ -29,14 +29,29 @@
           "id": "expressjs",
           "name": "Express.js",
           "type": "technical",
-          "description": "Applied Express.js for routing, middleware-based authentication, error handling, and building modular backend APIs.",
+          "description": "Applied Express.js for routing, middleware-driven authentication, authorization, error handling, and modular API structure.",
           "learnedFrom": [
             "Online courses and documentation",
-            "Building REST APIs in projects"
+            "Hands-on backend development"
           ],
           "usedIn": [
-            "Backend APIs for academic projects",
-            "Freelance backend services"
+            "Role-based access control systems",
+            "REST API services"
+          ],
+          "level": "advanced"
+        },
+        {
+          "id": "authentication",
+          "name": "Authentication & Authorization",
+          "type": "technical",
+          "description": "Implemented secure authentication and authorization using JWT, cookies, sessions, role-based access control, and feature-based permissions.",
+          "learnedFrom": [
+            "Security-focused backend implementation",
+            "Production authentication flows"
+          ],
+          "usedIn": [
+            "Multi-user systems",
+            "Admin and role-based dashboards"
           ],
           "level": "advanced"
         }
@@ -45,20 +60,35 @@
     {
       "id": "frontend",
       "name": "Frontend Development",
-      "description": "Skills focused on building user interfaces, handling state, and creating responsive web applications.",
+      "description": "Skills focused on frontend engineering, performance optimization, state management, and maintainable UI architecture.",
       "skills": [
         {
           "id": "react",
           "name": "React",
           "type": "technical",
-          "description": "Used React to build component-based user interfaces, manage state, and render dynamic content such as blogs and structured data.",
+          "description": "Built component-driven frontend applications with React, managing state, rendering dynamic content, and integrating backend APIs.",
           "learnedFrom": [
             "Official React documentation",
-            "Building personal projects"
+            "Building full stack applications"
           ],
           "usedIn": [
-            "Portfolio and Blog Platform",
-            "Frontend modules of full stack projects"
+            "Portfolio and blog platforms",
+            "Dashboard-based applications"
+          ],
+          "level": "intermediate"
+        },
+        {
+          "id": "redux",
+          "name": "Redux",
+          "type": "technical",
+          "description": "Used Redux for predictable state management in medium-scale frontend applications requiring shared and persistent state.",
+          "learnedFrom": [
+            "Project-based implementation",
+            "Frontend architecture practice"
+          ],
+          "usedIn": [
+            "Complex frontend modules",
+            "Data-driven dashboards"
           ],
           "level": "intermediate"
         },
@@ -66,14 +96,29 @@
           "id": "tailwindcss",
           "name": "Tailwind CSS",
           "type": "tool",
-          "description": "Used Tailwind CSS to rapidly build responsive and consistent user interfaces with utility-first styling.",
+          "description": "Used Tailwind CSS to rapidly build responsive, consistent, and scalable UI layouts with utility-first styling.",
           "learnedFrom": [
             "Tailwind CSS documentation",
-            "Implementing UI designs in projects"
+            "UI implementation in production projects"
           ],
           "usedIn": [
             "Personal portfolio website",
-            "Frontend layouts for dashboards"
+            "Admin dashboards and internal tools"
+          ],
+          "level": "advanced"
+        },
+        {
+          "id": "frontend-optimization",
+          "name": "Frontend Optimization",
+          "type": "technical",
+          "description": "Optimized frontend performance by reducing re-renders, structuring components efficiently, and improving load times.",
+          "learnedFrom": [
+            "Performance debugging",
+            "Real-world application tuning"
+          ],
+          "usedIn": [
+            "User-facing web applications",
+            "High-traffic frontend pages"
           ],
           "level": "intermediate"
         }
@@ -82,57 +127,72 @@
     {
       "id": "database",
       "name": "Databases",
-      "description": "Skills related to data modeling, querying, and managing structured and semi-structured data.",
+      "description": "Skills related to relational data modeling, querying, performance optimization, and backend data management.",
       "skills": [
         {
           "id": "sql-server",
           "name": "Microsoft SQL Server",
           "type": "technical",
-          "description": "Designed relational schemas, wrote complex queries, and managed transactional data for backend-driven applications.",
+          "description": "Designed relational schemas, wrote optimized queries, used stored procedures, and handled transactional data for backend-heavy applications.",
           "learnedFrom": [
             "Academic coursework",
-            "Backend project implementation"
+            "Production backend implementation"
           ],
           "usedIn": [
-            "College Management System",
-            "Backend APIs with Sequelize"
+            "Enterprise-style backend systems",
+            "Data-driven applications"
           ],
           "level": "advanced"
         },
         {
-          "id": "mongodb",
-          "name": "MongoDB",
+          "id": "orm",
+          "name": "ORM & Raw Queries",
           "type": "technical",
-          "description": "Used MongoDB for document-based data storage and flexible schema design in JavaScript-centric applications.",
+          "description": "Worked with ORMs alongside raw SQL queries to balance productivity, performance, and control over database operations.",
           "learnedFrom": [
-            "Online tutorials",
-            "Practice projects"
+            "Backend project experience",
+            "Database performance tuning"
           ],
           "usedIn": [
-            "MERN stack practice applications",
-            "Prototype backend services"
+            "Complex backend APIs",
+            "Reporting and analytics queries"
           ],
-          "level": "intermediate"
+          "level": "advanced"
         }
       ]
     },
     {
       "id": "cloud-devops",
       "name": "Cloud and DevOps",
-      "description": "Skills focused on deploying, managing, and maintaining applications in cloud environments.",
+      "description": "Skills focused on deploying, scaling, and maintaining applications on cloud infrastructure.",
       "skills": [
         {
           "id": "aws-ec2",
           "name": "AWS EC2",
           "type": "technical",
-          "description": "Used AWS EC2 instances to deploy backend and frontend applications with proper security groups and server configuration.",
+          "description": "Deployed and managed backend and frontend applications on AWS EC2 Linux instances with secure configurations.",
           "learnedFrom": [
             "AWS documentation",
-            "Hands-on deployment experience"
+            "Hands-on production deployments"
           ],
           "usedIn": [
             "Backend API hosting",
-            "Personal portfolio deployment"
+            "Full stack production deployments"
+          ],
+          "level": "advanced"
+        },
+        {
+          "id": "aws-rds",
+          "name": "AWS RDS",
+          "type": "technical",
+          "description": "Used AWS RDS for managed relational databases with proper networking, security groups, and backup strategies.",
+          "learnedFrom": [
+            "Cloud deployment experience",
+            "Production database setups"
+          ],
+          "usedIn": [
+            "Backend production systems",
+            "Scalable data storage"
           ],
           "level": "intermediate"
         },
@@ -140,14 +200,29 @@
           "id": "nginx",
           "name": "Nginx",
           "type": "tool",
-          "description": "Configured Nginx as a reverse proxy to serve frontend applications and route API requests securely.",
+          "description": "Configured Nginx as a reverse proxy for routing traffic, serving frontend builds, and securing API endpoints.",
           "learnedFrom": [
-            "Server setup guides",
-            "Real-world deployment troubleshooting"
+            "Server configuration guides",
+            "Deployment troubleshooting"
           ],
           "usedIn": [
-            "Production backend deployments",
-            "Frontend reverse proxy setup"
+            "Production EC2 deployments",
+            "API and frontend routing"
+          ],
+          "level": "intermediate"
+        },
+        {
+          "id": "redis",
+          "name": "Redis",
+          "type": "technical",
+          "description": "Used Redis for caching frequently accessed data to improve backend performance and reduce database load.",
+          "learnedFrom": [
+            "Performance optimization use cases",
+            "Backend scaling experience"
+          ],
+          "usedIn": [
+            "High-read backend APIs",
+            "Optimized data retrieval"
           ],
           "level": "intermediate"
         }
@@ -156,35 +231,50 @@
     {
       "id": "soft-skills",
       "name": "Professional Skills",
-      "description": "Non-technical skills developed through teamwork, problem solving, and real-world project ownership.",
+      "description": "Non-technical skills developed through end-to-end ownership, communication, and real-world project delivery.",
       "skills": [
         {
-          "id": "problem-solving",
-          "name": "Problem Solving",
+          "id": "communication",
+          "name": "Client Communication",
           "type": "soft",
-          "description": "Ability to analyze problems, break them down logically, and implement effective technical solutions.",
+          "description": "Experience in understanding client requirements, clarifying expectations, and translating business needs into technical solutions.",
           "learnedFrom": [
-            "Academic problem-solving exercises",
-            "Debugging real production issues"
+            "Client-facing projects",
+            "Requirement discussion sessions"
           ],
           "usedIn": [
-            "Backend bug fixing",
-            "System design decisions"
+            "End-to-end software delivery",
+            "Project planning and execution"
           ],
           "level": "advanced"
         },
         {
-          "id": "self-learning",
-          "name": "Self Learning",
+          "id": "problem-solving",
+          "name": "Problem Solving",
           "type": "soft",
-          "description": "Consistently learning new technologies and concepts independently through documentation and practice.",
+          "description": "Strong ability to analyze complex problems, debug issues, and implement efficient technical solutions.",
           "learnedFrom": [
-            "Online documentation",
-            "Building personal projects"
+            "Production issue resolution",
+            "System design challenges"
           ],
           "usedIn": [
-            "Learning new frameworks",
-            "Adapting to new project requirements"
+            "Backend debugging",
+            "Architecture decisions"
+          ],
+          "level": "advanced"
+        },
+        {
+          "id": "ownership",
+          "name": "End-to-End Ownership",
+          "type": "soft",
+          "description": "Ability to take complete ownership of software projects from requirements gathering to deployment and maintenance.",
+          "learnedFrom": [
+            "Full project lifecycle involvement",
+            "Independent project delivery"
+          ],
+          "usedIn": [
+            "Cloud-deployed applications",
+            "Client and internal projects"
           ],
           "level": "advanced"
         }

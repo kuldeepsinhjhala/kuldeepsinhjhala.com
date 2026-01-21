@@ -17,12 +17,10 @@ function HeroSection({ hero = {}, quickLinks = [], meta = {}, className = '' }) 
     '/experience': 'experience.jsx',
     '/education': 'education.jsx',
     '/skills': 'skills.jsx',
-    '/tech': 'tech.jsx',
     '/projects': 'projects.jsx',
     '/resume': 'resume.jsx',
     '/blog': 'blog.jsx',
-    '/contact': 'contact.jsx',
-    '/extra': 'extra.jsx'
+    '/contact': 'contact.jsx'
   }
 
   const handleLinkClick = (url) => {

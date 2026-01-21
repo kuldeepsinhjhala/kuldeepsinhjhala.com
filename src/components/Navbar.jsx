@@ -16,12 +16,10 @@ function Navbar() {
     { path: '/experience', label: 'experience.jsx', mobileLabel: 'Experience' },
     { path: '/education', label: 'education.jsx', mobileLabel: 'Education' },
     { path: '/skills', label: 'skills.jsx', mobileLabel: 'Skills' },
-    { path: '/tech', label: 'tech.jsx', mobileLabel: 'Tech' },
     { path: '/projects', label: 'projects.jsx', mobileLabel: 'Projects' },
     { path: '/resume', label: 'resume.jsx', mobileLabel: 'Resume' },
     { path: '/blog', label: 'blog.jsx', mobileLabel: 'Blog' },
     { path: '/contact', label: 'contact.jsx', mobileLabel: 'Contact' },
-    { path: '/extra', label: 'extra.jsx', mobileLabel: 'Extra' },
   ]
 
   const handleFileClick = (e, item) => {

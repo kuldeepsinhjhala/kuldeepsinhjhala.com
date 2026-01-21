@@ -1,95 +1,147 @@
 {
   "meta": {
     "title": "Kuldeepsinh Jhala | Software Engineer",
-    "subtitle": "Backend-focused full stack engineer building scalable systems and cloud-native applications",
-    "description": "Personal portfolio of Kuldeepsinh Jhala showcasing backend engineering expertise, full stack projects, cloud deployments, and a journey of continuous learning in software engineering.",
+    "subtitle": "End-to-end software engineer building scalable, secure, cloud-native systems",
+    "description": "Personal portfolio of Kuldeepsinh Jhala, a software engineer with 2+ years of experience delivering complete software solutions — from requirements gathering to AWS cloud deployment — with strong backend, frontend, and system design expertise.",
     "language": "en",
-    "lastUpdated": "2026-01-13",
-    "version": "v1"
+    "lastUpdated": "2026-01-21",
+    "version": "v1.1"
   },
+
   "hero": {
     "greeting": "Hi, my name is",
     "name": "Kuldeepsinh Jhala",
     "designation": "Software Engineer",
-    "tagline": "Building scalable backend systems with clean architecture",
-    "subtitle": "Backend-focused full stack developer with a strong foundation in system design and cloud infrastructure.",
-    "description": "I am a software engineer with hands-on experience in building backend-heavy applications, REST APIs, database-driven systems, and deploying them on cloud platforms. I enjoy solving real-world problems through clean code, thoughtful architecture, and continuous learning.",
+    "tagline": "Designing, building, and deploying complete software systems on the cloud",
+    "subtitle": "Backend-driven full stack engineer with strong frontend engineering and AWS deployment experience.",
+    "description": "I am a software engineer with 2 years of hands-on experience delivering complete software solutions end to end — from understanding client requirements and designing system architecture to building secure applications and deploying them on AWS cloud infrastructure. I focus on writing clean, maintainable code, building scalable backend systems, optimizing frontend performance, and delivering production-ready applications.",
     "profile": {
       "image": "/images/profile/kuldeep-profile.png",
       "alt": "Kuldeepsinh Jhala profile photo"
     }
   },
+
   "stats": [
     {
       "id": "experience",
       "label": "Years of Experience",
-      "value": "2.5",
+      "value": "2",
       "suffix": "+",
-      "description": "Hands-on experience working with backend systems, full stack development, and cloud deployments.",
+      "description": "Professional experience building, deploying, and maintaining full stack software systems.",
       "icon": "briefcase"
     },
     {
       "id": "projects",
-      "label": "Projects Built",
-      "value": "15",
+      "label": "End-to-End Deployments",
+      "value": "10",
       "suffix": "+",
-      "description": "Personal, academic, and freelance projects covering backend APIs, full stack apps, and system design.",
+      "description": "Projects delivered from requirements gathering to AWS cloud deployment.",
       "icon": "layers"
     },
     {
-      "id": "technologies",
-      "label": "Technologies Used",
-      "value": "20",
+      "id": "cloud",
+      "label": "Cloud & Infra Projects",
+      "value": "8",
       "suffix": "+",
-      "description": "Worked with a wide range of languages, frameworks, databases, and cloud tools.",
-      "icon": "code"
+      "description": "Production deployments using AWS EC2, RDS, Load Balancers, Redis, and S3.",
+      "icon": "cloud"
     }
   ],
+
   "currentFocus": {
-    "label": "Currently Working On",
+    "label": "Currently Focused On",
     "items": [
       {
-        "title": "Backend System Design",
-        "description": "Improving skills in designing scalable, maintainable backend systems with proper layering and architecture.",
+        "title": "Scalable Backend Architecture",
+        "description": "Designing sustainable backend systems with proper layering, authentication, authorization, and role-based access control.",
         "icon": "server"
       },
       {
-        "title": "Cloud Infrastructure on AWS",
-        "description": "Hands-on work with AWS services such as EC2, RDS, Nginx, and SSL for production-ready deployments.",
+        "title": "AWS Production Deployments",
+        "description": "Deploying and managing applications on AWS using EC2, RDS, Load Balancers, Redis caching, and secure configurations.",
         "icon": "cloud"
       },
       {
-        "title": "Performance Optimization",
-        "description": "Optimizing database queries, API response times, and overall system performance.",
+        "title": "Frontend Performance & Structure",
+        "description": "Optimizing frontend performance, maintaining structured codebases, and implementing validations and security.",
         "icon": "zap"
       }
     ]
   },
+
   "techStack": {
-    "title": "Technology Stack Snapshot",
+    "title": "Technology Stack",
     "categories": [
       {
-        "name": "Backend",
-        "items": ["Node.js", "Express", "REST APIs", "JWT Authentication"]
+        "name": "Frontend",
+        "items": [
+          "React",
+          "Redux",
+          "Tailwind CSS",
+          "CSS",
+          "Frontend Engineering",
+          "Performance Optimization",
+          "Client-side State Management",
+          "Frontend Validations & Security"
+        ]
       },
       {
-        "name": "Frontend",
-        "items": ["React", "Vite", "Tailwind CSS"]
+        "name": "Backend",
+        "items": [
+          "Node.js",
+          "Express.js",
+          "REST APIs",
+          "JWT Authentication",
+          "Cookies & Sessions",
+          "Role-Based Access Control",
+          "Feature-Based Authorization"
+        ]
       },
       {
         "name": "Database",
-        "items": ["SQL Server", "PostgreSQL", "MongoDB"]
+        "items": [
+          "Microsoft SQL Server",
+          "Relational Database Design",
+          "ORMs",
+          "Stored Procedures",
+          "Raw SQL Queries",
+          "Query Optimization"
+        ]
       },
       {
         "name": "Cloud & DevOps",
-        "items": ["AWS EC2", "AWS RDS", "Nginx", "Docker"]
+        "items": [
+          "AWS EC2",
+          "AWS RDS",
+          "AWS Load Balancer",
+          "AWS S3",
+          "Redis Cache",
+          "Nginx",
+          "Linux Server Management",
+          "Docker (Basics)"
+        ]
+      },
+      {
+        "name": "Hosting & Deployment",
+        "items": [
+          "AWS Linux EC2 Deployment",
+          "Google Firebase Hosting",
+          "Production Environment Setup",
+          "SSL & Secure Configurations"
+        ]
       },
       {
         "name": "Tools",
-        "items": ["Git", "GitHub", "Postman", "VS Code"]
+        "items": [
+          "Git",
+          "GitHub",
+          "Postman",
+          "VS Code"
+        ]
       }
     ]
   },
+
   "quickLinks": [
     {
       "label": "View Projects",

@@ -6,11 +6,11 @@
   },
   "contact": {
     "email": {
-      "primary": "kuldeepsinhjhala@gmail.com"
+      "primary": "kuldeephjhala@gmail.com"
     },
     "phone": {
-      "primary": "+91-9000000000",
-      "whatsapp": "https://wa.me/919000000000"
+      "primary": "+91-9726413743",
+      "whatsapp": "https://wa.me/919726413743"
     },
     "location": {
       "city": "Vadodara",
@@ -21,7 +21,7 @@
   "social": {
     "linkedin": {
       "username": "kuldeepsinhjhala",
-      "url": "https://www.linkedin.com/in/kuldeepsinhjhala",
+      "url": "https://www.linkedin.com/in/kuldeepsinhjhala/",
       "label": "LinkedIn",
       "icon": "linkedin"
     },
@@ -33,19 +33,19 @@
     },
     "twitter": {
       "username": "kuldeepsinhjhala",
-      "url": "https://twitter.com/kuldeepsinhjhala",
-      "label": "Twitter",
+      "url": "https://x.com/kuldepsinhjhala",
+      "label": "X",
       "icon": "twitter"
     },
     "instagram": {
-      "username": "kuldeepsinhjhala",
-      "url": "https://www.instagram.com/kuldeepsinhjhala",
+      "username": "kuldeepsinhjhala2",
+      "url": "https://www.instagram.com/kuldeepsinhjhala2",
       "label": "Instagram",
       "icon": "instagram"
     },
     "medium": {
-      "username": "kuldeep-sinh-jhala",
-      "url": "https://medium.com/@kuldeep-sinh-jhala",
+      "username": "kuldeepsinhjhala",
+      "url": "https://medium.com/@kuldeepsinhjhala",
       "label": "Medium",
       "icon": "medium"
     }

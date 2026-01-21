@@ -27,12 +27,10 @@ function SearchBar() {
     '/experience': 'experience.jsx',
     '/education': 'education.jsx',
     '/skills': 'skills.jsx',
-    '/tech': 'tech.jsx',
     '/projects': 'projects.jsx',
     '/resume': 'resume.jsx',
     '/blog': 'blog.jsx',
-    '/contact': 'contact.jsx',
-    '/extra': 'extra.jsx'
+    '/contact': 'contact.jsx'
   }
 
   // Content index for all pages - searchable content across the entire website
@@ -57,10 +55,6 @@ function SearchBar() {
       keywords: ['skills', 'abilities', 'competencies', 'expertise', 'proficiency', 'talents', 'capabilities'],
       content: 'Skills and technical competencies'
     },
-    '/tech': {
-      keywords: ['tech', 'technology', 'technologies', 'tools', 'stack', 'frameworks', 'languages', 'software', 'programming'],
-      content: 'Technologies and tech stack'
-    },
     '/projects': {
       keywords: ['projects', 'portfolio', 'work', 'applications', 'apps', 'development', 'build', 'created', 'developed'],
       content: 'Projects and portfolio work'
@@ -76,10 +70,6 @@ function SearchBar() {
     '/contact': {
       keywords: ['contact', 'reach', 'email', 'message', 'connect', 'get in touch', 'communication', 'social'],
       content: 'Contact information and ways to reach out'
-    },
-    '/extra': {
-      keywords: ['extra', 'additional', 'more', 'other', 'miscellaneous', 'bonus'],
-      content: 'Extra content and additional information'
     }
   }
 

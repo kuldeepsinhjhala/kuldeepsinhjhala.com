@@ -12,12 +12,10 @@ import Journey from '../sections/journey/Journey'
 import Experience from '../sections/experience/Experience'
 import Education from '../sections/education/Education'
 import Skills from '../sections/skills/Skills'
-import Tech from '../sections/tech/Tech'
 import Projects from '../sections/projects/Projects'
 import Resume from '../sections/resume/Resume'
 import Blog from '../sections/blog/Blog'
 import Contact from '../sections/contact/Contact'
-import Extra from '../sections/extra/Extra'
 
 function AppContent() {
   const { isOpen } = useCopilot()
@@ -42,12 +40,10 @@ function AppContent() {
               <Route path="/experience" element={<Experience />} />
               <Route path="/education" element={<Education />} />
               <Route path="/skills" element={<Skills />} />
-              <Route path="/tech" element={<Tech />} />
               <Route path="/projects" element={<Projects />} />
               <Route path="/resume" element={<Resume />} />
               <Route path="/blog" element={<Blog />} />
               <Route path="/contact" element={<Contact />} />
-              <Route path="/extra" element={<Extra />} />
             </Routes>
           </main>
         </div>
