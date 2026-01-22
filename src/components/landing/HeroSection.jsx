@@ -20,6 +20,7 @@ function HeroSection({ hero = {}, quickLinks = [], meta = {}, className = '' }) 
     '/projects': 'projects.jsx',
     '/resume': 'resume.jsx',
     '/blog': 'blog.jsx',
+    '/achievements': 'achievements.jsx',
     '/contact': 'contact.jsx'
   }
 
@@ -147,7 +148,7 @@ function HeroSection({ hero = {}, quickLinks = [], meta = {}, className = '' }) 
                     bg-card/90 backdrop-blur-sm border border-gold/20 rounded
                     text-head text-sm font-medium
                     hover:border-gold hover:bg-gold/10 hover:ring-1 hover:ring-gold/50
-                    transition-all duration-200 shadow-lg
+                    transition-all duration-200 shadow-lg cursor-pointer
                     flex items-center gap-2
                   "
                   style={{

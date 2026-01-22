@@ -49,24 +49,18 @@ function TabBar() {
               onClick={() => switchTab(tab.id)}
               className={`group flex items-center gap-2 px-4 py-2.5 border-r border-gold/10 cursor-pointer transition-all relative flex-shrink-0 ${
                 tab.isActive
-                  ? 'bg-gold/10 text-gold border-l-4 border-l-gold shadow-lg shadow-gold/20'
-                  : 'bg-card/60 text-body/70 hover:bg-card/80 hover:text-body'
+                  ? 'text-head shadow-xl'
+                  : 'bg-card/60 text-body/70 hover:bg-card/80 hover:text-gold hover:border-l-2 hover:border-l-gold/50'
               }`}
+              style={tab.isActive ? { backgroundColor: '#112240', opacity: 1 } : {}}
             >
-              {tab.isActive && (
-                <>
-                  <div className="absolute bottom-0 left-0 right-0 h-1.5 bg-gold"></div>
-                  <div className="absolute top-0 left-0 bottom-0 w-1 bg-gold"></div>
-                  <div className="absolute inset-0 bg-gold/10 pointer-events-none"></div>
-                </>
-              )}
               <span className={`font-mono text-xs whitespace-nowrap relative z-10 ${
-                tab.isActive ? 'font-bold text-gold drop-shadow-sm' : 'font-normal'
+                tab.isActive ? 'font-bold text-head' : 'font-normal'
               }`}>{tab.label}</span>
               <button
                 onClick={(e) => closeTab(tab.id, e)}
-                className={`relative z-10 opacity-100 transition-opacity p-1 rounded hover:bg-gold/30 flex-shrink-0 ${
-                  tab.isActive ? 'text-gold hover:text-gold' : ''
+                className={`relative z-10 opacity-100 transition-all p-1 rounded hover:bg-card/80 hover:scale-110 flex-shrink-0 cursor-pointer ${
+                  tab.isActive ? 'text-head hover:text-head' : 'text-body hover:text-gold'
                 }`}
                 aria-label={`Close ${tab.label}`}
               >

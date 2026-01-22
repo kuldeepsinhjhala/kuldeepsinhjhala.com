@@ -197,3 +197,53 @@ body {
 .journey-terminal-scroll::-webkit-scrollbar-thumb:hover {
   background-color: rgba(201, 166, 107, 0.5);
 }
+
+/* Global clickable element styles */
+a, button, [role="button"], [onclick], .clickable {
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Links - default hover state */
+a:not(button):hover {
+  color: var(--c-gold);
+  text-decoration: underline;
+}
+
+/* Buttons - enhanced hover states */
+button:not(:disabled):hover:not(.nav-item-button) {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(201, 166, 107, 0.2);
+}
+
+/* Navbar buttons - simple border only, no glow */
+.nav-item-button:hover {
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+button:not(:disabled):active {
+  transform: translateY(0);
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* Clickable cards and containers */
+[onclick]:hover, .clickable:hover {
+  border-color: var(--c-gold) !important;
+  box-shadow: 0 4px 20px rgba(201, 166, 107, 0.15) !important;
+}
+
+/* Interactive elements with gold theme hover */
+.hover-gold:hover {
+  color: var(--c-gold);
+  border-color: var(--c-gold);
+}
+
+.hover-gold-bg:hover {
+  background-color: rgba(201, 166, 107, 0.1);
+  border-color: var(--c-gold);
+}

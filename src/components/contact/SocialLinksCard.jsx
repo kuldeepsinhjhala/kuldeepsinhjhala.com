@@ -53,7 +53,7 @@ function SocialLinksCard({ social = {} }) {
             href={value.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex flex-col items-center gap-3 p-4 bg-card/80 backdrop-blur-sm border border-gold/10 rounded-lg hover:border-gold hover:bg-gold/10 transition-all duration-200 group"
+            className="flex flex-col items-center gap-3 p-4 bg-card/80 backdrop-blur-sm border border-gold/10 rounded-lg hover:border-gold hover:bg-gold/10 hover:ring-1 hover:ring-gold/50 transition-all duration-200 group cursor-pointer"
           >
             <div className="text-gold group-hover:scale-110 transition-transform">
               {getIcon(value.icon || key)}

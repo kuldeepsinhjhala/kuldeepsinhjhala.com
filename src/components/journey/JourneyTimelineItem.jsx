@@ -85,8 +85,8 @@ function JourneyTimelineItem({ item = {}, index = 0 }) {
     >
       {/* Featured Badge */}
       {isFeatured && (
-        <div className="absolute top-4 right-4">
-          <span className="px-2 py-1 bg-gold/20 backdrop-blur-sm text-gold text-xs font-medium rounded border border-gold/30 shadow-sm">
+        <div className="absolute top-2 right-2 sm:top-3 sm:right-3 md:top-4 md:right-4 z-10">
+          <span className="px-2 py-1 bg-gold/20 backdrop-blur-sm text-gold text-xs font-medium rounded border border-gold/30 shadow-sm whitespace-nowrap">
             Featured
           </span>
         </div>
@@ -148,7 +148,7 @@ function JourneyTimelineItem({ item = {}, index = 0 }) {
                   href={item.organization.website}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gold hover:text-gold/80 transition-colors"
+                  className="text-gold hover:text-gold/80 hover:scale-110 transition-all cursor-pointer"
                 >
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
@@ -234,7 +234,7 @@ function JourneyTimelineItem({ item = {}, index = 0 }) {
                 href={link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-3 py-1.5 bg-card/80 backdrop-blur-sm text-body text-xs rounded border border-gold/10 hover:border-gold/30 hover:text-head transition-colors shadow-sm"
+                className="px-3 py-1.5 bg-card/80 backdrop-blur-sm text-body text-xs rounded border border-gold/10 hover:border-gold/30 hover:text-gold hover:ring-1 hover:ring-gold/30 transition-all shadow-sm cursor-pointer"
                 style={{
                   boxShadow: '0 2px 8px rgba(0, 0, 0, 0.15), 0 0 5px rgba(201, 166, 107, 0.03)'
                 }}

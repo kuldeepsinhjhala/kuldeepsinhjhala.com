@@ -118,7 +118,7 @@ function CertificationCard({ certification = {} }) {
             href={certification.url || certification.verificationUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gold hover:text-gold/80 text-sm font-medium transition-colors inline-flex items-center gap-1"
+            className="text-gold hover:text-gold/80 hover:underline text-sm font-medium transition-colors inline-flex items-center gap-1 cursor-pointer"
           >
             View Certificate
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -95,7 +95,7 @@ function DegreeCard({ degree = {}, index = 0 }) {
                     href={degree.institution.website}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-head text-lg font-medium hover:text-gold transition-colors inline-flex items-center gap-2"
+                    className="text-head text-lg font-medium hover:text-gold hover:underline transition-colors inline-flex items-center gap-2 cursor-pointer"
                   >
                     {degree.institution.name}
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

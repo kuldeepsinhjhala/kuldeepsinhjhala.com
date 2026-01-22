@@ -99,7 +99,7 @@ function ExperienceCard({ experience = {}, index = 0 }) {
                       href={experience.company.website}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-gold text-xl md:text-2xl font-semibold hover:text-gold/80 transition-colors"
+                      className="text-gold text-xl md:text-2xl font-semibold hover:text-gold/80 hover:underline transition-colors cursor-pointer"
                     >
                       {experience.company.name}
                     </a>
@@ -312,7 +312,7 @@ function ExperienceCard({ experience = {}, index = 0 }) {
                     href={experience.feedback.sourceUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-gold hover:text-gold/80 ml-1"
+                    className="text-gold hover:text-gold/80 hover:underline ml-1 cursor-pointer"
                   >
                     (View)
                   </a>

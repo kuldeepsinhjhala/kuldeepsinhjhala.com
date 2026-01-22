@@ -67,8 +67,8 @@ function BlogFilters({
                   className={`
                     px-4 py-2 rounded transition-all duration-200 text-sm font-medium backdrop-blur-sm
                     ${isActive
-                      ? 'bg-gold text-bg border border-gold shadow-lg'
-                      : 'bg-card/90 backdrop-blur-sm text-body border border-gold/20 hover:border-gold hover:text-head shadow-md'
+                      ? 'bg-gold text-bg border border-gold shadow-lg cursor-default'
+                      : 'bg-card/90 backdrop-blur-sm text-body border border-gold/20 hover:border-gold hover:text-head hover:ring-1 hover:ring-gold/50 shadow-md cursor-pointer'
                     }
                   `}
                   style={!isActive ? {
@@ -98,8 +98,8 @@ function BlogFilters({
                   className={`
                     px-3 py-1.5 rounded transition-all duration-200 text-xs font-medium backdrop-blur-sm
                     ${isSelected
-                      ? 'bg-gold/20 text-gold border border-gold shadow-md'
-                      : 'bg-card/90 backdrop-blur-sm text-body border border-gold/10 hover:border-gold/30 hover:text-head shadow-sm'
+                      ? 'bg-gold/20 text-gold border border-gold shadow-md cursor-default'
+                      : 'bg-card/90 backdrop-blur-sm text-body border border-gold/10 hover:border-gold/30 hover:text-head hover:ring-1 hover:ring-gold/30 shadow-sm cursor-pointer'
                     }
                   `}
                   style={!isSelected ? {
@@ -133,7 +133,7 @@ function BlogFilters({
               if (onCategoryChange) onCategoryChange('')
               if (onTagChange) onTagChange([])
             }}
-            className="text-body hover:text-head text-xs underline"
+            className="text-body hover:text-gold hover:underline text-xs cursor-pointer transition-colors"
           >
             Clear all
           </button>

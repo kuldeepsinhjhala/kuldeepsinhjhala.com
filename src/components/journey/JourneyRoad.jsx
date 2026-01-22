@@ -131,7 +131,7 @@ function JourneyRoad({ timeline = [], className = '' }) {
                 <div className="w-full max-w-[90%] md:w-[500px] lg:w-[600px] mx-auto px-4 md:px-0 mb-4 md:mb-0">
                   <div
                     className={`
-                      bg-card/90 backdrop-blur-sm border rounded-lg p-4 md:p-5 lg:p-6
+                      relative bg-card/90 backdrop-blur-sm border rounded-lg p-4 md:p-5 lg:p-6
                       transition-all duration-300 shadow-lg
                       ${isFeatured ? 'border-gold ring-2 ring-gold/30' : 'border-gold/20'}
                       hover:border-gold hover:ring-1 hover:ring-gold/50
@@ -144,8 +144,8 @@ function JourneyRoad({ timeline = [], className = '' }) {
                   >
                     {/* Featured Badge */}
                     {isFeatured && (
-                      <div className="absolute -top-3 right-4">
-                        <span className="px-2 py-1 bg-gold/20 backdrop-blur-sm text-gold text-xs font-medium rounded border border-gold/30 shadow-sm">
+                      <div className="absolute top-2 right-2 sm:top-3 sm:right-3 md:top-4 md:right-4 z-10">
+                        <span className="px-2 py-1 bg-gold/20 backdrop-blur-sm text-gold text-xs font-medium rounded border border-gold/30 shadow-sm whitespace-nowrap">
                           Featured
                         </span>
                       </div>
@@ -249,7 +249,10 @@ function JourneyRoad({ timeline = [], className = '' }) {
                     {/* Close Button */}
                     <button
                       onClick={() => toggleExpand(item.id || index)}
-                      className="absolute top-4 right-4 z-10 text-gold hover:text-gold/80 transition-colors bg-card/80 backdrop-blur-sm rounded-full p-1 border border-gold/20 hover:border-gold"
+                      className="absolute top-4 right-4 z-20 text-gold hover:text-gold/80 transition-colors rounded-full p-1 border border-gold/20 hover:border-gold shadow-lg"
+                      style={{
+                        backgroundColor: 'var(--c-card)'
+                      }}
                       aria-label="Close"
                     >
                       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

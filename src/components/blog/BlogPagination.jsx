@@ -68,7 +68,7 @@ function BlogPagination({
           px-4 py-2 rounded border transition-all duration-200 backdrop-blur-sm shadow-md
           ${currentPage === 1
             ? 'bg-card/70 backdrop-blur-sm border-gold/10 text-body/50 cursor-not-allowed'
-            : 'bg-card/90 backdrop-blur-sm border-gold/20 text-head hover:border-gold hover:bg-gold/10'
+            : 'bg-card/90 backdrop-blur-sm border-gold/20 text-head hover:border-gold hover:bg-gold/10 hover:ring-1 hover:ring-gold/50 cursor-pointer'
           }
         `}
         style={currentPage !== 1 ? {
@@ -114,8 +114,8 @@ function BlogPagination({
               className={`
                 min-w-[40px] px-3 py-2 rounded border transition-all duration-200 text-sm font-medium backdrop-blur-sm shadow-md
                 ${isActive
-                  ? 'bg-gold text-bg border-gold shadow-lg'
-                  : 'bg-card/90 backdrop-blur-sm border-gold/20 text-head hover:border-gold hover:bg-gold/10'
+                  ? 'bg-gold text-bg border-gold shadow-lg cursor-default'
+                  : 'bg-card/90 backdrop-blur-sm border-gold/20 text-head hover:border-gold hover:bg-gold/10 hover:ring-1 hover:ring-gold/50 cursor-pointer'
                 }
               `}
               style={!isActive ? {
@@ -138,7 +138,7 @@ function BlogPagination({
           px-4 py-2 rounded border transition-all duration-200 backdrop-blur-sm shadow-md
           ${currentPage === totalPages
             ? 'bg-card/70 backdrop-blur-sm border-gold/10 text-body/50 cursor-not-allowed'
-            : 'bg-card/90 backdrop-blur-sm border-gold/20 text-head hover:border-gold hover:bg-gold/10'
+            : 'bg-card/90 backdrop-blur-sm border-gold/20 text-head hover:border-gold hover:bg-gold/10 hover:ring-1 hover:ring-gold/50 cursor-pointer'
           }
         `}
         style={currentPage !== totalPages ? {

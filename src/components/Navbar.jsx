@@ -19,11 +19,21 @@ function Navbar() {
     { path: '/projects', label: 'projects.jsx', mobileLabel: 'Projects' },
     { path: '/resume', label: 'resume.jsx', mobileLabel: 'Resume' },
     { path: '/blog', label: 'blog.jsx', mobileLabel: 'Blog' },
+    { path: '/achievements', label: 'achievements.jsx', mobileLabel: 'Achievements' },
     { path: '/contact', label: 'contact.jsx', mobileLabel: 'Contact' },
   ]
 
   const handleFileClick = (e, item) => {
     e.preventDefault()
+    // Reset all navbar button backgrounds (except the one being clicked) before opening new tab
+    const buttons = document.querySelectorAll('.nav-item-button')
+    buttons.forEach(button => {
+      const buttonPath = button.getAttribute('data-path')
+      // Don't reset the button that's being clicked (it will become active)
+      if (buttonPath !== item.path) {
+        button.style.backgroundColor = ''
+      }
+    })
     openTab(item.path, item.label)
   }
 
@@ -42,6 +52,24 @@ function Navbar() {
   useEffect(() => {
     setIsNavbarOpen(false)
   }, [location.pathname, setIsNavbarOpen])
+
+  // Reset all navbar button backgrounds when route changes
+  useEffect(() => {
+    const buttons = document.querySelectorAll('.nav-item-button')
+    buttons.forEach(button => {
+      // Get the path from the button's data attribute or check if it's active
+      const buttonPath = button.getAttribute('data-path')
+      const isActive = buttonPath && (
+        (buttonPath === '/' && location.pathname === '/') ||
+        (buttonPath !== '/' && location.pathname === buttonPath)
+      )
+      
+      // Only reset if it's not the active button
+      if (!isActive) {
+        button.style.backgroundColor = ''
+      }
+    })
+  }, [location.pathname])
 
   // Update CSS variable with navbar width
   useEffect(() => {
@@ -100,12 +128,23 @@ function Navbar() {
                 return (
                   <button
                     key={item.path}
+                    data-path={item.path}
                     onClick={(e) => handleFileClick(e, item)}
-                    className={`w-full flex items-center px-2 py-1.5 text-sm rounded transition-all group text-left ${
+                    className={`nav-item-button w-full flex items-center px-2 py-1.5 text-sm transition-all group text-left cursor-pointer ${
                       isActive(item.path)
                         ? 'bg-gold/20 text-gold'
-                        : 'text-body hover:text-head hover:bg-card/50'
+                        : 'text-body'
                     }`}
+                    onMouseEnter={(e) => {
+                      if (!isActive(item.path)) {
+                        e.currentTarget.style.backgroundColor = '#112240'
+                      }
+                    }}
+                    onMouseLeave={(e) => {
+                      if (!isActive(item.path)) {
+                        e.currentTarget.style.backgroundColor = ''
+                      }
+                    }}
                   >
                     <span className={`mr-2 ${isActive(item.path) ? 'text-gold' : 'text-body group-hover:text-head'}`}>
                       <FileIcon />
@@ -261,15 +300,26 @@ function Navbar() {
                 return (
                   <button
                     key={item.path}
+                    data-path={item.path}
                     onClick={(e) => {
                       handleFileClick(e, item)
                       setIsNavbarOpen(false)
                     }}
-                    className={`w-full flex items-center px-2 py-1.5 text-sm rounded transition-all group text-left ${
+                    className={`nav-item-button w-full flex items-center px-2 py-1.5 text-sm transition-all group text-left cursor-pointer ${
                       isActive(item.path)
                         ? 'bg-gold/20 text-gold'
-                        : 'text-body hover:text-head hover:bg-card/50'
+                        : 'text-body'
                     }`}
+                    onMouseEnter={(e) => {
+                      if (!isActive(item.path)) {
+                        e.currentTarget.style.backgroundColor = '#112240'
+                      }
+                    }}
+                    onMouseLeave={(e) => {
+                      if (!isActive(item.path)) {
+                        e.currentTarget.style.backgroundColor = ''
+                      }
+                    }}
                   >
                     <span className={`mr-2 ${isActive(item.path) ? 'text-gold' : 'text-body group-hover:text-head'}`}>
                       <FileIcon />

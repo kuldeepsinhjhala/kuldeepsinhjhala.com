@@ -56,7 +56,7 @@ function PreferredContactCard({ method = {}, contact = {}, social = {} }) {
 
   return (
     <div
-      className="bg-card/90 backdrop-blur-sm border border-gold/20 rounded-lg p-6 md:p-8 shadow-lg h-full flex flex-col items-center text-center hover:border-gold hover:ring-1 hover:ring-gold/50 transition-all duration-200"
+      className="bg-card/90 backdrop-blur-sm border border-gold/20 rounded-lg p-6 md:p-8 shadow-lg h-full flex flex-col items-center text-center hover:border-gold hover:ring-1 hover:ring-gold/50 hover:shadow-xl transition-all duration-200"
       style={{
         boxShadow: '0 10px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(201, 166, 107, 0.05)'
       }}
@@ -80,7 +80,7 @@ function PreferredContactCard({ method = {}, contact = {}, social = {} }) {
           href={link}
           target={method.method === 'email' ? undefined : '_blank'}
           rel={method.method === 'email' ? undefined : 'noopener noreferrer'}
-          className="mt-auto w-full px-4 py-2 bg-gold/20 hover:bg-gold/30 text-gold rounded border border-gold/30 transition-colors inline-flex items-center justify-center gap-2"
+          className="mt-auto w-full px-4 py-2 bg-gold/20 hover:bg-gold/30 text-gold rounded border border-gold/30 hover:border-gold hover:ring-1 hover:ring-gold/50 transition-all duration-200 inline-flex items-center justify-center gap-2 cursor-pointer"
         >
           <span>{text}</span>
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

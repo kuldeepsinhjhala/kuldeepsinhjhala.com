@@ -16,6 +16,7 @@ import Projects from '../sections/projects/Projects'
 import Resume from '../sections/resume/Resume'
 import Blog from '../sections/blog/Blog'
 import Contact from '../sections/contact/Contact'
+import Achievements from '../sections/achievement/Achievements'
 
 function AppContent() {
   const { isOpen } = useCopilot()
@@ -44,6 +45,7 @@ function AppContent() {
               <Route path="/resume" element={<Resume />} />
               <Route path="/blog" element={<Blog />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/achievements" element={<Achievements />} />
             </Routes>
           </main>
         </div>

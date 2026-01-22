@@ -6,6 +6,7 @@ function Resume() {
   const [contact, setContact] = useState(null)
   const [zoom, setZoom] = useState(100)
   const [copied, setCopied] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
 
   // Load contact data for contact section
   useEffect(() => {
@@ -53,30 +54,39 @@ function Resume() {
     setZoom(100)
   }
 
+  const handleIframeLoad = () => {
+    setIsLoading(false)
+  }
+
+  // Standard A4 aspect ratio (8.27" x 11.69") ≈ 0.707
+  // US Letter aspect ratio (8.5" x 11") ≈ 0.7727
+  // Using A4 as it's more common for resumes
+  const pdfAspectRatio = 0.707 // A4 aspect ratio
+
   return (
-    <div className="bg-dotted min-h-screen p-4 md:p-8 lg:p-12">
+    <div className="bg-dotted min-h-screen p-3 sm:p-4 md:p-6 lg:p-8 xl:p-12">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <header className="mb-8 md:mb-12 text-center">
-          <h1 className="text-head text-4xl md:text-5xl font-bold mb-2">
+        <header className="mb-6 sm:mb-8 md:mb-10 lg:mb-12 text-center">
+          <h1 className="text-head text-3xl sm:text-4xl md:text-5xl font-bold mb-2">
             Resume
           </h1>
-          <p className="text-body text-lg md:text-xl">
+          <p className="text-body text-base sm:text-lg md:text-xl">
             Download or view my resume below
           </p>
         </header>
 
         {/* Resume Section */}
-        <section className="mb-16 md:mb-24">
+        <section className="mb-12 sm:mb-16 md:mb-20 lg:mb-24">
           <div
-            className="bg-card/90 backdrop-blur-sm border border-gold/20 rounded-lg p-4 md:p-6 lg:p-8 shadow-lg"
+            className="bg-card/90 backdrop-blur-sm border border-gold/20 rounded-lg p-3 sm:p-4 md:p-6 lg:p-8 shadow-lg"
             style={{
               boxShadow: '0 10px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(201, 166, 107, 0.05)'
             }}
           >
             {/* Header with Actions */}
-            <div className="mb-4 md:mb-6">
-              <h2 className="text-head text-xl md:text-2xl lg:text-3xl font-bold mb-4 md:mb-6 text-center md:text-left">
+            <div className="mb-4 sm:mb-5 md:mb-6">
+              <h2 className="text-head text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold mb-3 sm:mb-4 md:mb-6 text-center sm:text-left">
                 My Resume
               </h2>
               
@@ -124,7 +134,7 @@ function Resume() {
               </div>
 
               {/* Zoom Controls */}
-              <div className="mt-4 flex items-center justify-center gap-3">
+              <div className="mt-4 flex flex-col sm:flex-row items-center justify-center gap-3">
                 <span className="text-body text-xs md:text-sm">Zoom:</span>
                 <div className="flex items-center gap-2 bg-card/80 backdrop-blur-sm border border-gold/20 rounded-lg p-1">
                   <button
@@ -133,7 +143,7 @@ function Resume() {
                     className="px-2 py-1 text-gold hover:text-gold/80 disabled:text-body/30 disabled:cursor-not-allowed transition-colors"
                     aria-label="Zoom out"
                   >
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 12H4" />
                     </svg>
                   </button>
@@ -146,13 +156,13 @@ function Resume() {
                     className="px-2 py-1 text-gold hover:text-gold/80 disabled:text-body/30 disabled:cursor-not-allowed transition-colors"
                     aria-label="Zoom in"
                   >
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
                     </svg>
                   </button>
                   <button
                     onClick={handleZoomReset}
-                    className="px-2 py-1 text-gold hover:text-gold/80 transition-colors text-xs"
+                    className="px-2 py-1 text-gold hover:text-gold/80 transition-colors text-xs md:text-sm"
                     aria-label="Reset zoom"
                     title="Reset to 100%"
                   >
@@ -164,40 +174,55 @@ function Resume() {
 
             {/* Resume Viewer */}
             <div className="relative w-full bg-card/50 rounded-lg border border-gold/20 overflow-hidden">
+              {/* Loader */}
+              {isLoading && (
+                <div className="absolute inset-0 flex items-center justify-center bg-card/80 backdrop-blur-sm z-10">
+                  <div className="text-center">
+                    <div className="w-12 h-12 md:w-16 md:h-16 border-4 border-gold border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+                    <p className="text-body text-sm md:text-base">Loading resume...</p>
+                  </div>
+                </div>
+              )}
+
               <div 
                 className="w-full overflow-auto"
                 style={{
-                  height: 'calc(100vh - 400px)',
-                  minHeight: '400px',
-                  maxHeight: '900px'
+                  height: 'calc(100vh - 350px)',
+                  minHeight: '500px',
+                  maxHeight: '1000px'
                 }}
               >
-                <div
-                  style={{
-                    transform: `scale(${zoom / 100})`,
-                    transformOrigin: 'top left',
-                    width: `${100 / (zoom / 100)}%`,
-                    height: `${100 / (zoom / 100)}%`
-                  }}
-                >
-                  <iframe
-                    src={resumeViewUrl}
-                    className="w-full h-full rounded-lg border-0"
+                <div className="flex justify-center p-2 md:p-4">
+                  <div
+                    className="relative"
                     style={{
-                      minHeight: '600px',
-                      height: '100%'
+                      transform: `scale(${zoom / 100})`,
+                      transformOrigin: 'top center',
+                      width: 'min(100%, 210mm)',
+                      aspectRatio: pdfAspectRatio,
+                      maxWidth: '100%'
                     }}
-                    title="Resume Preview"
-                    allow="autoplay"
-                    loading="lazy"
-                  />
+                  >
+                    <iframe
+                      src={resumeViewUrl}
+                      className="w-full h-full rounded-lg border-0"
+                      style={{
+                        minHeight: '100%',
+                        height: '100%'
+                      }}
+                      title="Resume Preview"
+                      allow="autoplay"
+                      loading="lazy"
+                      onLoad={handleIframeLoad}
+                    />
+                  </div>
                 </div>
               </div>
             </div>
 
             {/* Alternative: If iframe doesn't work well, show a message */}
-            <div className="mt-4 text-center space-y-2">
-              <p className="text-body text-xs md:text-sm">
+            <div className="mt-3 sm:mt-4 text-center space-y-2">
+              <p className="text-body text-xs sm:text-sm md:text-base">
                 Having trouble viewing?{' '}
                 <a
                   href={resumeDirectUrl}
@@ -214,11 +239,11 @@ function Resume() {
 
         {/* Contact Details Section */}
         {contact && Object.keys(contact).length > 0 && (
-          <section className="mb-16 md:mb-24">
-            <h2 className="text-head text-2xl md:text-3xl font-bold mb-8 md:mb-12 text-center">
+          <section className="mb-12 sm:mb-16 md:mb-20 lg:mb-24">
+            <h2 className="text-head text-xl sm:text-2xl md:text-3xl font-bold mb-6 sm:mb-8 md:mb-10 lg:mb-12 text-center">
               Contact Information
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
               <ContactInfoCard contact={contact} />
             </div>
           </section>
