@@ -1,11 +1,19 @@
+import { useState } from 'react'
 import ProjectCard from '../experience/ProjectCard'
 import CertificationCard from './CertificationCard'
+import msuLogo from '../../assets/Msu_logo.png'
+import bhsLogo from '../../assets/bhs_logo.jpeg'
+import gtuLogo from '../../assets/Gtu_logo.png'
 
 /**
  * DegreeCard - Displays a single academic degree entry
  */
 function DegreeCard({ degree = {}, index = 0 }) {
   if (!degree || Object.keys(degree).length === 0) return null
+
+  // State for managing marksheet visibility and modal
+  const [showMarksheets, setShowMarksheets] = useState(false)
+  const [selectedMarksheet, setSelectedMarksheet] = useState(null)
 
   const formatDate = (dateString) => {
     if (!dateString) return ''
@@ -90,23 +98,64 @@ function DegreeCard({ degree = {}, index = 0 }) {
             {/* Institution */}
             {degree.institution?.name && (
               <div className="mb-3">
-                {degree.institution.website ? (
-                  <a
-                    href={degree.institution.website}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-head text-lg font-medium hover:text-gold hover:underline transition-colors inline-flex items-center gap-2 cursor-pointer"
-                  >
-                    {degree.institution.name}
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                    </svg>
-                  </a>
-                ) : (
-                  <span className="text-head text-lg font-medium">
-                    {degree.institution.name}
-                  </span>
-                )}
+                <div className="flex items-center gap-3 mb-2">
+                  {/* Institution Logo */}
+                  {degree.institution.logo && (
+                    <div className="flex-shrink-0">
+                      {degree.institution.logo.includes('Msu_logo') ? (
+                        <img
+                          src={msuLogo}
+                          alt={`${degree.institution.name} logo`}
+                          className="h-12 w-auto object-contain"
+                          style={{
+                            filter: 'brightness(0) invert(1)'
+                          }}
+                        />
+                      ) : degree.institution.logo.includes('bhs_logo') ? (
+                        <img
+                          src={bhsLogo}
+                          alt={`${degree.institution.name} logo`}
+                          className="h-12 w-auto object-contain"
+                        />
+                      ) : degree.institution.logo.includes('Gtu_logo') ? (
+                        <img
+                          src={gtuLogo}
+                          alt={`${degree.institution.name} logo`}
+                          className="h-12 w-auto object-contain"
+                          style={{
+                            filter: 'brightness(0) invert(1)'
+                          }}
+                        />
+                      ) : (
+                        <img
+                          src={degree.institution.logo}
+                          alt={`${degree.institution.name} logo`}
+                          className="h-12 w-auto object-contain"
+                        />
+                      )}
+                    </div>
+                  )}
+                  {/* Institution Name */}
+                  <div className="flex-1">
+                    {degree.institution.website ? (
+                      <a
+                        href={degree.institution.website}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-head text-lg font-medium hover:text-gold hover:underline transition-colors inline-flex items-center gap-2 cursor-pointer"
+                      >
+                        {degree.institution.name}
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                      </a>
+                    ) : (
+                      <span className="text-head text-lg font-medium">
+                        {degree.institution.name}
+                      </span>
+                    )}
+                  </div>
+                </div>
                 {degree.institution.affiliation && (
                   <p className="text-body text-sm mt-1">
                     {degree.institution.type && (
@@ -298,6 +347,179 @@ function DegreeCard({ degree = {}, index = 0 }) {
             )}
           </div>
         </div>
+      )}
+
+      {/* Marksheets Section */}
+      {degree.marksheets && Array.isArray(degree.marksheets) && degree.marksheets.length > 0 && (
+        <div className="pt-6 border-t border-gold/20">
+          <div className="flex items-center justify-between mb-4">
+            <h4 className="text-head text-lg font-semibold">Marksheets</h4>
+            <button
+              onClick={() => setShowMarksheets(!showMarksheets)}
+              className="flex items-center gap-2 px-3 py-1.5 bg-card/80 backdrop-blur-sm border border-gold/20 rounded-lg text-head hover:bg-gold/10 hover:border-gold transition-all duration-200 shadow-sm text-sm"
+            >
+              <span className="text-xs font-medium">
+                {showMarksheets ? 'Hide' : 'View'} Marksheets
+              </span>
+              <svg
+                className={`w-4 h-4 text-gold transition-transform duration-300 ${
+                  showMarksheets ? 'rotate-180' : ''
+                }`}
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </button>
+          </div>
+
+          {/* Marksheets Grid with Dropdown Animation */}
+          <div
+            className={`overflow-hidden transition-all duration-500 ease-in-out ${
+              showMarksheets
+                ? 'max-h-[10000px] opacity-100'
+                : 'max-h-0 opacity-0'
+            }`}
+          >
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {degree.marksheets.map((marksheet, idx) => (
+                <div
+                  key={marksheet.id || idx}
+                  className="bg-card/80 backdrop-blur-sm border border-gold/20 rounded-lg overflow-hidden shadow-lg hover:border-gold/50 transition-all duration-200"
+                >
+                  {/* Marksheet Image */}
+                  <div
+                    className="relative w-full aspect-[3/4] bg-bg overflow-hidden group cursor-pointer"
+                    onClick={() => setSelectedMarksheet(marksheet)}
+                  >
+                    <img
+                      src={marksheet.image}
+                      alt={marksheet.name}
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                      onError={(e) => {
+                        e.target.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="400" height="600"%3E%3Crect width="400" height="600" fill="%23112240"/%3E%3Ctext x="50%25" y="50%25" text-anchor="middle" dy=".3em" fill="%23C9A66B" font-family="Arial" font-size="18"%3EMarksheet Image%3C/text%3E%3C/svg%3E'
+                      }}
+                    />
+                    {/* Overlay on hover */}
+                    <div className="absolute inset-0 bg-gold/0 group-hover:bg-gold/10 transition-colors duration-300 flex items-center justify-center">
+                      <svg
+                        className="w-10 h-10 text-gold opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m0 0v6m0-6h6m-6 0H4"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+
+                  {/* Marksheet Info */}
+                  <div className="p-3">
+                    <h5 className="text-head text-sm font-semibold mb-1.5">
+                      {marksheet.name}
+                    </h5>
+                    <div className="space-y-0.5 text-xs">
+                      {marksheet.semester && (
+                        <p className="text-body">
+                          <span className="text-gold font-medium">Semester: </span>
+                          {marksheet.semester}
+                        </p>
+                      )}
+                      {marksheet.year && (
+                        <p className="text-body">
+                          <span className="text-gold font-medium">Year: </span>
+                          {marksheet.year}
+                        </p>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Marksheet Modal */}
+      {selectedMarksheet && (
+        <>
+          {/* Overlay */}
+          <div
+            className="fixed inset-0 bg-shadow/90 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+            onClick={() => setSelectedMarksheet(null)}
+          >
+            {/* Modal Content */}
+            <div
+              className="relative max-w-5xl max-h-[90vh] w-full bg-card border border-gold/20 rounded-lg overflow-hidden shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Close Button */}
+              <button
+                onClick={() => setSelectedMarksheet(null)}
+                className="absolute top-4 right-4 z-10 p-2 bg-card/90 backdrop-blur-sm border border-gold/20 rounded-lg text-head hover:text-gold hover:border-gold transition-all duration-200"
+                aria-label="Close"
+              >
+                <svg
+                  className="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
+
+              {/* Marksheet Info Header */}
+              <div className="p-4 border-b border-gold/20 bg-card/90">
+                <h3 className="text-head text-xl font-bold mb-1">
+                  {selectedMarksheet.name}
+                </h3>
+                <div className="flex flex-wrap gap-4 text-sm text-body">
+                  {selectedMarksheet.semester && (
+                    <span>
+                      <span className="text-gold font-medium">Semester: </span>
+                      {selectedMarksheet.semester}
+                    </span>
+                  )}
+                  {selectedMarksheet.year && (
+                    <span>
+                      <span className="text-gold font-medium">Year: </span>
+                      {selectedMarksheet.year}
+                    </span>
+                  )}
+                </div>
+              </div>
+
+              {/* Marksheet Image */}
+              <div className="overflow-auto max-h-[calc(90vh-120px)] bg-bg">
+                <img
+                  src={selectedMarksheet.image}
+                  alt={selectedMarksheet.name}
+                  className="w-full h-auto"
+                  onError={(e) => {
+                    e.target.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="800" height="1200"%3E%3Crect width="800" height="1200" fill="%23112240"/%3E%3Ctext x="50%25" y="50%25" text-anchor="middle" dy=".3em" fill="%23C9A66B" font-family="Arial" font-size="24"%3EMarksheet Image Not Found%3C/text%3E%3C/svg%3E'
+                  }}
+                />
+              </div>
+            </div>
+          </div>
+        </>
       )}
     </div>
   )

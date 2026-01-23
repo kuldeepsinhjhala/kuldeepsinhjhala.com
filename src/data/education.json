@@ -6,150 +6,117 @@
   },
   "degrees": [
     {
-      "id": "diploma-computer-engineering",
-      "degree": "Diploma in Computer Engineering",
-      "field": "Computer Engineering",
-      "level": "diploma",
-      "institution": {
-        "name": "Government Polytechnic Vadodara",
-        "type": "college",
-        "affiliation": "Gujarat Technological University",
-        "location": {
-          "city": "Vadodara",
-          "state": "Gujarat",
-          "country": "India"
-        },
-        "website": "https://www.gpvadodara.ac.in",
-        "logo": "/images/education/gpv-logo.png"
-      },
-      "duration": {
-        "startDate": "2018-07",
-        "endDate": "2021-06",
-        "graduationDate": "2021-06-15"
-      },
-      "performance": {
-        "gpa": "8.2",
-        "gpaScale": "10",
-        "percentage": 78,
-        "grade": "Distinction",
-        "rank": null
-      },
-      "description": "Completed a three-year diploma focused on core computer engineering subjects including programming fundamentals, databases, networking, and software development life cycle. Developed a strong foundation in logic building and problem solving.",
-      "relevantCoursework": [
-        "Data Structures and Algorithms",
-        "Database Management Systems",
-        "Operating Systems",
-        "Computer Networks",
-        "Object Oriented Programming"
-      ],
-      "projects": [
-        {
-          "title": "Student Result Management System",
-          "description": "Designed and developed a web-based system to manage student records, results, and performance analytics with role-based access for admins and faculty.",
-          "technologies": ["PHP", "MySQL", "HTML", "CSS"],
-          "year": "2021",
-          "url": "",
-          "custom": {
-            "role": "Full Stack Developer",
-            "teamSize": 3
-          }
-        }
-      ],
-      "achievements": [
-        "Graduated with distinction",
-        "Top performer in database management subject"
-      ],
-      "certifications": [
-        {
-          "name": "Fundamentals of Computer Networks",
-          "issuer": "Cisco Networking Academy",
-          "issueDate": "2020-09-10",
-          "expiryDate": null,
-          "credentialId": "CISCO-CN-2020",
-          "url": "https://www.netacad.com",
-          "custom": {
-            "mode": "Online",
-            "hours": 40
-          }
-        }
-      ],
-      "status": {
-        "completed": true,
-        "current": false
-      },
-      "custom": {
-        "hostel": false,
-        "scholarships": ["Government Merit Scholarship"],
-        "exchangePrograms": []
-      }
-    },
-    {
       "id": "bachelor-computer-science",
       "degree": "Bachelor of Engineering",
       "field": "Computer Science and Engineering",
       "level": "bachelor",
       "institution": {
+        "name": "The Maharaja Sayajirao University of Baroda",
+        "type": "university",
+        "affiliation": "MSU Baroda",
+        "location": {
+          "city": "Vadodara",
+          "state": "Gujarat",
+          "country": "India"
+        },
+        "website": "https://www.msubaroda.ac.in",
+        "logo": "Msu_logo.png"
+      },
+      "duration": {
+        "startDate": "2022-09",
+        "endDate": "2025-05",
+        "graduationDate": "2025-05-15"
+      },
+      "performance": {
+        "gpa": "8.11",
+        "gpaScale": "10",
+        "percentage": null,
+        "grade": "First Class",
+        "rank": null
+      },
+      "description": "Pursuing a Bachelor of Engineering in Computer Science and Engineering with a focus on backend development, system design, databases, and scalable application architecture.",
+      "relevantCoursework": [
+        "Software Engineering",
+        "Web Technologies",
+        "Database Systems",
+        "Cloud Computing",
+        "System Design"
+      ],
+      "projects": [],
+      "achievements": [
+        "Strong academic performance while working on backend-focused projects",
+        "Applied theoretical concepts to real-world software systems"
+      ],
+      "certifications": [],
+      "status": {
+        "completed": false,
+        "current": true
+      },
+      "custom": {
+        "hostel": false,
+        "scholarships": [],
+        "exchangePrograms": []
+      },
+      "marksheets": [
+        {
+          "id": "bachelor-sem1",
+          "name": "Semester 1 Marksheet",
+          "semester": "1",
+          "year": "2022",
+          "image": "/images/marksheets/bachelor-sem1.jpg"
+        },
+        {
+          "id": "bachelor-sem2",
+          "name": "Semester 2 Marksheet",
+          "semester": "2",
+          "year": "2023",
+          "image": "/images/marksheets/bachelor-sem2.jpg"
+        }
+      ]
+    },
+    {
+      "id": "diploma-computer-engineering",
+      "degree": "Diploma in Computer Science and Engineering",
+      "field": "Computer Science and Engineering",
+      "level": "diploma",
+      "institution": {
         "name": "Gujarat Technological University",
         "type": "university",
         "affiliation": "GTU",
         "location": {
-          "city": "Ahmedabad",
+          "city": "Vadodara",
           "state": "Gujarat",
           "country": "India"
         },
         "website": "https://www.gtu.ac.in",
-        "logo": "/images/education/gtu-logo.png"
+        "logo": "Gtu_logo.png"
       },
       "duration": {
-        "startDate": "2021-08",
-        "endDate": "2024-06",
-        "graduationDate": "2024-06-20"
+        "startDate": "2019-08",
+        "endDate": "2022-06",
+        "graduationDate": "2022-06-15"
       },
       "performance": {
-        "gpa": "7.9",
+        "gpa": "9.67",
         "gpaScale": "10",
-        "percentage": 75,
-        "grade": "First Class",
+        "percentage": null,
+        "grade": "Distinction",
         "rank": null
       },
-      "description": "Completed bachelor’s degree with a focus on software engineering, backend systems, cloud fundamentals, and database-driven applications. Actively worked on real-world projects and internships alongside academics.",
+      "description": "Completed a diploma program in Computer Science and Engineering with strong academic performance. Built a solid foundation in programming, databases, and core engineering subjects that prepared me for advanced studies in software engineering.",
       "relevantCoursework": [
-        "Software Engineering",
-        "Web Technologies",
-        "Cloud Computing",
-        "Machine Learning Basics",
-        "Advanced Database Systems"
+        "Programming Fundamentals",
+        "Data Structures",
+        "Database Management Systems",
+        "Computer Networks",
+        "Operating Systems"
       ],
-      "projects": [
-        {
-          "title": "College Management System",
-          "description": "Built a modular college management system with authentication, role-based access, academic records, and reporting features.",
-          "technologies": ["Node.js", "Express", "SQL Server", "React"],
-          "year": "2024",
-          "url": "",
-          "custom": {
-            "architecture": "REST API based",
-            "deployment": "AWS EC2"
-          }
-        }
-      ],
+      "projects": [],
       "achievements": [
-        "Successfully completed final year project with excellent evaluation",
-        "Recognized for backend architecture design"
+        "Graduated with high academic distinction",
+        "Consistently strong performance across core computer science subjects"
       ],
-      "certifications": [
-        {
-          "name": "AWS Cloud Practitioner Essentials",
-          "issuer": "Amazon Web Services",
-          "issueDate": "2023-11-05",
-          "expiryDate": null,
-          "credentialId": "AWS-CP-2023",
-          "url": "https://aws.amazon.com",
-          "custom": {
-            "level": "Foundational"
-          }
-        }
-      ],
+      "certifications": [],
       "status": {
         "completed": true,
         "current": false
@@ -158,99 +125,89 @@
         "hostel": false,
         "scholarships": [],
         "exchangePrograms": []
-      }
-    }
-  ],
-  "certifications": [
-    {
-      "id": "nodejs-backend-cert",
-      "name": "Node.js Backend Development",
-      "issuer": "Udemy",
-      "issueDate": "2023-05-18",
-      "expiryDate": null,
-      "credentialId": "",
-      "verificationUrl": "",
-      "description": "In-depth backend development course covering REST APIs, authentication, database integration, and scalable server-side architecture using Node.js.",
-      "skillsCovered": [
-        "Node.js",
-        "REST APIs",
-        "Authentication"
-      ],
-      "status": "active",
-      "custom": {
-        "hours": 60,
-        "projectBased": true
-      }
+      },
+      "marksheets": [
+        {
+          "id": "diploma-sem1",
+          "name": "Semester 1 Marksheet",
+          "semester": "1",
+          "year": "2019",
+          "image": "/images/marksheets/diploma-sem1.jpg"
+        },
+        {
+          "id": "diploma-sem2",
+          "name": "Semester 2 Marksheet",
+          "semester": "2",
+          "year": "2020",
+          "image": "/images/marksheets/diploma-sem2.jpg"
+        }
+      ]
     },
     {
-      "id": "react-advanced-cert",
-      "name": "Advanced React and State Management",
-      "issuer": "Udemy",
-      "issueDate": "2024-01-12",
-      "expiryDate": null,
-      "credentialId": "",
-      "verificationUrl": "",
-      "description": "Advanced React course focusing on hooks, context API, performance optimization, and scalable component architecture.",
-      "skillsCovered": [
-        "React",
-        "Context API",
-        "Performance Optimization"
+      "id": "school-baroda-high-school-alkapuri",
+      "degree": "Primary and Secondary Schooling",
+      "field": "General Education",
+      "level": "school",
+      "institution": {
+        "name": "Baroda High School, Alkapuri",
+        "type": "school",
+        "affiliation": "GSEB",
+        "location": {
+          "city": "Vadodara",
+          "state": "Gujarat",
+          "country": "India"
+        },
+        "logo": "bhs_logo.jpeg"
+      },
+      "duration": {
+        "startDate": "2007-06",
+        "endDate": "2019-04",
+        "graduationDate": "2019-04-15"
+      },
+      "performance": {
+        "gpa": null,
+        "gpaScale": null,
+        "percentage": null,
+        "grade": null,
+        "rank": null
+      },
+      "description": "Completed primary and secondary schooling from LKG to 10th standard at Baroda High School, Alkapuri. Developed strong academic discipline, problem-solving ability, and foundational understanding across science, mathematics, and core subjects.",
+      "relevantCoursework": [
+        "Mathematics",
+        "Science",
+        "English",
+        "Social Studies",
+        "Computer Basics"
       ],
-      "status": "active",
+      "projects": [],
+      "achievements": [],
+      "certifications": [],
+      "status": {
+        "completed": true,
+        "current": false
+      },
       "custom": {
-        "handsOnProjects": 5
-      }
+        "medium": "English",
+        "board": "GSEB"
+      },
+      "marksheets": [
+        {
+          "id": "school-10th",
+          "name": "10th Standard Marksheet",
+          "semester": null,
+          "year": "2019",
+          "image": "/images/marksheets/school-10th.jpg"
+        }
+      ]
     }
   ],
-  "onlineCourses": [
-    {
-      "id": "aws-ec2-nginx-course",
-      "name": "Deploying Applications on AWS EC2",
-      "platform": "Udemy",
-      "instructor": "Stephane Maarek",
-      "status": "completed",
-      "dates": {
-        "startDate": "2023-09-01",
-        "completionDate": "2023-10-10"
-      },
-      "certificateUrl": "",
-      "skillsLearned": [
-        "AWS EC2",
-        "Nginx",
-        "Linux Server Management"
-      ],
-      "custom": {
-        "level": "Beginner to Intermediate"
-      }
-    },
-    {
-      "id": "system-design-basics",
-      "name": "System Design Fundamentals",
-      "platform": "Coursera",
-      "instructor": "University of California",
-      "status": "in-progress",
-      "dates": {
-        "startDate": "2024-11-01",
-        "completionDate": null
-      },
-      "certificateUrl": "",
-      "skillsLearned": [
-        "System Design",
-        "Scalability",
-        "Backend Architecture"
-      ],
-      "custom": {
-        "focus": "Interview and real-world systems"
-      }
-    }
-  ],
+  "certifications": [],
+  "onlineCourses": [],
   "skillsGained": [
     "Problem Solving",
     "Backend Development",
     "Database Design",
-    "REST API Architecture",
-    "Cloud Fundamentals",
-    "System Thinking"
+    "System Thinking",
+    "Software Engineering Fundamentals"
   ]
 }
-
