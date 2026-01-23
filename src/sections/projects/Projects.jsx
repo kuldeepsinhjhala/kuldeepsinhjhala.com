@@ -1,16 +1,10 @@
 import { useState, useEffect, useMemo } from 'react'
 import projectData from '../../data/project.json'
 import ProjectCard from '../../components/projects/ProjectCard'
-import ProjectFilters from '../../components/projects/ProjectFilters'
-import BlogSearch from '../../components/blog/BlogSearch'
 
 function Projects() {
   const [data, setData] = useState(null)
   const [loading, setLoading] = useState(true)
-  const [searchTerm, setSearchTerm] = useState('')
-  const [selectedCategory, setSelectedCategory] = useState('')
-  const [selectedType, setSelectedType] = useState('')
-  const [selectedStatus, setSelectedStatus] = useState('')
 
   // Load data
   useEffect(() => {
@@ -31,73 +25,6 @@ function Projects() {
     if (!data?.projects || !Array.isArray(data.projects)) return []
     return data.projects
   }, [data])
-  const categories = useMemo(() => {
-    if (!data?.categories || !Array.isArray(data.categories)) return []
-    return data.categories
-  }, [data])
-
-  // Filter projects
-  const filteredProjects = useMemo(() => {
-    let filtered = [...projects]
-
-    // Filter by search term
-    if (searchTerm.trim()) {
-      const term = searchTerm.toLowerCase()
-      filtered = filtered.filter(project => {
-        const title = project?.title?.toLowerCase() || ''
-        const shortDesc = project?.shortDescription?.toLowerCase() || ''
-        const longDesc = project?.longDescription?.toLowerCase() || ''
-        const tags = (project?.tags || []).join(' ').toLowerCase()
-        const skills = (project?.skillsGained || []).join(' ').toLowerCase()
-        
-        return title.includes(term) || 
-               shortDesc.includes(term) || 
-               longDesc.includes(term) ||
-               tags.includes(term) ||
-               skills.includes(term)
-      })
-    }
-
-    // Filter by category
-    if (selectedCategory) {
-      filtered = filtered.filter(project => {
-        return project?.category === selectedCategory
-      })
-    }
-
-    // Filter by type
-    if (selectedType) {
-      filtered = filtered.filter(project => {
-        return project?.type === selectedType
-      })
-    }
-
-    // Filter by status
-    if (selectedStatus) {
-      filtered = filtered.filter(project => {
-        return project?.status === selectedStatus
-      })
-    }
-
-    return filtered
-  }, [projects, searchTerm, selectedCategory, selectedType, selectedStatus])
-
-  // Get unique types and statuses
-  const types = useMemo(() => {
-    const uniqueTypes = new Set()
-    projects.forEach(project => {
-      if (project?.type) uniqueTypes.add(project.type)
-    })
-    return Array.from(uniqueTypes)
-  }, [projects])
-
-  const statuses = useMemo(() => {
-    const uniqueStatuses = new Set()
-    projects.forEach(project => {
-      if (project?.status) uniqueStatuses.add(project.status)
-    })
-    return Array.from(uniqueStatuses)
-  }, [projects])
 
   // Loading state
   if (loading) {
@@ -144,52 +71,10 @@ function Projects() {
           )}
         </header>
 
-        {/* Search and Filters Section */}
-        <div className="mb-8 space-y-6">
-          {/* Search */}
-          <BlogSearch
-            onSearch={setSearchTerm}
-            placeholder="Search projects by title, description, tags, or skills..."
-            className="w-full"
-          />
-
-          {/* Filters */}
-          <div 
-            className="bg-card/90 backdrop-blur-sm border border-gold/20 rounded-lg p-4 md:p-6 shadow-lg"
-            style={{
-              boxShadow: '0 10px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(201, 166, 107, 0.05)'
-            }}
-          >
-            <ProjectFilters
-              categories={categories}
-              types={types}
-              statuses={statuses}
-              selectedCategory={selectedCategory}
-              selectedType={selectedType}
-              selectedStatus={selectedStatus}
-              onCategoryChange={setSelectedCategory}
-              onTypeChange={setSelectedType}
-              onStatusChange={setSelectedStatus}
-            />
-          </div>
-        </div>
-
-        {/* Results Count */}
-        <div className="mb-6 flex items-center justify-between">
-          <p className="text-body text-sm">
-            Showing {filteredProjects.length} of {projects.length} project{projects.length !== 1 ? 's' : ''}
-            {searchTerm && (
-              <span className="ml-2">
-                for "<span className="text-head font-medium">{searchTerm}</span>"
-              </span>
-            )}
-          </p>
-        </div>
-
         {/* Projects Grid */}
-        {filteredProjects.length > 0 ? (
+        {projects.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredProjects.map((project) => (
+            {projects.map((project) => (
               <ProjectCard
                 key={project.id || Math.random()}
                 project={project}
@@ -217,27 +102,7 @@ function Projects() {
               />
             </svg>
             <h3 className="text-head text-xl font-semibold mb-2">No projects found</h3>
-            <p className="text-body">
-              {searchTerm || selectedCategory || selectedType || selectedStatus
-                ? 'Try adjusting your filters or search terms.'
-                : 'No projects available yet.'}
-            </p>
-            {(searchTerm || selectedCategory || selectedType || selectedStatus) && (
-              <button
-                onClick={() => {
-                  setSearchTerm('')
-                  setSelectedCategory('')
-                  setSelectedType('')
-                  setSelectedStatus('')
-                }}
-                className="mt-4 px-4 py-2 bg-gold/20 backdrop-blur-sm text-gold rounded border border-gold/30 hover:bg-gold/30 transition-colors shadow-md"
-                style={{
-                  boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2), 0 0 10px rgba(201, 166, 107, 0.05)'
-                }}
-              >
-                Clear all filters
-              </button>
-            )}
+            <p className="text-body">No projects available yet.</p>
           </div>
         )}
       </div>

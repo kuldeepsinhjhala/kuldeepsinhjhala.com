@@ -14,7 +14,7 @@ import Education from '../sections/education/Education'
 import Skills from '../sections/skills/Skills'
 import Projects from '../sections/projects/Projects'
 import Resume from '../sections/resume/Resume'
-import Blog from '../sections/blog/Blog'
+// import Blog from '../sections/blog/Blog' // Temporarily disabled blog section
 import Contact from '../sections/contact/Contact'
 import Achievements from '../sections/achievement/Achievements'
 
@@ -43,7 +43,7 @@ function AppContent() {
               <Route path="/skills" element={<Skills />} />
               <Route path="/projects" element={<Projects />} />
               <Route path="/resume" element={<Resume />} />
-              <Route path="/blog" element={<Blog />} />
+              {/* <Route path="/blog" element={<Blog />} /> // Temporarily disabled blog route */}
               <Route path="/contact" element={<Contact />} />
               <Route path="/achievements" element={<Achievements />} />
             </Routes>

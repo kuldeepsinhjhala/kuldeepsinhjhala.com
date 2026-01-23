@@ -3,11 +3,13 @@ import logo from '../assets/logo.png'
 
 function TerminalLoader({ 
   lines = [
-    '[INFO] Starting spring runtime',
-    '[INFO] Initializing application context',
-    '[INFO] Loading beans',
-    '[INFO] Container started',
-    '[INFO] Application ready'
+    '[INFO] Booting Node.js runtime environment',
+    '[INFO] Sequelize: Authenticating database handshake',
+    '[INFO] Establishing connection to MSSQL Express',
+    '[INFO] Syncing models and Stored Procedures',
+    '[INFO] Warming up local LLM (Gemini-Engine)',
+    '[INFO] Context window initialized',
+  '[INFO] Application ready: Portfolio is live'
   ],
   speed = 30,
   show = true,

@@ -19,7 +19,7 @@ function HeroSection({ hero = {}, quickLinks = [], meta = {}, className = '' }) 
     '/skills': 'skills.jsx',
     '/projects': 'projects.jsx',
     '/resume': 'resume.jsx',
-    '/blog': 'blog.jsx',
+    // '/blog': 'blog.jsx', // Temporarily hidden
     '/achievements': 'achievements.jsx',
     '/contact': 'contact.jsx'
   }

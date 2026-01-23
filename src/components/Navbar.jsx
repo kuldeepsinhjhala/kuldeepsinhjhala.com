@@ -18,7 +18,7 @@ function Navbar() {
     { path: '/skills', label: 'skills.jsx', mobileLabel: 'Skills' },
     { path: '/projects', label: 'projects.jsx', mobileLabel: 'Projects' },
     { path: '/resume', label: 'resume.jsx', mobileLabel: 'Resume' },
-    { path: '/blog', label: 'blog.jsx', mobileLabel: 'Blog' },
+    // { path: '/blog', label: 'blog.jsx', mobileLabel: 'Blog' }, // Temporarily hidden
     { path: '/achievements', label: 'achievements.jsx', mobileLabel: 'Achievements' },
     { path: '/contact', label: 'contact.jsx', mobileLabel: 'Contact' },
   ]

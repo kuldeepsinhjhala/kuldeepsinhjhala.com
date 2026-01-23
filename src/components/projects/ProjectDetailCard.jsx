@@ -333,6 +333,63 @@ function ProjectDetailCard({ project = {}, onClose }) {
         </div>
       )}
 
+      {/* Custom Section */}
+      {project.custom && (
+        <div className="mb-6 pt-6 border-t border-gold/20">
+          {project.custom.heading && (
+            <h3 className="text-head text-xl md:text-2xl font-bold mb-4">
+              {project.custom.heading}
+            </h3>
+          )}
+          
+          <div className="flex flex-col md:flex-row gap-6">
+            {/* Custom Image */}
+            {project.custom.image && (
+              <div className="flex-shrink-0 w-full md:w-1/2 lg:w-2/5">
+                <div className="rounded-lg overflow-hidden">
+                  <img
+                    src={project.custom.image}
+                    alt={project.custom.heading || 'Custom content'}
+                    className="w-full h-auto object-cover"
+                    onError={(e) => {
+                      e.target.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="600" height="400"%3E%3Crect width="600" height="400" fill="%23112240"/%3E%3Ctext x="50%25" y="50%25" text-anchor="middle" dy=".3em" fill="%23C9A66B" font-family="Arial" font-size="20"%3EImage Not Found%3C/text%3E%3C/svg%3E'
+                    }}
+                  />
+                </div>
+              </div>
+            )}
+
+            {/* Custom Data Points */}
+            {project.custom.data && Array.isArray(project.custom.data) && project.custom.data.length > 0 && (
+              <div className={`flex-1 ${project.custom.image ? 'md:pl-0' : ''}`}>
+                <ul className="space-y-3">
+                  {project.custom.data.map((point, idx) => (
+                    <li key={idx} className="flex items-start gap-3">
+                      <span className="text-gold mt-1.5 flex-shrink-0">
+                        <svg
+                          className="w-5 h-5"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                            clipRule="evenodd"
+                          />
+                        </svg>
+                      </span>
+                      <span className="text-body text-base leading-relaxed flex-1">
+                        {point}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+
       {/* Duration */}
       {project.duration && (
         <div className="pt-6 border-t border-gold/20">

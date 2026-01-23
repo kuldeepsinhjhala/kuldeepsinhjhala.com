@@ -30,7 +30,7 @@ function SearchBar() {
     '/skills': 'skills.jsx',
     '/projects': 'projects.jsx',
     '/resume': 'resume.jsx',
-    '/blog': 'blog.jsx',
+    // '/blog': 'blog.jsx', // Temporarily hidden
     '/contact': 'contact.jsx'
   }
 
@@ -64,10 +64,10 @@ function SearchBar() {
       keywords: ['resume', 'cv', 'curriculum vitae', 'download', 'pdf', 'document'],
       content: 'Resume and CV download'
     },
-    '/blog': {
-      keywords: ['blog', 'articles', 'posts', 'writing', 'thoughts', 'insights', 'tutorials'],
-      content: 'Blog posts and articles'
-    },
+    // '/blog': {
+    //   keywords: ['blog', 'articles', 'posts', 'writing', 'thoughts', 'insights', 'tutorials'],
+    //   content: 'Blog posts and articles'
+    // },
     '/contact': {
       keywords: ['contact', 'reach', 'email', 'message', 'connect', 'get in touch', 'communication', 'social'],
       content: 'Contact information and ways to reach out'

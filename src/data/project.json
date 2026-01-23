@@ -1,110 +1,212 @@
 {
   "meta": {
     "title": "Projects",
-    "subtitle": "A collection of real-world, academic, and personal projects focused on backend systems, full stack applications, and cloud deployments.",
-    "description": "Detailed portfolio of projects showcasing problem solving, system design, backend architecture, database modeling, and cloud-native development."
+    "subtitle": "A collection of industry-level platforms and AI-driven applications focused on backend scalability, LLM integration, and robust system architecture.",
+    "description": "Detailed portfolio of projects showcasing expertise in Java Spring Boot, Node.js, AI model fine-tuning, complex database modeling (3NF), and secure OAuth 2.0 implementations."
   },
   "projects": [
     {
-      "id": "college-management-system",
-      "title": "College Management System",
-      "slug": "college-management-system",
-      "shortDescription": "A modular web-based system to manage students, faculty, academics, and administrative workflows.",
-      "longDescription": "The College Management System is a full stack application designed to digitize and streamline academic and administrative operations. It supports role-based access for admins, faculty, and students, manages academic records, and provides reporting features for decision-making.",
+      "id": "talent-pulse-ai",
+      "title": "Talent Pulse AI",
+      "slug": "talent-pulse-ai",
+      "shortDescription": "An AI-powered online skill-assessment platform with automated question generation and complex performance tracking.",
+      "longDescription": "Talent Pulse AI is a comprehensive skill-assessment ecosystem. It features a sophisticated backend capable of handling complex evaluation workflows, automated content generation via LLMs, and a highly optimized relational database structure to support large-scale enterprise testing.",
       "category": "fullstack",
-      "type": "academic",
+      "type": "professional",
       "status": "completed",
       "duration": {
-        "durationText": "6 months",
-        "working": "false"
+        "durationText": "Jan 2025 - Present",
+        "working": "true"
       },
       "organization": {
-        "name": "Gujarat Technological University",
-        "type": "university",
-        "role": "Full Stack Developer",
-        "teamSize": 3
+        "name": "Keshav Encon Pvt. Ltd.",
+        "type": "company",
+        "role": "Software Development Engineer",
+        "teamSize": 5
       },
       "problem": {
-        "summary": "Manual handling of academic records caused inefficiencies, data inconsistency, and limited accessibility for students and faculty.",
+        "summary": "Manual question creation was slow and prone to errors, while complex reporting queries suffered from high latency.",
         "constraints": [
-          "Limited time for development",
-          "Strict academic evaluation requirements"
+          "Need for high-concurrency handling",
+          "Zero-dependency OAuth requirements",
+          "Complex data relationships"
         ],
-        "whyItMatters": "Educational institutions require reliable digital systems to manage data efficiently and reduce administrative overhead."
+        "whyItMatters": "Efficient talent assessment requires rapid content generation and real-time data insights to stay competitive in HR tech."
       },
       "solution": {
-        "approach": "Designed a role-based web application with a centralized database and RESTful APIs.",
-        "architecture": "Layered architecture separating controllers, services, repositories, and database models.",
+        "approach": "Built a hybrid backend using Java Spring Boot and Node.js with a custom-built OAuth 2.0 layer and Gemini LLM integration.",
+        "architecture": "Micro-services inspired layered architecture with a hybrid ORM + Raw SQL data access layer.",
         "designPatterns": [
-          "MVC",
-          "Repository Pattern"
+          "Hybrid ORM/SQL",
+          "RBAC (Role-Based Access Control)",
+          "Singleton",
+          "Factory Pattern"
         ],
-        "tradeoffs": "Chose a relational database for data consistency at the cost of higher schema rigidity."
+        "tradeoffs": "Used raw SQL for complex reporting to gain 30% performance at the cost of database abstraction."
       },
       "features": [
         {
-          "title": "Role-Based Authentication",
-          "description": "Implemented secure login and authorization for admins, faculty, and students.",
-          "impact": "Improved data security and access control",
-          "custom": {}
+          "title": "AI Question Automation",
+          "description": "Integrated Gemini LLM API to automate the manual question-creation workflow.",
+          "impact": "80% reduction in manual content creation time",
+          "custom": {
+            "modelUsed": "Gemini LLM"
+          }
         },
         {
-          "title": "Academic Records Management",
-          "description": "Centralized management of student profiles, courses, and results.",
-          "impact": "Reduced manual effort and errors",
+          "title": "Custom Auth Ecosystem",
+          "description": "Developed Google and LinkedIn OAuth 2.0 login systems from scratch without external libraries.",
+          "impact": "Higher security and full control over the auth handshake",
+          "custom": {
+            "protocols": "OAuth 2.0, JWT"
+          }
+        }
+      ],
+      "challenges": [
+        {
+          "challenge": "Optimizing complex queries across 50+ relational tables.",
+          "solution": "Implemented a hybrid approach using raw SQL for performance-critical assessment reporting.",
+          "learning": "Abstraction layers like ORMs have limits in high-performance data reporting scenarios.",
+          "custom": {
+            "performanceGain": "30% faster execution"
+          }
+        }
+      ],
+      "techStack": {
+        "languages": ["Java", "JavaScript", "SQL"],
+        "frameworks": ["Spring Boot", "Node.js", "Express.js", "React"],
+        "databases": ["PostgreSQL/MySQL"],
+        "orms": ["Hibernate", "JPA"],
+        "cloud": ["AWS", "Firebase"],
+        "devOps": ["Docker", "AWS Deployment"],
+        "tools": ["Git", "Postman", "Gemini API"],
+        "custom": {
+          "schemaSize": "50+ Tables"
+        }
+      },
+      "metrics": {
+        "performance": "30% improvement in complex query execution",
+        "scale": "Enterprise-ready architecture with 50+ normalized tables",
+        "reliability": "Full RBAC and secure JWT-based session management",
+        "custom": {
+          "automationRate": "80% of workflow"
+        }
+      },
+      "media": {
+        "coverImage": {
+          "url": "/images/projects/talentpulse-cover.png",
+          "alt": "Talent Pulse AI Platform"
+        },
+        "gallery": [],
+        "videos": []
+      },
+      "links": {
+        "github": "https://github.com/kuldeepsinhjhala",
+        "demo": "https://talentpulseai.com",
+        "documentation": "",
+        "blog": ""
+      },
+      "tags": ["AI", "LLM", "Assessment", "Spring Boot", "AWS"],
+      "skillsGained": ["Gemini API Integration", "Enterprise System Design", "Production AWS Deployment"],
+      "confidentiality": {
+        "hasRestrictions": true,
+        "notes": "Core architecture and live deployment details are proprietary to Keshav Encon Pvt. Ltd."
+      },
+      "custom": {
+        "heading": "Key Highlights",
+        "image": "/images/projects/talentpulse-custom.png",
+        "data": [
+          "Implemented custom OAuth 2.0 without external libraries",
+          "Achieved 30% performance improvement in complex queries",
+          "Automated 80% of question creation workflow using Gemini LLM",
+          "Built enterprise-ready architecture with 50+ normalized tables"
+        ]
+      }
+    },
+    {
+      "id": "resumee-ai",
+      "title": "ResumeeAI",
+      "slug": "resumee-ai",
+      "shortDescription": "An intelligent resume builder powered by a fine-tuned Mistral LLM for industrial-standard resume generation.",
+      "longDescription": "Developed during an internship, this project involved fine-tuning a local Mistral LLM on 45,000+ resumes to provide intelligent suggestions, dynamic uploads, and real-time data updates for job seekers.",
+      "category": "fullstack",
+      "type": "internship",
+      "status": "completed",
+      "duration": {
+        "durationText": "Dec 2023 - Dec 2024",
+        "working": "false"
+      },
+      "organization": {
+        "name": "Keshav Encon Pvt. Ltd.",
+        "type": "company",
+        "role": "SDE Intern",
+        "teamSize": 3
+      },
+      "problem": {
+        "summary": "Standard resume builders lacked the intelligent context needed to match industrial data standards and 3NF database efficiency.",
+        "constraints": [
+          "Local LLM deployment limits",
+          "Processing 10,000+ resume datasets"
+        ],
+        "whyItMatters": "Users need resumes that are not just formatted, but content-optimized for modern ATS systems."
+      },
+      "solution": {
+        "approach": "Fine-tuned Mistral LLM and utilized Gemma API for data extraction, backed by a 3NF normalized database.",
+        "architecture": "RESTful API architecture using Java Spring Boot and JDBC for direct data handling.",
+        "designPatterns": ["Repository Pattern", "Observer Pattern"],
+        "tradeoffs": "Fine-tuning locally increased initial dev time but eliminated recurring API costs for LLM inference."
+      },
+      "features": [
+        {
+          "title": "LLM Fine-tuning",
+          "description": "Fine-tuned Mistral LLM on a dataset of 45,000+ resumes.",
+          "impact": "Highly accurate resume content generation and parsing",
+          "custom": {
+            "datasetSize": "45,000+ records"
+          }
+        },
+        {
+          "title": "Dynamic Data Extraction",
+          "description": "Automated extraction of fields from resumes using Gemma API and Google Colab.",
+          "impact": "Processed 10,000+ resumes into structured format",
           "custom": {}
         }
       ],
       "challenges": [
         {
-          "challenge": "Designing a flexible schema for diverse academic data.",
-          "solution": "Normalized database design with clear entity relationships.",
-          "learning": "Proper schema planning prevents future refactoring.",
+          "challenge": "Structuring unstructured resume data into a 3NF database.",
+          "solution": "Conducted field analysis across 50+ websites to define industrial-standard entities.",
+          "learning": "Data cleaning is 70% of the effort in AI-driven applications.",
           "custom": {}
         }
       ],
       "techStack": {
-        "languages": ["JavaScript", "SQL"],
-        "frameworks": ["Node.js", "Express", "React"],
-        "databases": ["SQL Server"],
-        "orms": ["Sequelize"],
-        "cloud": ["AWS EC2"],
-        "devOps": ["Nginx"],
-        "tools": ["Git", "Postman"],
+        "languages": ["Java", "Python"],
+        "frameworks": ["Spring Boot", "JPA"],
+        "databases": ["MySQL (3NF)"],
+        "orms": ["Hibernate"],
+        "cloud": ["Google Colab"],
+        "devOps": ["Git"],
+        "tools": ["Mistral LLM", "Gemma API", "JDBC"],
         "custom": {
-          "os": "Ubuntu"
+          "ai_tools": "Mistral, Gemma"
         }
       },
       "metrics": {
-        "performance": "Handled concurrent academic operations efficiently",
-        "scale": "Supports 100+ users",
-        "reliability": "Stable CRUD operations with validation",
-        "custom": {}
+        "performance": "Real-time data updates and parsing",
+        "scale": "Handled 10,000+ resume uploads",
+        "reliability": "Strict 3NF data integrity",
+        "custom": {
+          "research_scope": "50+ competitor websites analyzed"
+        }
       },
       "media": {
         "coverImage": {
-          "url": "/images/projects/cms-cover.png",
-          "alt": "College Management System dashboard"
+          "url": "/images/projects/resumee-cover.png",
+          "alt": "ResumeeAI Dashboard"
         },
-        "gallery": [
-          {
-            "url": "/images/projects/cms-1.png",
-            "alt": "Student management module",
-            "caption": "Student profile and academic record management"
-          },
-          {
-            "url": "/images/projects/cms-2.png",
-            "alt": "Admin dashboard",
-            "caption": "Administrative overview dashboard"
-          }
-        ],
-        "videos": [
-          {
-            "url": "https://www.youtube.com/watch?v=demo123",
-            "type": "demo",
-            "caption": "Complete walkthrough of the College Management System"
-          }
-        ]
+        "gallery": [],
+        "videos": []
       },
       "links": {
         "github": "https://github.com/kuldeepsinhjhala",
@@ -112,146 +214,115 @@
         "documentation": "",
         "blog": ""
       },
-      "tags": [
-        "full stack",
-        "education management"
-      ],
-      "skillsGained": [
-        "Backend Architecture Design",
-        "Database Modeling",
-        "Role-Based Security"
-      ],
+      "tags": ["LLM", "NLP", "Spring Boot", "Fine-tuning"],
+      "skillsGained": ["Mistral Fine-tuning", "Database Normalization (3NF)", "Web Scraping/Analysis"],
       "confidentiality": {
         "hasRestrictions": false,
-        "notes": "Project was developed for academic evaluation and demonstration."
+        "notes": ""
+      },
+      "custom": {
+        "heading": "Project Achievements",
+        "image": "/images/projects/resumee-custom.png",
+        "data": [
+          "Fine-tuned Mistral LLM on 45,000+ resume dataset",
+          "Processed 10,000+ resumes into structured 3NF format",
+          "Analyzed 50+ competitor websites for industrial standards",
+          "Eliminated recurring API costs through local LLM deployment"
+        ]
       }
     },
     {
-      "id": "portfolio-blog-platform",
-      "title": "Portfolio and Blog Platform",
-      "slug": "portfolio-blog-platform",
-      "shortDescription": "A personal portfolio website with structured content, blogs, and dynamic rendering.",
-      "longDescription": "This project is a personal portfolio platform built to showcase projects, blogs, journey, and achievements using structured JSON data and Markdown rendering for content scalability.",
-      "category": "fullstack",
-      "type": "personal",
-      "status": "in-progress",
+      "id": "industrial-crm",
+      "title": "Custom Industrial CRM",
+      "slug": "industrial-crm",
+      "shortDescription": "A scalable Customer Relationship Management tool designed for industrial standards and maintenance.",
+      "longDescription": "Designed and implemented a custom CRM from scratch, focusing on 3NF principles to ensure robust data integrity and maintainability for long-term industrial use.",
+      "category": "backend",
+      "type": "internship",
+      "status": "completed",
       "duration": {
-        "durationText": "Ongoing",
-        "working": "true"
+        "durationText": "2024",
+        "working": "false"
       },
       "organization": {
-        "name": "Self Initiated",
-        "type": "self",
-        "role": "Full Stack Developer",
-        "teamSize": 1
+        "name": "Keshav Encon",
+        "type": "company",
+        "role": "Backend Intern",
+        "teamSize": 2
       },
       "problem": {
-        "summary": "Traditional portfolio websites lack scalability and structured content management.",
-        "constraints": [
-          "Need for high performance",
-          "SEO-friendly architecture"
-        ],
-        "whyItMatters": "A developer portfolio should scale with content and reflect real engineering practices."
+        "summary": "Off-the-shelf CRMs often fail to meet specific industrial data relationship requirements and are hard to scale.",
+        "constraints": ["Adherence to 3NF", "Meticulous architecture for maintainability"],
+        "whyItMatters": "Industrial clients need systems that can scale without requiring frequent database refactoring."
       },
       "solution": {
-        "approach": "Used JSON-driven content and Markdown rendering to separate data from UI.",
-        "architecture": "Component-based frontend with structured data files.",
-        "designPatterns": [
-          "Component Composition",
-          "Data-Driven UI"
-        ],
-        "tradeoffs": "Static content approach requires rebuilds for updates but improves performance."
+        "approach": "Built a custom database schema aligned with specific industrial workflows and client requirements.",
+        "architecture": "Layered architecture emphasizing service-repository separation.",
+        "designPatterns": ["Repository Pattern"],
+        "tradeoffs": "Custom development took longer than configuration but resulted in 100% feature alignment."
       },
       "features": [
         {
-          "title": "Markdown-Based Blogs",
-          "description": "Blogs written in Markdown and rendered dynamically in React.",
-          "impact": "Improved content readability and scalability",
-          "custom": {}
-        },
-        {
-          "title": "Structured JSON Content",
-          "description": "All sections driven by validated JSON schemas.",
-          "impact": "Consistency and maintainability",
+          "title": "Custom Database Design",
+          "description": "Implemented a from-scratch database following 3NF principles for high integrity.",
+          "impact": "Eliminated data redundancy and improved search speed",
           "custom": {}
         }
       ],
       "challenges": [
         {
-          "challenge": "Designing future-proof schemas for content.",
-          "solution": "Introduced extensible custom fields in all schemas.",
-          "learning": "Schema design is as important as UI design.",
+          "challenge": "Aligning technical schema with complex client business logic.",
+          "solution": "Used detailed entity-relationship modeling before coding.",
+          "learning": "Architecture is as important as the code itself.",
           "custom": {}
         }
       ],
       "techStack": {
-        "languages": ["JavaScript"],
-        "frameworks": ["React", "Vite"],
-        "databases": ["None"],
-        "orms": ["None"],
-        "cloud": ["Firebase Hosting"],
-        "devOps": ["GitHub Actions"],
-        "tools": ["Git", "VS Code"],
-        "custom": {
-          "styling": "Tailwind CSS"
-        }
+        "languages": ["SQL", "JavaScript"],
+        "frameworks": ["Node.js", "Express"],
+        "databases": ["PostgreSQL"],
+        "orms": ["Sequelize"],
+        "cloud": [],
+        "devOps": ["Git"],
+        "tools": ["VS Code"],
+        "custom": {}
       },
       "metrics": {
-        "performance": "Fast load times due to static rendering",
-        "scale": "Easily supports hundreds of blog posts",
-        "reliability": "Low failure surface with static hosting",
+        "performance": "Optimized for fast client data retrieval",
+        "scale": "Easily extensible for new modules",
+        "reliability": "Robust data integrity via 3NF",
         "custom": {}
       },
       "media": {
         "coverImage": {
-          "url": "/images/projects/portfolio-cover.png",
-          "alt": "Personal portfolio homepage"
+          "url": "/images/projects/crm-cover.png",
+          "alt": "CRM System"
         },
-        "gallery": [
-          {
-            "url": "/images/projects/portfolio-1.png",
-            "alt": "Portfolio sections",
-            "caption": "Projects and journey sections"
-          }
-        ],
-        "videos": [
-          {
-            "url": "https://www.youtube.com/watch?v=demo456",
-            "type": "walkthrough",
-            "caption": "Portfolio platform walkthrough"
-          }
-        ]
+        "gallery": [],
+        "videos": []
       },
       "links": {
         "github": "https://github.com/kuldeepsinhjhala",
-        "demo": "https://kuldeepsinhjhala.com",
+        "demo": "",
         "documentation": "",
         "blog": ""
       },
-      "tags": [
-        "portfolio",
-        "markdown"
-      ],
-      "skillsGained": [
-        "Schema Design",
-        "Content Architecture",
-        "Frontend Optimization"
-      ],
+      "tags": ["CRM", "Database Design", "Backend"],
+      "skillsGained": ["Requirement Analysis", "3NF Normalization", "System Architecture"],
       "confidentiality": {
         "hasRestrictions": false,
-        "notes": "Personal project with public source code and demo."
+        "notes": ""
+      },
+      "custom": {
+        "heading": "Technical Highlights",
+        "image": "/images/projects/crm-custom.png",
+        "data": [
+          "Designed custom database schema following 3NF principles",
+          "Built from-scratch architecture for 100% feature alignment",
+          "Implemented service-repository separation pattern",
+          "Created easily extensible system for new modules"
+        ]
       }
-    }
-  ],
-  "categories": [
-    {
-      "id": "fullstack",
-      "name": "Full Stack"
-    },
-    {
-      "id": "backend",
-      "name": "Backend"
     }
   ]
 }
-
