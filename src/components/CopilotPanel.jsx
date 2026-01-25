@@ -23,6 +23,14 @@ function CopilotPanel() {
     scrollToBottom()
   }, [messages])
 
+  const handleResetChat = () => {
+    setMessages([
+      { id: 1, role: 'assistant', content: 'Hello! I\'m your AI assistant. How can I help you explore this portfolio?' }
+    ])
+    setInput('')
+    setIsLoading(false)
+  }
+
   const handleSend = async (e) => {
     e.preventDefault()
     if (!input.trim() || isLoading) return
@@ -215,15 +223,29 @@ function CopilotPanel() {
             <div className="w-2 h-2 bg-success rounded-full animate-pulse"></div>
             <h2 className="text-head text-sm font-semibold">Copilot</h2>
           </div>
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="text-body hover:text-head transition-colors p-1 rounded hover:bg-bg"
-            aria-label={isOpen ? 'Close panel' : 'Open panel'}
-          >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
+          <div className="flex items-center gap-2">
+            {messages.length > 1 && (
+              <button
+                onClick={handleResetChat}
+                className="text-body hover:text-gold transition-all p-1.5 rounded hover:bg-bg cursor-pointer border border-transparent hover:border-gold/20"
+                aria-label="Reset chat"
+                title="Reset chat"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                </svg>
+              </button>
+            )}
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="text-body hover:text-head transition-colors p-1 rounded hover:bg-bg cursor-pointer"
+              aria-label={isOpen ? 'Close panel' : 'Open panel'}
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
         </div>
 
       {/* Messages */}

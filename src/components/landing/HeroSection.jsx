@@ -68,32 +68,32 @@ function HeroSection({ hero = {}, quickLinks = [], meta = {}, className = '' }) 
   }
 
   return (
-    <section className={`flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12 ${className}`}>
+    <section className={`flex flex-col lg:flex-row items-center lg:items-start gap-8 lg:gap-6 xl:gap-8 ${className}`}>
       {/* Content - Text and Image */}
       <div className="flex-1 w-full">
         {/* Text Content */}
-        <div className="text-center md:text-left mb-8 md:mb-0">
+        <div className="text-center lg:text-left mb-8 lg:mb-0">
           {hero.greeting && (
-            <p className="text-gold text-base md:text-lg mb-2 font-medium text-center md:text-left">
+            <p className="text-gold text-base md:text-lg mb-2 font-medium text-center lg:text-left">
               {hero.greeting}
             </p>
           )}
           
           {hero.name && (
-            <h1 className="text-head text-4xl md:text-5xl lg:text-6xl font-bold mb-3 md:mb-4 text-center md:text-left">
+            <h1 className="text-head text-4xl md:text-5xl lg:text-6xl font-bold mb-3 md:mb-4 text-center lg:text-left">
               {hero.name}
             </h1>
           )}
 
-          {/* Profile Image - Below name on mobile only */}
-          <div className="flex items-center justify-center md:hidden mb-4">
+          {/* Profile Image - Below name on mobile/tablet only */}
+          <div className="flex items-center justify-center lg:hidden mb-4">
             <div className="relative">
               <img 
                 src={kuldeepImage} 
                 alt={hero.profile?.alt || hero.name || 'Kuldeepsinh Jhala'} 
                 className="
-                  w-64 h-64
-                  rounded-lg object-cover
+                  w-70 h-70
+                  rounded-full object-cover
                   border-2 border-gold/20
                   hover:border-gold hover:ring-2 hover:ring-gold/50
                   transition-all duration-300
@@ -113,43 +113,45 @@ function HeroSection({ hero = {}, quickLinks = [], meta = {}, className = '' }) 
           </div>
           
           {hero.designation && (
-            <h2 className="text-gold text-xl md:text-2xl lg:text-3xl font-semibold mb-3 md:mb-4 text-center md:text-left">
+            <h2 className="text-gold text-xl md:text-2xl lg:text-3xl font-semibold mb-3 md:mb-4 text-center lg:text-left">
               {hero.designation}
             </h2>
           )}
           
           {hero.tagline && (
-            <p className="text-head text-lg md:text-xl mb-3 md:mb-4 text-center md:text-left">
+            <p className="text-head text-lg md:text-xl mb-3 md:mb-4 text-center lg:text-left">
               {hero.tagline}
             </p>
           )}
           
           {hero.subtitle && (
-            <p className="text-body text-sm md:text-base mb-4 md:mb-6 max-w-2xl mx-auto md:mx-0 text-justify md:text-left">
+            <p className="text-body text-sm md:text-base mb-4 md:mb-6 max-w-2xl mx-auto lg:mx-0 text-justify lg:text-left">
               {hero.subtitle}
             </p>
           )}
           
           {hero.description && (
-            <p className="text-body text-sm md:text-base mb-6 md:mb-8 max-w-2xl mx-auto md:mx-0 text-justify md:text-left">
+            <p className="text-body text-sm md:text-base mb-6 md:mb-8 max-w-2xl mx-auto lg:mx-0 text-justify lg:text-left">
               {hero.description}
             </p>
           )}
 
-          {/* Quick Links */}
+          {/* Quick Links - Mobile/Tablet only */}
           {quickLinks && quickLinks.length > 0 && (
-            <div className="flex flex-wrap gap-3 md:gap-4 justify-center md:justify-start">
+            <div className="flex flex-col sm:flex-row sm:flex-wrap gap-2 sm:gap-3 md:gap-4 justify-center lg:justify-start lg:hidden w-full">
               {quickLinks.map((link, index) => (
                 <button
                   key={index}
                   onClick={() => handleLinkClick(link.url)}
                   className="
-                    px-4 py-2 md:px-5 md:py-2.5 
+                    w-full sm:w-auto
+                    px-4 py-3 sm:py-2 md:px-5 md:py-2.5 
                     bg-card/90 backdrop-blur-sm border border-gold/20 rounded
                     text-head text-sm font-medium
                     hover:border-gold hover:bg-gold/10 hover:ring-1 hover:ring-gold/50
                     transition-all duration-200 shadow-lg cursor-pointer
-                    flex items-center gap-2
+                    flex items-center justify-center gap-2
+                    flex-1 sm:flex-initial
                   "
                   style={{
                     boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2), 0 0 10px rgba(201, 166, 107, 0.05)'
@@ -177,15 +179,15 @@ function HeroSection({ hero = {}, quickLinks = [], meta = {}, className = '' }) 
         </div>
       </div>
 
-      {/* Right Content - Profile Image (Desktop only) */}
-      <div className="hidden md:flex flex-1 items-center justify-center">
-        <div className="relative">
+      {/* Right Content - Profile Image and Quick Links (Desktop only) */}
+      <div className="hidden lg:flex flex-col items-center flex-shrink-0">
+        <div className="relative mb-4 lg:mb-6">
           <img 
             src={kuldeepImage} 
             alt={hero.profile?.alt || hero.name || 'Kuldeepsinh Jhala'} 
             className="
-              w-64 h-64
-              rounded-lg object-cover
+              w-48 h-48 lg:w-56 lg:h-56 xl:w-64 xl:h-64
+              rounded-full object-cover
               border-2 border-gold/20
               hover:border-gold hover:ring-2 hover:ring-gold/50
               transition-all duration-300
@@ -202,6 +204,46 @@ function HeroSection({ hero = {}, quickLinks = [], meta = {}, className = '' }) 
             }}
           />
         </div>
+
+        {/* Quick Links - Desktop only (below image) */}
+        {quickLinks && quickLinks.length > 0 && (
+          <div className="flex flex-col gap-2 lg:gap-3 w-full max-w-[280px]">
+            {quickLinks.map((link, index) => (
+              <button
+                key={index}
+                onClick={() => handleLinkClick(link.url)}
+                className="
+                  px-3 py-2 lg:px-4 lg:py-2
+                  bg-card/90 backdrop-blur-sm border border-gold/20 rounded
+                  text-head text-xs lg:text-sm font-medium
+                  hover:border-gold hover:bg-gold/10 hover:ring-1 hover:ring-gold/50
+                  transition-all duration-200 shadow-lg cursor-pointer
+                  flex items-center justify-center gap-2
+                  w-full
+                "
+                style={{
+                  boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2), 0 0 10px rgba(201, 166, 107, 0.05)'
+                }}
+              >
+                {link.icon && getIcon(link.icon)}
+                <span className="whitespace-nowrap">{link.label}</span>
+                <svg
+                  className="w-3 h-3 lg:w-4 lg:h-4 flex-shrink-0"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </button>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   )

@@ -3,15 +3,14 @@ import logo from '../assets/logo.png'
 
 function TerminalLoader({ 
   lines = [
-    '[INFO] Booting Node.js runtime environment',
-    '[INFO] Sequelize: Authenticating database handshake',
-    '[INFO] Establishing connection to MSSQL Express',
+    '[INFO] Booting the server',
+    '[INFO] Authenticating database handshake',
+    '[INFO] Establishing connection to database',
     '[INFO] Syncing models and Stored Procedures',
-    '[INFO] Warming up local LLM (Gemini-Engine)',
-    '[INFO] Context window initialized',
-  '[INFO] Application ready: Portfolio is live'
+    '[INFO] Loading portfolio data',
+  '[INFO] Application ready: Kuldeep\'s Portfolio is live'
   ],
-  speed = 30,
+  speed = 25,
   show = true,
   className = '',
   onComplete

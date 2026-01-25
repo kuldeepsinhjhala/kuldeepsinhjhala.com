@@ -29,9 +29,10 @@ function FocusCard({ item, className = '' }) {
   return (
     <div
       className={`
-        bg-card/90 backdrop-blur-sm border border-gold/20 rounded-lg p-6
+        bg-card/90 backdrop-blur-sm border border-gold/20 rounded-lg p-4 sm:p-5 md:p-6
         hover:border-gold hover:ring-1 hover:ring-gold/50
         transition-all duration-200 shadow-lg
+        w-full overflow-hidden
         ${className}
       `}
       style={{
@@ -39,12 +40,12 @@ function FocusCard({ item, className = '' }) {
       }}
     >
       {item.icon && (
-        <div className="flex items-center gap-3 mb-3">
-          <div className="text-gold">
+        <div className="flex items-start gap-2 sm:gap-3 mb-2 sm:mb-3">
+          <div className="text-gold flex-shrink-0 mt-0.5">
             {getIcon(item.icon)}
           </div>
           {item.title && (
-            <h3 className="text-head text-lg md:text-xl font-semibold">
+            <h3 className="text-head text-base sm:text-lg md:text-xl font-semibold break-words">
               {item.title}
             </h3>
           )}
@@ -52,13 +53,13 @@ function FocusCard({ item, className = '' }) {
       )}
       
       {item.title && !item.icon && (
-        <h3 className="text-head text-lg md:text-xl font-semibold mb-3">
+        <h3 className="text-head text-base sm:text-lg md:text-xl font-semibold mb-2 sm:mb-3 break-words">
           {item.title}
         </h3>
       )}
       
       {item.description && (
-        <p className="text-body text-sm md:text-base">
+        <p className="text-body text-xs sm:text-sm md:text-base break-words leading-relaxed">
           {item.description}
         </p>
       )}

@@ -247,3 +247,75 @@ button:disabled {
   background-color: rgba(201, 166, 107, 0.1);
   border-color: var(--c-gold);
 }
+
+/* Custom Cursor Styles - Dot + Soft Ring */
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  background: #ffffff;
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.05s linear;
+  will-change: transform;
+}
+
+.cursor-ring {
+  width: 30px;
+  height: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9998;
+  transition: width 0.2s ease-out, height 0.2s ease-out, border-width 0.2s ease-out, opacity 0.2s ease-out, transform 0.15s ease-out;
+  will-change: transform, width, height, border-width, opacity;
+  transform: translate(-15px, -15px);
+}
+
+/* Hide default cursor on desktop when custom cursor is active */
+@media (pointer: fine) {
+  * {
+    cursor: none !important;
+  }
+  
+  /* Show native cursor for text inputs and textareas */
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="search"],
+  input[type="url"],
+  input[type="tel"],
+  input[type="number"],
+  textarea,
+  [contenteditable="true"] {
+    cursor: text !important;
+  }
+  
+  /* Show native cursor for disabled elements */
+  button:disabled,
+  input:disabled,
+  textarea:disabled,
+  select:disabled {
+    cursor: not-allowed !important;
+  }
+  
+  /* Show native cursor for resize handles */
+  textarea[resize],
+  iframe {
+    cursor: auto !important;
+  }
+}
+
+/* Hide custom cursor on touch devices */
+@media (pointer: coarse) {
+  .cursor-dot,
+  .cursor-ring {
+    display: none !important;
+  }
+  
+  * {
+    cursor: auto !important;
+  }
+}

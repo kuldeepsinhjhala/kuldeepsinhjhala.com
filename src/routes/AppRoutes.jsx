@@ -1,12 +1,12 @@
 import { Routes, Route } from 'react-router-dom'
 import { TabProvider } from '../context/TabContext'
-import { CopilotProvider, useCopilot } from '../context/CopilotContext'
+// import { CopilotProvider, useCopilot } from '../context/CopilotContext' // Temporarily disabled copilot
 import { NavbarProvider } from '../context/NavbarContext'
 import Navbar from '../components/Navbar'
 import SearchBar from '../components/SearchBar'
 import TabBar from '../components/TabBar'
-import CopilotButton from '../components/CopilotButton'
-import CopilotPanel from '../components/CopilotPanel'
+// import CopilotButton from '../components/CopilotButton' // Temporarily disabled copilot
+// import CopilotPanel from '../components/CopilotPanel' // Temporarily disabled copilot
 import Landing from '../sections/landing/Landing'
 import Journey from '../sections/journey/Journey'
 import Experience from '../sections/experience/Experience'
@@ -19,7 +19,7 @@ import Contact from '../sections/contact/Contact'
 import Achievements from '../sections/achievement/Achievements'
 
 function AppContent() {
-  const { isOpen } = useCopilot()
+  // const { isOpen } = useCopilot() // Temporarily disabled copilot
   
   return (
     <div className="flex h-screen overflow-hidden">
@@ -49,8 +49,9 @@ function AppContent() {
             </Routes>
           </main>
         </div>
-        <CopilotButton />
-        <CopilotPanel />
+        {/* Temporarily disabled copilot */}
+        {/* <CopilotButton /> */}
+        {/* <CopilotPanel /> */}
       </div>
   )
 }
@@ -58,11 +59,12 @@ function AppContent() {
 function AppRoutes() {
   return (
     <TabProvider>
-      <CopilotProvider>
+      {/* Temporarily disabled copilot */}
+      {/* <CopilotProvider> */}
         <NavbarProvider>
           <AppContent />
         </NavbarProvider>
-      </CopilotProvider>
+      {/* </CopilotProvider> */}
     </TabProvider>
   )
 }
