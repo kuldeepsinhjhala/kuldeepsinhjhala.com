@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react'
 import { useLocation } from 'react-router-dom'
 import { useTabs } from '../context/TabContext'
 import { useNavbar } from '../context/NavbarContext'
-import logo from '../assets/logo.png'
+import logo from '../assets/Lion logo.png'
 
 function Navbar() {
   const location = useLocation()

@@ -1,5 +1,6 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import contactData from '../../data/contact.json'
+import resumeData from '../../data/resume.json'
 import ContactInfoCard from '../../components/contact/ContactInfoCard'
 
 function Resume() {
@@ -17,11 +18,28 @@ function Resume() {
     }
   }, [])
 
-  // Google Drive file ID extracted from the URL
-  const resumeFileId = '15NUqamzDlsB0NBRFfNTtM_RIS0sO7iii'
-  const resumeViewUrl = `https://drive.google.com/file/d/${resumeFileId}/preview`
-  const resumeDownloadUrl = `https://drive.google.com/uc?export=download&id=${resumeFileId}`
-  const resumeDirectUrl = `https://drive.google.com/file/d/${resumeFileId}/view?usp=sharing`
+  // Extract file ID from Google Drive link and generate URLs
+  const resumeLink = useMemo(() => resumeData?.resumeLink || '', [])
+  
+  const resumeFileId = useMemo(() => {
+    if (!resumeLink) return ''
+    // Extract file ID from Google Drive URL
+    // Format: https://drive.google.com/file/d/FILE_ID/view?usp=sharing
+    const match = resumeLink.match(/\/d\/([a-zA-Z0-9_-]+)/)
+    return match ? match[1] : ''
+  }, [resumeLink])
+
+  const resumeViewUrl = useMemo(() => {
+    if (!resumeFileId) return ''
+    return `https://drive.google.com/file/d/${resumeFileId}/preview`
+  }, [resumeFileId])
+
+  const resumeDownloadUrl = useMemo(() => {
+    if (!resumeFileId) return ''
+    return `https://drive.google.com/uc?export=download&id=${resumeFileId}`
+  }, [resumeFileId])
+
+  const resumeDirectUrl = useMemo(() => resumeLink, [resumeLink])
 
   const handleCopyLink = async () => {
     try {
@@ -93,19 +111,23 @@ function Resume() {
               {/* Action Buttons */}
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
                 {/* Download Button */}
-                <a
-                  href={resumeDownloadUrl}
-                  download
-                  className="flex-1 sm:flex-initial px-4 md:px-6 py-2.5 md:py-3 bg-gold/20 hover:bg-gold/30 text-gold rounded border border-gold/30 transition-colors inline-flex items-center justify-center gap-2 font-medium text-sm md:text-base shadow-md"
-                  style={{
-                    boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2), 0 0 10px rgba(201, 166, 107, 0.05)'
-                  }}
-                >
-                  <svg className="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                  </svg>
-                  <span className="whitespace-nowrap">Download Resume</span>
-                </a>
+                {resumeDownloadUrl && (
+                  <a
+                    href={resumeDownloadUrl}
+                    download
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1 sm:flex-initial px-4 md:px-6 py-2.5 md:py-3 bg-gold/20 hover:bg-gold/30 text-gold rounded border border-gold/30 transition-colors inline-flex items-center justify-center gap-2 font-medium text-sm md:text-base shadow-md cursor-pointer"
+                    style={{
+                      boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2), 0 0 10px rgba(201, 166, 107, 0.05)'
+                    }}
+                  >
+                    <svg className="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                    <span className="whitespace-nowrap">Download Resume</span>
+                  </a>
+                )}
 
                 {/* Copy Link Button */}
                 <button
@@ -203,37 +225,45 @@ function Resume() {
                       maxWidth: '100%'
                     }}
                   >
-                    <iframe
-                      src={resumeViewUrl}
-                      className="w-full h-full rounded-lg border-0"
-                      style={{
-                        minHeight: '100%',
-                        height: '100%'
-                      }}
-                      title="Resume Preview"
-                      allow="autoplay"
-                      loading="lazy"
-                      onLoad={handleIframeLoad}
-                    />
+                    {resumeViewUrl ? (
+                      <iframe
+                        src={resumeViewUrl}
+                        className="w-full h-full rounded-lg border-0"
+                        style={{
+                          minHeight: '100%',
+                          height: '100%'
+                        }}
+                        title="Resume Preview"
+                        allow="autoplay"
+                        loading="lazy"
+                        onLoad={handleIframeLoad}
+                      />
+                    ) : (
+                      <div className="flex items-center justify-center h-full min-h-[500px] text-body">
+                        <p>Resume link not available. Please check resume.json</p>
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Alternative: If iframe doesn't work well, show a message */}
-            <div className="mt-3 sm:mt-4 text-center space-y-2">
-              <p className="text-body text-xs sm:text-sm md:text-base">
-                Having trouble viewing?{' '}
-                <a
-                  href={resumeDirectUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gold hover:text-gold/80 transition-colors underline"
-                >
-                  Open in Google Drive
-                </a>
-              </p>
-            </div>
+            {resumeDirectUrl && (
+              <div className="mt-3 sm:mt-4 text-center space-y-2">
+                <p className="text-body text-xs sm:text-sm md:text-base">
+                  Having trouble viewing?{' '}
+                  <a
+                    href={resumeDirectUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gold hover:text-gold/80 transition-colors underline cursor-pointer"
+                  >
+                    Open in Google Drive
+                  </a>
+                </p>
+              </div>
+            )}
           </div>
         </section>
 

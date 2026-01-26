@@ -1,8 +1,9 @@
-import { useState, useEffect, useRef, useMemo } from 'react'
+import { useState, useEffect, useRef, useMemo, useCallback } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { useTabs } from '../context/TabContext'
 import { useNavbar } from '../context/NavbarContext'
 import contactData from '../data/contact.json'
+import resumeData from '../data/resume.json'
 
 function SearchBar() {
   const navigate = useNavigate()
@@ -370,29 +371,50 @@ function SearchBar() {
     return options
   }, [])
 
-  // Google Drive file ID for resume download
-  const resumeFileId = '15NUqamzDlsB0NBRFfNTtM_RIS0sO7iii'
-  const resumeDownloadUrl = `https://drive.google.com/uc?export=download&id=${resumeFileId}`
+  // Extract file ID from Google Drive link and generate download URL
+  const resumeLink = useMemo(() => resumeData?.resumeLink || '', [])
+  
+  const resumeFileId = useMemo(() => {
+    if (!resumeLink) return ''
+    // Extract file ID from Google Drive URL
+    // Format: https://drive.google.com/file/d/FILE_ID/view?usp=sharing
+    const match = resumeLink.match(/\/d\/([a-zA-Z0-9_-]+)/)
+    return match ? match[1] : ''
+  }, [resumeLink])
 
-  const handleDownloadResume = () => {
-    window.open(resumeDownloadUrl, '_blank')
-  }
+  const resumeDownloadUrl = useMemo(() => {
+    if (!resumeFileId) return ''
+    return `https://drive.google.com/uc?export=download&id=${resumeFileId}`
+  }, [resumeFileId])
 
-  const quickActions = [
-    {
-      id: 1,
-      label: 'Download Resume',
-      icon: (
-        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-        </svg>
-      ),
-      onClick: () => {
-        handleDownloadResume()
-        setIsQuickActionsOpen(false)
-      }
-    },
-    {
+  const handleDownloadResume = useCallback(() => {
+    if (resumeDownloadUrl) {
+      window.open(resumeDownloadUrl, '_blank')
+    }
+  }, [resumeDownloadUrl])
+
+  const quickActions = useMemo(() => {
+    const actions = []
+    
+    // Add Download Resume action only if resume URL is available
+    if (resumeDownloadUrl) {
+      actions.push({
+        id: 1,
+        label: 'Download Resume',
+        icon: (
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+          </svg>
+        ),
+        onClick: () => {
+          handleDownloadResume()
+          setIsQuickActionsOpen(false)
+        }
+      })
+    }
+    
+    // Add Contact Kuldeep action
+    actions.push({
       id: 2,
       label: 'Contact Kuldeep',
       icon: (
@@ -405,8 +427,10 @@ function SearchBar() {
         setIsQuickActionsOpen(false)
         setIsContactOpen(true)
       }
-    },
-    {
+    })
+    
+    // Add Social Media action
+    actions.push({
       id: 3,
       label: 'Social Media',
       icon: (
@@ -419,8 +443,10 @@ function SearchBar() {
         setIsQuickActionsOpen(false)
         setIsSocialMediaOpen(true)
       }
-    }
-  ]
+    })
+    
+    return actions
+  }, [resumeDownloadUrl, handleDownloadResume])
 
   return (
     <div className="block sticky top-0 z-40 bg-card border-b border-gold/10 px-2 max-[425px]:px-3 sm:px-4" style={{ height: '48px' }}>
@@ -544,16 +570,18 @@ function SearchBar() {
           </svg>
           <span className="hidden min-[510px]:inline">Quick Actions</span>
         </button>
-        <button
-          onClick={handleDownloadResume}
-          className="flex items-center gap-1.5 px-2 min-[425px]:px-3 py-2 bg-bg border border-gold/20 rounded text-head hover:border-gold hover:ring-1 hover:ring-gold/50 transition-all flex-shrink-0 text-xs font-medium cursor-pointer"
-          aria-label="Download Resume"
-        >
-          <svg className="w-4 h-4 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-          </svg>
-          <span className="hidden sm:inline">Download Resume</span>
-        </button>
+        {resumeDownloadUrl && (
+          <button
+            onClick={handleDownloadResume}
+            className="flex items-center gap-1.5 px-2 min-[425px]:px-3 py-2 bg-bg border border-gold/20 rounded text-head hover:border-gold hover:ring-1 hover:ring-gold/50 transition-all flex-shrink-0 text-xs font-medium cursor-pointer"
+            aria-label="Download Resume"
+          >
+            <svg className="w-4 h-4 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+            <span className="hidden sm:inline">Download Resume</span>
+          </button>
+        )}
       </div>
 
       {/* Quick Actions Modal */}

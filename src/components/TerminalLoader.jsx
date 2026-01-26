@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
-import logo from '../assets/logo.png'
+import logo from '../assets/Lion logo.png'
 
 function TerminalLoader({ 
   lines = [
