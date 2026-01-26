@@ -139,7 +139,9 @@ function HeroSection({ hero = {}, quickLinks = [], meta = {}, className = '' }) 
           {/* Quick Links - Mobile/Tablet only */}
           {quickLinks && quickLinks.length > 0 && (
             <div className="flex flex-col sm:flex-row sm:flex-wrap gap-2 sm:gap-3 md:gap-4 justify-center lg:justify-start lg:hidden w-full">
-              {quickLinks.map((link, index) => (
+              {quickLinks
+                .filter((link) => link.url !== '/blog' && link.label !== 'Read Blogs') // Commented out Read Blogs button
+                .map((link, index) => (
                 <button
                   key={index}
                   onClick={() => handleLinkClick(link.url)}
@@ -174,6 +176,45 @@ function HeroSection({ hero = {}, quickLinks = [], meta = {}, className = '' }) 
                   </svg>
                 </button>
               ))}
+              {/* Read Blogs button - Commented out
+              {quickLinks
+                .filter((link) => link.url === '/blog' || link.label === 'Read Blogs')
+                .map((link, index) => (
+                <button
+                  key={index}
+                  onClick={() => handleLinkClick(link.url)}
+                  className="
+                    w-full sm:w-auto
+                    px-4 py-3 sm:py-2 md:px-5 md:py-2.5 
+                    bg-card/90 backdrop-blur-sm border border-gold/20 rounded
+                    text-head text-sm font-medium
+                    hover:border-gold hover:bg-gold/10 hover:ring-1 hover:ring-gold/50
+                    transition-all duration-200 shadow-lg cursor-pointer
+                    flex items-center justify-center gap-2
+                    flex-1 sm:flex-initial
+                  "
+                  style={{
+                    boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2), 0 0 10px rgba(201, 166, 107, 0.05)'
+                  }}
+                >
+                  {link.icon && getIcon(link.icon)}
+                  <span>{link.label}</span>
+                  <svg
+                    className="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 5l7 7-7 7"
+                    />
+                  </svg>
+                </button>
+              ))}
+              */}
             </div>
           )}
         </div>
@@ -208,7 +249,9 @@ function HeroSection({ hero = {}, quickLinks = [], meta = {}, className = '' }) 
         {/* Quick Links - Desktop only (below image) */}
         {quickLinks && quickLinks.length > 0 && (
           <div className="flex flex-col gap-2 lg:gap-3 w-full max-w-[280px]">
-            {quickLinks.map((link, index) => (
+            {quickLinks
+              .filter((link) => link.url !== '/blog' && link.label !== 'Read Blogs') // Commented out Read Blogs button
+              .map((link, index) => (
               <button
                 key={index}
                 onClick={() => handleLinkClick(link.url)}
@@ -242,6 +285,44 @@ function HeroSection({ hero = {}, quickLinks = [], meta = {}, className = '' }) 
                 </svg>
               </button>
             ))}
+            {/* Read Blogs button - Commented out
+            {quickLinks
+              .filter((link) => link.url === '/blog' || link.label === 'Read Blogs')
+              .map((link, index) => (
+              <button
+                key={index}
+                onClick={() => handleLinkClick(link.url)}
+                className="
+                  px-3 py-2 lg:px-4 lg:py-2
+                  bg-card/90 backdrop-blur-sm border border-gold/20 rounded
+                  text-head text-xs lg:text-sm font-medium
+                  hover:border-gold hover:bg-gold/10 hover:ring-1 hover:ring-gold/50
+                  transition-all duration-200 shadow-lg cursor-pointer
+                  flex items-center justify-center gap-2
+                  w-full
+                "
+                style={{
+                  boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2), 0 0 10px rgba(201, 166, 107, 0.05)'
+                }}
+              >
+                {link.icon && getIcon(link.icon)}
+                <span className="whitespace-nowrap">{link.label}</span>
+                <svg
+                  className="w-3 h-3 lg:w-4 lg:h-4 flex-shrink-0"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </button>
+            ))}
+            */}
           </div>
         )}
       </div>

@@ -128,10 +128,10 @@ function JourneyRoad({ timeline = [], className = '' }) {
 
               {/* Content Card - Centered below milestone - Only show if not expanded */}
               {!isExpanded && (
-                <div className="w-full max-w-[90%] md:w-[500px] lg:w-[600px] mx-auto px-4 md:px-0 mb-4 md:mb-0">
+                <div className="w-full max-w-[90%] md:w-[500px] lg:w-[600px] mx-auto px-2 sm:px-4 md:px-0 mb-4 md:mb-0">
                   <div
                     className={`
-                      relative bg-card/90 backdrop-blur-sm border rounded-lg p-4 md:p-5 lg:p-6
+                      relative bg-card/90 backdrop-blur-sm border rounded-lg p-3 sm:p-4 md:p-5 lg:p-6
                       transition-all duration-300 shadow-lg
                       ${isFeatured ? 'border-gold ring-2 ring-gold/30' : 'border-gold/20'}
                       hover:border-gold hover:ring-1 hover:ring-gold/50
@@ -142,39 +142,41 @@ function JourneyRoad({ timeline = [], className = '' }) {
                     }}
                     onClick={() => toggleExpand(item.id || index)}
                   >
-                    {/* Featured Badge */}
+                    {/* Featured Badge - Stacked on small screens, absolute on larger screens */}
                     {isFeatured && (
-                      <div className="absolute top-2 right-2 sm:top-3 sm:right-3 md:top-4 md:right-4 z-10">
+                      <div className="relative mb-3 sm:mb-0 sm:absolute sm:top-2 sm:right-2 md:top-3 md:right-3 lg:top-4 lg:right-4 z-10 flex justify-center sm:justify-end">
                         <span className="px-2 py-1 bg-gold/20 backdrop-blur-sm text-gold text-xs font-medium rounded border border-gold/30 shadow-sm whitespace-nowrap">
                           Featured
                         </span>
                       </div>
                     )}
 
-                    {/* Time Period */}
+                    {/* Time Period - Stack vertically on small screens */}
                     {item.time && (
-                      <div className="mb-3 text-center">
-                        <span className="inline-block px-3 py-1 bg-gold/10 text-gold text-xs font-medium rounded border border-gold/20">
-                          {formatTimePeriod(item.time)}
-                        </span>
-                        {item.time.duration && (
-                          <span className="ml-2 text-body text-xs">
-                            ({item.time.duration})
+                      <div className={`mb-3 text-center ${isFeatured ? 'sm:pt-0' : ''}`}>
+                        <div className="flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2">
+                          <span className="inline-block px-2 sm:px-3 py-1 bg-gold/10 text-gold text-xs font-medium rounded border border-gold/20 break-words">
+                            {formatTimePeriod(item.time)}
                           </span>
-                        )}
+                          {item.time.duration && (
+                            <span className="text-body text-xs whitespace-nowrap">
+                              ({item.time.duration})
+                            </span>
+                          )}
+                        </div>
                       </div>
                     )}
 
                     {/* Title */}
                     {item.title && (
-                      <h3 className="text-head text-lg md:text-xl font-bold mb-2 text-center">
+                      <h3 className="text-head text-base sm:text-lg md:text-xl font-bold mb-2 text-center break-words">
                         {item.title}
                       </h3>
                     )}
 
                     {/* Subtitle */}
                     {item.subtitle && (
-                      <p className="text-gold text-sm mb-3 text-center">
+                      <p className="text-gold text-xs sm:text-sm mb-3 text-center break-words">
                         {item.subtitle}
                       </p>
                     )}
@@ -196,7 +198,7 @@ function JourneyRoad({ timeline = [], className = '' }) {
 
                     {/* Description - Truncated */}
                     {item.description && (
-                      <p className="text-body text-sm mb-4 leading-relaxed line-clamp-2 text-center">
+                      <p className="text-body text-xs sm:text-sm mb-4 leading-relaxed line-clamp-2 text-center break-words">
                         {item.description}
                       </p>
                     )}
@@ -244,22 +246,25 @@ function JourneyRoad({ timeline = [], className = '' }) {
 
               {/* Expanded Details - Centered on the road */}
               {isExpanded && (
-                <div className="w-full max-w-[95%] md:w-[800px] lg:w-[900px] mx-auto mt-4 mb-8 md:mb-12 px-4 md:px-0">
-                  <div className="bg-card/95 backdrop-blur-sm border-2 border-gold rounded-lg p-4 md:p-6 lg:p-8 shadow-xl relative">
+                <div className="w-full max-w-[95%] md:w-[800px] lg:w-[900px] mx-auto mt-4 mb-8 md:mb-12 px-2 sm:px-4 md:px-0">
+                  <div className="bg-card/95 backdrop-blur-sm border-2 border-gold rounded-lg p-3 sm:p-4 md:p-6 lg:p-8 shadow-xl relative">
                     {/* Close Button */}
                     <button
                       onClick={() => toggleExpand(item.id || index)}
-                      className="absolute top-4 right-4 z-20 text-gold hover:text-gold/80 transition-colors rounded-full p-1 border border-gold/20 hover:border-gold shadow-lg"
+                      className="absolute top-2 right-2 sm:top-3 sm:right-3 md:top-4 md:right-4 z-30 text-gold hover:text-gold/80 transition-colors rounded-full p-1.5 sm:p-2 border border-gold/20 hover:border-gold shadow-lg flex-shrink-0"
                       style={{
                         backgroundColor: 'var(--c-card)'
                       }}
                       aria-label="Close"
                     >
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                       </svg>
                     </button>
-                    <JourneyTimelineItem item={item} index={index} />
+                    {/* Add padding-top to prevent overlap with close button on small screens */}
+                    <div className="pt-10 sm:pt-12 md:pt-0">
+                      <JourneyTimelineItem item={item} index={index} />
+                    </div>
                   </div>
                 </div>
               )}

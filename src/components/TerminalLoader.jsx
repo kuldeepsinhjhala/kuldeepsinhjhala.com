@@ -208,8 +208,16 @@ function TerminalLoader({
             </div>
             <span className="text-body text-xs font-mono ml-2">terminal</span>
           </div>
-          <div className="text-body/50 text-xs font-mono">
-            kuldeepsinhjhala.com
+          <div className="flex items-center gap-1.5 text-body/50 text-xs font-mono">
+            <img 
+              src={logo} 
+              alt="Logo" 
+              className="h-3 w-auto object-contain opacity-90"
+              style={{
+                filter: 'brightness(0) invert(1) sepia(100%) saturate(200%) hue-rotate(20deg)'
+              }}
+            />
+            <span>kuldeepsinhjhala.com</span>
           </div>
         </div>
 

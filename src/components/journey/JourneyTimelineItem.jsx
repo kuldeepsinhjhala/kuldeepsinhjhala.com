@@ -74,7 +74,7 @@ function JourneyTimelineItem({ item = {}, index = 0 }) {
   return (
     <div
       className={`
-        relative bg-card/90 backdrop-blur-sm border rounded-lg p-6 md:p-8
+        relative bg-card/90 backdrop-blur-sm border rounded-lg p-3 sm:p-4 md:p-6 lg:p-8
         transition-all duration-300 shadow-lg
         ${isFeatured ? 'border-gold ring-2 ring-gold/30' : 'border-gold/20'}
         ${isFeatured ? 'hover:ring-gold/50' : 'hover:border-gold hover:ring-1 hover:ring-gold/50'}
@@ -83,9 +83,9 @@ function JourneyTimelineItem({ item = {}, index = 0 }) {
         boxShadow: '0 10px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(201, 166, 107, 0.05)'
       }}
     >
-      {/* Featured Badge */}
+      {/* Featured Badge - Stacked on small screens, absolute on larger screens */}
       {isFeatured && (
-        <div className="absolute top-2 right-2 sm:top-3 sm:right-3 md:top-4 md:right-4 z-10">
+        <div className="relative mb-3 sm:mb-0 sm:absolute sm:top-2 sm:left-2 md:top-3 md:left-3 lg:top-4 lg:left-4 z-10 flex justify-start">
           <span className="px-2 py-1 bg-gold/20 backdrop-blur-sm text-gold text-xs font-medium rounded border border-gold/30 shadow-sm whitespace-nowrap">
             Featured
           </span>
@@ -102,39 +102,41 @@ function JourneyTimelineItem({ item = {}, index = 0 }) {
         </div>
 
         {/* Title and Time */}
-        <div className="flex-1">
-          {/* Time Period */}
+        <div className="flex-1 min-w-0">
+          {/* Time Period - Stack vertically on small screens */}
           {timePeriod && (
-            <div className="mb-2">
-              <span className="inline-block px-3 py-1 bg-gold/10 text-gold text-xs font-medium rounded border border-gold/20">
-                {timePeriod}
-              </span>
-              {item.time?.duration && (
-                <span className="ml-2 text-body text-xs">
-                  ({item.time.duration})
+            <div className={`mb-2 ${isFeatured ? 'sm:pr-12 md:pr-0' : ''}`}>
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-1 sm:gap-2">
+                <span className="inline-block px-2 sm:px-3 py-1 bg-gold/10 text-gold text-xs font-medium rounded border border-gold/20 break-words">
+                  {timePeriod}
                 </span>
-              )}
+                {item.time?.duration && (
+                  <span className="text-body text-xs whitespace-nowrap">
+                    ({item.time.duration})
+                  </span>
+                )}
+              </div>
             </div>
           )}
 
           {/* Title */}
           {item.title && (
-            <h3 className="text-head text-xl md:text-2xl font-bold mb-2">
+            <h3 className="text-head text-lg sm:text-xl md:text-2xl font-bold mb-2 break-words">
               {item.title}
             </h3>
           )}
 
           {/* Subtitle */}
           {item.subtitle && (
-            <p className="text-gold text-sm md:text-base mb-3">
+            <p className="text-gold text-xs sm:text-sm md:text-base mb-3 break-words">
               {item.subtitle}
             </p>
           )}
 
           {/* Organization */}
           {item.organization && (
-            <div className="flex items-center gap-2 mb-2">
-              <span className="text-body text-sm">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2 mb-2">
+              <span className="text-body text-xs sm:text-sm break-words">
                 {item.organization.role || ''}
                 {item.organization.name && ` at `}
                 {item.organization.name && (
@@ -148,7 +150,7 @@ function JourneyTimelineItem({ item = {}, index = 0 }) {
                   href={item.organization.website}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gold hover:text-gold/80 hover:scale-110 transition-all cursor-pointer"
+                  className="text-gold hover:text-gold/80 hover:scale-110 transition-all cursor-pointer flex-shrink-0 self-start sm:self-center"
                 >
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />

@@ -108,9 +108,19 @@ function Navbar() {
       <nav ref={navRef} className="hidden md:block bg-card border-r border-gold/20 w-auto min-w-fit h-screen fixed left-0 top-0 flex flex-col overflow-hidden">
         {/* Explorer Header */}
         <div className="px-4 py-4 border-b border-gold/10 flex-shrink-0">
-          <h2 className="text-head text-xs font-semibold uppercase tracking-wider">
-            Explorer
-          </h2>
+          <div className="flex items-center gap-2">
+            <img 
+              src={logo} 
+              alt="Logo" 
+              className="h-5 w-auto object-contain opacity-90"
+              style={{
+                filter: 'brightness(0) invert(1) sepia(100%) saturate(200%) hue-rotate(20deg)'
+              }}
+            />
+            <h2 className="text-head text-xs font-semibold uppercase tracking-wider">
+              Explorer
+            </h2>
+          </div>
         </div>
 
         <div className="p-3 flex-1 overflow-y-auto min-h-0">
