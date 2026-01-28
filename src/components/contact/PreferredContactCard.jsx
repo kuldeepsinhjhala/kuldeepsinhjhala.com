@@ -80,16 +80,16 @@ function PreferredContactCard({ method = {}, contact = {}, social = {} }) {
           href={link}
           target={method.method === 'email' ? undefined : '_blank'}
           rel={method.method === 'email' ? undefined : 'noopener noreferrer'}
-          className="mt-auto w-full px-4 py-2 bg-gold/20 hover:bg-gold/30 text-gold rounded border border-gold/30 hover:border-gold hover:ring-1 hover:ring-gold/50 transition-all duration-200 inline-flex items-center justify-center gap-2 cursor-pointer"
+          className="mt-auto w-full px-4 py-2 bg-gold/20 hover:bg-gold/30 text-gold rounded border border-gold/30 hover:border-gold hover:ring-1 hover:ring-gold/50 transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer min-w-0 overflow-hidden"
         >
-          <span>{text}</span>
-          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <span className={`text-center min-w-0 flex-1 ${method.method === 'email' ? 'break-all' : 'break-words'}`}>{text}</span>
+          <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
           </svg>
         </a>
       ) : (
-        <div className="mt-auto w-full px-4 py-2 bg-card/80 text-body rounded border border-gold/10 text-sm">
-          {text}
+        <div className="mt-auto w-full px-4 py-2 bg-card/80 text-body rounded border border-gold/10 text-sm break-words overflow-hidden">
+          <span className="break-all">{text}</span>
         </div>
       )}
     </div>

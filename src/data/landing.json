@@ -14,7 +14,7 @@
     "designation": "Software Engineer",
     "tagline": "Designing, building, and deploying complete software systems on the cloud",
     "subtitle": "Backend-driven full stack engineer with strong frontend engineering and AWS deployment experience.",
-    "description": "I am a software engineer with 2 years of hands-on experience delivering complete software solutions end to end — from understanding client requirements and designing system architecture to building secure applications and deploying them on AWS cloud infrastructure. I focus on writing clean, maintainable code, building scalable backend systems, optimizing frontend performance, and delivering production-ready applications.",
+    "description": "I am a software engineer with hands-on experience delivering complete software solutions end to end — from understanding client requirements and designing system architecture to building secure applications and deploying them on AWS cloud infrastructure. I focus on writing clean, maintainable code, building scalable backend systems, optimizing frontend performance, and delivering production-ready applications.",
     "profile": {
       "image": "/images/profile/kuldeep-profile.png",
       "alt": "Kuldeepsinh Jhala profile photo"
@@ -33,23 +33,23 @@
     {
       "id": "projects",
       "label": "End-to-End Deployments",
-      "value": "10",
+      "value": "2",
       "suffix": "+",
       "description": "Projects delivered from requirements gathering to AWS cloud deployment.",
       "icon": "layers"
     },
     {
       "id": "cloud",
-      "label": "Cloud & Infra Projects",
-      "value": "8",
+      "label": "Cloud Projects",
+      "value": "1",
       "suffix": "+",
-      "description": "Production deployments using AWS EC2, RDS, Load Balancers, Redis, and S3.",
+      "description": "Production deployments using AWS EC2, RDS, dynamoDB, lambda functions, and S3.",
       "icon": "cloud"
     }
   ],
 
   "currentFocus": {
-    "label": "Currently Focused On",
+    "label": "My Expertise",
     "items": [
       {
         "title": "Scalable Backend Architecture",
@@ -115,10 +115,10 @@
           "AWS RDS",
           "AWS Load Balancer",
           "AWS S3",
-          "Redis Cache",
+          "AWS DynamoDB",
+          "AWS Lambda Functions",
           "Nginx",
-          "Linux Server Management",
-          "Docker (Basics)"
+          "Linux Server Management"
         ]
       },
       {
@@ -136,7 +136,9 @@
           "Git",
           "GitHub",
           "Postman",
-          "VS Code"
+          "VS Code",
+          "Nginx",
+          "Cursor AI"
         ]
       }
     ]
