@@ -1,106 +1,44 @@
 {
   "meta": {
     "title": "My Journey",
-    "subtitle": "From learning fundamentals of computer engineering to building real-world backend systems and cloud-deployed applications.",
-    "description": "A detailed chronological journey covering my education, continuous learning, professional growth, challenges, transitions, and achievements as a software engineer."
+    "subtitle": "Academic background, certifications, and continuous learning journey",
+    "description": "Detailed overview of formal education, professional experience, and projects that shaped my foundation as a software engineer and backend-focused full stack developer."
   },
   "overview": {
-    "headline": "Learning, Building, and Evolving Through Experience",
-    "summary": "My journey is a continuous process of learning, experimenting, failing, improving, and building. Starting from academic foundations, I gradually transitioned into real-world software development, focusing heavily on backend systems, databases, authentication, and cloud infrastructure while maintaining a strong full stack mindset.",
-    "currentFocus": "Scalable backend systems, system design fundamentals, and cloud-native architecture",
-    "longTermGoal": "To grow into a senior backend and system design engineer capable of designing distributed systems that are reliable, secure, and performance-oriented at scale.",
+    "headline": "Full Stack Software Engineer | AI-Focused Backend Developer",
+    "summary": "Passionate Full Stack Software Engineer experienced in building scalable backend systems, normalized databases, AI-driven platforms, and modern web and mobile applications. Delivering complete software solutions end to end — from understanding client requirements and designing system architecture to building secure applications and deploying them on AWS cloud infrastructure.",
+    "currentFocus": "Scalable Backend Architecture, AWS Production Deployments, Frontend Performance & Structure. Currently exploring AI Engineering with a focus on LLMs, Generative AI, and intelligent systems.",
+    "longTermGoal": "Designing, building, and deploying complete software systems on the cloud with focus on backend systems, AI engineering, and cloud infrastructure.",
     "custom": {
-      "inspiration": "Solving real problems through clean engineering",
-      "values": ["Consistency", "Ownership", "Clean architecture", "Long-term thinking"]
+      "inspiration": "Writing clean, maintainable code and delivering production-ready applications.",
+      "values": [
+        "Backend Systems",
+        "AI Engineering",
+        "Cloud Infrastructure",
+        "Full Stack Development"
+      ]
     }
   },
   "timeline": [
     {
-      "id": "early-interest",
+      "id": "school-baroda-high-school-alkapuri",
       "time": {
-        "year": "2016",
-        "month": "June",
+        "year": "2007",
+        "month": null,
         "day": null,
-        "startDate": "2016-06-01",
-        "endDate": "2017-03-31",
-        "duration": "10 months"
-      },
-      "type": "personal",
-      "title": "Initial Interest in Computers and Technology",
-      "subtitle": "Curiosity-driven exploration phase",
-      "organization": {
-        "name": "Self Learning",
-        "type": "self",
-        "role": "Student",
-        "website": "https://www.wikipedia.org",
-        "logo": "/images/journey/self-learning.png"
-      },
-      "location": {
-        "city": "Vadodara",
-        "state": "Gujarat",
-        "country": "India",
-        "mode": "self"
-      },
-      "description": "This phase marked the beginning of my interest in computers, where I started exploring how software, operating systems, and basic programming concepts worked out of pure curiosity.",
-      "activities": [
-        "Explored basic computer operations and system usage",
-        "Learned fundamentals of logic and problem solving informally"
-      ],
-      "achievements": [
-        {
-          "title": "Built First Logical Programs",
-          "description": "Successfully wrote simple logic-based programs that strengthened my interest in programming.",
-          "impact": "interest development",
-          "metrics": {
-            "value": "10+",
-            "unit": "programs"
-          },
-          "custom": {
-            "language": "Basic programming concepts"
-          }
-        }
-      ],
-      "skills": [
-        "Logical Thinking",
-        "Problem Curiosity"
-      ],
-      "reflection": {
-        "challenges": "Lack of structured guidance and resources.",
-        "learnings": "Curiosity is a strong driver for long-term learning.",
-        "mindset": "Exploratory and inquisitive"
-      },
-      "media": {
-        "images": ["/images/journey/early-1.png", "/images/journey/early-2.png"],
-        "documents": ["/documents/early-notes.pdf"],
-        "links": ["https://www.wikipedia.org"]
-      },
-      "icon": "lightbulb",
-      "color": "yellow",
-      "status": {
-        "highlighted": false,
-        "featured": false,
-        "visibility": "public"
-      }
-    },
-    {
-      "id": "diploma-start",
-      "time": {
-        "year": "2018",
-        "month": "July",
-        "day": null,
-        "startDate": "2018-07-01",
-        "endDate": "2021-06-15",
-        "duration": "3 years"
+        "startDate": "2007",
+        "endDate": "2019",
+        "duration": "12 years"
       },
       "type": "education",
-      "title": "Started Diploma in Computer Engineering",
-      "subtitle": "Foundation of programming and computer science",
+      "title": "Primary and Secondary Schooling",
+      "subtitle": "LKG to 10th",
       "organization": {
-        "name": "Government Polytechnic Vadodara",
-        "type": "college",
-        "role": "Diploma Student",
-        "website": "https://www.gpvadodara.ac.in",
-        "logo": "/images/education/gpv-logo.png"
+        "name": "Baroda High School, Alkapuri",
+        "type": "school",
+        "role": "Student",
+        "website": null,
+        "logo": "bhs_logo.jpeg"
       },
       "location": {
         "city": "Vadodara",
@@ -108,29 +46,109 @@
         "country": "India",
         "mode": "onsite"
       },
-      "description": "This phase established my academic foundation in computer engineering, covering programming, databases, operating systems, and networking concepts.",
+      "description": "Primary and secondary schooling from LKG to 10th at Baroda High School, Alkapuri (2007 – 2019). Highly involved in NCC activities and gave my best in studies with true hard work and discipline, aimed a good score in academics as well as achieved a lot at national level.",
       "activities": [
-        "Studied DBMS, Operating Systems, Computer Networks, and OOP concepts",
-        "Worked on academic mini-projects and lab assignments"
+        "Indian Navy — NCC (National Cadet Corps) India",
+        "Attended RDC Delhi (Republic Day Camp) 2018",
+        "Marched in PM Delhi (Prime Minister) Rally",
+        "Head of Computer Department, BHS Alkapuri Higher Secondary Section"
       ],
       "achievements": [
         {
-          "title": "Graduated with Distinction",
-          "description": "Completed diploma education with strong academic performance and hands-on understanding.",
+          "title": "Gujarat Best Cadet",
+          "description": "NCC ex-cadet; RDC (Republic Day Camp) Delhi 2018; PM (Prime Minister) Rally Delhi. Represented Gujarat Directorate of NCC, 2 Gujarat Naval Unit NCC.",
+          "impact": "national recognition",
+          "metrics": {
+            "value": "83",
+            "unit": "percent"
+          }
+        }
+      ],
+      "skills": [
+        "Mathematics",
+        "Science",
+        "English",
+        "Social Studies",
+        "Computer Basics"
+      ],
+      "reflection": {
+        "challenges": "Balancing NCC and academics.",
+        "learnings": "Discipline and hard work in studies and national-level activities.",
+        "mindset": "Disciplined and improvement-focused"
+      },
+      "media": {
+        "images": [],
+        "documents": [],
+        "links": []
+      },
+      "icon": "school",
+      "color": "emerald",
+      "status": {
+        "highlighted": true,
+        "featured": false,
+        "visibility": "public"
+      }
+    },
+    {
+      "id": "diploma-computer-engineering",
+      "time": {
+        "year": "2019",
+        "month": "January",
+        "day": null,
+        "startDate": "2019-01",
+        "endDate": "2022-06",
+        "duration": "3 years 6 months"
+      },
+      "type": "education",
+      "title": "Diploma in Computer Science",
+      "subtitle": "Computer Science and Engineering",
+      "organization": {
+        "name": "Gujarat Technological University (GTU)",
+        "type": "university",
+        "role": "Diploma Student",
+        "website": "https://www.gtu.ac.in",
+        "logo": "Gtu_logo.png"
+      },
+      "location": {
+        "city": "Ahmedabad",
+        "state": "Gujarat",
+        "country": "India",
+        "mode": "onsite"
+      },
+      "description": "Completed a diploma in Computer Science (Jan 2019 – Jun 2022). Built a solid foundation in programming, databases, and core engineering subjects.",
+      "activities": [
+        "Programming Fundamentals",
+        "Data Structures",
+        "Database Management Systems",
+        "Computer Networks",
+        "Operating Systems"
+      ],
+      "achievements": [
+        {
+          "title": "Institute Topper (1st)",
+          "description": "Sem 5th & 6th — 10 SPI. Inter-college Web Development Winner. Fireless Cooking Winner.",
           "impact": "academic excellence",
           "metrics": {
-            "value": "78",
-            "unit": "percent"
-          },
-          "custom": {
-            "gpaScale": "10"
+            "value": "9.67",
+            "unit": "CGPA"
+          }
+        },
+        {
+          "title": "Inter College Web Development Winner",
+          "description": "Biggest challenge was we had to code in notepad and we were not allowed to access internet. It was an amazing experience. I got to learn how to build a project in a certain time constraint environment.",
+          "impact": "competition",
+          "metrics": {
+            "value": "1st",
+            "unit": "Feb 2020"
           }
         }
       ],
       "skills": [
         "Programming Fundamentals",
-        "Database Concepts",
-        "Structured Problem Solving"
+        "Data Structures",
+        "Database Management Systems",
+        "Computer Networks",
+        "Operating Systems"
       ],
       "reflection": {
         "challenges": "Understanding abstract computer science concepts initially.",
@@ -138,151 +156,293 @@
         "mindset": "Disciplined and improvement-focused"
       },
       "media": {
-        "images": ["/images/journey/diploma-1.png", "/images/journey/diploma-2.png"],
-        "documents": ["/documents/diploma-certificate.pdf"],
-        "links": ["https://www.gpvadodara.ac.in"]
+        "images": [],
+        "documents": [],
+        "links": [
+          "https://www.gtu.ac.in"
+        ]
       },
       "icon": "school",
       "color": "blue",
       "status": {
         "highlighted": true,
-        "featured": true,
-        "visibility": "public"
-      }
-    },
-    {
-      "id": "self-learning-phase",
-      "time": {
-        "year": "2020",
-        "month": "April",
-        "day": null,
-        "startDate": "2020-04-01",
-        "endDate": "2022-12-31",
-        "duration": "2 years, 8 months"
-      },
-      "type": "learning",
-      "title": "Intensive Self-Learning and Skill Building",
-      "subtitle": "Transition from academic learning to industry-oriented skills",
-      "organization": {
-        "name": "Online Platforms and Self Study",
-        "type": "online",
-        "role": "Independent Learner",
-        "website": "https://developer.mozilla.org",
-        "logo": "/images/journey/online-learning.png"
-      },
-      "location": {
-        "city": "Vadodara",
-        "state": "Gujarat",
-        "country": "India",
-        "mode": "online"
-      },
-      "description": "Parallel to academics, I invested significant time in self-learning modern web development, backend engineering, and tooling used in the software industry.",
-      "activities": [
-        "Learned JavaScript, Node.js, Express, and REST API concepts",
-        "Practiced Git, debugging, and clean coding practices"
-      ],
-      "achievements": [
-        {
-          "title": "Built Multiple Practice Projects",
-          "description": "Completed several self-initiated projects to solidify understanding of backend and frontend integration.",
-          "impact": "skill acceleration",
-          "metrics": {
-            "value": "12+",
-            "unit": "projects"
-          },
-          "custom": {
-            "focus": "Backend-first projects"
-          }
-        }
-      ],
-      "skills": [
-        "JavaScript",
-        "Backend Fundamentals",
-        "Version Control"
-      ],
-      "reflection": {
-        "challenges": "Managing time between academics and self-learning.",
-        "learnings": "Consistency compounds faster than short bursts of effort.",
-        "mindset": "Self-driven and persistent"
-      },
-      "media": {
-        "images": ["/images/journey/learning-1.png", "/images/journey/learning-2.png"],
-        "documents": ["/documents/learning-notes.pdf"],
-        "links": ["https://developer.mozilla.org", "https://nodejs.org"]
-      },
-      "icon": "book",
-      "color": "orange",
-      "status": {
-        "highlighted": false,
         "featured": false,
         "visibility": "public"
       }
     },
     {
-      "id": "professional-work",
+      "id": "bachelor-computer-science",
       "time": {
-        "year": "2023",
-        "month": "July",
+        "year": "2022",
+        "month": "September",
         "day": null,
-        "startDate": "2023-07-01",
-        "endDate": "present",
-        "duration": "1.5+ years"
+        "startDate": "2022-09",
+        "endDate": "2025-05",
+        "duration": "2 years 9 months"
       },
-      "type": "career",
-      "title": "Professional Software Engineering Work",
-      "subtitle": "Real-world backend systems and cloud deployments",
+      "type": "education",
+      "title": "Bachelor of Engineering (B.E.)",
+      "subtitle": "Computer Science & Engineering",
       "organization": {
-        "name": "Independent Projects and Freelance",
-        "type": "self",
-        "role": "Software Engineer",
-        "website": "https://kuldeepsinhjhala.com",
-        "logo": "/images/companies/freelance.png"
+        "name": "The Maharaja Sayajirao University of Baroda (MSU)",
+        "type": "university",
+        "role": "Student",
+        "website": "https://www.msubaroda.ac.in",
+        "logo": "Msu_logo.png"
       },
       "location": {
         "city": "Vadodara",
         "state": "Gujarat",
         "country": "India",
-        "mode": "remote"
+        "mode": "onsite"
       },
-      "description": "Currently working on real-world software systems focusing on backend APIs, database architecture, authentication mechanisms, and AWS-based deployments.",
+      "description": "Bachelor of Engineering in Computer Science & Engineering with a focus on backend development, system design, databases, and scalable application architecture. Sept 2022 – May 2025.",
       "activities": [
-        "Designed scalable REST APIs and backend services",
-        "Handled cloud infrastructure, security, and deployment workflows"
+        "Software Engineering",
+        "Web Technologies",
+        "Database Systems",
+        "Cloud Computing",
+        "System Design"
       ],
       "achievements": [
         {
-          "title": "Delivered Production-Ready Systems",
-          "description": "Successfully delivered backend-heavy applications with secure authentication and optimized performance.",
-          "impact": "system stability and performance",
+          "title": "First class with distinction",
+          "description": "Strong academic performance while working on backend-focused projects. Applied theoretical concepts to real-world software systems.",
+          "impact": "academic",
           "metrics": {
-            "value": "40",
-            "unit": "percent improvement"
-          },
-          "custom": {
-            "focusArea": "Performance and scalability"
+            "value": "8.11",
+            "unit": "CGPA"
           }
         }
       ],
       "skills": [
-        "Backend Architecture",
-        "Cloud Engineering",
-        "System Thinking"
+        "Problem Solving",
+        "Backend Development",
+        "Database Design",
+        "System Thinking",
+        "Software Engineering Fundamentals"
       ],
       "reflection": {
-        "challenges": "Taking ownership of end-to-end system reliability.",
-        "learnings": "Designing for scale requires foresight and discipline.",
-        "mindset": "Ownership-driven and quality-focused"
+        "challenges": "Balancing academics with professional work.",
+        "learnings": "Theoretical concepts apply directly to real-world systems.",
+        "mindset": "Improvement-focused"
       },
       "media": {
-        "images": ["/images/journey/work-1.png", "/images/journey/work-2.png"],
-        "documents": ["/documents/project-summary.pdf"],
-        "links": ["https://kuldeepsinhjhala.com"]
+        "images": [],
+        "documents": [],
+        "links": [
+          "https://www.msubaroda.ac.in"
+        ]
+      },
+      "icon": "school",
+      "color": "gold",
+      "status": {
+        "highlighted": true,
+        "featured": false,
+        "visibility": "public"
+      }
+    },
+    
+    {
+      "id": "android-dev-intern-itechnotion",
+      "time": {
+        "year": "2023",
+        "month": "May",
+        "day": null,
+        "startDate": "2023-05",
+        "endDate": "2023-06",
+        "duration": "2 months"
+      },
+      "type": "career",
+      "title": "Android Developer Intern",
+      "subtitle": "City Directory Android Application",
+      "organization": {
+        "name": "iTechNotion Private Limited",
+        "type": "company",
+        "role": "Android Developer Intern",
+        "website": null,
+        "logo": "/images/companies/itechnotion.png"
+      },
+      "location": {
+        "city": "Ahmedabad",
+        "state": "Gujarat",
+        "country": "India",
+        "mode": "onsite"
+      },
+      "description": "Worked on an Android City Directory application with real-time maps and API integrations.",
+      "activities": [
+        "Implemented Google Maps API",
+        "Fetched and integrated data from company APIs",
+        "Designed custom navigation components",
+        "Built advanced splash screens using full-screen UI"
+      ],
+      "achievements": [
+        {
+          "title": "Production-Ready Android UI",
+          "description": "Implemented Material Design 3-based UI from Figma designs.",
+          "impact": "usability",
+          "metrics": {
+            "value": "100",
+            "unit": "percent design compliance"
+          }
+        }
+      ],
+      "skills": [
+        "Android Development",
+        "UI/UX Implementation",
+        "API Integration"
+      ],
+      "reflection": {
+        "challenges": "Implementing complex integrations efficiently.",
+        "learnings": "Delivered clean UI and handled complex integrations.",
+        "mindset": "Quality-focused"
+      },
+      "media": {
+        "images": [],
+        "documents": [],
+        "links": []
+      },
+      "icon": "briefcase",
+      "color": "green",
+      "status": {
+        "highlighted": true,
+        "featured": false,
+        "visibility": "public"
+      }
+    },
+    {
+      "id": "vice-president-code-vimarsh",
+      "time": {
+        "year": "2024",
+        "month": "January",
+        "day": null,
+        "startDate": "2024-01",
+        "endDate": "present",
+        "duration": "1+ year"
+      },
+      "type": "career",
+      "title": "Vice President",
+      "subtitle": "Code Vimarsh — Technical Community at MSU Baroda",
+      "organization": {
+        "name": "Code Vimarsh",
+        "type": "community",
+        "role": "Vice President",
+        "website": null,
+        "logo": "/images/companies/code-vimarsh.png"
+      },
+      "location": {
+        "city": "Vadodara",
+        "state": "Gujarat",
+        "country": "India",
+        "mode": "onsite"
+      },
+      "description": "Serving as Vice President, leading technical initiatives, mentoring students, and managing large-scale academic and community activities. A technical student-led community at The Maharaja Sayajirao University of Baroda focused on technology, leadership, and community growth.",
+      "activities": [
+        "Managed an executive board of 14+ members",
+        "Led a community of 300+ students",
+        "Addressed 500+ students through guidance sessions",
+        "Led a web development team of 30+ juniors"
+      ],
+      "achievements": [
+        {
+          "title": "Large-Scale Student Leadership",
+          "description": "Successfully guided and mentored hundreds of students through technical and career-focused initiatives.",
+          "impact": "leadership",
+          "metrics": {
+            "value": "500",
+            "unit": "students"
+          }
+        }
+      ],
+      "skills": [
+        "Leadership",
+        "Public Speaking",
+        "Team Management"
+      ],
+      "reflection": {
+        "challenges": "Leading and inspiring large student communities.",
+        "learnings": "Exceptional leadership and ability to inspire large student communities.",
+        "mindset": "Community-driven"
+      },
+      "media": {
+        "images": [],
+        "documents": [],
+        "links": []
       },
       "icon": "briefcase",
       "color": "purple",
       "status": {
         "highlighted": true,
-        "featured": true,
+        "featured": false,
+        "visibility": "public"
+      }
+    },
+    {
+      "id": "software-development-engineer-keshav-encon",
+      "time": {
+        "year": "2023",
+        "month": "December",
+        "day": null,
+        "startDate": "2023-12",
+        "endDate": "present",
+        "duration": "2+ years"
+      },
+      "type": "career",
+      "title": "Software Development Engineer",
+      "subtitle": "Keshav Encon Private Limited",
+      "organization": {
+        "name": "Keshav Encon Private Limited",
+        "type": "company",
+        "role": "Software Development Engineer",
+        "website": "https://kuldeepsinhjhala.com",
+        "logo": "/images/companies/keshav-encon.png"
+      },
+      "location": {
+        "city": "Vadodara",
+        "state": "Gujarat",
+        "country": "India",
+        "mode": "onsite"
+      },
+      "description": "Working as a Software Development Engineer building scalable systems from scratch, focusing on database normalization, backend architecture, and AI-powered applications. An enterprise-focused organization delivering scalable software solutions with strong emphasis on database architecture, backend systems, and real-world problem solving.",
+      "activities": [
+        "Designed and implemented scalable databases following 3NF principles",
+        "Built backend systems from scratch enabling real-time data updates",
+        "Analyzed data fields from 50+ websites to design industry-standard schemas",
+        "Collaborated with team members to deliver production-grade solutions"
+      ],
+      "achievements": [
+        {
+          "title": "AI Resume Platform at Scale",
+          "description": "Designed and integrated a normalized database handling data from over 10,000 resumes using LLM-powered processing.",
+          "impact": "scalability",
+          "metrics": {
+            "value": "10000",
+            "unit": "resumes"
+          }
+        }
+      ],
+      "skills": [
+        "Backend Architecture",
+        "Database Design",
+        "AI Integration"
+      ],
+      "reflection": {
+        "challenges": "Taking ownership of end-to-end system reliability.",
+        "learnings": "Built complex systems from scratch with strong architectural clarity and scalability.",
+        "mindset": "Ownership-driven and quality-focused"
+      },
+      "media": {
+        "images": [],
+        "documents": [],
+        "links": [
+          "https://kuldeepsinhjhala.com"
+        ]
+      },
+      "icon": "briefcase",
+      "color": "gold",
+      "status": {
+        "highlighted": true,
+        "featured": false,
         "visibility": "public"
       }
     }

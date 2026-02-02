@@ -58,7 +58,7 @@
       },
       {
         "title": "AWS Production Deployments",
-        "description": "Deploying and managing applications on AWS using EC2, RDS, Load Balancers, Redis caching, and secure configurations.",
+        "description": "Deploying and managing applications on AWS using EC2, RDS, S3, Lambda Functions and secure configurations.",
         "icon": "cloud"
       },
       {

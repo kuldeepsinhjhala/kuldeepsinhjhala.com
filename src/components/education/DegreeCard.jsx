@@ -18,6 +18,8 @@ function DegreeCard({ degree = {}, index = 0 }) {
   const formatDate = (dateString) => {
     if (!dateString) return ''
     try {
+      // Year-only (e.g. "2007", "2019") → show as-is
+      if (/^\d{4}$/.test(String(dateString).trim())) return String(dateString).trim()
       const date = new Date(dateString)
       return date.toLocaleDateString('en-US', { 
         year: 'numeric', 
@@ -47,6 +49,7 @@ function DegreeCard({ degree = {}, index = 0 }) {
   const getLevelBadge = (level) => {
     if (!level) return null
     const levelMap = {
+      school: { label: 'School', color: 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30' },
       diploma: { label: 'Diploma', color: 'bg-blue-500/20 text-blue-400 border-blue-500/30' },
       bachelor: { label: "Bachelor's", color: 'bg-gold/20 text-gold border-gold/30' },
       master: { label: "Master's", color: 'bg-purple-500/20 text-purple-400 border-purple-500/30' },
@@ -325,29 +328,91 @@ function DegreeCard({ degree = {}, index = 0 }) {
         </div>
       )}
 
-      {/* Custom Fields */}
-      {degree.custom && Object.keys(degree.custom).length > 0 && (
-        <div className="pt-6 border-t border-gold/20">
-          <div className="space-y-2">
-            {degree.custom.scholarships && Array.isArray(degree.custom.scholarships) && degree.custom.scholarships.length > 0 && (
-              <div>
-                <span className="text-head text-sm font-semibold">Scholarships: </span>
-                <span className="text-body text-sm">
-                  {degree.custom.scholarships.join(', ')}
-                </span>
+      {/* Activities and societies */}
+      {degree.custom?.activitiesAndSocieties && Array.isArray(degree.custom.activitiesAndSocieties) && degree.custom.activitiesAndSocieties.length > 0 && (
+        <div className="mb-6">
+          <h4 className="text-head text-lg font-semibold mb-3">Activities and societies</h4>
+          <ul className="space-y-2">
+            {degree.custom.activitiesAndSocieties.map((item, idx) => (
+              <li key={idx} className="flex items-start gap-2">
+                <span className="text-gold mt-1.5">•</span>
+                <span className="text-body text-sm leading-relaxed flex-1">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      {/* Test scores (e.g. semester SPI) */}
+      {degree.custom?.testScores && Array.isArray(degree.custom.testScores) && degree.custom.testScores.length > 0 && (
+        <div className="mb-6">
+          <h4 className="text-head text-lg font-semibold mb-3">Test scores</h4>
+          <div className="space-y-4">
+            {degree.custom.testScores.map((item, idx) => (
+              <div key={idx} className="bg-card/80 backdrop-blur-sm border border-gold/10 rounded-lg p-4">
+                <div className="flex flex-wrap items-center gap-2 mb-1">
+                  <span className="text-gold font-semibold">{item.score}</span>
+                  {item.semester && (
+                    <span className="text-body text-sm">Semester {item.semester}</span>
+                  )}
+                  {item.date && (
+                    <span className="text-body text-sm">
+                      {formatDate(item.date)}
+                    </span>
+                  )}
+                </div>
+                {item.description && (
+                  <p className="text-body text-sm leading-relaxed mt-1">{item.description}</p>
+                )}
               </div>
-            )}
-            {degree.custom.hostel !== undefined && (
-              <div>
-                <span className="text-head text-sm font-semibold">Hostel: </span>
-                <span className="text-body text-sm">
-                  {degree.custom.hostel ? 'Yes' : 'No'}
-                </span>
-              </div>
-            )}
+            ))}
           </div>
         </div>
       )}
+
+      {/* Custom Fields */}
+      {degree.custom && (() => {
+        const skipKeys = ['scholarships', 'hostel', 'exchangePrograms', 'activitiesAndSocieties', 'testScores']
+        const entries = Object.entries(degree.custom).filter(([k]) => !skipKeys.includes(k))
+        const hasScholarships = degree.custom.scholarships?.length > 0
+        const hasHostel = degree.custom.hostel !== undefined
+        const hasAny = hasScholarships || hasHostel || entries.length > 0
+        if (!hasAny) return null
+        return (
+          <div className="pt-6 border-t border-gold/20">
+            <div className="space-y-2">
+              {hasScholarships && (
+                <div>
+                  <span className="text-head text-sm font-semibold">Scholarships: </span>
+                  <span className="text-body text-sm">
+                    {degree.custom.scholarships.join(', ')}
+                  </span>
+                </div>
+              )}
+              {hasHostel && (
+                <div>
+                  <span className="text-head text-sm font-semibold">Hostel: </span>
+                  <span className="text-body text-sm">
+                    {degree.custom.hostel ? 'Yes' : 'No'}
+                  </span>
+                </div>
+              )}
+              {entries.map(([key, value]) => {
+                if (value == null || (typeof value === 'object' && !Array.isArray(value))) return null
+                const label = key.replace(/([A-Z])/g, ' $1').replace(/^./, (s) => s.toUpperCase())
+                return (
+                  <div key={key}>
+                    <span className="text-head text-sm font-semibold">{label}: </span>
+                    <span className="text-body text-sm">
+                      {Array.isArray(value) ? value.join(', ') : String(value)}
+                    </span>
+                  </div>
+                )
+              })}
+            </div>
+          </div>
+        )
+      })()}
 
       {/* Marksheets Section */}
       {degree.marksheets && Array.isArray(degree.marksheets) && degree.marksheets.length > 0 && (

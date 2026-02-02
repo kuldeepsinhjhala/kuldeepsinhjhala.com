@@ -152,20 +152,6 @@ function Achievements() {
                     </div>
                   </div>
                 )}
-                {stats.lastUpdated && (
-                  <div className="text-center">
-                    <div className="text-gold text-lg md:text-xl font-semibold mb-1">
-                      Last Updated
-                    </div>
-                    <div className="text-body text-sm">
-                      {new Date(stats.lastUpdated).toLocaleDateString('en-US', {
-                        year: 'numeric',
-                        month: 'long',
-                        day: 'numeric'
-                      })}
-                    </div>
-                  </div>
-                )}
               </div>
             </div>
           </section>

@@ -5,58 +5,34 @@
     "description": "Skills section highlighting backend, frontend, database, cloud, and professional capabilities gained through end-to-end software delivery, AWS deployments, and production-grade applications."
   },
   "categories": [
-    {
-      "id": "backend",
-      "name": "Backend Development",
-      "description": "Skills related to server-side development, API design, authentication, authorization, and sustainable backend architecture.",
-      "skills": [
-        {
-          "id": "nodejs",
-          "name": "Node.js",
-          "type": "technical",
-          "description": "Used Node.js to build scalable, maintainable backend systems including REST APIs, authentication flows, and business logic layers following clean architecture principles.",
-          "learnedFrom": [
-            "Self-study through official documentation",
-            "Building real-world backend projects"
-          ],
-          "usedIn": [
-            "Enterprise-style backend systems",
-            "Full stack production applications"
-          ],
-          "level": "advanced"
-        },
-        {
-          "id": "expressjs",
-          "name": "Express.js",
-          "type": "technical",
-          "description": "Applied Express.js for routing, middleware-driven authentication, authorization, error handling, and modular API structure.",
-          "learnedFrom": [
-            "Online courses and documentation",
-            "Hands-on backend development"
-          ],
-          "usedIn": [
-            "Role-based access control systems",
-            "REST API services"
-          ],
-          "level": "advanced"
-        },
-        {
-          "id": "authentication",
-          "name": "Authentication & Authorization",
-          "type": "technical",
-          "description": "Implemented secure authentication and authorization using JWT, cookies, sessions, role-based access control, and feature-based permissions.",
-          "learnedFrom": [
-            "Security-focused backend implementation",
-            "Production authentication flows"
-          ],
-          "usedIn": [
-            "Multi-user systems",
-            "Admin and role-based dashboards"
-          ],
-          "level": "advanced"
-        }
-      ]
-    },
+      {
+        "id": "backend",
+        "name": "Backend Development",
+        "description": "Skills related to server-side development, API design, authentication, authorization, and sustainable backend architecture.",
+        "skills": [
+          {
+            "id": "nodejs",
+            "name": "Node.js",
+            "type": "technical",
+            "description": "Used Node.js to build scalable, maintainable backend systems including REST APIs, authentication flows, and business logic layers following clean architecture principles.",
+            "level": "advanced"
+          },
+          {
+            "id": "expressjs",
+            "name": "Express.js",
+            "type": "technical",
+            "description": "Applied Express.js for routing, middleware-driven authentication, authorization, error handling, and modular API structure.",
+            "level": "advanced"
+          },
+          {
+            "id": "authentication",
+            "name": "Authentication & Authorization",
+            "type": "technical",
+            "description": "Implemented secure authentication and authorization using JWT, cookies, sessions, role-based access control, and feature-based permissions.",
+            "level": "advanced"
+          }
+        ]
+      },
     {
       "id": "frontend",
       "name": "Frontend Development",
@@ -67,14 +43,6 @@
           "name": "React",
           "type": "technical",
           "description": "Built component-driven frontend applications with React, managing state, rendering dynamic content, and integrating backend APIs.",
-          "learnedFrom": [
-            "Official React documentation",
-            "Building full stack applications"
-          ],
-          "usedIn": [
-            "Portfolio and blog platforms",
-            "Dashboard-based applications"
-          ],
           "level": "intermediate"
         },
         {
@@ -82,14 +50,6 @@
           "name": "Redux",
           "type": "technical",
           "description": "Used Redux for predictable state management in medium-scale frontend applications requiring shared and persistent state.",
-          "learnedFrom": [
-            "Project-based implementation",
-            "Frontend architecture practice"
-          ],
-          "usedIn": [
-            "Complex frontend modules",
-            "Data-driven dashboards"
-          ],
           "level": "intermediate"
         },
         {
@@ -97,14 +57,6 @@
           "name": "Tailwind CSS",
           "type": "tool",
           "description": "Used Tailwind CSS to rapidly build responsive, consistent, and scalable UI layouts with utility-first styling.",
-          "learnedFrom": [
-            "Tailwind CSS documentation",
-            "UI implementation in production projects"
-          ],
-          "usedIn": [
-            "Personal portfolio website",
-            "Admin dashboards and internal tools"
-          ],
           "level": "advanced"
         },
         {
@@ -112,14 +64,6 @@
           "name": "Frontend Optimization",
           "type": "technical",
           "description": "Optimized frontend performance by reducing re-renders, structuring components efficiently, and improving load times.",
-          "learnedFrom": [
-            "Performance debugging",
-            "Real-world application tuning"
-          ],
-          "usedIn": [
-            "User-facing web applications",
-            "High-traffic frontend pages"
-          ],
           "level": "intermediate"
         }
       ]
@@ -134,14 +78,6 @@
           "name": "Microsoft SQL Server",
           "type": "technical",
           "description": "Designed relational schemas, wrote optimized queries, used stored procedures, and handled transactional data for backend-heavy applications.",
-          "learnedFrom": [
-            "Academic coursework",
-            "Production backend implementation"
-          ],
-          "usedIn": [
-            "Enterprise-style backend systems",
-            "Data-driven applications"
-          ],
           "level": "advanced"
         },
         {
@@ -149,14 +85,6 @@
           "name": "ORM & Raw Queries",
           "type": "technical",
           "description": "Worked with ORMs alongside raw SQL queries to balance productivity, performance, and control over database operations.",
-          "learnedFrom": [
-            "Backend project experience",
-            "Database performance tuning"
-          ],
-          "usedIn": [
-            "Complex backend APIs",
-            "Reporting and analytics queries"
-          ],
           "level": "advanced"
         }
       ]
@@ -171,14 +99,6 @@
           "name": "AWS EC2",
           "type": "technical",
           "description": "Deployed and managed backend and frontend applications on AWS EC2 Linux instances with secure configurations.",
-          "learnedFrom": [
-            "AWS documentation",
-            "Hands-on production deployments"
-          ],
-          "usedIn": [
-            "Backend API hosting",
-            "Full stack production deployments"
-          ],
           "level": "advanced"
         },
         {
@@ -186,14 +106,6 @@
           "name": "AWS RDS",
           "type": "technical",
           "description": "Used AWS RDS for managed relational databases with proper networking, security groups, and backup strategies.",
-          "learnedFrom": [
-            "Cloud deployment experience",
-            "Production database setups"
-          ],
-          "usedIn": [
-            "Backend production systems",
-            "Scalable data storage"
-          ],
           "level": "intermediate"
         },
         {
@@ -201,14 +113,6 @@
           "name": "Nginx",
           "type": "tool",
           "description": "Configured Nginx as a reverse proxy for routing traffic, serving frontend builds, and securing API endpoints.",
-          "learnedFrom": [
-            "Server configuration guides",
-            "Deployment troubleshooting"
-          ],
-          "usedIn": [
-            "Production EC2 deployments",
-            "API and frontend routing"
-          ],
           "level": "intermediate"
         },
         {
@@ -216,14 +120,6 @@
           "name": "Redis",
           "type": "technical",
           "description": "Used Redis for caching frequently accessed data to improve backend performance and reduce database load.",
-          "learnedFrom": [
-            "Performance optimization use cases",
-            "Backend scaling experience"
-          ],
-          "usedIn": [
-            "High-read backend APIs",
-            "Optimized data retrieval"
-          ],
           "level": "intermediate"
         }
       ]
@@ -238,14 +134,6 @@
           "name": "Client Communication",
           "type": "soft",
           "description": "Experience in understanding client requirements, clarifying expectations, and translating business needs into technical solutions.",
-          "learnedFrom": [
-            "Client-facing projects",
-            "Requirement discussion sessions"
-          ],
-          "usedIn": [
-            "End-to-end software delivery",
-            "Project planning and execution"
-          ],
           "level": "advanced"
         },
         {

@@ -7,11 +7,11 @@
   "degrees": [
     {
       "id": "bachelor-computer-science",
-      "degree": "Bachelor of Engineering",
-      "field": "Computer Science and Engineering",
+      "degree": "Bachelor of Engineering (B.E.)",
+      "field": "Computer Science & Engineering",
       "level": "bachelor",
       "institution": {
-        "name": "The Maharaja Sayajirao University of Baroda",
+        "name": "The Maharaja Sayajirao University of Baroda (MSU)",
         "type": "university",
         "affiliation": "MSU Baroda",
         "location": {
@@ -31,10 +31,10 @@
         "gpa": "8.11",
         "gpaScale": "10",
         "percentage": null,
-        "grade": "First Class",
+        "grade": "First class with distinction",
         "rank": null
       },
-      "description": "Pursuing a Bachelor of Engineering in Computer Science and Engineering with a focus on backend development, system design, databases, and scalable application architecture.",
+      "description": "Bachelor of Engineering in Computer Science & Engineering with a focus on backend development, system design, databases, and scalable application architecture. Sept 2022 – May 2025.",
       "relevantCoursework": [
         "Software Engineering",
         "Web Technologies",
@@ -76,15 +76,15 @@
     },
     {
       "id": "diploma-computer-engineering",
-      "degree": "Diploma in Computer Science and Engineering",
+      "degree": "Diploma in Computer Science",
       "field": "Computer Science and Engineering",
       "level": "diploma",
       "institution": {
-        "name": "Gujarat Technological University",
+        "name": "Gujarat Technological University (GTU)",
         "type": "university",
         "affiliation": "GTU",
         "location": {
-          "city": "Vadodara",
+          "city": "Ahmedabad",
           "state": "Gujarat",
           "country": "India"
         },
@@ -92,18 +92,16 @@
         "logo": "Gtu_logo.png"
       },
       "duration": {
-        "startDate": "2019-08",
+        "startDate": "2019-01",
         "endDate": "2022-06",
         "graduationDate": "2022-06-15"
       },
       "performance": {
-        "gpa": "9.67",
-        "gpaScale": "10",
         "percentage": null,
-        "grade": "Distinction",
+        "grade": "9.67 CGPA",
         "rank": null
       },
-      "description": "Completed a diploma program in Computer Science and Engineering with strong academic performance. Built a solid foundation in programming, databases, and core engineering subjects that prepared me for advanced studies in software engineering.",
+      "description": "Completed a diploma in Computer Science (Jan 2019 – Jun 2022). Built a solid foundation in programming, databases, and core engineering subjects.",
       "relevantCoursework": [
         "Programming Fundamentals",
         "Data Structures",
@@ -113,10 +111,21 @@
       ],
       "projects": [],
       "achievements": [
-        "Graduated with high academic distinction",
-        "Consistently strong performance across core computer science subjects"
+        "Institute Topper (1st)",
+        "Sem 5th & 6th — 10 SPI",
+        "Inter-college Web Development Winner",
+        "Fireless Cooking Winner"
       ],
-      "certifications": [],
+      "certifications": [
+        {
+          "id": "diploma-web-dev-winner",
+          "name": "Inter College Web Development Winner",
+          "issuer": "Gujarat Technological University, Ahmedabad",
+          "issueDate": "2020-02",
+          "description": "Biggest challenge was we had to code in notepad and we were not allowed to access internet. It was an amazing experience. I got to learn how to build a project in a certain time constraint environment.",
+          "status": "active"
+        }
+      ],
       "status": {
         "completed": true,
         "current": false
@@ -124,7 +133,11 @@
       "custom": {
         "hostel": false,
         "scholarships": [],
-        "exchangePrograms": []
+        "exchangePrograms": [],
+        "testScores": [
+          { "semester": "6", "score": "10 SPI", "date": "2022-06", "description": "10 SPI in 6th semester of Diploma in Computer Engineering." },
+          { "semester": "5", "score": "10 SPI", "date": "2021-12", "description": "10 SPI in 5th semester of Diploma Engineering." }
+        ]
       },
       "marksheets": [
         {
@@ -146,7 +159,7 @@
     {
       "id": "school-baroda-high-school-alkapuri",
       "degree": "Primary and Secondary Schooling",
-      "field": "General Education",
+      "field": "LKG to 10th",
       "level": "school",
       "institution": {
         "name": "Baroda High School, Alkapuri",
@@ -160,18 +173,18 @@
         "logo": "bhs_logo.jpeg"
       },
       "duration": {
-        "startDate": "2007-06",
-        "endDate": "2019-04",
+        "startDate": "2007",
+        "endDate": "2019",
         "graduationDate": "2019-04-15"
       },
       "performance": {
         "gpa": null,
         "gpaScale": null,
-        "percentage": null,
-        "grade": null,
+        "percentage": 83,
+        "grade": "83%",
         "rank": null
       },
-      "description": "Completed primary and secondary schooling from LKG to 10th standard at Baroda High School, Alkapuri. Developed strong academic discipline, problem-solving ability, and foundational understanding across science, mathematics, and core subjects.",
+      "description": "Primary and secondary schooling from LKG to 10th at Baroda High School, Alkapuri (2007 – 2019). Highly involved in NCC activities and gave my best in studies with true hard work and discipline, aimed a good score in academics as well as achieved a lot at national level.",
       "relevantCoursework": [
         "Mathematics",
         "Science",
@@ -180,8 +193,23 @@
         "Computer Basics"
       ],
       "projects": [],
-      "achievements": [],
-      "certifications": [],
+      "achievements": [
+        "Indian Navy — NCC (National Cadet Corps) India",
+        "Attended RDC Delhi (Republic Day Camp) 2018",
+        "Marched in PM Delhi (Prime Minister) Rally",
+        "Gujarat Best Cadet",
+        "Head of Computer Department, BHS Alkapuri Higher Secondary Section"
+      ],
+      "certifications": [
+        {
+          "id": "ncc-rdc-pm-rally",
+          "name": "NCC ex-cadet | RDC (Republic Day Camp) Delhi 2018 | PM (Prime Minister) Rally Delhi",
+          "issuer": "NCC (National Cadet Corps) Ministry of Defence India",
+          "issueDate": "2018-01",
+          "description": "It gave me a chance to stay with our Indian Officers at Delhi, also met Admiral Sunil Lanba, 23rd Chief of the Naval Staff of the Indian Navy. Also marched on CARIAPPA PARADE GROUND in Prime Minister Rally 2018. Got a chance to meet Prime Minister of India. With hardwork, dedication and training period of 6 months I got selected and represented Gujarat Directorate of NCC, from 2 Gujarat Naval Unit NCC.",
+          "status": "active"
+        }
+      ],
       "status": {
         "completed": true,
         "current": false
