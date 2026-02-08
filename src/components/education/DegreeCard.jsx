@@ -58,7 +58,7 @@ function DegreeCard({ degree = {}, index = 0 }) {
     const levelInfo = levelMap[level.toLowerCase()] || { label: level, color: 'bg-card/80 text-body border-gold/10' }
     
     return (
-      <span className={`px-2 py-1 text-xs font-medium rounded border ${levelInfo.color} backdrop-blur-sm shadow-sm`}>
+      <span className={`inline-flex px-2 py-1 text-xs font-medium rounded border ${levelInfo.color} backdrop-blur-sm shadow-sm whitespace-nowrap`}>
         {levelInfo.label}
       </span>
     )
@@ -67,7 +67,7 @@ function DegreeCard({ degree = {}, index = 0 }) {
   const getGradeBadge = (grade) => {
     if (!grade) return null
     return (
-      <span className="px-2 py-1 bg-gold/20 text-gold text-xs font-medium rounded border border-gold/30 backdrop-blur-sm shadow-sm">
+      <span className="inline-flex px-2 py-1 bg-gold/20 text-gold text-xs font-medium rounded border border-gold/30 backdrop-blur-sm shadow-sm">
         {grade}
       </span>
     )
@@ -75,15 +75,15 @@ function DegreeCard({ degree = {}, index = 0 }) {
 
   return (
     <div
-      className="bg-card/90 backdrop-blur-sm border border-gold/20 rounded-lg p-6 md:p-8 shadow-lg"
+      className="bg-card/90 backdrop-blur-sm border border-gold/20 rounded-lg p-4 sm:p-6 md:p-8 shadow-lg"
       style={{
         boxShadow: '0 10px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(201, 166, 107, 0.05)'
       }}
     >
       {/* Header Section */}
       <div className="mb-6 pb-6 border-b border-gold/20">
-        <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
-          <div className="flex-1">
+        <div className="flex flex-col gap-4">
+          <div className="flex-1 min-w-0">
             {/* Degree and Field */}
             <div className="mb-3">
               {degree.degree && (
@@ -200,17 +200,17 @@ function DegreeCard({ degree = {}, index = 0 }) {
             )}
           </div>
 
-          {/* Badges */}
-          <div className="flex flex-wrap gap-2">
+          {/* Badges - full width row so they wrap on mobile */}
+          <div className="flex flex-wrap gap-2 w-full min-w-0">
             {getLevelBadge(degree.level)}
             {degree.performance?.grade && getGradeBadge(degree.performance.grade)}
             {degree.status?.current && (
-              <span className="px-2 py-1 bg-gold/20 text-gold text-xs font-medium rounded border border-gold/30 backdrop-blur-sm shadow-sm">
+              <span className="px-2 py-1 bg-gold/20 text-gold text-xs font-medium rounded border border-gold/30 backdrop-blur-sm shadow-sm whitespace-nowrap">
                 Current
               </span>
             )}
             {degree.status?.completed && (
-              <span className="px-2 py-1 bg-green-500/20 text-green-400 text-xs font-medium rounded border border-green-500/30 backdrop-blur-sm shadow-sm">
+              <span className="px-2 py-1 bg-green-500/20 text-green-400 text-xs font-medium rounded border border-green-500/30 backdrop-blur-sm shadow-sm whitespace-nowrap">
                 Completed
               </span>
             )}
@@ -222,9 +222,9 @@ function DegreeCard({ degree = {}, index = 0 }) {
       {degree.performance && (
         <div className="mb-6">
           <h4 className="text-head text-lg font-semibold mb-3">Academic Performance</h4>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
             {degree.performance.gpa && (
-              <div className="bg-card/80 backdrop-blur-sm border border-gold/10 rounded-lg p-3 text-center">
+              <div className="min-w-0 bg-card/80 backdrop-blur-sm border border-gold/10 rounded-lg p-3 text-center">
                 <div className="text-gold text-2xl font-bold">
                   {degree.performance.gpa}
                 </div>
@@ -234,7 +234,7 @@ function DegreeCard({ degree = {}, index = 0 }) {
               </div>
             )}
             {degree.performance.percentage !== undefined && degree.performance.percentage !== null && (
-              <div className="bg-card/80 backdrop-blur-sm border border-gold/10 rounded-lg p-3 text-center">
+              <div className="min-w-0 bg-card/80 backdrop-blur-sm border border-gold/10 rounded-lg p-3 text-center">
                 <div className="text-gold text-2xl font-bold">
                   {degree.performance.percentage}%
                 </div>
@@ -242,15 +242,15 @@ function DegreeCard({ degree = {}, index = 0 }) {
               </div>
             )}
             {degree.performance.grade && (
-              <div className="bg-card/80 backdrop-blur-sm border border-gold/10 rounded-lg p-3 text-center">
-                <div className="text-gold text-xl font-bold">
+              <div className="min-w-0 bg-card/80 backdrop-blur-sm border border-gold/10 rounded-lg p-3 text-center overflow-hidden">
+                <div className="text-gold text-base sm:text-xl font-bold break-words">
                   {degree.performance.grade}
                 </div>
                 <div className="text-body text-xs mt-1">Grade</div>
               </div>
             )}
             {degree.performance.rank && (
-              <div className="bg-card/80 backdrop-blur-sm border border-gold/10 rounded-lg p-3 text-center">
+              <div className="min-w-0 bg-card/80 backdrop-blur-sm border border-gold/10 rounded-lg p-3 text-center">
                 <div className="text-gold text-2xl font-bold">
                   #{degree.performance.rank}
                 </div>
@@ -272,13 +272,13 @@ function DegreeCard({ degree = {}, index = 0 }) {
 
       {/* Relevant Coursework */}
       {degree.relevantCoursework && Array.isArray(degree.relevantCoursework) && degree.relevantCoursework.length > 0 && (
-        <div className="mb-6">
+        <div className="mb-6 min-w-0">
           <h4 className="text-head text-lg font-semibold mb-3">Relevant Coursework</h4>
           <div className="flex flex-wrap gap-2">
             {degree.relevantCoursework.map((course, idx) => (
               <span
                 key={idx}
-                className="px-3 py-1 bg-card/80 backdrop-blur-sm text-body text-sm rounded border border-gold/10 shadow-sm"
+                className="px-2.5 py-1 sm:px-3 bg-card/80 backdrop-blur-sm text-body text-xs sm:text-sm rounded border border-gold/10 shadow-sm break-words"
               >
                 {course}
               </span>
@@ -417,11 +417,11 @@ function DegreeCard({ degree = {}, index = 0 }) {
       {/* Marksheets Section */}
       {degree.marksheets && Array.isArray(degree.marksheets) && degree.marksheets.length > 0 && (
         <div className="pt-6 border-t border-gold/20">
-          <div className="flex items-center justify-between mb-4">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4">
             <h4 className="text-head text-lg font-semibold">Marksheets</h4>
             <button
               onClick={() => setShowMarksheets(!showMarksheets)}
-              className="flex items-center gap-2 px-3 py-1.5 bg-card/80 backdrop-blur-sm border border-gold/20 rounded-lg text-head hover:bg-gold/10 hover:border-gold transition-all duration-200 shadow-sm text-sm"
+              className="flex items-center justify-center gap-2 px-3 py-2 sm:py-1.5 bg-card/80 backdrop-blur-sm border border-gold/20 rounded-lg text-head hover:bg-gold/10 hover:border-gold transition-all duration-200 shadow-sm text-sm w-full sm:w-auto"
             >
               <span className="text-xs font-medium">
                 {showMarksheets ? 'Hide' : 'View'} Marksheets

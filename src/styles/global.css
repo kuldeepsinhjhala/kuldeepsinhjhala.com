@@ -108,6 +108,23 @@ body {
   background: var(--c-head);
 }
 
+/* Tab bar scrollbar always visible */
+.tab-scrollbar-visible {
+  scrollbar-color: var(--c-gold) var(--c-card);
+}
+
+.tab-scrollbar-visible::-webkit-scrollbar-track {
+  background: var(--c-card);
+}
+
+.tab-scrollbar-visible::-webkit-scrollbar-thumb {
+  background: var(--c-gold);
+}
+
+.tab-scrollbar-visible::-webkit-scrollbar-thumb:hover {
+  background: var(--c-head);
+}
+
 /* Tooltip animation */
 @keyframes fade-in {
   from {
@@ -274,48 +291,27 @@ button:disabled {
   transform: translate(-15px, -15px);
 }
 
-/* Hide default cursor on desktop when custom cursor is active */
+/* Custom cursor disabled – native system cursor is always visible.
+   To re-enable the custom cursor, uncomment the block below and add <CustomCursor /> in App.jsx */
+
+/*
 @media (pointer: fine) {
   * {
     cursor: none !important;
   }
-  
-  /* Show native cursor for text inputs and textareas */
-  input[type="text"],
-  input[type="email"],
-  input[type="password"],
-  input[type="search"],
-  input[type="url"],
-  input[type="tel"],
-  input[type="number"],
-  textarea,
-  [contenteditable="true"] {
+  input[type="text"], input[type="email"], input[type="password"], input[type="search"],
+  input[type="url"], input[type="tel"], input[type="number"], textarea, [contenteditable="true"] {
     cursor: text !important;
   }
-  
-  /* Show native cursor for disabled elements */
-  button:disabled,
-  input:disabled,
-  textarea:disabled,
-  select:disabled {
+  button:disabled, input:disabled, textarea:disabled, select:disabled {
     cursor: not-allowed !important;
   }
-  
-  /* Show native cursor for resize handles */
-  textarea[resize],
-  iframe {
+  textarea[resize], iframe {
     cursor: auto !important;
   }
 }
-
-/* Hide custom cursor on touch devices */
 @media (pointer: coarse) {
-  .cursor-dot,
-  .cursor-ring {
-    display: none !important;
-  }
-  
-  * {
-    cursor: auto !important;
-  }
+  .cursor-dot, .cursor-ring { display: none !important; }
+  * { cursor: auto !important; }
 }
+*/

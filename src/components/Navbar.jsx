@@ -178,33 +178,35 @@ function Navbar() {
           <div className="ml-6 mt-1 space-y-0.5">
             {navItems.map((item) => {
               const tabIsOpen = isTabOpen(item.path)
+              const active = isActive(item.path)
               return (
                 <button
                   key={item.path}
                   data-path={item.path}
                   onClick={(e) => handleFileClick(e, item)}
-                  className={`nav-item-button w-full flex items-center px-2 py-1.5 text-sm transition-all group text-left cursor-pointer ${
-                    isActive(item.path)
-                      ? 'bg-gold/20 text-gold'
-                      : 'text-body'
+                  className={`nav-item-button w-full flex items-center px-2 py-1.5 text-sm transition-all group text-left cursor-pointer rounded ${
+                    active
+                      ? 'text-head shadow-xl font-bold'
+                      : 'text-body hover:bg-card/80 hover:text-gold'
                   }`}
+                  style={active ? { backgroundColor: '#112240', opacity: 1 } : {}}
                   onMouseEnter={(e) => {
-                    if (!isActive(item.path)) {
-                      e.currentTarget.style.backgroundColor = '#112240'
+                    if (!active) {
+                      e.currentTarget.style.backgroundColor = ''
                     }
                   }}
                   onMouseLeave={(e) => {
-                    if (!isActive(item.path)) {
+                    if (!active) {
                       e.currentTarget.style.backgroundColor = ''
                     }
                   }}
                 >
-                  <span className={`mr-2 ${isActive(item.path) ? 'text-gold' : 'text-body group-hover:text-head'}`}>
+                  <span className={`mr-2 flex-shrink-0 ${active ? 'text-head' : 'text-body group-hover:text-head'}`}>
                     <FileIcon />
                   </span>
-                  <span className="font-mono text-xs flex-1">{item.label}</span>
+                  <span className={`font-mono text-xs flex-1 ${active ? 'font-bold' : ''}`}>{item.label}</span>
                   {tabIsOpen && (
-                    <span className="ml-2 w-1.5 h-1.5 bg-gold rounded-full"></span>
+                    <span className="ml-2 w-1.5 h-1.5 bg-gold rounded-full flex-shrink-0"></span>
                   )}
                 </button>
               )
@@ -272,6 +274,7 @@ function Navbar() {
           <div className="ml-6 mt-1 space-y-0.5">
             {navItems.map((item) => {
               const tabIsOpen = isTabOpen(item.path)
+              const active = isActive(item.path)
               return (
                 <button
                   key={item.path}
@@ -280,28 +283,29 @@ function Navbar() {
                     handleFileClick(e, item)
                     setIsNavbarOpen(false)
                   }}
-                  className={`nav-item-button w-full flex items-center px-2 py-1.5 text-sm transition-all group text-left cursor-pointer ${
-                    isActive(item.path)
-                      ? 'bg-gold/20 text-gold'
-                      : 'text-body'
+                  className={`nav-item-button w-full flex items-center px-2 py-1.5 text-sm transition-all group text-left cursor-pointer rounded ${
+                    active
+                      ? 'text-head shadow-xl font-bold'
+                      : 'text-body hover:bg-card/80 hover:text-gold'
                   }`}
+                  style={active ? { backgroundColor: '#112240', opacity: 1 } : {}}
                   onMouseEnter={(e) => {
-                    if (!isActive(item.path)) {
-                      e.currentTarget.style.backgroundColor = '#112240'
+                    if (!active) {
+                      e.currentTarget.style.backgroundColor = ''
                     }
                   }}
                   onMouseLeave={(e) => {
-                    if (!isActive(item.path)) {
+                    if (!active) {
                       e.currentTarget.style.backgroundColor = ''
                     }
                   }}
                 >
-                  <span className={`mr-2 ${isActive(item.path) ? 'text-gold' : 'text-body group-hover:text-head'}`}>
+                  <span className={`mr-2 flex-shrink-0 ${active ? 'text-head' : 'text-body group-hover:text-head'}`}>
                     <FileIcon />
                   </span>
-                  <span className="font-mono text-xs flex-1">{item.label}</span>
+                  <span className={`font-mono text-xs flex-1 ${active ? 'font-bold' : ''}`}>{item.label}</span>
                   {tabIsOpen && (
-                    <span className="ml-2 w-1.5 h-1.5 bg-gold rounded-full"></span>
+                    <span className="ml-2 w-1.5 h-1.5 bg-gold rounded-full flex-shrink-0"></span>
                   )}
                 </button>
               )
