@@ -53,7 +53,6 @@
         "current": true
       },
       "custom": {
-        "hostel": false,
         "scholarships": [],
         "exchangePrograms": []
       },
@@ -71,6 +70,13 @@
           "semester": "2",
           "year": "2023",
           "image": "/images/marksheets/bachelor-sem2.jpg"
+        }
+      ],
+      "degreeDocuments": [
+        {
+          "id": "bachelor-degree",
+          "name": "Degree Certificate",
+          "image": "/images/degree/bachelor-degree.jpg"
         }
       ]
     },
@@ -131,7 +137,6 @@
         "current": false
       },
       "custom": {
-        "hostel": false,
         "scholarships": [],
         "exchangePrograms": [],
         "testScores": [
@@ -153,6 +158,13 @@
           "semester": "2",
           "year": "2020",
           "image": "/images/marksheets/diploma-sem2.jpg"
+        }
+      ],
+      "degreeDocuments": [
+        {
+          "id": "diploma-degree",
+          "name": "Degree Certificate",
+          "image": "/images/degree/diploma-degree.jpg"
         }
       ]
     },
@@ -225,6 +237,13 @@
           "semester": null,
           "year": "2019",
           "image": "/images/marksheets/school-10th.jpg"
+        }
+      ],
+      "degreeDocuments": [
+        {
+          "id": "school-10th-cert",
+          "name": "10th Passing Certificate",
+          "image": "/images/degree/school-10th.jpg"
         }
       ]
     }

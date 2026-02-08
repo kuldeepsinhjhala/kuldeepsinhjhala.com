@@ -14,6 +14,9 @@ function DegreeCard({ degree = {}, index = 0 }) {
   // State for managing marksheet visibility and modal
   const [showMarksheets, setShowMarksheets] = useState(false)
   const [selectedMarksheet, setSelectedMarksheet] = useState(null)
+  // State for degree dropdown and modal
+  const [showDegree, setShowDegree] = useState(false)
+  const [selectedDegree, setSelectedDegree] = useState(null)
 
   const formatDate = (dateString) => {
     if (!dateString) return ''
@@ -375,8 +378,7 @@ function DegreeCard({ degree = {}, index = 0 }) {
         const skipKeys = ['scholarships', 'hostel', 'exchangePrograms', 'activitiesAndSocieties', 'testScores']
         const entries = Object.entries(degree.custom).filter(([k]) => !skipKeys.includes(k))
         const hasScholarships = degree.custom.scholarships?.length > 0
-        const hasHostel = degree.custom.hostel !== undefined
-        const hasAny = hasScholarships || hasHostel || entries.length > 0
+        const hasAny = hasScholarships || entries.length > 0
         if (!hasAny) return null
         return (
           <div className="pt-6 border-t border-gold/20">
@@ -386,14 +388,6 @@ function DegreeCard({ degree = {}, index = 0 }) {
                   <span className="text-head text-sm font-semibold">Scholarships: </span>
                   <span className="text-body text-sm">
                     {degree.custom.scholarships.join(', ')}
-                  </span>
-                </div>
-              )}
-              {hasHostel && (
-                <div>
-                  <span className="text-head text-sm font-semibold">Hostel: </span>
-                  <span className="text-body text-sm">
-                    {degree.custom.hostel ? 'Yes' : 'No'}
                   </span>
                 </div>
               )}
@@ -414,106 +408,177 @@ function DegreeCard({ degree = {}, index = 0 }) {
         )
       })()}
 
-      {/* Marksheets Section */}
-      {degree.marksheets && Array.isArray(degree.marksheets) && degree.marksheets.length > 0 && (
+      {/* Documents section: two separate dropdown buttons per degree (Marksheets + Degree) */}
+      {(degree.marksheets?.length > 0 || (degree.degreeDocuments && degree.degreeDocuments.length > 0)) && (
         <div className="pt-6 border-t border-gold/20">
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4">
-            <h4 className="text-head text-lg font-semibold">Marksheets</h4>
-            <button
-              onClick={() => setShowMarksheets(!showMarksheets)}
-              className="flex items-center justify-center gap-2 px-3 py-2 sm:py-1.5 bg-card/80 backdrop-blur-sm border border-gold/20 rounded-lg text-head hover:bg-gold/10 hover:border-gold transition-all duration-200 shadow-sm text-sm w-full sm:w-auto"
-            >
-              <span className="text-xs font-medium">
-                {showMarksheets ? 'Hide' : 'View'} Marksheets
-              </span>
-              <svg
-                className={`w-4 h-4 text-gold transition-transform duration-300 ${
-                  showMarksheets ? 'rotate-180' : ''
-                }`}
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
+          <h4 className="text-head text-lg font-semibold mb-4">Documents</h4>
+          <div className="flex flex-wrap gap-3">
+            {/* Dropdown 1: Marksheets - separate button for this degree */}
+            {degree.marksheets && degree.marksheets.length > 0 && (
+              <button
+                onClick={() => setShowMarksheets(!showMarksheets)}
+                className="flex items-center justify-center gap-2 px-4 py-2.5 bg-card/80 backdrop-blur-sm border border-gold/20 rounded-lg text-head hover:bg-gold/10 hover:border-gold transition-all duration-200 shadow-sm text-sm"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M19 9l-7 7-7-7"
-                />
-              </svg>
-            </button>
+                <span className="text-xs font-medium">
+                  {showMarksheets ? 'Hide' : 'View'} Marksheets
+                </span>
+                <svg
+                  className={`w-4 h-4 text-gold transition-transform duration-300 ${showMarksheets ? 'rotate-180' : ''}`}
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+            )}
+            {/* Dropdown 2: Degree - separate button for this degree */}
+            {degree.degreeDocuments && degree.degreeDocuments.length > 0 && (
+              <button
+                onClick={() => setShowDegree(!showDegree)}
+                className="flex items-center justify-center gap-2 px-4 py-2.5 bg-card/80 backdrop-blur-sm border border-gold/20 rounded-lg text-head hover:bg-gold/10 hover:border-gold transition-all duration-200 shadow-sm text-sm"
+              >
+                <span className="text-xs font-medium">
+                  {showDegree ? 'Hide' : 'View'} Degree
+                </span>
+                <svg
+                  className={`w-4 h-4 text-gold transition-transform duration-300 ${showDegree ? 'rotate-180' : ''}`}
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+            )}
           </div>
 
-          {/* Marksheets Grid with Dropdown Animation */}
-          <div
-            className={`overflow-hidden transition-all duration-500 ease-in-out ${
-              showMarksheets
-                ? 'max-h-[10000px] opacity-100'
-                : 'max-h-0 opacity-0'
-            }`}
-          >
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {degree.marksheets.map((marksheet, idx) => (
-                <div
-                  key={marksheet.id || idx}
-                  className="bg-card/80 backdrop-blur-sm border border-gold/20 rounded-lg overflow-hidden shadow-lg hover:border-gold/50 transition-all duration-200"
-                >
-                  {/* Marksheet Image */}
+          {/* Marksheets content (collapsible) */}
+          {degree.marksheets && degree.marksheets.length > 0 && (
+            <div
+              className={`overflow-hidden transition-all duration-500 ease-in-out ${
+                showMarksheets ? 'max-h-[10000px] opacity-100 mt-4' : 'max-h-0 opacity-0'
+              }`}
+            >
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                {degree.marksheets.map((marksheet, idx) => (
                   <div
-                    className="relative w-full aspect-[3/4] bg-bg overflow-hidden group cursor-pointer"
-                    onClick={() => setSelectedMarksheet(marksheet)}
+                    key={marksheet.id || idx}
+                    className="bg-card/80 backdrop-blur-sm border border-gold/20 rounded-lg overflow-hidden shadow-lg hover:border-gold/50 transition-all duration-200"
                   >
-                    <img
-                      src={marksheet.image}
-                      alt={marksheet.name}
-                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                      onError={(e) => {
-                        e.target.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="400" height="600"%3E%3Crect width="400" height="600" fill="%23112240"/%3E%3Ctext x="50%25" y="50%25" text-anchor="middle" dy=".3em" fill="%23C9A66B" font-family="Arial" font-size="18"%3EMarksheet Image%3C/text%3E%3C/svg%3E'
-                      }}
-                    />
-                    {/* Overlay on hover */}
-                    <div className="absolute inset-0 bg-gold/0 group-hover:bg-gold/10 transition-colors duration-300 flex items-center justify-center">
-                      <svg
-                        className="w-10 h-10 text-gold opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m0 0v6m0-6h6m-6 0H4"
-                        />
-                      </svg>
+                    <div
+                      className="relative w-full aspect-[3/4] bg-bg overflow-hidden group cursor-pointer"
+                      onClick={() => setSelectedMarksheet(marksheet)}
+                    >
+                      <img
+                        src={marksheet.image}
+                        alt={marksheet.name}
+                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                        onError={(e) => {
+                          e.target.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="400" height="600"%3E%3Crect width="400" height="600" fill="%23112240"/%3E%3Ctext x="50%25" y="50%25" text-anchor="middle" dy=".3em" fill="%23C9A66B" font-family="Arial" font-size="18"%3EMarksheet Image%3C/text%3E%3C/svg%3E'
+                        }}
+                      />
+                      <div className="absolute inset-0 bg-gold/0 group-hover:bg-gold/10 transition-colors duration-300 flex items-center justify-center">
+                        <svg className="w-10 h-10 text-gold opacity-0 group-hover:opacity-100 transition-opacity duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m0 0v6m0-6h6m-6 0H4" />
+                        </svg>
+                      </div>
+                    </div>
+                    <div className="p-3">
+                      <h5 className="text-head text-sm font-semibold mb-1.5">{marksheet.name}</h5>
+                      <div className="space-y-0.5 text-xs">
+                        {marksheet.semester && (
+                          <p className="text-body"><span className="text-gold font-medium">Semester: </span>{marksheet.semester}</p>
+                        )}
+                        {marksheet.year && (
+                          <p className="text-body"><span className="text-gold font-medium">Year: </span>{marksheet.year}</p>
+                        )}
+                      </div>
                     </div>
                   </div>
+                ))}
+              </div>
+            </div>
+          )}
 
-                  {/* Marksheet Info */}
-                  <div className="p-3">
-                    <h5 className="text-head text-sm font-semibold mb-1.5">
-                      {marksheet.name}
-                    </h5>
-                    <div className="space-y-0.5 text-xs">
-                      {marksheet.semester && (
-                        <p className="text-body">
-                          <span className="text-gold font-medium">Semester: </span>
-                          {marksheet.semester}
-                        </p>
-                      )}
-                      {marksheet.year && (
-                        <p className="text-body">
-                          <span className="text-gold font-medium">Year: </span>
-                          {marksheet.year}
-                        </p>
-                      )}
+          {/* Degree documents content (collapsible) */}
+          {degree.degreeDocuments && degree.degreeDocuments.length > 0 && (
+            <div
+              className={`overflow-hidden transition-all duration-500 ease-in-out ${
+                showDegree ? 'max-h-[10000px] opacity-100 mt-4' : 'max-h-0 opacity-0'
+              }`}
+            >
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                {degree.degreeDocuments.map((item, idx) => (
+                  <div
+                    key={item.id || idx}
+                    className="bg-card/80 backdrop-blur-sm border border-gold/20 rounded-lg overflow-hidden shadow-lg hover:border-gold/50 transition-all duration-200"
+                  >
+                    <div
+                      className="relative w-full aspect-[3/4] bg-bg overflow-hidden group cursor-pointer"
+                      onClick={() => setSelectedDegree(item)}
+                    >
+                      <img
+                        src={item.image}
+                        alt={item.name}
+                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                        onError={(e) => {
+                          e.target.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="400" height="600"%3E%3Crect width="400" height="600" fill="%23112240"/%3E%3Ctext x="50%25" y="50%25" text-anchor="middle" dy=".3em" fill="%23C9A66B" font-family="Arial" font-size="18"%3EDegree Image%3C/text%3E%3C/svg%3E'
+                        }}
+                      />
+                      <div className="absolute inset-0 bg-gold/0 group-hover:bg-gold/10 transition-colors duration-300 flex items-center justify-center">
+                        <svg className="w-10 h-10 text-gold opacity-0 group-hover:opacity-100 transition-opacity duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m0 0v6m0-6h6m-6 0H4" />
+                        </svg>
+                      </div>
+                    </div>
+                    <div className="p-3">
+                      <h5 className="text-head text-sm font-semibold">{item.name}</h5>
                     </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* Degree Modal */}
+      {selectedDegree && (
+        <>
+          <div
+            className="fixed inset-0 bg-shadow/90 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+            onClick={() => setSelectedDegree(null)}
+          >
+            <div
+              className="relative max-w-5xl max-h-[90vh] w-full bg-card border border-gold/20 rounded-lg overflow-hidden shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                onClick={() => setSelectedDegree(null)}
+                className="absolute top-4 right-4 z-10 p-2 bg-card/90 backdrop-blur-sm border border-gold/20 rounded-lg text-head hover:text-gold hover:border-gold transition-all duration-200"
+                aria-label="Close"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+              <div className="p-4 border-b border-gold/20 bg-card/90">
+                <h3 className="text-head text-xl font-bold">{selectedDegree.name}</h3>
+              </div>
+              <div className="overflow-auto max-h-[calc(90vh-120px)] bg-bg">
+                <img
+                  src={selectedDegree.image}
+                  alt={selectedDegree.name}
+                  className="w-full h-auto"
+                  onError={(e) => {
+                    e.target.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="800" height="1200"%3E%3Crect width="800" height="1200" fill="%23112240"/%3E%3Ctext x="50%25" y="50%25" text-anchor="middle" dy=".3em" fill="%23C9A66B" font-family="Arial" font-size="24"%3EDegree Image Not Found%3C/text%3E%3C/svg%3E'
+                  }}
+                />
+              </div>
             </div>
           </div>
-        </div>
+        </>
       )}
 
       {/* Marksheet Modal */}
