@@ -1,26 +1,24 @@
 {
   "meta": {
-    "title": "Kuldeepsinh Jhala | Software Engineer",
+    "title": "Kuldeepsinh Jhala | Full Stack Developer (Node.js & AWS)",
     "subtitle": "End-to-end software engineer building scalable, secure, cloud-native systems",
     "description": "Personal portfolio of Kuldeepsinh Jhala, a software engineer with 2+ years of experience delivering complete software solutions — from requirements gathering to AWS cloud deployment — with strong backend, frontend, and system design expertise.",
     "language": "en",
     "lastUpdated": "2026-01-21",
     "version": "v1.1"
   },
-
   "hero": {
     "greeting": "Hi, my name is",
     "name": "Kuldeepsinh Jhala",
-    "designation": "Software Engineer",
+    "designation": "Full Stack Developer",
     "tagline": "Designing, building, and deploying complete software systems on the cloud",
-    "subtitle": "Backend-driven full stack engineer with strong frontend engineering and AWS deployment experience.",
-    "description": "I am a software engineer with hands-on experience delivering complete software solutions end to end — from understanding client requirements and designing system architecture to building secure applications and deploying them on AWS cloud infrastructure. I focus on writing clean, maintainable code, building scalable backend systems, optimizing frontend performance, and delivering production-ready applications.",
+    "subtitle": "Backend-focused full stack engineer with strong frontend development and AWS deployment experience.",
+    "description": "I am a software engineer experienced in delivering end-to-end software solutions — from understanding client requirements and designing system architecture to building secure, scalable applications and deploying them on AWS cloud infrastructure. My work focuses on clean and maintainable code, scalable backend systems, well-structured frontend applications, and production-ready deployments.",
     "profile": {
       "image": "/images/profile/kuldeep-profile.png",
       "alt": "Kuldeepsinh Jhala profile photo"
     }
   },
-
   "stats": [
     {
       "id": "experience",
@@ -47,28 +45,36 @@
       "icon": "cloud"
     }
   ],
-
   "currentFocus": {
     "label": "My Expertise",
     "items": [
       {
+        "title": "AI Applications with LLMs",
+        "description": "Design and build applications powered by large language models to solve real-world problems. Work includes prompt design, data processing pipelines, API integration, and building systems that convert unstructured information into structured outputs and actionable insights.",
+        "icon": "Brain"
+      },
+      {
+        "title": "End-to-End Software Delivery",
+        "description": "Translate client requirements into complete software systems. Handle architecture design, backend development (Node.js), frontend interfaces (React), database design (MSSQL/DynamoDB), AWS deployment (Lambda, EC2, RDS, S3), logging, and full technical documentation.",
+        "icon": "Workflow"
+      },
+      {
         "title": "Scalable Backend Architecture",
-        "description": "Designing sustainable backend systems with proper layering, authentication, authorization, and role-based access control.",
+        "description": "Build scalable backend systems using Node.js with a clean layered architecture (routes, controllers, services, repositories, models). Develop secure REST APIs with JWT authentication and role-based access control. Design efficient database structures using MSSQL, ORM, and stored procedures, while implementing proper logging, error handling, and maintainable documentation.",
         "icon": "server"
       },
       {
         "title": "AWS Production Deployments",
-        "description": "Deploying and managing applications on AWS using EC2, RDS, S3, Lambda Functions and secure configurations.",
+        "description": "Deploy and manage production applications on AWS using EC2, RDS, S3, and Lambda. Configure servers, manage databases, handle environment setup, monitoring, logging, and maintain secure and reliable cloud infrastructure for scalable applications.",
         "icon": "cloud"
       },
       {
         "title": "Frontend Performance & Structure",
-        "description": "Optimizing frontend performance, maintaining structured codebases, and implementing validations and security.",
+        "description": "Build structured React applications with clear component separation and maintainable codebases. Implement validations, basic security practices, and optimize performance through efficient state management and reusable components while considering SEO-friendly structure and accessibility.",
         "icon": "zap"
       }
     ]
   },
-
   "techStack": {
     "title": "Technology Stack",
     "categories": [
@@ -76,13 +82,17 @@
         "name": "Frontend",
         "items": [
           "React",
-          "Redux",
+          "Next.js",
+          "TypeScript",
+          "Redux / Zustand",
           "Tailwind CSS",
-          "CSS",
-          "Frontend Engineering",
+          "Responsive Design",
+          "Component Architecture",
           "Performance Optimization",
+          "SEO & Accessibility",
           "Client-side State Management",
-          "Frontend Validations & Security"
+          "API Integration",
+          "Frontend Security & Validation"
         ]
       },
       {
@@ -90,22 +100,34 @@
         "items": [
           "Node.js",
           "Express.js",
-          "REST APIs",
+          "REST API Design",
+          "Microservices Architecture",
           "JWT Authentication",
-          "Cookies & Sessions",
-          "Role-Based Access Control",
-          "Feature-Based Authorization"
+          "OAuth & Secure Sessions",
+          "Role-Based Access Control (RBAC)",
+          "Feature-Based Authorization",
+          "Middleware Architecture",
+          "API Security & Rate Limiting",
+          "MSSQL Database Design",
+          "Stored Procedures",
+          "ORM Integration",
+          "DynamoDB",
+          "Logging & Error Handling"
         ]
       },
       {
         "name": "Database",
         "items": [
-          "Microsoft SQL Server",
+          "Microsoft SQL Server (MSSQL)",
           "Relational Database Design",
-          "ORMs",
+          "Data Modeling & Normalization",
           "Stored Procedures",
           "Raw SQL Queries",
-          "Query Optimization"
+          "Query Optimization",
+          "Indexing Strategies",
+          "ORM Integration",
+          "Transaction Management",
+          "Database Performance Tuning"
         ]
       },
       {
@@ -113,21 +135,31 @@
         "items": [
           "AWS EC2",
           "AWS RDS",
-          "AWS Load Balancer",
           "AWS S3",
           "AWS DynamoDB",
-          "AWS Lambda Functions",
-          "Nginx",
-          "Linux Server Management"
+          "AWS Lambda",
+          "AWS Load Balancer",
+          "Serverless Architecture",
+          "Nginx Reverse Proxy",
+          "Linux Server Management",
+          "Environment Configuration",
+          "Application Logging & Monitoring",
+          "Production Deployment"
         ]
       },
       {
         "name": "Hosting & Deployment",
         "items": [
-          "AWS Linux EC2 Deployment",
-          "Google Firebase Hosting",
+          "AWS EC2 Production Deployment",
+          "Firebase Hosting",
+          "Nginx Server Configuration",
+          "Domain & DNS Configuration",
+          "SSL / HTTPS Setup",
+          "Environment Variables Management",
+          "CI/CD Friendly Deployment",
           "Production Environment Setup",
-          "SSL & Secure Configurations"
+          "Server Security Configuration",
+          "Zero-Downtime Deployment"
         ]
       },
       {
@@ -135,15 +167,18 @@
         "items": [
           "Git",
           "GitHub",
+          "Git Workflow (Branching & PRs)",
           "Postman",
           "VS Code",
           "Nginx",
-          "Cursor AI"
+          "Docker (Basic)",
+          "API Testing & Debugging",
+          "Cursor AI",
+          "AI-assisted Development"
         ]
       }
     ]
   },
-
   "quickLinks": [
     {
       "label": "View Projects",

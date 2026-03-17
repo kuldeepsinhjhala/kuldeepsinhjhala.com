@@ -6,6 +6,7 @@ function FocusCard({ item, className = '' }) {
   if (!item) return null
 
   const getIcon = (iconName) => {
+    const key = (iconName || '').toLowerCase()
     const icons = {
       server: (
         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -22,8 +23,28 @@ function FocusCard({ item, className = '' }) {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
         </svg>
       ),
+      brain: (
+        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M7 8a3 3 0 116 0v8a3 3 0 11-6 0V8zm6 0a3 3 0 116 0v4a3 3 0 01-3 3"
+          />
+        </svg>
+      ),
+      workflow: (
+        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M8 7h8M8 12h8M8 17h8M5 7h.01M5 12h.01M5 17h.01M19 7h.01M19 12h.01M19 17h.01"
+          />
+        </svg>
+      ),
     }
-    return icons[iconName] || null
+    return icons[key] || null
   }
 
   return (
