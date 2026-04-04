@@ -2,6 +2,11 @@
   "meta": {
     "title": "Get In Touch"
   },
+  "footerSlogan": {
+    "line1": "अंत ही आरंभ है",
+    "line2": "Built to restart. Built to evolve.",
+    "om": "ॐ"
+  },
   "contact": {
     "email": {
       "primary": "kuldeep@kuldeepsinhjhala.com"

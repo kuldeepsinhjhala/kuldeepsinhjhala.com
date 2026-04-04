@@ -198,6 +198,17 @@ body {
     0 0 44px rgba(201, 166, 107, 0.07);
 }
 
+/* Contact footer — Om symbol (stronger gold glow) */
+.om-symbol-glow {
+  color: var(--c-gold);
+  text-shadow:
+    0 0 8px rgba(201, 166, 107, 0.85),
+    0 0 18px rgba(201, 166, 107, 0.55),
+    0 0 32px rgba(201, 166, 107, 0.35),
+    0 0 48px rgba(201, 166, 107, 0.18);
+  filter: drop-shadow(0 0 6px rgba(201, 166, 107, 0.4));
+}
+
 /* Dotted background pattern for section pages */
 .bg-dotted {
   background-color: var(--c-shadow);

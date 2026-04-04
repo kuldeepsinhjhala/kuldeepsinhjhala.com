@@ -24,6 +24,7 @@ function Contact() {
   const meta = useMemo(() => data?.meta || {}, [data])
   const contact = useMemo(() => data?.contact || {}, [data])
   const social = useMemo(() => data?.social || {}, [data])
+  const footerSlogan = useMemo(() => data?.footerSlogan || {}, [data])
 
   const hasContact =
     contact?.email?.primary ||
@@ -61,7 +62,7 @@ function Contact() {
   }
 
   return (
-    <div className="bg-dotted px-4 pb-2 pt-0 md:px-8 md:pb-2 md:pt-0 lg:px-12 lg:pb-3 lg:pt-0">
+    <div className="bg-dotted px-4 pt-0 pb-[min(28vh,10rem)] md:pb-[min(26vh,9rem)] lg:pb-24 xl:pb-28 md:px-8 lg:px-12">
       <div className="max-w-5xl mx-auto">
         <header className="mb-10 md:mb-14 text-center">
           {meta.title && (
@@ -96,6 +97,41 @@ function Contact() {
             </section>
           )}
         </div>
+
+        {(footerSlogan.line1 || footerSlogan.line2 || footerSlogan.om) && (
+          <footer
+            className="mt-14 md:mt-16 pt-10 md:pt-12 text-center max-w-2xl mx-auto px-1"
+            aria-label="Closing note"
+          >
+            {(footerSlogan.line1 || footerSlogan.line2) && (
+              <div className="space-y-2.5 md:space-y-3">
+                {footerSlogan.line1 && (
+                  <p
+                    className="text-gold text-base md:text-lg font-medium leading-snug"
+                    lang="hi"
+                  >
+                    {footerSlogan.line1}
+                  </p>
+                )}
+                {footerSlogan.line2 && (
+                  <p className="text-body text-sm md:text-base leading-relaxed">
+                    {footerSlogan.line2}
+                  </p>
+                )}
+              </div>
+            )}
+            {footerSlogan.om && (
+              <p
+                className={`om-symbol-glow text-2xl md:text-3xl lg:text-4xl font-medium leading-none mb-5 md:mb-7 ${
+                  footerSlogan.line1 || footerSlogan.line2 ? 'mt-6 md:mt-8' : 'mt-0'
+                }`}
+                lang="sa"
+              >
+                {footerSlogan.om}
+              </p>
+            )}
+          </footer>
+        )}
       </div>
     </div>
   )
