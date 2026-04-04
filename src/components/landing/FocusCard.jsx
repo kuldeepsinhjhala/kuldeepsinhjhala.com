@@ -1,9 +1,26 @@
+import { useId, useState } from 'react'
+import { isExpandCardClickIgnoredTarget } from '../../utils/expandCardClick'
+
 /**
  * FocusCard - Reusable focus/working on card component
  * Displays a focus item with title, description, and optional icon
  */
-function FocusCard({ item, className = '' }) {
+function FocusCard({ item, className = '', expanded, onExpandedChange }) {
   if (!item) return null
+
+  const panelId = useId()
+  const [internalOpen, setInternalOpen] = useState(false)
+  const isControlled = typeof onExpandedChange === 'function'
+  const isOpen = isControlled ? Boolean(expanded) : internalOpen
+  const toggle = () => {
+    if (isControlled) onExpandedChange(!expanded)
+    else setInternalOpen((v) => !v)
+  }
+  const expandOnly = () => {
+    if (isOpen) return
+    if (isControlled) onExpandedChange(true)
+    else setInternalOpen(true)
+  }
 
   const getIcon = (iconName) => {
     const key = (iconName || '').toLowerCase()
@@ -47,6 +64,8 @@ function FocusCard({ item, className = '' }) {
     return icons[key] || null
   }
 
+  const hasBody = Boolean(item.description)
+
   return (
     <div
       className={`
@@ -54,35 +73,70 @@ function FocusCard({ item, className = '' }) {
         hover:border-gold hover:ring-1 hover:ring-gold/50
         transition-all duration-200 shadow-lg
         w-full overflow-hidden
+        ${hasBody && !isOpen ? 'cursor-pointer' : ''}
         ${className}
       `}
       style={{
         boxShadow: '0 10px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(201, 166, 107, 0.05)'
       }}
+      onClick={
+        hasBody && !isOpen
+          ? (e) => {
+              if (isExpandCardClickIgnoredTarget(e.target)) return
+              expandOnly()
+            }
+          : undefined
+      }
     >
-      {item.icon && (
-        <div className="flex items-start gap-2 sm:gap-3 mb-2 sm:mb-3">
-          <div className="text-gold flex-shrink-0 mt-0.5">
-            {getIcon(item.icon)}
-          </div>
+      <div className="flex items-center gap-2 sm:gap-3 min-w-0">
+        <div className="flex items-center gap-2 sm:gap-3 min-w-0 flex-1">
+          {item.icon && (
+            <div className="text-gold flex-shrink-0" aria-hidden>
+              {getIcon(item.icon)}
+            </div>
+          )}
           {item.title && (
-            <h3 className="text-head text-base sm:text-lg md:text-xl font-semibold break-words">
+            <h3 className="text-head text-base sm:text-lg md:text-xl font-semibold break-words min-w-0">
               {item.title}
             </h3>
           )}
         </div>
-      )}
-      
-      {item.title && !item.icon && (
-        <h3 className="text-head text-base sm:text-lg md:text-xl font-semibold mb-2 sm:mb-3 break-words">
-          {item.title}
-        </h3>
-      )}
-      
-      {item.description && (
-        <p className="text-body text-xs sm:text-sm md:text-base break-words leading-relaxed">
-          {item.description}
-        </p>
+        {hasBody && (
+          <button
+            type="button"
+            onClick={toggle}
+            className="flex-shrink-0 flex items-center justify-center min-h-9 min-w-9 rounded-md text-gold/90 hover:text-gold hover:bg-gold/10 border border-transparent hover:border-gold/20 transition-colors"
+            aria-expanded={isOpen}
+            aria-controls={panelId}
+            aria-label={isOpen ? 'Collapse description' : 'Expand description'}
+          >
+            <svg
+              className={`w-4 h-4 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              aria-hidden
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+        )}
+      </div>
+
+      {hasBody && (
+        <div
+          className={`grid transition-[grid-template-rows] duration-200 ease-out motion-reduce:transition-none ${
+            isOpen ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'
+          }`}
+        >
+          <div className="min-h-0 overflow-hidden">
+            <div id={panelId} className="pt-3 sm:pt-4">
+              <p className="text-body text-xs sm:text-sm md:text-base break-words leading-relaxed">
+                {item.description}
+              </p>
+            </div>
+          </div>
+        </div>
       )}
     </div>
   )

@@ -1,38 +1,19 @@
 {
   "meta": {
-    "title": "My Journey",
-    "subtitle": "Academic background, certifications, and continuous learning journey",
-    "description": "Detailed overview of formal education, professional experience, and projects that shaped my foundation as a software engineer and backend-focused full stack developer."
-  },
-  "overview": {
-    "headline": "Full Stack Software Engineer | AI-Focused Backend Developer",
-    "summary": "Passionate Full Stack Software Engineer experienced in building scalable backend systems, normalized databases, AI-driven platforms, and modern web and mobile applications. Delivering complete software solutions end to end — from understanding client requirements and designing system architecture to building secure applications and deploying them on AWS cloud infrastructure.",
-    "currentFocus": "Scalable Backend Architecture, AWS Production Deployments, Frontend Performance & Structure. Currently exploring AI Engineering with a focus on LLMs, Generative AI, and intelligent systems.",
-    "longTermGoal": "Designing, building, and deploying complete software systems on the cloud with focus on backend systems, AI engineering, and cloud infrastructure.",
-    "custom": {
-      "inspiration": "Writing clean, maintainable code and delivering production-ready applications.",
-      "values": [
-        "Backend Systems",
-        "AI Engineering",
-        "Cloud Infrastructure",
-        "Full Stack Development"
-      ]
-    }
+    "title": "My Journey"
   },
   "timeline": [
     {
       "id": "school-baroda-high-school-alkapuri",
+      "sequence": 1,
       "time": {
-        "year": "2007",
-        "month": null,
-        "day": null,
         "startDate": "2007",
         "endDate": "2019",
         "duration": "12 years"
       },
       "type": "education",
       "title": "Primary and Secondary Schooling",
-      "subtitle": "LKG to 10th",
+      "subtitle": "LKG to 10th | Baroda High School, Alkapuri",
       "organization": {
         "name": "Baroda High School, Alkapuri",
         "type": "school",
@@ -46,62 +27,83 @@
         "country": "India",
         "mode": "onsite"
       },
-      "description": "Primary and secondary schooling from LKG to 10th at Baroda High School, Alkapuri (2007 – 2019). Highly involved in NCC activities and gave my best in studies with true hard work and discipline, aimed a good score in academics as well as achieved a lot at national level.",
+      "description": "Completed primary and secondary schooling from LKG to 10th (2007–2019) at Baroda High School, Alkapuri. Graduated with 83% under GSEB board. Highly involved in NCC activities under the Indian Navy wing — selected to represent Gujarat Directorate at the Republic Day Camp (RDC) in Delhi 2018 and marched at the Prime Minister Rally after 6 months of rigorous training. Served as Head of the Computer Department at BHS Higher Secondary Section.",
       "activities": [
-        "Indian Navy — NCC (National Cadet Corps) India",
-        "Attended RDC Delhi (Republic Day Camp) 2018",
-        "Marched in PM Delhi (Prime Minister) Rally",
+        "NCC (National Cadet Corps) — Indian Navy wing, 2 Gujarat Naval Unit",
+        "Republic Day Camp (RDC) Delhi 2018",
+        "PM (Prime Minister) Rally, Cariappa Parade Ground, Delhi 2018",
         "Head of Computer Department, BHS Alkapuri Higher Secondary Section"
       ],
       "achievements": [
         {
+          "title": "RDC Delhi 2018 — NCC Representative",
+          "description": "Selected to represent Gujarat Directorate of NCC from 2 Gujarat Naval Unit after 6 months of training. Stayed with Indian Officers in Delhi, met Admiral Sunil Lanba (23rd Chief of Naval Staff), and marched at the PM Rally 2018.",
+          "impact": "national",
+          "metrics": {
+            "value": "2018",
+            "unit": "year"
+          }
+        },
+        {
           "title": "Gujarat Best Cadet",
-          "description": "NCC ex-cadet; RDC (Republic Day Camp) Delhi 2018; PM (Prime Minister) Rally Delhi. Represented Gujarat Directorate of NCC, 2 Gujarat Naval Unit NCC.",
-          "impact": "national recognition",
+          "description": "Awarded Gujarat Best Cadet during NCC tenure.",
+          "impact": "state",
+          "metrics": {
+            "value": "Gujarat",
+            "unit": "level"
+          }
+        },
+        {
+          "title": "83% in 10th Board Exams",
+          "description": "Scored 83% in GSEB 10th board examinations.",
+          "impact": "academic",
           "metrics": {
             "value": "83",
-            "unit": "percent"
+            "unit": "%"
           }
         }
       ],
       "skills": [
-        "Mathematics",
-        "Science",
-        "English",
-        "Social Studies",
+        "Discipline",
+        "Leadership",
+        "Academic Fundamentals",
         "Computer Basics"
       ],
-      "reflection": {
-        "challenges": "Balancing NCC and academics.",
-        "learnings": "Discipline and hard work in studies and national-level activities.",
-        "mindset": "Disciplined and improvement-focused"
-      },
       "media": {
-        "images": [],
-        "documents": [],
-        "links": []
+        "images": [
+        ],
+        "documents": [
+          {
+            "label": "NCC A Certificate",
+            "url": "https://d2dhxmagz6qgkm.cloudfront.net/images/1775331445881-ncc-A-certificate.jpg"
+          },
+          {
+            "label": "NCC RDC Certificate 1",
+            "url": "https://d2dhxmagz6qgkm.cloudfront.net/images/1775331478535-ncc-certificate-1.jpg"
+          },
+          {
+            "label": "NCC RDC Certificate 2",
+            "url": "https://d2dhxmagz6qgkm.cloudfront.net/images/1775331499979-ncc-certificate-2.jpg"
+          }
+        ],
+        "links": [
+          "https://barodahighschool.com/"
+        ]
       },
       "icon": "school",
-      "color": "emerald",
-      "status": {
-        "highlighted": true,
-        "featured": false,
-        "visibility": "public"
-      }
+      "color": "emerald"
     },
     {
       "id": "diploma-computer-engineering",
+      "sequence": 2,
       "time": {
-        "year": "2019",
-        "month": "January",
-        "day": null,
         "startDate": "2019-01",
         "endDate": "2022-06",
         "duration": "3 years 6 months"
       },
       "type": "education",
       "title": "Diploma in Computer Science",
-      "subtitle": "Computer Science and Engineering",
+      "subtitle": "Computer Science and Engineering | GTU",
       "organization": {
         "name": "Gujarat Technological University (GTU)",
         "type": "university",
@@ -115,74 +117,161 @@
         "country": "India",
         "mode": "onsite"
       },
-      "description": "Completed a diploma in Computer Science (Jan 2019 – Jun 2022). Built a solid foundation in programming, databases, and core engineering subjects.",
+      "description": "Completed Diploma in Computer Science from GTU (Jan 2019 – Jun 2022). Graduated as Institute Topper with 9.67 CGPA, achieving 10 SPI in both 5th and 6th semester. Built a strong foundation in programming, data structures, databases, operating systems, and computer networks. Won the Inter-College Web Development competition — had to build a project in Notepad with no internet access.",
       "activities": [
-        "Programming Fundamentals",
         "Data Structures",
         "Database Management Systems",
+        "Operating Systems",
         "Computer Networks",
-        "Operating Systems"
+        "Web Development",
+        "Inter-College Web Development Competition"
       ],
       "achievements": [
         {
-          "title": "Institute Topper (1st)",
-          "description": "Sem 5th & 6th — 10 SPI. Inter-college Web Development Winner. Fireless Cooking Winner.",
-          "impact": "academic excellence",
+          "title": "Institute Topper — 1st Rank",
+          "description": "Graduated as Institute Topper at GTU Diploma with 9.67 CGPA overall.",
+          "impact": "academic",
           "metrics": {
             "value": "9.67",
             "unit": "CGPA"
           }
         },
         {
-          "title": "Inter College Web Development Winner",
-          "description": "Biggest challenge was we had to code in notepad and we were not allowed to access internet. It was an amazing experience. I got to learn how to build a project in a certain time constraint environment.",
+          "title": "10 SPI — 5th & 6th Semester",
+          "description": "Achieved perfect 10 SPI in both 5th semester (Dec 2021) and 6th semester (Jun 2022).",
+          "impact": "academic",
+          "metrics": {
+            "value": "10",
+            "unit": "SPI"
+          }
+        },
+        {
+          "title": "Inter-College Web Development Winner",
+          "description": "Won inter-college web development competition. Had to code in Notepad with no internet access — built a project under strict time constraints.",
           "impact": "competition",
           "metrics": {
             "value": "1st",
-            "unit": "Feb 2020"
+            "unit": "rank"
           }
         }
       ],
       "skills": [
         "Programming Fundamentals",
-        "Data Structures",
-        "Database Management Systems",
-        "Computer Networks",
-        "Operating Systems"
+        "Problem Solving",
+        "Database Management",
+        "Web Development",
+        "Computer Networks"
       ],
-      "reflection": {
-        "challenges": "Understanding abstract computer science concepts initially.",
-        "learnings": "Strong fundamentals are non-negotiable for growth.",
-        "mindset": "Disciplined and improvement-focused"
-      },
       "media": {
-        "images": [],
-        "documents": [],
+        "images": [
+        ],
+        "documents": [
+          {
+            "label": "Diploma Degree",
+            "url": "https://d2dhxmagz6qgkm.cloudfront.net/images/1775331252040-gtu-degree.jpg"
+          },
+          {
+            "label": "5th Semester Marksheet 10 SPI",
+            "url": "https://d2dhxmagz6qgkm.cloudfront.net/images/1775331301479-gtu-marksheet-sem-5.jpg"
+          },
+          {
+            "label": "6th Semester Marksheet 10 SPI",
+            "url": "https://d2dhxmagz6qgkm.cloudfront.net/images/1775331336294-gtu-marksheet-sem-6.jpg"
+          },
+          {
+            "label": "12th Equivalency Certificate",
+            "url": "https://d2dhxmagz6qgkm.cloudfront.net/images/1775331188859-gtu-12-equivalency-certificate.jpg"
+          },
+          {
+            "label": "CGPA to Percentage Certificate",
+            "url": "https://d2dhxmagz6qgkm.cloudfront.net/images/1775331219676-gtu-cgpa-to-percentage.jpg"
+          },
+          {
+            "label": "Secured 1st rank in SPI, 32nd rank in CGPA, and 38th rank in CPI in the GTU Diploma examination, reflecting consistent academic excellence and strong overall performance.",
+            "url": "https://d2dhxmagz6qgkm.cloudfront.net/images/1775331378519-gtu-rank-certificate.jpg"
+          }
+        ],
         "links": [
           "https://www.gtu.ac.in"
         ]
       },
       "icon": "school",
-      "color": "blue",
-      "status": {
-        "highlighted": true,
-        "featured": false,
-        "visibility": "public"
-      }
+      "color": "blue"
+    },
+    {
+      "id": "web-developer-sparks-foundation",
+      "sequence": 3,
+      "time": {
+        "startDate": "2022-07",
+        "endDate": "2022-07",
+        "duration": "1 month"
+      },
+      "type": "career",
+      "title": "Web Developer Intern",
+      "subtitle": "The Sparks Foundation",
+      "organization": {
+        "name": "The Sparks Foundation",
+        "type": "company",
+        "role": "Web Developer Intern",
+        "website": null,
+        "logo": "sparks_foundation_logo.png"
+      },
+      "location": {
+        "city": null,
+        "state": null,
+        "country": "India",
+        "mode": "remote"
+      },
+      "description": "Developed a banking website capable of performing fund transfers between accounts as part of a remote internship with The Sparks Foundation. Built using MySQL, PHP, HTML, CSS, and Bootstrap.",
+      "activities": [
+        "Developed account-to-account fund transfer functionality",
+        "Built full banking UI using HTML, CSS, and Bootstrap",
+        "Integrated MySQL database for account and transaction management"
+      ],
+      "achievements": [
+        {
+          "title": "Banking Web Application",
+          "description": "Delivered a functional banking website with transfer capabilities using PHP and MySQL.",
+          "impact": "project",
+          "metrics": {
+            "value": "1",
+            "unit": "project delivered"
+          }
+        }
+      ],
+      "skills": [
+        "PHP",
+        "MySQL",
+        "HTML",
+        "CSS",
+        "Bootstrap"
+      ],
+      "media": {
+        "images": [],
+        "documents": [
+          {
+            "label": "Internship Certificate",
+            "url": "https://d2dhxmagz6qgkm.cloudfront.net/images/1775327393541-Sparks_foundation_internship_completion_letter.jpg"
+          }
+        ],
+        "links": [
+          "https://www.thesparksfoundationsingapore.org/"
+        ]
+      },
+      "icon": "briefcase",
+      "color": "teal"
     },
     {
       "id": "bachelor-computer-science",
+      "sequence": 4,
       "time": {
-        "year": "2022",
-        "month": "September",
-        "day": null,
         "startDate": "2022-09",
         "endDate": "2025-05",
-        "duration": "2 years 9 months"
+        "duration": "2 years 8 months"
       },
       "type": "education",
       "title": "Bachelor of Engineering (B.E.)",
-      "subtitle": "Computer Science & Engineering",
+      "subtitle": "Computer Science & Engineering | MSU Baroda",
       "organization": {
         "name": "The Maharaja Sayajirao University of Baroda (MSU)",
         "type": "university",
@@ -196,72 +285,79 @@
         "country": "India",
         "mode": "onsite"
       },
-      "description": "Bachelor of Engineering in Computer Science & Engineering with a focus on backend development, system design, databases, and scalable application architecture. Sept 2022 – May 2025.",
+      "description": "Bachelor of Engineering in Computer Science & Engineering from MSU Baroda (Sep 2022 – May 2025), graduating with 8.11 CGPA and First Class with Distinction. Worked on production-grade software throughout the degree — built ResumeeAI as a final year project during 7th and 8th semester and received Best Project recognition from the university. Founded and led Code Vimarsh, a student-led technical community at MSU, as Vice President.",
       "activities": [
-        "Software Engineering",
-        "Web Technologies",
-        "Database Systems",
+        "Backend Development & System Design",
+        "Database Management Systems",
         "Cloud Computing",
-        "System Design"
+        "Data Structures & Algorithms",
+        "Founded and led Code Vimarsh technical community"
       ],
       "achievements": [
         {
-          "title": "First class with distinction",
-          "description": "Strong academic performance while working on backend-focused projects. Applied theoretical concepts to real-world software systems.",
+          "title": "8.11 CGPA — First Class with Distinction",
+          "description": "Maintained strong academic performance alongside full-time professional work and community leadership.",
           "impact": "academic",
           "metrics": {
             "value": "8.11",
             "unit": "CGPA"
           }
+        },
+        {
+          "title": "Best Final Year Project — ResumeeAI",
+          "description": "ResumeeAI recognized as Best Project by The Maharaja Sayajirao University of Baroda.",
+          "impact": "academic",
+          "metrics": {
+            "value": "Best Project",
+            "unit": "award"
+          }
         }
       ],
       "skills": [
-        "Problem Solving",
         "Backend Development",
+        "System Design",
         "Database Design",
-        "System Thinking",
-        "Software Engineering Fundamentals"
+        "Cloud Computing",
+        "Leadership"
       ],
-      "reflection": {
-        "challenges": "Balancing academics with professional work.",
-        "learnings": "Theoretical concepts apply directly to real-world systems.",
-        "mindset": "Improvement-focused"
-      },
       "media": {
-        "images": [],
-        "documents": [],
+        "images": [
+          {
+            "url": "https://d2dhxmagz6qgkm.cloudfront.net/images/1775330950581-MSU-Degree.jpg",
+            "alt": "The Maharaja Sayajirao University of Baroda",
+            "label": "MSU Degree"
+          }
+        ],
+        "documents": [
+          {
+            "label": "Best Project Recognition Certificate",
+            "url": "https://d2dhxmagz6qgkm.cloudfront.net/images/1775327896122-best_project_final_year.jpg"
+          }
+        ],
         "links": [
           "https://www.msubaroda.ac.in"
         ]
       },
       "icon": "school",
-      "color": "gold",
-      "status": {
-        "highlighted": true,
-        "featured": false,
-        "visibility": "public"
-      }
+      "color": "gold"
     },
-    
     {
       "id": "android-dev-intern-itechnotion",
+      "sequence": 5,
       "time": {
-        "year": "2023",
-        "month": "May",
-        "day": null,
         "startDate": "2023-05",
         "endDate": "2023-06",
         "duration": "2 months"
       },
       "type": "career",
       "title": "Android Developer Intern",
-      "subtitle": "City Directory Android Application",
+      "subtitle": "iTechNotion Private Limited",
       "organization": {
         "name": "iTechNotion Private Limited",
         "type": "company",
         "role": "Android Developer Intern",
         "website": null,
-        "logo": "/images/companies/itechnotion.png"
+        "logo": "itechnotion-logo.png"
       },
       "location": {
         "city": "Ahmedabad",
@@ -269,66 +365,65 @@
         "country": "India",
         "mode": "onsite"
       },
-      "description": "Worked on an Android City Directory application with real-time maps and API integrations.",
+      "description": "Built a City Directory Android application with Google Maps API integration, dynamic API-based data fetching, custom navigation components, and Material Design 3 UI. Designed UI/UX in Figma and implemented advanced splash screen with full-screen mode.",
       "activities": [
-        "Implemented Google Maps API",
-        "Fetched and integrated data from company APIs",
-        "Designed custom navigation components",
-        "Built advanced splash screens using full-screen UI"
+        "Google Maps API integration",
+        "Dynamic API data fetching",
+        "Custom navigation bar implementation",
+        "Advanced splash screen with full-screen UI",
+        "Material Design 3 UI/UX design in Figma"
       ],
       "achievements": [
         {
-          "title": "Production-Ready Android UI",
-          "description": "Implemented Material Design 3-based UI from Figma designs.",
-          "impact": "usability",
+          "title": "City Directory Android App",
+          "description": "Delivered a production-ready Android application following Material Design 3 standards with maps, navigation, and dynamic data.",
+          "impact": "project",
           "metrics": {
-            "value": "100",
-            "unit": "percent design compliance"
+            "value": "1",
+            "unit": "app delivered"
           }
         }
       ],
       "skills": [
-        "Android Development",
-        "UI/UX Implementation",
-        "API Integration"
+        "Android",
+        "Java",
+        "Kotlin",
+        "Google Maps API",
+        "Figma",
+        "Material Design 3"
       ],
-      "reflection": {
-        "challenges": "Implementing complex integrations efficiently.",
-        "learnings": "Delivered clean UI and handled complex integrations.",
-        "mindset": "Quality-focused"
-      },
       "media": {
         "images": [],
-        "documents": [],
-        "links": []
+        "documents": [
+          {
+            "label": "Internship Certificate",
+            "url": "https://d2dhxmagz6qgkm.cloudfront.net/images/1775327131256-itechnotion-internship.jpg"
+          }
+        ],
+        "links": [
+          "https://itechnotion.com/"
+        ]
       },
       "icon": "briefcase",
-      "color": "green",
-      "status": {
-        "highlighted": true,
-        "featured": false,
-        "visibility": "public"
-      }
+      "color": "green"
     },
     {
-      "id": "vice-president-code-vimarsh",
+      "id": "student-ambassador-msu-vision-2020",
+      "sequence": 6,
       "time": {
-        "year": "2024",
-        "month": "January",
-        "day": null,
-        "startDate": "2024-01",
-        "endDate": "present",
-        "duration": "1+ year"
+        "startDate": "2023-06",
+        "endDate": "2023-08",
+        "duration": "3 months"
       },
       "type": "career",
-      "title": "Vice President",
-      "subtitle": "Code Vimarsh — Technical Community at MSU Baroda",
+      "title": "Student Ambassador",
+      "subtitle": "MSU Vision 2020",
       "organization": {
-        "name": "Code Vimarsh",
+        "name": "MSU Vision 2020",
         "type": "community",
-        "role": "Vice President",
+        "role": "Student Ambassador",
         "website": null,
-        "logo": "/images/companies/code-vimarsh.png"
+        "logo": "msu-vision-logo.png"
       },
       "location": {
         "city": "Vadodara",
@@ -336,66 +431,150 @@
         "country": "India",
         "mode": "onsite"
       },
-      "description": "Serving as Vice President, leading technical initiatives, mentoring students, and managing large-scale academic and community activities. A technical student-led community at The Maharaja Sayajirao University of Baroda focused on technology, leadership, and community growth.",
+      "description": "Served as Student Ambassador for MSU Vision 2020 at The Maharaja Sayajirao University of Baroda. Led event coordination and execution for university-wide activities, designed promotional material, and managed on-site crowd flow for events with 300+ attendees.",
       "activities": [
-        "Managed an executive board of 14+ members",
-        "Led a community of 300+ students",
-        "Addressed 500+ students through guidance sessions",
-        "Led a web development team of 30+ juniors"
+        "Event coordination and execution for university activities",
+        "Designed promotional posters for outreach and event visibility",
+        "Managed on-site crowd movement for 300+ attendee events",
+        "Cross-functional coordination and problem-solving"
       ],
       "achievements": [
         {
-          "title": "Large-Scale Student Leadership",
-          "description": "Successfully guided and mentored hundreds of students through technical and career-focused initiatives.",
+          "title": "Large-Scale Event Management",
+          "description": "Successfully managed on-site execution and crowd flow for university events with 300+ attendees.",
           "impact": "leadership",
           "metrics": {
-            "value": "500",
+            "value": "300+",
+            "unit": "attendees"
+          }
+        }
+      ],
+      "skills": [
+        "Event Management",
+        "Public Communication",
+        "Coordination",
+        "Leadership"
+      ],
+      "media": {
+        "images": [],
+        "documents": [],
+        "links": [
+          "https://msuvision2020.org/"
+        ]
+      },
+      "icon": "briefcase",
+      "color": "indigo"
+    },
+    {
+      "id": "vice-president-code-vimarsh",
+      "sequence": 7,
+      "time": {
+        "startDate": "2024-01",
+        "endDate": "2025-04",
+        "duration": "1 year 4 months"
+      },
+      "type": "career",
+      "title": "Vice President",
+      "subtitle": "Code Vimarsh — The Maharaja Sayajirao University of Baroda",
+      "organization": {
+        "name": "Code Vimarsh",
+        "type": "community",
+        "role": "Vice President & Founder",
+        "website": null,
+        "logo": "code-vimarsh.png"
+      },
+      "location": {
+        "city": "Vadodara",
+        "state": "Gujarat",
+        "country": "India",
+        "mode": "onsite"
+      },
+      "description": "Founded and established Code Vimarsh at The Maharaja Sayajirao University of Baroda — a student-led technical community built from the ground up. Designed the club's complete structure, flow, and working model. Led a team of 11 executives, inaugurated the club with 300–400 student attendees, built an alumni guidance network with professionals from Google, Microsoft, and cybersecurity domains, and conducted sessions on software development and AI. Handed over the club smoothly after graduation.",
+      "activities": [
+        "Founded and designed the full structure and working model of Code Vimarsh",
+        "Led a team of 11 club executives",
+        "Inaugurated club with 300–400 student attendees",
+        "Organized onsite and online Google meetups for industry exposure",
+        "Conducted sessions on software development and AI-assisted development",
+        "Built alumni network with professionals from Google, Microsoft, and cybersecurity",
+        "Managed weekly contests, meetups, and student guidance events",
+        "Trained members and handed over the club smoothly after graduation"
+      ],
+      "achievements": [
+        {
+          "title": "Founded Code Vimarsh from Scratch",
+          "description": "Built and scaled a student-led technical community at MSU with faculty support, alumni funding, and 300–400 students at inauguration.",
+          "impact": "leadership",
+          "metrics": {
+            "value": "300+",
             "unit": "students"
+          }
+        },
+        {
+          "title": "Alumni Network — Google, Microsoft & Cybersecurity",
+          "description": "Built a professional alumni guidance network connecting students with industry professionals from top companies.",
+          "impact": "community",
+          "metrics": {
+            "value": "11",
+            "unit": "executives led"
           }
         }
       ],
       "skills": [
         "Leadership",
-        "Public Speaking",
-        "Team Management"
+        "Community Building",
+        "Mentorship",
+        "Event Management",
+        "Public Speaking"
       ],
-      "reflection": {
-        "challenges": "Leading and inspiring large student communities.",
-        "learnings": "Exceptional leadership and ability to inspire large student communities.",
-        "mindset": "Community-driven"
-      },
       "media": {
-        "images": [],
+        "images": [
+          {
+            "url": "https://d2dhxmagz6qgkm.cloudfront.net/images/1775326303497-code_vimarsh_0.jpg",
+            "alt": "Code Vimarsh logo",
+            "label": "Code Vimarsh"
+          },
+          {
+            "url": "https://d2dhxmagz6qgkm.cloudfront.net/images/1775326358902-code_vimarsh_1.jpg",
+            "alt": "Code Vimarsh logo",
+            "label": "Code Vimarsh"
+          },
+          {
+            "url": "https://d2dhxmagz6qgkm.cloudfront.net/images/1775326792989-code_vimarsh_3.jpg",
+            "alt": "Code Vimarsh logo",
+            "label": "Code Vimarsh"
+          },
+          {
+            "url": "https://d2dhxmagz6qgkm.cloudfront.net/images/1775326447686-code_vimarsh_3.jpg",
+            "alt": "Code Vimarsh logo",
+            "label": "Code Vimarsh"
+          }
+        ],
         "documents": [],
-        "links": []
+        "links": [
+          "https://codevimarsh.in"
+        ]
       },
       "icon": "briefcase",
-      "color": "purple",
-      "status": {
-        "highlighted": true,
-        "featured": false,
-        "visibility": "public"
-      }
+      "color": "purple"
     },
     {
-      "id": "software-development-engineer-keshav-encon",
+      "id": "keshav-encon-internship",
+      "sequence": 8,
       "time": {
-        "year": "2023",
-        "month": "December",
-        "day": null,
-        "startDate": "2023-12",
-        "endDate": "present",
-        "duration": "2+ years"
+        "startDate": "2023-11",
+        "endDate": "2024-10",
+        "duration": "1 year"
       },
       "type": "career",
-      "title": "Software Development Engineer",
-      "subtitle": "Keshav Encon Private Limited",
+      "title": "Founding Software Developer Engineer (Intern)",
+      "subtitle": "Keshav Encon Private Limited — ResumeeAI",
       "organization": {
         "name": "Keshav Encon Private Limited",
         "type": "company",
-        "role": "Software Development Engineer",
-        "website": "https://kuldeepsinhjhala.com",
-        "logo": "/images/companies/keshav-encon.png"
+        "role": "Founding Software Developer Engineer (Intern)",
+        "website": null,
+        "logo": "keshav_encon_logo.png"
       },
       "location": {
         "city": "Vadodara",
@@ -403,48 +582,156 @@
         "country": "India",
         "mode": "onsite"
       },
-      "description": "Working as a Software Development Engineer building scalable systems from scratch, focusing on database normalization, backend architecture, and AI-powered applications. An enterprise-focused organization delivering scalable software solutions with strong emphasis on database architecture, backend systems, and real-world problem solving.",
+      "description": "Joined Keshav Encon as a Founding Software Developer Engineer during final year (7th and 8th semester), working on ResumeeAI — an AI-based resume builder with ATS checking and live resume sharing. Designed the full system architecture, database schema, RESTful APIs, OAuth 2.0 authentication, and integrated Gemini AI. The project received Best Project recognition from MSU Baroda. Converted to a full-time role (PPO) based on performance and ownership.",
       "activities": [
-        "Designed and implemented scalable databases following 3NF principles",
-        "Built backend systems from scratch enabling real-time data updates",
-        "Analyzed data fields from 50+ websites to design industry-standard schemas",
-        "Collaborated with team members to deliver production-grade solutions"
+        "Designed system architecture and 50+ table normalized database schema",
+        "Developed RESTful APIs for core application functionality",
+        "Implemented OAuth 2.0 (Google & LinkedIn) from scratch without third-party libraries",
+        "Built JWT-based authorization and backend middleware for API security",
+        "Integrated Gemini AI API for AI-powered resume generation",
+        "Worked across Node.js, Express.js, React.js, MSSQL, Sequelize ORM, Redux, Tailwind CSS",
+        "Supported AWS deployment across EC2, RDS, S3, ELB, and CloudFront"
       ],
       "achievements": [
         {
-          "title": "AI Resume Platform at Scale",
-          "description": "Designed and integrated a normalized database handling data from over 10,000 resumes using LLM-powered processing.",
-          "impact": "scalability",
+          "title": "Best Final Year Project — ResumeeAI",
+          "description": "ResumeeAI received Best Project recognition from The Maharaja Sayajirao University of Baroda.",
+          "impact": "academic",
           "metrics": {
-            "value": "10000",
-            "unit": "resumes"
+            "value": "Best Project",
+            "unit": "award"
+          }
+        },
+        {
+          "title": "PPO — Converted to Full-Time Founding Engineer",
+          "description": "Internship converted to a full-time Founding Software Developer Engineer role based on performance and ownership of the product.",
+          "impact": "career",
+          "metrics": {
+            "value": "PPO",
+            "unit": "conversion"
           }
         }
       ],
       "skills": [
-        "Backend Architecture",
-        "Database Design",
-        "AI Integration"
+        "Node.js",
+        "Express.js",
+        "MSSQL",
+        "Sequelize ORM",
+        "React.js",
+        "OAuth 2.0",
+        "JWT",
+        "Gemini AI",
+        "AWS",
+        "System Design"
       ],
-      "reflection": {
-        "challenges": "Taking ownership of end-to-end system reliability.",
-        "learnings": "Built complex systems from scratch with strong architectural clarity and scalability.",
-        "mindset": "Ownership-driven and quality-focused"
+      "media": {
+        "images": [
+          {
+            "url": "https://d2dhxmagz6qgkm.cloudfront.net/images/1775324943779-keshav-encon-certificate.jpg",
+            "alt": "Keshav Encon internship certificate",
+            "label": "keshav-encon-internship-certificate"
+          }
+        ],
+        "documents": [],
+        "links": [
+          "https://resumeeai.com",
+          "https://keshavencon.com"
+        ]
       },
+      "icon": "briefcase",
+      "color": "orange"
+    },
+    {
+      "id": "software-development-engineer-keshav-encon",
+      "sequence": 9,
+      "time": {
+        "startDate": "2024-10",
+        "endDate": "present",
+        "duration": "1+ year"
+      },
+      "type": "career",
+      "title": "Founding Software Developer Engineer",
+      "subtitle": "Keshav Encon Private Limited — ResumeeAI, TalentPulseAI, UninestAI",
+      "organization": {
+        "name": "Keshav Encon Private Limited",
+        "type": "company",
+        "role": "Founding Software Developer Engineer",
+        "website": "https://keshavencon.com/",
+        "logo": "keshav_encon_logo.png"
+      },
+      "location": {
+        "city": "Vadodara",
+        "state": "Gujarat",
+        "country": "India",
+        "mode": "onsite"
+      },
+      "description": "Working full-time as a Founding Software Developer Engineer at Keshav Encon, building and scaling three AI-driven products: ResumeeAI, TalentPulseAI, and UninestAI. Responsibilities span backend architecture, AI integration, scalable database design, REST API development, and production deployments on AWS. Key achievements include eliminating Gemini API costs by 100% via a locally fine-tuned Mistral-7B model, improving query performance by 30%, and automating 80% of manual content creation with a Gemini-powered module.",
+      "activities": [
+        "Fine-tuned Mistral-7B on 45,000+ resumes — eliminated 100% of Gemini API cost",
+        "Reduced AI response time from 30s to 20s on NVIDIA GPU infrastructure",
+        "Designed 50+ normalized table schemas for TalentPulseAI and UninestAI",
+        "Developed 100+ REST APIs across TalentPulseAI and UninestAI",
+        "Improved complex query performance by 30% via hybrid ORM + raw SQL approach",
+        "Built Gemini-powered question generation automating 80% of manual content creation",
+        "Built transaction-safe Stored Procedure framework for UninestAI",
+        "Implemented OAuth 2.0, JWT, and RBAC across all platforms",
+        "Created comprehensive Swagger documentation for cross-team efficiency",
+        "Deployed systems on Firebase, AWS EC2, and AWS RDS"
+      ],
+      "achievements": [
+        {
+          "title": "100% Gemini API Cost Eliminated",
+          "description": "Fine-tuned a local Mistral-7B model on 45,000+ resumes, replacing the external Gemini API entirely and reducing AI response time from 30s to 20s.",
+          "impact": "engineering",
+          "metrics": {
+            "value": "100%",
+            "unit": "cost reduction"
+          }
+        },
+        {
+          "title": "30% Query Performance Improvement",
+          "description": "Improved complex query execution time by 30% on TalentPulseAI using a hybrid ORM + raw SQL approach across 50+ normalized tables.",
+          "impact": "engineering",
+          "metrics": {
+            "value": "30%",
+            "unit": "performance gain"
+          }
+        },
+        {
+          "title": "80% Manual Content Creation Automated",
+          "description": "Built a Gemini-powered question generation module for TalentPulseAI that automated 80% of manual assessment content creation, reducing preparation time from hours to minutes.",
+          "impact": "engineering",
+          "metrics": {
+            "value": "80%",
+            "unit": "automation"
+          }
+        }
+      ],
+      "skills": [
+        "Node.js",
+        "Express.js",
+        "MSSQL",
+        "T-SQL",
+        "Stored Procedures",
+        "Sequelize ORM",
+        "Raw SQL",
+        "OAuth 2.0",
+        "JWT",
+        "RBAC",
+        "Gemini AI",
+        "Mistral-7B Fine-tuning",
+        "AWS",
+        "System Architecture"
+      ],
       "media": {
         "images": [],
         "documents": [],
         "links": [
-          "https://kuldeepsinhjhala.com"
+          "https://keshavencon.com"
         ]
       },
       "icon": "briefcase",
-      "color": "gold",
-      "status": {
-        "highlighted": true,
-        "featured": false,
-        "visibility": "public"
-      }
+      "color": "gold"
     }
   ]
 }

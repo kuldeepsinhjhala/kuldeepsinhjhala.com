@@ -1,13 +1,11 @@
 import { useState, useEffect, useRef, useMemo, useCallback } from 'react'
-import { useNavigate, useLocation } from 'react-router-dom'
 import { useTabs } from '../context/TabContext'
 import { useNavbar } from '../context/NavbarContext'
+import { searchSiteSuggestions } from '../config/siteSearchIndex'
 import contactData from '../data/contact.json'
 import resumeData from '../data/resume.json'
 
 function SearchBar() {
-  const navigate = useNavigate()
-  const location = useLocation()
   const { tabs, switchTab, openTab } = useTabs()
   const { isOpen: isNavbarOpen, setIsOpen: setIsNavbarOpen } = useNavbar()
   const [searchQuery, setSearchQuery] = useState('')
@@ -15,176 +13,25 @@ function SearchBar() {
   const [isQuickActionsOpen, setIsQuickActionsOpen] = useState(false)
   const [isSocialMediaOpen, setIsSocialMediaOpen] = useState(false)
   const [isContactOpen, setIsContactOpen] = useState(false)
-  const [searchResults, setSearchResults] = useState([])
+  const [searchState, setSearchState] = useState({
+    rows: [],
+    pageCount: 0,
+    totalMatches: 0,
+    truncated: false,
+  })
   const inputRef = useRef(null)
   const modalRef = useRef(null)
   const socialMediaModalRef = useRef(null)
   const contactModalRef = useRef(null)
   const searchResultsRef = useRef(null)
 
-  // Page routes mapping
-  const pageRoutes = {
-    '/': 'index.jsx',
-    '/journey': 'journey.jsx',
-    '/experience': 'experience.jsx',
-    '/education': 'education.jsx',
-    '/skills': 'skills.jsx',
-    '/projects': 'projects.jsx',
-    '/resume': 'resume.jsx',
-    // '/blog': 'blog.jsx', // Temporarily hidden
-    '/contact': 'contact.jsx'
-  }
-
-  // Content index for all pages - searchable content across the entire website
-  const pageContentIndex = {
-    '/': {
-      keywords: ['landing', 'home', 'welcome', 'portfolio', 'index', 'main', 'start', 'beginning'],
-      content: 'Welcome to my portfolio landing page'
-    },
-    '/journey': {
-      keywords: ['journey', 'story', 'path', 'career', 'timeline', 'history', 'background', 'about'],
-      content: 'My journey and career path'
-    },
-    '/experience': {
-      keywords: ['experience', 'work', 'job', 'employment', 'career', 'professional', 'positions', 'roles', 'companies'],
-      content: 'Professional work experience and employment history'
-    },
-    '/education': {
-      keywords: ['education', 'school', 'university', 'college', 'degree', 'academic', 'qualifications', 'courses', 'learning'],
-      content: 'Educational background and academic qualifications'
-    },
-    '/skills': {
-      keywords: ['skills', 'abilities', 'competencies', 'expertise', 'proficiency', 'talents', 'capabilities'],
-      content: 'Skills and technical competencies'
-    },
-    '/projects': {
-      keywords: ['projects', 'portfolio', 'work', 'applications', 'apps', 'development', 'build', 'created', 'developed'],
-      content: 'Projects and portfolio work'
-    },
-    '/resume': {
-      keywords: ['resume', 'cv', 'curriculum vitae', 'download', 'pdf', 'document'],
-      content: 'Resume and CV download'
-    },
-    // '/blog': {
-    //   keywords: ['blog', 'articles', 'posts', 'writing', 'thoughts', 'insights', 'tutorials'],
-    //   content: 'Blog posts and articles'
-    // },
-    '/contact': {
-      keywords: ['contact', 'reach', 'email', 'message', 'connect', 'get in touch', 'communication', 'social'],
-      content: 'Contact information and ways to reach out'
-    }
-  }
-
-  // Search function to scan the entire website across all pages (case-insensitive)
-  const searchWebsite = (query) => {
-    if (!query.trim()) {
-      setSearchResults([])
-      return
-    }
-
-    // Convert search term to lowercase for case-insensitive matching
-    const searchTerm = query.toLowerCase().trim()
-    const matches = []
-    const escapedTerm = searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
-
-    // Search through all pages in the content index
-    Object.keys(pageRoutes).forEach(path => {
-      const pageName = pageRoutes[path]
-      const pageContent = pageContentIndex[path] || {}
-      const allSearchableText = [
-        pageName,
-        ...(pageContent.keywords || []),
-        pageContent.content || ''
-      ].join(' ').toLowerCase()
-
-      // Count matches in page name, keywords, and content
-      let matchCount = 0
-
-      // Check page name
-      if (pageName.toLowerCase().includes(searchTerm)) {
-        const nameMatches = (pageName.toLowerCase().match(new RegExp(escapedTerm, 'gi')) || []).length
-        matchCount += nameMatches
-      }
-
-      // Check keywords
-      pageContent.keywords?.forEach(keyword => {
-        if (keyword.toLowerCase().includes(searchTerm)) {
-          const keywordMatches = (keyword.toLowerCase().match(new RegExp(escapedTerm, 'gi')) || []).length
-          matchCount += keywordMatches
-        }
-      })
-
-      // Check content
-      if (pageContent.content && pageContent.content.toLowerCase().includes(searchTerm)) {
-        const contentMatches = (pageContent.content.toLowerCase().match(new RegExp(escapedTerm, 'gi')) || []).length
-        matchCount += contentMatches
-      }
-
-      // Also search in all searchable text combined
-      if (allSearchableText.includes(searchTerm)) {
-        const allMatches = (allSearchableText.match(new RegExp(escapedTerm, 'gi')) || []).length
-        matchCount = Math.max(matchCount, allMatches)
-      }
-
-      if (matchCount > 0) {
-        matches.push({
-          path: path,
-          name: pageName,
-          count: matchCount
-        })
-      }
-    })
-
-    // Also search current page DOM content for dynamic content
-    const mainContent = document.querySelector('main')
-    if (mainContent) {
-      // Get all text nodes in the main content
-      const walker = document.createTreeWalker(
-        mainContent,
-        NodeFilter.SHOW_TEXT,
-        null,
-        false
-      )
-
-      let node
-      let currentPageDOMMatches = 0
-
-      while (node = walker.nextNode()) {
-        // Convert text to lowercase for case-insensitive comparison
-        const text = node.textContent.toLowerCase()
-        if (text.includes(searchTerm)) {
-          const count = (text.match(new RegExp(escapedTerm, 'gi')) || []).length
-          currentPageDOMMatches += count
-        }
-      }
-
-      // Add or update current page matches with DOM content
-      if (currentPageDOMMatches > 0) {
-        const currentPagePath = location.pathname
-        const existingMatch = matches.find(m => m.path === currentPagePath)
-        if (existingMatch) {
-          existingMatch.count += currentPageDOMMatches
-        } else {
-          matches.push({
-            path: currentPagePath,
-            name: pageRoutes[currentPagePath] || currentPagePath,
-            count: currentPageDOMMatches
-          })
-        }
-      }
-    }
-
-    setSearchResults(matches.sort((a, b) => b.count - a.count))
-  }
-
-  // Perform search when query changes
+  // Full-site search: JSON + page labels + contact email signature HTML (see siteSearchIndex.js)
   useEffect(() => {
     const timeoutId = setTimeout(() => {
-      searchWebsite(searchQuery)
-    }, 300) // Debounce search
-
+      setSearchState(searchSiteSuggestions(searchQuery))
+    }, 300)
     return () => clearTimeout(timeoutId)
-  }, [searchQuery, location.pathname])
+  }, [searchQuery])
 
   // Get current active tab index
   const activeTabIndex = tabs.findIndex(tab => tab.isActive)
@@ -259,13 +106,11 @@ function SearchBar() {
     }
   }, [isQuickActionsOpen, isSocialMediaOpen, isContactOpen])
 
-  // Handle navigation to search result
-  const handleSearchResultClick = (path) => {
-    const pageName = pageRoutes[path] || path
-    openTab(path, pageName)
-    navigate(path)
+  const handleSearchResultClick = (path, fileLabel) => {
+    const q = searchQuery.trim()
+    openTab(path, fileLabel, q ? { state: { searchHighlight: q } } : undefined)
     setSearchQuery('')
-    setSearchResults([])
+    setSearchState({ rows: [], pageCount: 0, totalMatches: 0, truncated: false })
     setIsFocused(false)
     inputRef.current?.blur()
   }
@@ -506,7 +351,7 @@ function SearchBar() {
                 }
               }, 200)
             }}
-            placeholder="Search (Ctrl+K)"
+            placeholder="Search entire site (Ctrl+K)"
             className="w-full pl-10 pr-4 py-2 bg-bg border border-gold/20 rounded text-head text-sm placeholder:text-body focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold/50"
           />
           
@@ -523,29 +368,44 @@ function SearchBar() {
                 zIndex: 9999
               }}
             >
-              {searchResults.length > 0 ? (
+              {searchState.rows.length > 0 ? (
                 <>
                   <div className="px-4 py-2.5 border-b border-gold/20" style={{ backgroundColor: '#112240', opacity: 1 }}>
                     <p className="text-xs text-body font-medium">
-                      Found {searchResults.reduce((sum, r) => sum + r.count, 0)} occurrence{searchResults.reduce((sum, r) => sum + r.count, 0) !== 1 ? 's' : ''} in {searchResults.length} page{searchResults.length !== 1 ? 's' : ''}
+                      {searchState.rows.length} suggestion{searchState.rows.length !== 1 ? 's' : ''}
+                      {searchState.pageCount > 0 && (
+                        <>
+                          {' '}
+                          · {searchState.totalMatches} match{searchState.totalMatches !== 1 ? 'es' : ''} across{' '}
+                          {searchState.pageCount} page{searchState.pageCount !== 1 ? 's' : ''}
+                        </>
+                      )}
+                      {searchState.truncated && ' · Refine search to see more'}
                     </p>
                   </div>
                   <div className="py-1" style={{ backgroundColor: '#112240', opacity: 1 }}>
-                    {searchResults.map((result, index) => (
+                    {searchState.rows.map((result, index) => (
                       <button
-                        key={index}
-                        onClick={() => handleSearchResultClick(result.path)}
-                        className="w-full flex items-center justify-between px-4 py-2.5 text-left hover:bg-bg hover:text-gold transition-colors group border-b border-gold/10 last:border-b-0 cursor-pointer"
+                        key={`${result.path}-${index}`}
+                        type="button"
+                        onClick={() => handleSearchResultClick(result.path, result.fileLabel)}
+                        className="w-full flex items-start justify-between gap-3 px-4 py-2.5 text-left hover:bg-bg hover:text-gold transition-colors group border-b border-gold/10 last:border-b-0 cursor-pointer"
                         style={{ backgroundColor: '#112240', opacity: 1 }}
                       >
-                        <div className="flex items-center gap-2 flex-1 min-w-0">
-                          <svg className="w-4 h-4 text-gold flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div className="flex items-start gap-2 flex-1 min-w-0">
+                          <svg className="w-4 h-4 text-gold flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                           </svg>
-                          <span className="font-mono text-xs text-head group-hover:text-gold truncate">{result.name}</span>
+                          <div className="min-w-0 flex-1">
+                            <div className="flex flex-wrap items-baseline gap-x-2 gap-y-0">
+                              <span className="font-mono text-xs text-head group-hover:text-gold">{result.fileLabel}</span>
+                              <span className="text-[11px] text-body/80">{result.pageTitle}</span>
+                            </div>
+                            <p className="text-[11px] text-body mt-1 line-clamp-3 leading-snug">{result.snippet}</p>
+                          </div>
                         </div>
-                        <span className="text-xs text-gold bg-gold/10 px-2 py-0.5 rounded flex-shrink-0 ml-2">
-                          {result.count}
+                        <span className="text-xs text-gold bg-gold/10 px-2 py-0.5 rounded flex-shrink-0" title="Matches on this page">
+                          {result.pageMatchCount}
                         </span>
                       </button>
                     ))}

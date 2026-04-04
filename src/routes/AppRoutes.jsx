@@ -1,31 +1,24 @@
+import { useRef } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { TabProvider } from '../context/TabContext'
+import { UnifiedPortfolioScroll } from './UnifiedPortfolioScroll'
 // import { CopilotProvider, useCopilot } from '../context/CopilotContext' // Temporarily disabled copilot
 import { NavbarProvider } from '../context/NavbarContext'
 import Navbar from '../components/Navbar'
 import SearchBar from '../components/SearchBar'
 import TabBar from '../components/TabBar'
+import CustomCursor from '../components/CustomCursor'
 // import CopilotButton from '../components/CopilotButton' // Temporarily disabled copilot
 // import CopilotPanel from '../components/CopilotPanel' // Temporarily disabled copilot
-import Landing from '../sections/landing/Landing'
-import Journey from '../sections/journey/Journey'
-import Experience from '../sections/experience/Experience'
-import Education from '../sections/education/Education'
-import Skills from '../sections/skills/Skills'
-import Projects from '../sections/projects/Projects'
-import Resume from '../sections/resume/Resume'
-// import Blog from '../sections/blog/Blog' // Temporarily disabled blog section
-import Contact from '../sections/contact/Contact'
-import Achievements from '../sections/achievement/Achievements'
-
 function AppContent() {
-  // const { isOpen } = useCopilot() // Temporarily disabled copilot
-  
+  const mainRef = useRef(null)
+
   return (
     <div className="flex h-screen overflow-hidden">
+      <CustomCursor />
       <Navbar />
       <div 
-        className="flex-1 flex flex-col h-screen overflow-hidden transition-all duration-300"
+        className="flex-1 flex flex-col h-screen min-h-0 overflow-hidden transition-all duration-300"
         style={{ 
           marginLeft: 'var(--navbar-width, 0px)'
         }}
@@ -34,18 +27,12 @@ function AppContent() {
             <SearchBar />
             <TabBar />
           </div>
-          <main className="flex-1 overflow-y-auto overflow-x-hidden">
+          <main
+            ref={mainRef}
+            className="flex-1 min-h-0 overflow-y-auto overflow-x-hidden scroll-auto"
+          >
             <Routes>
-              <Route path="/" element={<Landing />} />
-              <Route path="/journey" element={<Journey />} />
-              <Route path="/experience" element={<Experience />} />
-              <Route path="/education" element={<Education />} />
-              <Route path="/skills" element={<Skills />} />
-              <Route path="/projects" element={<Projects />} />
-              <Route path="/resume" element={<Resume />} />
-              {/* <Route path="/blog" element={<Blog />} /> // Temporarily disabled blog route */}
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/achievements" element={<Achievements />} />
+              <Route path="*" element={<UnifiedPortfolioScroll scrollContainerRef={mainRef} />} />
             </Routes>
           </main>
         </div>

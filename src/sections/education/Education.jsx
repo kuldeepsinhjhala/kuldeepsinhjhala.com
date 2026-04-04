@@ -1,12 +1,40 @@
 import { useState, useEffect, useMemo } from 'react'
 import educationData from '../../data/education.json'
 import DegreeCard from '../../components/education/DegreeCard'
-import CertificationCard from '../../components/education/CertificationCard'
-import OnlineCourseCard from '../../components/education/OnlineCourseCard'
+
+/** Higher `sequence` appears first (descending). Missing sequence sorts last. */
+function getDegreeSequenceRank(degree) {
+  const s = degree?.sequence
+  if (s == null || s === '') return null
+  const n = Number(s)
+  return Number.isFinite(n) ? n : null
+}
+
+/** Tie-break when sequence is missing or equal (later start = more recent first). */
+function getDegreeStartMs(degree) {
+  const raw = degree?.duration?.startDate
+  if (raw == null || String(raw).trim() === '') return 0
+  const str = String(raw).trim()
+  if (/^\d{4}$/.test(str)) {
+    const y = parseInt(str, 10)
+    return Number.isFinite(y) ? Date.UTC(y, 0, 1) : 0
+  }
+  const parsed = Date.parse(str)
+  return Number.isNaN(parsed) ? 0 : parsed
+}
 
 function Education() {
   const [data, setData] = useState(null)
   const [loading, setLoading] = useState(true)
+  /** Accordion: at most one degree expanded at a time (same pattern as JourneyRoad). */
+  const [expandedDegreeKeys, setExpandedDegreeKeys] = useState({})
+
+  const toggleDegreeExpand = (key) => {
+    setExpandedDegreeKeys((prev) => {
+      if (prev[key]) return {}
+      return { [key]: true }
+    })
+  }
 
   // Load data
   useEffect(() => {
@@ -25,25 +53,20 @@ function Education() {
   const meta = useMemo(() => data?.meta || {}, [data])
   const degrees = useMemo(() => {
     if (!data?.degrees || !Array.isArray(data.degrees)) return []
-    return data.degrees
-  }, [data])
-  const certifications = useMemo(() => {
-    if (!data?.certifications || !Array.isArray(data.certifications)) return []
-    return data.certifications
-  }, [data])
-  const onlineCourses = useMemo(() => {
-    if (!data?.onlineCourses || !Array.isArray(data.onlineCourses)) return []
-    return data.onlineCourses
-  }, [data])
-  const skillsGained = useMemo(() => {
-    if (!data?.skillsGained || !Array.isArray(data.skillsGained)) return []
-    return data.skillsGained
+    return [...data.degrees].sort((a, b) => {
+      const sa = getDegreeSequenceRank(a)
+      const sb = getDegreeSequenceRank(b)
+      const ra = sa ?? Number.NEGATIVE_INFINITY
+      const rb = sb ?? Number.NEGATIVE_INFINITY
+      if (ra !== rb) return rb - ra
+      return getDegreeStartMs(b) - getDegreeStartMs(a)
+    })
   }, [data])
 
   // Loading state
   if (loading) {
     return (
-      <div className="bg-dotted min-h-screen p-4 md:p-8 lg:p-12">
+      <div className="bg-dotted px-4 pb-2 pt-0 md:px-8 md:pb-4 md:pt-0 lg:px-12 lg:pb-6 lg:pt-0">
         <div className="flex items-center justify-center min-h-[60vh]">
           <div className="text-center">
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gold mx-auto mb-4"></div>
@@ -57,10 +80,10 @@ function Education() {
   // No data state
   if (!data) {
     return (
-      <div className="bg-dotted min-h-screen p-4 md:p-8 lg:p-12">
+      <div className="bg-dotted px-4 pb-2 pt-0 md:px-8 md:pb-4 md:pt-0 lg:px-12 lg:pb-6 lg:pt-0">
         <div className="max-w-7xl mx-auto">
           <div className="text-center py-12">
-            <h1 className="text-head text-3xl font-bold mb-4">Education</h1>
+            <h1 className="section-heading-highlight text-head text-3xl font-bold mb-4">Education</h1>
             <p className="text-body">No education data available.</p>
           </div>
         </div>
@@ -69,96 +92,33 @@ function Education() {
   }
 
   return (
-    <div className="bg-dotted min-h-screen p-4 md:p-8 lg:p-12">
+    <div className="bg-dotted px-4 pb-2 pt-0 md:px-8 md:pb-4 md:pt-0 lg:px-12 lg:pb-6 lg:pt-0">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <header className="mb-8 md:mb-12">
+        <header className="mb-8 md:mb-12 text-center">
           {meta.title && (
-            <h1 className="text-head text-4xl md:text-5xl font-bold mb-2">
+            <h1 className="section-heading-highlight text-head text-4xl md:text-5xl font-bold mb-2">
               {meta.title}
             </h1>
-          )}
-          {meta.subtitle && (
-            <p className="text-body text-lg md:text-xl">
-              {meta.subtitle}
-            </p>
           )}
         </header>
 
         {/* Degrees Section */}
         {degrees && degrees.length > 0 && (
-          <section className="mb-16 md:mb-24">
-            <h2 className="text-head text-2xl md:text-3xl font-bold mb-8 md:mb-12">
-              Academic Degrees
-            </h2>
-            <div className="space-y-8 md:space-y-12">
-              {degrees.map((degree, index) => (
-                <DegreeCard
-                  key={degree.id || index}
-                  degree={degree}
-                  index={index}
-                />
-              ))}
-            </div>
-          </section>
-        )}
-
-        {/* Certifications Section */}
-        {certifications && certifications.length > 0 && (
-          <section className="mb-16 md:mb-24">
-            <h2 className="text-head text-2xl md:text-3xl font-bold mb-8 md:mb-12">
-              Certifications
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {certifications.map((certification, index) => (
-                <CertificationCard
-                  key={certification.id || index}
-                  certification={certification}
-                />
-              ))}
-            </div>
-          </section>
-        )}
-
-        {/* Online Courses Section */}
-        {onlineCourses && onlineCourses.length > 0 && (
-          <section className="mb-16 md:mb-24">
-            <h2 className="text-head text-2xl md:text-3xl font-bold mb-8 md:mb-12">
-              Online Courses
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {onlineCourses.map((course, index) => (
-                <OnlineCourseCard
-                  key={course.id || index}
-                  course={course}
-                />
-              ))}
-            </div>
-          </section>
-        )}
-
-        {/* Skills Gained Section */}
-        {skillsGained && skillsGained.length > 0 && (
-          <section className="mb-16 md:mb-24">
-            <h2 className="text-head text-2xl md:text-3xl font-bold mb-8 md:mb-12">
-              Skills Gained
-            </h2>
-            <div
-              className="bg-card/90 backdrop-blur-sm border border-gold/20 rounded-lg p-6 md:p-8 shadow-lg"
-              style={{
-                boxShadow: '0 10px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(201, 166, 107, 0.05)'
-              }}
-            >
-              <div className="flex flex-wrap gap-3">
-                {skillsGained.map((skill, index) => (
-                  <span
-                    key={index}
-                    className="px-4 py-2 bg-gold/20 backdrop-blur-sm text-gold text-sm font-medium rounded border border-gold/30 shadow-sm"
-                  >
-                    {skill}
-                  </span>
-                ))}
-              </div>
+          <section className="mb-8 md:mb-12">
+            <div className="space-y-6 md:space-y-8">
+              {degrees.map((degree, index) => {
+                const degreeKey = degree.id ?? index
+                return (
+                  <DegreeCard
+                    key={degreeKey}
+                    degree={degree}
+                    index={index}
+                    expanded={Boolean(expandedDegreeKeys[degreeKey])}
+                    onToggle={() => toggleDegreeExpand(degreeKey)}
+                  />
+                )
+              })}
             </div>
           </section>
         )}

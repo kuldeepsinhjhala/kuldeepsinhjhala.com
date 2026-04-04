@@ -1,335 +1,180 @@
 {
   "meta": {
-    "title": "Achievements",
-    "subtitle": "Recognitions, milestones, and measurable accomplishments across academics and professional work",
-    "description": "A curated list of academic, professional, and technical achievements highlighting impact, growth, and recognition."
+    "title": "Achievements"
   },
   "achievements": [
     {
-      "id": "namaste-nodejs",
-      "title": "Namaste Node.js",
-      "category": "certification",
-      "type": "professional-certification",
-      "description": "Completed Namaste Node.js course covering Node.js fundamentals, Express.js, MongoDB & Mongoose, event-driven architecture, RESTful APIs, authentication & authorization, and production deployment strategies.",
+      "id": "ncc-rdc-pm-rally",
+      "sequence": 1,
+      "title": "NCC ex-cadet | RDC (Republic Day Camp) Delhi 2018 | PM (Prime Minister) Rally Delhi",
+      "description": "Selected to represent Gujarat Directorate of NCC from 2 Gujarat Naval Unit NCC after 6 months of rigorous training. Stayed with Indian Officers at Delhi, met Admiral Sunil Lanba (23rd Chief of the Naval Staff of the Indian Navy), and marched on Cariappa Parade Ground at the Prime Minister Rally 2018. Got a chance to meet the Prime Minister of India.",
       "date": {
-        "achievedOn": "2025-02-01",
-        "year": "2025"
+        "achievedOn": "2018-01-01"
       },
       "organization": {
-        "name": "NamasteDev.com",
-        "type": "platform",
-        "website": "https://namastedev.com",
-        "logo": null
-      },
-      "impact": {
-        "summary": "Strengthened backend development skills with Node.js and Express.js",
-        "metrics": []
+        "name": "NCC (National Cadet Corps) Ministry of Defence India",
+        "logo": "ncc.jpg"
       },
       "skillsDemonstrated": [
-        "Node.js",
-        "Routing",
-        "MongoDB & Mongoose",
-        "Event-driven Architecture",
-        "File System Operations",
-        "Asynchronous Programming",
-        "Error Handling",
-        "Deployment Strategies",
-        "libuv",
-        "Networking",
-        "SQL vs NoSQL",
-        "Modules",
-        "Authentication & Authorization",
-        "Performance Optimization",
-        "Event Loop",
-        "Concurrency",
-        "Mongo Compass",
-        "RESTful APIs",
-        "Security Best Practices",
-        "Building Scalable Applications",
-        "Non-blocking I/O",
-        "Thread Pool",
-        "Go to Production Strategies",
-        "Express.js",
-        "Working with Databases",
-        "Working with APIs"
+        "Discipline",
+        "Leadership",
+        "National Representation",
+        "Physical Training"
       ],
       "evidence": {
-        "certificateUrl": "https://namastedev.com/kuldeephjhala/certificates/namaste-node",
-        "proofUrl": "https://namastedev.com/kuldeephjhala/certificates/namaste-node",
-        "credentialId": "AA9E13E330F6F4DA906B661AA6B",
-        "media": []
-      },
-      "visibility": {
-        "featured": true,
-        "public": true
-      },
-      "custom": {
-        "recognitionLevel": "platform",
-        "notes": "Comprehensive Node.js and backend development certification."
-      }
-    },
-    {
-      "id": "namaste-javascript",
-      "title": "Namaste JavaScript",
-      "category": "certification",
-      "type": "professional-certification",
-      "description": "Completed Namaste JavaScript course covering JavaScript fundamentals, JSON, Vanilla JavaScript, and Embedded JavaScript (EJS).",
-      "date": {
-        "achievedOn": "2024-08-01",
-        "year": "2024"
-      },
-      "organization": {
-        "name": "NamasteDev.com",
-        "type": "platform",
-        "website": "https://namastedev.com",
-        "logo": null
-      },
-      "impact": {
-        "summary": "Solidified JavaScript fundamentals and front-end scripting",
-        "metrics": []
-      },
-      "skillsDemonstrated": [
-        "JavaScript Libraries",
-        "JSON",
-        "Javascript",
-        "Vanilla JavaScript",
-        "Embedded JavaScript (EJS)"
-      ],
-      "evidence": {
-        "certificateUrl": "https://namastedev.com/kuldeephjhala/certificates/namaste-javascript",
-        "proofUrl": "https://namastedev.com/kuldeephjhala/certificates/namaste-javascript",
-        "credentialId": "XT0TWQ",
-        "media": []
-      },
-      "visibility": {
-        "featured": true,
-        "public": true
-      },
-      "custom": {
-        "recognitionLevel": "platform",
-        "notes": "JavaScript fundamentals certification."
-      }
-    },
-    {
-      "id": "aws-cloud-computing-msu",
-      "title": "AWS Cloud Computing",
-      "category": "certification",
-      "type": "professional-certification",
-      "description": "Completed AWS Cloud Computing certification program at The Maharaja Sayajirao University of Baroda, covering cloud concepts, AWS services, and deployment.",
-      "date": {
-        "achievedOn": "2024-07-01",
-        "year": "2024"
-      },
-      "organization": {
-        "name": "The Maharaja Sayajirao University of Baroda",
-        "type": "university",
-        "website": "https://www.msubaroda.ac.in",
-        "logo": "Msu_logo.png"
-      },
-      "impact": {
-        "summary": "Strengthened cloud fundamentals and AWS deployment knowledge",
-        "metrics": []
-      },
-      "skillsDemonstrated": [
-        "AWS",
-        "Cloud Computing",
-        "Cloud Deployment"
-      ],
-      "evidence": {
-        "certificateUrl": "https://www.linkedin.com/in/kuldeepsinhjhala/details/certifications/1725617188397/single-media-viewer/?type=DOCUMENT&profileId=ACoAADYFIwsBxydwAiPpHYycIqk_4Xvrtc_qNXc",
+        "certificateUrl": null,
         "proofUrl": null,
-        "media": []
-      },
-      "visibility": {
-        "featured": true,
-        "public": true
-      },
-      "custom": {
-        "recognitionLevel": "institutional",
-        "notes": "AWS Certificate.pdf — issued by MSU Baroda."
+        "media": {
+          "images": [],
+          "documents": [
+            {
+              "label": "NCC A Certificate",
+              "url": "https://d2dhxmagz6qgkm.cloudfront.net/images/1775331445881-ncc-A-certificate.jpg"
+            },
+            {
+              "label": "NCC RDC Certificate 1",
+              "url": "https://d2dhxmagz6qgkm.cloudfront.net/images/1775331478535-ncc-certificate-1.jpg"
+            },
+            {
+              "label": "NCC RDC Certificate 2",
+              "url": "https://d2dhxmagz6qgkm.cloudfront.net/images/1775331499979-ncc-certificate-2.jpg"
+            }
+          ],
+          "links": []
+        }
       }
     },
     {
-      "id": "udemy-android-bootcamp",
-      "title": "Android App Development Bootcamp 2021 - Build a portfolio!",
-      "category": "certification",
-      "type": "professional-certification",
-      "description": "Completed Udemy Android App Development Bootcamp 2021, building a portfolio of Android applications.",
+      "id": "school-gujarat-best-cadet",
+      "sequence": 2,
+      "title": "Gujarat Best Cadet — NCC",
+      "description": "Awarded Gujarat Best Cadet by the NCC (National Cadet Corps) — Indian Navy wing, 2 Gujarat Naval Unit. Also served as Head of the Computer Department at BHS Alkapuri Higher Secondary Section. Graduated 10th standard with 83% under GSEB board.",
       "date": {
-        "achievedOn": "2021-11-01",
-        "year": "2021"
+        "achievedOn": "2019-04-01"
       },
       "organization": {
-        "name": "Udemy",
-        "type": "platform",
-        "website": "https://www.udemy.com",
-        "logo": null
-      },
-      "impact": {
-        "summary": "Built foundation in Android development and portfolio projects",
-        "metrics": []
+        "name": "Baroda High School, Alkapuri",
+        "logo": "bhs_logo.jpeg"
       },
       "skillsDemonstrated": [
-        "Android",
-        "Android Development"
+        "NCC Leadership",
+        "Academic Discipline",
+        "Computer Department Head",
+        "State-Level Recognition"
       ],
       "evidence": {
-        "certificateUrl": "https://www.udemy.com/certificate/UC-1ded5ef0-9cc3-42ff-95b3-c74316a66a9f/",
-        "proofUrl": "https://www.udemy.com/certificate/UC-1ded5ef0-9cc3-42ff-95b3-c74316a66a9f/",
-        "credentialId": "UC-1ded5ef0-9cc3-42ff-95b3-c74316a66a9f",
-        "media": []
+        "certificateUrl": null,
+        "proofUrl": null,
+        "media": {
+          "images": [],
+          "documents": [],
+          "links": []
+        }
+      }
+    },
+    {
+      "id": "diploma-inter-college-web-dev-winner",
+      "sequence": 3,
+      "title": "Inter College Web Development Winner",
+      "description": "Won Inter-College Web Development competition at GTU. The biggest challenge was having to code entirely in Notepad with no internet access allowed. Learned how to build and deliver a project under strict time and environment constraints.",
+      "date": {
+        "achievedOn": "2020-02-01"
       },
-      "visibility": {
-        "featured": false,
-        "public": true
+      "organization": {
+        "name": "Gujarat Technological University, Ahmedabad",
+        "website": "https://www.gtu.ac.in",
+        "logo": "Gtu_logo.png"
       },
-      "custom": {
-        "recognitionLevel": "international",
-        "notes": "Udemy certificate."
+      "skillsDemonstrated": [
+        "Web Development",
+        "Time-Constrained Problem Solving",
+        "Coding Under Constraints",
+        "HTML",
+        "CSS"
+      ],
+      "evidence": {
+        "certificateUrl": null,
+        "proofUrl": null,
+        "media": {
+          "images": [],
+          "documents": [],
+          "links": []
+        }
       }
     },
     {
       "id": "udemy-kotlin-beginners",
+      "sequence": 4,
       "title": "Kotlin for Beginners: Learn Programming With Kotlin",
-      "category": "certification",
-      "type": "professional-certification",
-      "description": "Completed Udemy Kotlin for Beginners course, learning Kotlin programming fundamentals for Android development.",
+      "description": "Completed Udemy Kotlin for Beginners course, learning Kotlin programming fundamentals and its application in Android development.",
       "date": {
-        "achievedOn": "2021-05-01",
-        "year": "2021"
+        "achievedOn": "2021-05-01"
       },
       "organization": {
         "name": "Udemy",
-        "type": "platform",
         "website": "https://www.udemy.com",
-        "logo": null
-      },
-      "impact": {
-        "summary": "Learned Kotlin for Android and modern JVM development",
-        "metrics": []
+        "logo": "udemy_logo.webp"
       },
       "skillsDemonstrated": [
         "Kotlin",
         "Android",
-        "Android Development"
+        "Android Development",
+        "Object-Oriented Programming"
       ],
       "evidence": {
         "certificateUrl": "https://www.udemy.com/certificate/UC-aed1e6b2-ac87-411c-8260-376d7a4eb8ff/",
         "proofUrl": "https://www.udemy.com/certificate/UC-aed1e6b2-ac87-411c-8260-376d7a4eb8ff/",
         "credentialId": "UC-aed1e6b2-ac87-411c-8260-376d7a4eb8ff",
-        "media": []
-      },
-      "visibility": {
-        "featured": false,
-        "public": true
-      },
-      "custom": {
-        "recognitionLevel": "international",
-        "notes": "Udemy certificate."
+        "media": {
+          "images": [],
+          "documents": [],
+          "links": []
+        }
       }
     },
     {
-      "id": "diploma-inter-college-web-dev-winner",
-      "title": "Inter College Web Development Winner",
-      "category": "academic",
-      "type": "competition",
-      "description": "Won Inter College Web Development competition. Biggest challenge was coding in notepad without internet access. Learned how to build a project under strict time constraints.",
+      "id": "udemy-android-bootcamp",
+      "sequence": 5,
+      "title": "Android App Development Bootcamp 2021 — Build a Portfolio!",
+      "description": "Completed Udemy Android App Development Bootcamp 2021, building a hands-on portfolio of Android applications from scratch.",
       "date": {
-        "achievedOn": "2020-02-01",
-        "year": "2020"
+        "achievedOn": "2021-11-01"
       },
       "organization": {
-        "name": "Gujarat Technological University, Ahmedabad",
-        "type": "university",
-        "website": "https://www.gtu.ac.in",
-        "logo": "Gtu_logo.png"
-      },
-      "impact": {
-        "summary": "First place in inter-college web development competition",
-        "metrics": [
-          { "label": "Rank", "value": "1st", "unit": "place" }
-        ]
+        "name": "Udemy",
+        "website": "https://www.udemy.com",
+        "logo": "udemy_logo.webp"
       },
       "skillsDemonstrated": [
-        "Web Development",
-        "Time-constrained problem solving",
-        "Code under constraints"
+        "Android",
+        "Android Development",
+        "Java",
+        "Kotlin",
+        "UI/UX"
       ],
       "evidence": {
-        "certificateUrl": null,
-        "proofUrl": null,
-        "media": []
-      },
-      "visibility": {
-        "featured": true,
-        "public": true
-      },
-      "custom": {
-        "recognitionLevel": "institutional",
-        "notes": "From education — Diploma period. Issued by GTU Ahmedabad."
-      }
-    },
-    {
-      "id": "ncc-rdc-pm-rally",
-      "title": "NCC ex-cadet | RDC (Republic Day Camp) Delhi 2018 | PM (Prime Minister) Rally Delhi",
-      "category": "academic",
-      "type": "recognition",
-      "description": "Selected for RDC Delhi 2018 and PM Rally Delhi. Stayed with Indian Officers at Delhi, met Admiral Sunil Lanba (23rd Chief of the Naval Staff). Marched on CARIAPPA PARADE GROUND in Prime Minister Rally 2018 and met the Prime Minister of India. Represented Gujarat Directorate of NCC, 2 Gujarat Naval Unit NCC after 6 months of training.",
-      "date": {
-        "achievedOn": "2018-01-01",
-        "year": "2018"
-      },
-      "organization": {
-        "name": "NCC (National Cadet Corps) Ministry of Defence India",
-        "type": "government",
-        "website": null,
-        "logo": null
-      },
-      "impact": {
-        "summary": "National-level NCC recognition; represented Gujarat at RDC and PM Rally",
-        "metrics": []
-      },
-      "skillsDemonstrated": [
-        "Discipline",
-        "Leadership",
-        "National representation"
-      ],
-      "evidence": {
-        "certificateUrl": null,
-        "proofUrl": null,
-        "media": []
-      },
-      "visibility": {
-        "featured": true,
-        "public": true
-      },
-      "custom": {
-        "recognitionLevel": "national",
-        "notes": "From education — Baroda High School Alkapuri. Associated with Baroda High School Alkapuri."
+        "certificateUrl": "https://www.udemy.com/certificate/UC-1ded5ef0-9cc3-42ff-95b3-c74316a66a9f/",
+        "proofUrl": "https://www.udemy.com/certificate/UC-1ded5ef0-9cc3-42ff-95b3-c74316a66a9f/",
+        "credentialId": "UC-1ded5ef0-9cc3-42ff-95b3-c74316a66a9f",
+        "media": {
+          "images": [],
+          "documents": [],
+          "links": []
+        }
       }
     },
     {
       "id": "diploma-institute-topper",
-      "title": "Institute Topper (1st)",
-      "category": "academic",
-      "type": "academic-achievement",
-      "description": "Secured first rank as Institute Topper during Diploma in Computer Science and Engineering at Gujarat Technological University. Achieved 10 SPI in Sem 5 and Sem 6.",
+      "sequence": 6,
+      "title": "Institute Topper (1st) — GTU Diploma",
+      "description": "Secured 1st rank as Institute Topper during Diploma in Computer Science and Engineering at Gujarat Technological University with 9.67 CGPA overall. Achieved perfect 10 SPI in both 5th semester (Dec 2021) and 6th semester (Jun 2022). Recognized in Academic Ranking in GTU Diploma Examination.",
       "date": {
-        "achievedOn": "2022-06-01",
-        "year": "2022"
+        "achievedOn": "2022-06-01"
       },
       "organization": {
         "name": "Gujarat Technological University (GTU)",
-        "type": "university",
         "website": "https://www.gtu.ac.in",
         "logo": "Gtu_logo.png"
-      },
-      "impact": {
-        "summary": "Top academic performance in diploma program; 9.67 CGPA",
-        "metrics": [
-          { "label": "CGPA", "value": "9.67", "unit": "out of 10" },
-          { "label": "Sem 5 & 6 SPI", "value": "10", "unit": "SPI" }
-        ]
       },
       "skillsDemonstrated": [
         "Academic Excellence",
@@ -342,80 +187,208 @@
       "evidence": {
         "certificateUrl": null,
         "proofUrl": null,
-        "media": []
-      },
-      "visibility": {
-        "featured": true,
-        "public": true
-      },
-      "custom": {
-        "recognitionLevel": "institutional",
-        "notes": "From education.json — Diploma achievements: Institute Topper (1st), Sem 5th & 6th 10 SPI, Fireless Cooking Winner."
+        "media": {
+          "images": [],
+          "documents": [
+            {
+              "label": "Diploma Degree",
+              "url": "https://d2dhxmagz6qgkm.cloudfront.net/images/1775331252040-gtu-degree.jpg"
+            },
+            {
+              "label": "5th Semester Marksheet 10 SPI",
+              "url": "https://d2dhxmagz6qgkm.cloudfront.net/images/1775331301479-gtu-marksheet-sem-5.jpg"
+            },
+            {
+              "label": "6th Semester Marksheet 10 SPI",
+              "url": "https://d2dhxmagz6qgkm.cloudfront.net/images/1775331336294-gtu-marksheet-sem-6.jpg"
+            },
+            {
+              "label": "12th Equivalency Certificate",
+              "url": "https://d2dhxmagz6qgkm.cloudfront.net/images/1775331188859-gtu-12-equivalency-certificate.jpg"
+            },
+            {
+              "label": "CGPA to Percentage Certificate",
+              "url": "https://d2dhxmagz6qgkm.cloudfront.net/images/1775331219676-gtu-cgpa-to-percentage.jpg"
+            },
+            {
+              "label": "Secured 1st rank in SPI, 32nd rank in CGPA, and 38th rank in CPI in the GTU Diploma examination, reflecting consistent academic excellence and strong overall performance.",
+              "url": "https://d2dhxmagz6qgkm.cloudfront.net/images/1775331378519-gtu-rank-certificate.jpg"
+            }
+          ],
+          "links": [
+            "https://www.gtu.ac.in"
+          ]
+        }
       }
     },
     {
-      "id": "school-gujarat-best-cadet",
-      "title": "Gujarat Best Cadet",
-      "category": "academic",
-      "type": "academic-achievement",
-      "description": "Awarded Gujarat Best Cadet in NCC. Highly involved in NCC activities (Indian Navy, RDC Delhi 2018, PM Rally). Head of Computer Department in BHS Alkapuri Higher Secondary Section. Secured 83% in 10th standard.",
+      "id": "aws-cloud-computing-msu",
+      "sequence": 7,
+      "title": "AWS Cloud Computing",
+      "description": "Completed AWS Cloud Computing certification program at The Maharaja Sayajirao University of Baroda, covering core cloud concepts, AWS services (EC2, S3, RDS, Lambda, Load Balancer, DynamoDB), and cloud deployment strategies.",
       "date": {
-        "achievedOn": "2019-04-01",
-        "year": "2019"
+        "achievedOn": "2024-07-01"
       },
       "organization": {
-        "name": "Baroda High School, Alkapuri",
-        "type": "school",
-        "website": null,
-        "logo": "bhs_logo.jpeg"
-      },
-      "impact": {
-        "summary": "State-level NCC recognition; leadership and academic balance",
-        "metrics": [
-          { "label": "10th Grade", "value": "83", "unit": "percent" }
-        ]
+        "name": "The Maharaja Sayajirao University of Baroda",
+        "website": "https://www.msubaroda.ac.in",
+        "logo": "Msu_logo.png"
       },
       "skillsDemonstrated": [
-        "NCC",
-        "Leadership",
-        "Head of Computer Department",
-        "Academic discipline"
+        "AWS",
+        "Cloud Computing",
+        "EC2",
+        "S3",
+        "RDS",
+        "Lambda",
+        "Cloud Deployment"
+      ],
+      "evidence": {
+        "certificateUrl": "https://www.linkedin.com/in/kuldeepsinhjhala/details/certifications/1725617188397/single-media-viewer/?type=DOCUMENT&profileId=ACoAADYFIwsBxydwAiPpHYycIqk_4Xvrtc_qNXc",
+        "proofUrl": null,
+        "media": {
+          "images": [],
+          "documents": [],
+          "links": []
+        }
+      }
+    },
+    {
+      "id": "namaste-javascript",
+      "sequence": 8,
+      "title": "Namaste JavaScript",
+      "description": "Completed Namaste JavaScript course covering JavaScript fundamentals, the event loop, closures, hoisting, async programming, JSON, Vanilla JavaScript, and Embedded JavaScript (EJS).",
+      "date": {
+        "achievedOn": "2024-08-01"
+      },
+      "organization": {
+        "name": "NamasteDev.com",
+        "website": "https://namastedev.com",
+        "logo": "namastedev.png"
+      },
+      "skillsDemonstrated": [
+        "JavaScript",
+        "Vanilla JavaScript",
+        "JSON",
+        "Embedded JavaScript (EJS)",
+        "Event Loop",
+        "Closures",
+        "Asynchronous Programming",
+        "JavaScript Libraries"
+      ],
+      "evidence": {
+        "certificateUrl": "https://namastedev.com/kuldeephjhala/certificates/namaste-javascript",
+        "proofUrl": "https://namastedev.com/kuldeephjhala/certificates/namaste-javascript",
+        "credentialId": "XT0TWQ",
+        "media": {
+          "images": [],
+          "documents": [],
+          "links": []
+        }
+      }
+    },
+    {
+      "id": "best-project-resumeeai-msu",
+      "sequence": 9,
+      "title": "Best Final Year Project — ResumeeAI",
+      "description": "ResumeeAI — an AI-based resume builder with ATS checking and live resume sharing — was recognized as the Best Final Year Project by The Maharaja Sayajirao University of Baroda. The project was built during 7th and 8th semester as part of an internship at Keshav Encon. It featured a locally fine-tuned Mistral-7B LLM, custom OAuth 2.0 authentication from scratch, and a scalable MSSQL backend with 50+ normalized tables deployed on AWS.",
+      "date": {
+        "achievedOn": "2024-10-01"
+      },
+      "organization": {
+        "name": "The Maharaja Sayajirao University of Baroda (MSU)",
+        "website": "https://www.msubaroda.ac.in",
+        "logo": "Msu_logo.png"
+      },
+      "skillsDemonstrated": [
+        "Node.js",
+        "Express.js",
+        "MSSQL",
+        "System Architecture",
+        "LLM Fine-tuning",
+        "OAuth 2.0",
+        "AWS Deployment",
+        "Full-Stack Development"
       ],
       "evidence": {
         "certificateUrl": null,
         "proofUrl": null,
-        "media": []
+        "media": {
+          "images": [],
+          "documents": [
+            {
+              "label": "Best Final Year Project — ResumeeAI",
+              "url": "https://d2dhxmagz6qgkm.cloudfront.net/images/1775327896122-best_project_final_year.jpg"
+            }
+          ],
+          "links": []
+        }
+      }
+    },
+    {
+      "id": "namaste-nodejs",
+      "sequence": 10,
+      "title": "Namaste Node.js",
+      "description": "Completed Namaste Node.js course covering Node.js internals (event loop, libuv, thread pool, non-blocking I/O), Express.js, MongoDB & Mongoose, event-driven architecture, RESTful APIs, authentication & authorization, SQL vs NoSQL, and production deployment strategies.",
+      "date": {
+        "achievedOn": "2025-02-01"
       },
-      "visibility": {
-        "featured": true,
-        "public": true
+      "organization": {
+        "name": "NamasteDev.com",
+        "website": "https://namastedev.com",
+        "logo": "namastedev.png"
       },
-      "custom": {
-        "recognitionLevel": "state",
-        "notes": "From education.json — School achievements: Indian Navy NCC, RDC Delhi 2018, PM Rally, Gujarat Best Cadet, Head of Computer Dept."
+      "skillsDemonstrated": [
+        "Node.js",
+        "Express.js",
+        "MongoDB & Mongoose",
+        "Event-driven Architecture",
+        "Routing",
+        "File System Operations",
+        "Asynchronous Programming",
+        "Event Loop",
+        "libuv",
+        "Thread Pool",
+        "Non-blocking I/O",
+        "Concurrency",
+        "Authentication & Authorization",
+        "RESTful APIs",
+        "SQL vs NoSQL",
+        "Security Best Practices",
+        "Performance Optimization",
+        "Go to Production Strategies",
+        "Building Scalable Applications",
+        "Networking",
+        "Modules",
+        "Working with Databases",
+        "Working with APIs",
+        "Mongo Compass",
+        "Error Handling",
+        "Deployment Strategies"
+      ],
+      "evidence": {
+        "certificateUrl": "https://namastedev.com/kuldeephjhala/certificates/namaste-node",
+        "proofUrl": "https://namastedev.com/kuldeephjhala/certificates/namaste-node",
+        "credentialId": "AA9E13E330F6F4DA906B661AA6B",
+        "media": {
+          "images": [],
+          "documents": [],
+          "links": []
+        }
       }
     },
     {
       "id": "bachelor-first-class-distinction",
-      "title": "First class with distinction (B.E. CSE)",
-      "category": "academic",
-      "type": "academic-achievement",
-      "description": "Bachelor of Engineering in Computer Science & Engineering with strong academic performance. Applied theoretical concepts to real-world software systems. Focus on backend development, system design, databases, and scalable application architecture.",
+      "sequence": 11,
+      "title": "First Class with Distinction — B.E. Computer Science & Engineering",
+      "description": "Graduated with 8.11 CGPA and First Class with Distinction in Bachelor of Engineering (Computer Science & Engineering) from The Maharaja Sayajirao University of Baroda. Maintained strong academic performance throughout while working full-time on production software products and leading Code Vimarsh, a student-led technical community.",
       "date": {
-        "achievedOn": "2025-05-15",
-        "year": "2025"
+        "achievedOn": "2025-05-15"
       },
       "organization": {
         "name": "The Maharaja Sayajirao University of Baroda (MSU)",
-        "type": "university",
         "website": "https://www.msubaroda.ac.in",
         "logo": "Msu_logo.png"
-      },
-      "impact": {
-        "summary": "Strong academic performance while working on backend-focused projects",
-        "metrics": [
-          { "label": "CGPA", "value": "8.11", "unit": "out of 10" }
-        ]
       },
       "skillsDemonstrated": [
         "Software Engineering",
@@ -423,42 +396,25 @@
         "Database Systems",
         "Cloud Computing",
         "System Design",
-        "Backend Development"
+        "Backend Development",
+        "Operating Systems",
+        "Computer Networks",
+        "Data Structures & Algorithms"
       ],
       "evidence": {
         "certificateUrl": null,
         "proofUrl": null,
-        "media": []
-      },
-      "visibility": {
-        "featured": true,
-        "public": true
-      },
-      "custom": {
-        "recognitionLevel": "institutional",
-        "notes": "From education.json — Bachelor achievements and performance."
+        "media": {
+          "images": [],
+          "documents": [
+            {
+              "label": "MSU Degree",
+              "url": "https://d2dhxmagz6qgkm.cloudfront.net/images/1775330950581-MSU-Degree.jpg"
+            }
+          ],
+          "links": []
+        }
       }
     }
-  ],
-  "categories": [
-    {
-      "id": "certification",
-      "label": "Certifications",
-      "description": "Recognized certifications from platforms and institutions (NamasteDev, Udemy, MSU Baroda)."
-    },
-    {
-      "id": "academic",
-      "label": "Academic & Recognition",
-      "description": "Academic achievements, competitions, NCC, and institutional recognition from education."
-    },
-    {
-      "id": "professional",
-      "label": "Professional Achievements",
-      "description": "Achievements related to real-world projects, work experience, and applied engineering outcomes."
-    }
-  ],
-  "stats": {
-    "totalAchievements": "10",
-    "featuredCount": "7"
-  }
+  ]
 }

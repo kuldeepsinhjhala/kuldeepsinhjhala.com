@@ -1,20 +1,32 @@
+import { useId, useState } from 'react'
 import TechnologySection from './TechnologySection'
 import ProjectCard from './ProjectCard'
 import AchievementCard from '../journey/AchievementCard'
+import { getJourneyOrgLogoImgStyle, resolveJourneyLogo } from '../../utils/resolveJourneyLogo'
+import { isExpandCardClickIgnoredTarget } from '../../utils/expandCardClick'
+import MediaPreviewGrid from '../media/MediaPreviewGrid'
+import {
+  combinedMediaPreviewEntries,
+  mediaBlockHasRenderableContent,
+  partitionDocumentEntries,
+} from '../../utils/projectMedia'
 
 /**
- * ExperienceCard - Displays a single work experience entry
+ * ExperienceCard - Displays a single work experience entry (collapsible summary + full detail)
  */
-function ExperienceCard({ experience = {}, index = 0 }) {
+function ExperienceCard({ experience = {} }) {
+  const panelId = useId()
+  const [isOpen, setIsOpen] = useState(false)
+
   if (!experience || Object.keys(experience).length === 0) return null
 
   const formatDate = (dateString) => {
     if (!dateString || dateString === 'present') return 'Present'
     try {
       const date = new Date(dateString)
-      return date.toLocaleDateString('en-US', { 
-        year: 'numeric', 
-        month: 'short' 
+      return date.toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'short',
       })
     } catch {
       return dateString
@@ -34,34 +46,17 @@ function ExperienceCard({ experience = {}, index = 0 }) {
     if (location.city) parts.push(location.city)
     if (location.state) parts.push(location.state)
     if (location.country) parts.push(location.country)
-    
+
     const locationStr = parts.join(', ')
     const workType = []
     if (location.remote) workType.push('Remote')
     if (location.hybrid) workType.push('Hybrid')
     if (location.onsite) workType.push('On-site')
-    
+
     if (workType.length > 0) {
       return `${locationStr} (${workType.join(', ')})`
     }
     return locationStr
-  }
-
-  const getLevelBadge = (level) => {
-    if (!level) return null
-    const levelMap = {
-      junior: { label: 'Junior', color: 'bg-blue-500/20 text-blue-400 border-blue-500/30' },
-      mid: { label: 'Mid-Level', color: 'bg-gold/20 text-gold border-gold/30' },
-      senior: { label: 'Senior', color: 'bg-purple-500/20 text-purple-400 border-purple-500/30' },
-      lead: { label: 'Lead', color: 'bg-red-500/20 text-red-400 border-red-500/30' },
-    }
-    const levelInfo = levelMap[level.toLowerCase()] || { label: level, color: 'bg-card/80 text-body border-gold/10' }
-    
-    return (
-      <span className={`px-2 py-1 text-xs font-medium rounded border ${levelInfo.color} backdrop-blur-sm shadow-sm`}>
-        {levelInfo.label}
-      </span>
-    )
   }
 
   const getTypeBadge = (type) => {
@@ -73,252 +68,333 @@ function ExperienceCard({ experience = {}, index = 0 }) {
     )
   }
 
+  const mediaExtLinks = Array.isArray(experience.media?.links) ? experience.media.links : []
+  const hasMediaBlock = mediaBlockHasRenderableContent(experience.media)
+  const previewEntries = combinedMediaPreviewEntries(experience.media)
+  const { otherDocuments } = partitionDocumentEntries(experience.media?.documents)
+
+  const hasDetails =
+    !!experience.description ||
+    (experience.responsibilities?.length > 0) ||
+    (experience.achievements?.length > 0) ||
+    (experience.projects?.length > 0) ||
+    (experience.technologies && Object.keys(experience.technologies).length > 0) ||
+    hasMediaBlock
+
+  const companyLogoSrc =
+    experience.company?.logo && resolveJourneyLogo(experience.company.logo)
+
   return (
     <div
-      className="bg-card/90 backdrop-blur-sm border border-gold/20 rounded-lg p-6 md:p-8 shadow-lg"
+      className={`bg-card/90 backdrop-blur-sm border border-gold/20 rounded-lg p-6 md:p-8 shadow-lg ${hasDetails && !isOpen ? 'cursor-pointer' : ''}`}
       style={{
-        boxShadow: '0 10px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(201, 166, 107, 0.05)'
+        boxShadow: '0 10px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(201, 166, 107, 0.05)',
       }}
+      onClick={
+        hasDetails && !isOpen
+          ? (e) => {
+              if (isExpandCardClickIgnoredTarget(e.target)) return
+              setIsOpen(true)
+            }
+          : undefined
+      }
     >
-      {/* Header Section */}
-      <div className="mb-6 pb-6 border-b border-gold/20">
-        <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
-          <div className="flex-1">
-            {/* Role and Company */}
-            <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-3 mb-3">
-              {experience.role && (
-                <h3 className="text-head text-xl md:text-2xl font-bold">
-                  {experience.role}
-                </h3>
-              )}
-              {experience.company?.name && (
-                <>
-                  {experience.role && <span className="text-body hidden md:inline">at</span>}
-                  {experience.company.website ? (
-                    <a
-                      href={experience.company.website}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-gold text-xl md:text-2xl font-semibold hover:text-gold/80 hover:underline transition-colors cursor-pointer"
-                    >
-                      {experience.company.name}
-                    </a>
-                  ) : (
-                    <span className="text-gold text-xl md:text-2xl font-semibold">
-                      {experience.company.name}
-                    </span>
-                  )}
-                </>
-              )}
-            </div>
-
-            {/* Duration and Location */}
-            <div className="flex flex-wrap items-center gap-3 text-sm">
-              {experience.duration && (
-                <div className="flex items-center gap-2">
-                  <svg className="w-4 h-4 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                  </svg>
-                  <span className="text-body">
-                    {formatDuration(experience.duration.startDate, experience.duration.endDate)}
-                  </span>
-                  {experience.duration.current && (
-                    <span className="px-2 py-0.5 bg-gold/20 text-gold text-xs rounded border border-gold/30">
-                      Current
-                    </span>
-                  )}
-                </div>
-              )}
-              {experience.location && getLocationString(experience.location) && (
-                <div className="flex items-center gap-2">
-                  <svg className="w-4 h-4 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                  </svg>
-                  <span className="text-body">
-                    {getLocationString(experience.location)}
-                  </span>
-                </div>
-              )}
-            </div>
+      {/* Summary row + chevron — logo always visible (collapsed + expanded header) */}
+      <div className="flex items-start gap-3 sm:gap-4 min-w-0">
+        {companyLogoSrc && (
+          <div className="flex-shrink-0">
+            <img
+              src={companyLogoSrc}
+              alt={experience.company?.name ? `${experience.company.name} logo` : ''}
+              className="w-11 h-11 sm:w-12 sm:h-12 rounded-lg object-contain bg-gold/5 p-1"
+              style={getJourneyOrgLogoImgStyle(experience.company?.logo)}
+              loading="lazy"
+              decoding="async"
+            />
           </div>
-
-          {/* Badges */}
-          <div className="flex flex-wrap gap-2">
-            {getLevelBadge(experience.level)}
-            {getTypeBadge(experience.type)}
-          </div>
-        </div>
-
-        {/* Company Description */}
-        {experience.company?.description && (
-          <p className="text-body text-sm mt-3 leading-relaxed">
-            {experience.company.description}
-          </p>
         )}
-      </div>
-
-      {/* Description */}
-      {experience.description && (
-        <div className="mb-6">
-          <p className="text-body text-base leading-relaxed">
-            {experience.description}
-          </p>
-        </div>
-      )}
-
-      {/* Responsibilities */}
-      {experience.responsibilities && Array.isArray(experience.responsibilities) && experience.responsibilities.length > 0 && (
-        <div className="mb-6">
-          <h4 className="text-head text-lg font-semibold mb-3">Key Responsibilities</h4>
-          <ul className="space-y-2">
-            {experience.responsibilities.map((responsibility, idx) => (
-              <li key={idx} className="flex items-start gap-2">
-                <span className="text-gold mt-1.5">•</span>
-                <span className="text-body text-sm leading-relaxed flex-1">
-                  {responsibility}
-                </span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
-
-      {/* Achievements */}
-      {experience.achievements && Array.isArray(experience.achievements) && experience.achievements.length > 0 && (
-        <div className="mb-6">
-          <h4 className="text-head text-lg font-semibold mb-3">Key Achievements</h4>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {experience.achievements.map((achievement, idx) => (
-              <AchievementCard key={idx} achievement={achievement} />
-            ))}
-          </div>
-        </div>
-      )}
-
-      {/* Projects */}
-      {experience.projects && Array.isArray(experience.projects) && experience.projects.length > 0 && (
-        <div className="mb-6">
-          <h4 className="text-head text-lg font-semibold mb-3">Notable Projects</h4>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {experience.projects.map((project, idx) => (
-              <ProjectCard key={idx} project={project} />
-            ))}
-          </div>
-        </div>
-      )}
-
-      {/* Technologies */}
-      {experience.technologies && Object.keys(experience.technologies).length > 0 && (
-        <div className="mb-6">
-          <TechnologySection technologies={experience.technologies} />
-        </div>
-      )}
-
-      {/* Skills */}
-      {experience.skills && Array.isArray(experience.skills) && experience.skills.length > 0 && (
-        <div className="mb-6">
-          <h4 className="text-head text-lg font-semibold mb-3">Skills</h4>
-          <div className="flex flex-wrap gap-2">
-            {experience.skills.map((skill, idx) => (
-              <span
-                key={idx}
-                className="px-3 py-1 bg-card/80 backdrop-blur-sm text-body text-sm rounded border border-gold/10 shadow-sm"
-              >
-                {skill}
-              </span>
-            ))}
-          </div>
-        </div>
-      )}
-
-      {/* Collaboration */}
-      {experience.collaboration && (
-        <div className="mb-6">
-          <h4 className="text-head text-lg font-semibold mb-3">Collaboration</h4>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {experience.collaboration.teamSize && (
-              <div>
-                <span className="text-body text-sm">Team Size: </span>
-                <span className="text-head font-medium">{experience.collaboration.teamSize}</span>
-              </div>
+        <div className="flex-1 min-w-0">
+          <div className="mb-3 space-y-1">
+            {experience.role && (
+              <h3 className="text-head text-xl md:text-2xl font-bold">{experience.role}</h3>
             )}
-            {experience.collaboration.crossFunctional !== undefined && (
-              <div>
-                <span className="text-body text-sm">Cross-functional: </span>
-                <span className="text-head font-medium">
-                  {experience.collaboration.crossFunctional ? 'Yes' : 'No'}
-                </span>
-              </div>
-            )}
-            {experience.collaboration.stakeholders && Array.isArray(experience.collaboration.stakeholders) && experience.collaboration.stakeholders.length > 0 && (
-              <div className="md:col-span-2">
-                <span className="text-body text-sm">Stakeholders: </span>
-                <span className="text-head font-medium">
-                  {experience.collaboration.stakeholders.join(', ')}
-                </span>
-              </div>
-            )}
-            {experience.collaboration.methodologies && Array.isArray(experience.collaboration.methodologies) && experience.collaboration.methodologies.length > 0 && (
-              <div className="md:col-span-2">
-                <span className="text-body text-sm">Methodologies: </span>
-                <div className="flex flex-wrap gap-2 mt-2">
-                  {experience.collaboration.methodologies.map((methodology, idx) => (
-                    <span
-                      key={idx}
-                      className="px-2 py-1 bg-gold/10 text-gold text-xs rounded border border-gold/20"
-                    >
-                      {methodology}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            )}
-          </div>
-        </div>
-      )}
-
-      {/* Feedback */}
-      {experience.feedback && (
-        <div className="pt-6 border-t border-gold/20">
-          <div className="bg-card/80 backdrop-blur-sm border border-gold/10 rounded-lg p-4">
-            {experience.feedback.rating && (
-              <div className="flex items-center gap-2 mb-2">
-                <span className="text-gold text-lg font-bold">{experience.feedback.rating}</span>
-                <div className="flex">
-                  {[...Array(5)].map((_, i) => (
-                    <svg
-                      key={i}
-                      className={`w-4 h-4 ${i < parseInt(experience.feedback.rating) ? 'text-gold' : 'text-body/30'}`}
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.137a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.137a1 1 0 00-1.175 0l-2.8 2.137c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                  ))}
-                </div>
-              </div>
-            )}
-            {experience.feedback.review && (
-              <p className="text-body text-sm italic mb-2">
-                "{experience.feedback.review}"
-              </p>
-            )}
-            {experience.feedback.source && (
-              <p className="text-body text-xs">
-                — {experience.feedback.source}
-                {experience.feedback.sourceUrl && (
+            {experience.company?.name && (
+              <p className="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-2">
+                <span className="text-body text-sm sm:text-base shrink-0">at</span>
+                {experience.company.website ? (
                   <a
-                    href={experience.feedback.sourceUrl}
+                    href={experience.company.website}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-gold hover:text-gold/80 hover:underline ml-1 cursor-pointer"
+                    className="text-gold text-lg md:text-2xl font-semibold hover:text-gold/80 hover:underline transition-colors break-words"
                   >
-                    (View)
+                    {experience.company.name}
                   </a>
+                ) : (
+                  <span className="text-gold text-lg md:text-2xl font-semibold break-words">
+                    {experience.company.name}
+                  </span>
                 )}
               </p>
             )}
+          </div>
+
+          <div className="flex flex-wrap items-center gap-3 text-sm mb-3">
+            {experience.duration && (
+              <div className="flex flex-wrap items-center gap-2">
+                <svg
+                  className="w-4 h-4 text-gold flex-shrink-0"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                  />
+                </svg>
+                <span className="text-body">
+                  {formatDuration(
+                    experience.duration.startDate,
+                    experience.duration.endDate
+                  )}
+                </span>
+                {experience.duration.current && (
+                  <span className="px-2 py-0.5 bg-gold/20 text-gold text-xs rounded border border-gold/30">
+                    Current
+                  </span>
+                )}
+              </div>
+            )}
+            {experience.location && getLocationString(experience.location) && (
+              <div className="flex items-start gap-2 min-w-0">
+                <svg
+                  className="w-4 h-4 text-gold flex-shrink-0 mt-0.5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                  />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                  />
+                </svg>
+                <span className="text-body break-words">
+                  {getLocationString(experience.location)}
+                </span>
+              </div>
+            )}
+          </div>
+
+          {experience.type && (
+            <div className="flex flex-wrap gap-2">{getTypeBadge(experience.type)}</div>
+          )}
+        </div>
+
+        {hasDetails && (
+          <button
+            type="button"
+            onClick={() => setIsOpen((v) => !v)}
+            className="flex-shrink-0 flex items-center justify-center min-h-9 min-w-9 mt-0.5 rounded-md text-gold/90 hover:text-gold hover:bg-gold/10 border border-transparent hover:border-gold/20 transition-colors"
+            aria-expanded={isOpen}
+            aria-controls={panelId}
+            aria-label={
+              isOpen
+                ? `Collapse details for ${experience.role || 'role'}`
+                : `Expand details for ${experience.role || 'role'}`
+            }
+          >
+            <svg
+              className={`w-4 h-4 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              aria-hidden
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+        )}
+      </div>
+
+      {hasDetails && (
+        <div
+          className={`grid transition-[grid-template-rows] duration-200 ease-out motion-reduce:transition-none ${
+            isOpen ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'
+          }`}
+        >
+          <div className="min-h-0 overflow-hidden">
+            <div id={panelId} className="pt-5 sm:pt-6">
+          {experience.description && (
+            <div className="mb-6">
+              <p className="text-body text-base leading-relaxed">{experience.description}</p>
+            </div>
+          )}
+
+          {experience.responsibilities &&
+            Array.isArray(experience.responsibilities) &&
+            experience.responsibilities.length > 0 && (
+              <div className="mb-6">
+                <h4 className="text-head text-lg font-semibold mb-3">Key Responsibilities</h4>
+                <ul className="space-y-2">
+                  {experience.responsibilities.map((responsibility, idx) => (
+                    <li key={idx} className="flex items-start gap-2">
+                      <span className="text-gold mt-1.5">•</span>
+                      <span className="text-body text-sm leading-relaxed flex-1">
+                        {responsibility}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+          {experience.achievements &&
+            Array.isArray(experience.achievements) &&
+            experience.achievements.length > 0 && (
+              <div className="mb-6">
+                <h4 className="text-head text-lg font-semibold mb-3">Key Achievements</h4>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {experience.achievements.map((ach, idx) => (
+                    <AchievementCard key={idx} achievement={ach} />
+                  ))}
+                </div>
+              </div>
+            )}
+
+          {experience.projects &&
+            Array.isArray(experience.projects) &&
+            experience.projects.length > 0 && (
+              <div className="mb-6">
+                <h4 className="text-head text-lg font-semibold mb-3">Notable Projects</h4>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {experience.projects.map((project, idx) => (
+                    <ProjectCard key={idx} project={project} />
+                  ))}
+                </div>
+              </div>
+            )}
+
+          {experience.technologies && Object.keys(experience.technologies).length > 0 && (
+            <div className="mb-6">
+              <TechnologySection technologies={experience.technologies} />
+            </div>
+          )}
+
+          {hasMediaBlock && (
+            <div className="mb-6 pt-4 border-t border-gold/10 space-y-4">
+              {previewEntries.length > 0 && (
+                <div>
+                  <h4 className="text-head text-sm font-semibold mb-2">Media</h4>
+                  <MediaPreviewGrid
+                    entries={previewEntries}
+                    resolveSrc={(u) => resolveJourneyLogo(u) || u}
+                    imgStyle={(raw) => getJourneyOrgLogoImgStyle(raw)}
+                    defaultAlt="Experience media"
+                  />
+                </div>
+              )}
+              {otherDocuments.length > 0 && (
+                <div>
+                  <h4 className="text-head text-sm font-semibold mb-2">Documents</h4>
+                  <div className="flex flex-wrap gap-2">
+                    {otherDocuments.map((entry, idx) => {
+                      const url = entry?.url
+                      if (!url) return null
+                      const label = entry.label || 'Document'
+                      return (
+                        <a
+                          key={idx}
+                          href={url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="px-3 py-1.5 bg-card/80 backdrop-blur-sm text-body text-xs rounded border border-gold/10 hover:border-gold/30 hover:text-gold hover:ring-1 hover:ring-gold/30 transition-all shadow-sm"
+                          style={{
+                            boxShadow:
+                              '0 2px 8px rgba(0, 0, 0, 0.15), 0 0 5px rgba(201, 166, 107, 0.03)',
+                          }}
+                        >
+                          <span className="flex items-center gap-1.5">
+                            <svg
+                              className="w-3.5 h-3.5 flex-shrink-0 text-gold"
+                              fill="none"
+                              stroke="currentColor"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"
+                              />
+                            </svg>
+                            {label}
+                          </span>
+                        </a>
+                      )
+                    })}
+                  </div>
+                </div>
+              )}
+              {mediaExtLinks.length > 0 && (
+                <div>
+                  <h4 className="text-head text-sm font-semibold mb-2">Links</h4>
+                  <div className="flex flex-wrap gap-2">
+                    {mediaExtLinks.map((link, idx) => {
+                      let host = link
+                      try {
+                        host = new URL(link).hostname.replace('www.', '')
+                      } catch {
+                        /* keep raw */
+                      }
+                      return (
+                        <a
+                          key={idx}
+                          href={link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="px-3 py-1.5 bg-card/80 backdrop-blur-sm text-body text-xs rounded border border-gold/10 hover:border-gold/30 hover:text-gold hover:ring-1 hover:ring-gold/30 transition-all shadow-sm"
+                          style={{
+                            boxShadow:
+                              '0 2px 8px rgba(0, 0, 0, 0.15), 0 0 5px rgba(201, 166, 107, 0.03)',
+                          }}
+                        >
+                          <span className="flex items-center gap-1">
+                            <svg
+                              className="w-3 h-3"
+                              fill="none"
+                              stroke="currentColor"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                              />
+                            </svg>
+                            {host}
+                          </span>
+                        </a>
+                      )
+                    })}
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
+
+            </div>
           </div>
         </div>
       )}
@@ -327,4 +403,3 @@ function ExperienceCard({ experience = {}, index = 0 }) {
 }
 
 export default ExperienceCard
-

@@ -40,33 +40,26 @@ function SocialLinksCard({ social = {} }) {
   if (socialEntries.length === 0) return null
 
   return (
-    <div
-      className="bg-card/90 backdrop-blur-sm border border-gold/20 rounded-lg p-6 md:p-8 shadow-lg"
-      style={{
-        boxShadow: '0 10px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(201, 166, 107, 0.05)'
-      }}
-    >
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-        {socialEntries.map(([key, value]) => (
-          <a
-            key={key}
-            href={value.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex flex-col items-center gap-3 p-4 bg-card/80 backdrop-blur-sm border border-gold/10 rounded-lg hover:border-gold hover:bg-gold/10 hover:ring-1 hover:ring-gold/50 transition-all duration-200 group cursor-pointer"
-          >
-            <div className="text-gold group-hover:scale-110 transition-transform">
-              {getIcon(value.icon || key)}
-            </div>
-            <div className="text-center">
-              <p className="text-head text-sm font-semibold">{value.label || key}</p>
-              {value.username && (
-                <p className="text-body text-xs mt-1">@{value.username}</p>
-              )}
-            </div>
-          </a>
-        ))}
-      </div>
+    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4">
+      {socialEntries.map(([key, value]) => (
+        <a
+          key={key}
+          href={value.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex flex-col items-center gap-3 p-4 bg-card/80 backdrop-blur-sm border border-gold/10 rounded-lg hover:border-gold hover:bg-gold/10 hover:ring-1 hover:ring-gold/50 transition-all duration-200 group cursor-pointer"
+        >
+          <div className="text-gold group-hover:scale-110 transition-transform">
+            {getIcon(value.icon || key)}
+          </div>
+          <div className="text-center">
+            <p className="text-head text-sm font-semibold">{value.label || key}</p>
+            {value.username && (
+              <p className="text-body text-xs mt-1">@{value.username}</p>
+            )}
+          </div>
+        </a>
+      ))}
     </div>
   )
 }

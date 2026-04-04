@@ -1,327 +1,497 @@
 {
   "meta": {
-    "title": "Projects",
-    "subtitle": "A collection of industry-level platforms and AI-driven applications focused on backend scalability, LLM integration, and robust system architecture.",
-    "description": "Detailed portfolio of projects showcasing expertise in Java Spring Boot, Node.js, AI model fine-tuning, complex database modeling (3NF), and secure OAuth 2.0 implementations."
+    "title": "Projects"
   },
   "projects": [
     {
-      "id": "talent-pulse-ai",
-      "title": "Talent Pulse AI",
-      "slug": "talent-pulse-ai",
-      "shortDescription": "An AI-powered online skill-assessment platform with automated question generation and complex performance tracking.",
-      "longDescription": "Talent Pulse AI is a comprehensive skill-assessment ecosystem. It features a sophisticated backend capable of handling complex evaluation workflows, automated content generation via LLMs, and a highly optimized relational database structure to support large-scale enterprise testing.",
-      "category": "fullstack",
-      "type": "professional",
-      "status": "completed",
-      "duration": {
-        "durationText": "Jan 2025 - Present",
-        "working": "true"
-      },
-      "organization": {
-        "name": "Keshav Encon Pvt. Ltd.",
-        "type": "company",
-        "role": "Software Development Engineer",
-        "teamSize": 5
-      },
-      "problem": {
-        "summary": "Manual question creation was slow and prone to errors, while complex reporting queries suffered from high latency.",
-        "constraints": [
-          "Need for high-concurrency handling",
-          "Zero-dependency OAuth requirements",
-          "Complex data relationships"
-        ],
-        "whyItMatters": "Efficient talent assessment requires rapid content generation and real-time data insights to stay competitive in HR tech."
-      },
-      "solution": {
-        "approach": "Built a hybrid backend using Java Spring Boot and Node.js with a custom-built OAuth 2.0 layer and Gemini LLM integration.",
-        "architecture": "Micro-services inspired layered architecture with a hybrid ORM + Raw SQL data access layer.",
-        "designPatterns": [
-          "Hybrid ORM/SQL",
-          "RBAC (Role-Based Access Control)",
-          "Singleton",
-          "Factory Pattern"
-        ],
-        "tradeoffs": "Used raw SQL for complex reporting to gain 30% performance at the cost of database abstraction."
-      },
-      "features": [
-        {
-          "title": "AI Question Automation",
-          "description": "Integrated Gemini LLM API to automate the manual question-creation workflow.",
-          "impact": "80% reduction in manual content creation time",
-          "custom": {
-            "modelUsed": "Gemini LLM"
-          }
-        },
-        {
-          "title": "Custom Auth Ecosystem",
-          "description": "Developed Google and LinkedIn OAuth 2.0 login systems from scratch without external libraries.",
-          "impact": "Higher security and full control over the auth handshake",
-          "custom": {
-            "protocols": "OAuth 2.0, JWT"
-          }
-        }
-      ],
-      "challenges": [
-        {
-          "challenge": "Optimizing complex queries across 50+ relational tables.",
-          "solution": "Implemented a hybrid approach using raw SQL for performance-critical assessment reporting.",
-          "learning": "Abstraction layers like ORMs have limits in high-performance data reporting scenarios.",
-          "custom": {
-            "performanceGain": "30% faster execution"
-          }
-        }
-      ],
-      "techStack": {
-        "languages": ["Java", "JavaScript", "SQL"],
-        "frameworks": ["Spring Boot", "Node.js", "Express.js", "React"],
-        "databases": ["PostgreSQL/MySQL"],
-        "orms": ["Hibernate", "JPA"],
-        "cloud": ["AWS", "Firebase"],
-        "devOps": ["Docker", "AWS Deployment"],
-        "tools": ["Git", "Postman", "Gemini API"],
-        "custom": {
-          "schemaSize": "50+ Tables"
-        }
-      },
-      "metrics": {
-        "performance": "30% improvement in complex query execution",
-        "scale": "Enterprise-ready architecture with 50+ normalized tables",
-        "reliability": "Full RBAC and secure JWT-based session management",
-        "custom": {
-          "automationRate": "80% of workflow"
-        }
-      },
-      "media": {
-        "coverImage": {
-          "url": "/images/projects/talentpulse-cover.png",
-          "alt": "Talent Pulse AI Platform"
-        },
-        "gallery": [],
-        "videos": []
-      },
-      "links": {
-        "github": "https://github.com/kuldeepsinhjhala",
-        "demo": "https://talentpulseai.com",
-        "documentation": "",
-        "blog": ""
-      },
-      "tags": ["AI", "LLM", "Assessment", "Spring Boot", "AWS"],
-      "skillsGained": ["Gemini API Integration", "Enterprise System Design", "Production AWS Deployment"],
-      "confidentiality": {
-        "hasRestrictions": true,
-        "notes": "Core architecture and live deployment details are proprietary to Keshav Encon Pvt. Ltd."
-      },
-      "custom": {
-        "heading": "Key Highlights",
-        "image": "/images/projects/talentpulse-custom.png",
-        "data": [
-          "Implemented custom OAuth 2.0 without external libraries",
-          "Achieved 30% performance improvement in complex queries",
-          "Automated 80% of question creation workflow using Gemini LLM",
-          "Built enterprise-ready architecture with 50+ normalized tables"
-        ]
-      }
-    },
-    {
-      "id": "resumee-ai",
-      "title": "ResumeeAI",
-      "slug": "resumee-ai",
-      "shortDescription": "An intelligent resume builder powered by a fine-tuned Mistral LLM for industrial-standard resume generation.",
-      "longDescription": "Developed during an internship, this project involved fine-tuning a local Mistral LLM on 45,000+ resumes to provide intelligent suggestions, dynamic uploads, and real-time data updates for job seekers.",
-      "category": "fullstack",
-      "type": "internship",
-      "status": "completed",
-      "duration": {
-        "durationText": "Dec 2023 - Dec 2024",
-        "working": "false"
-      },
-      "organization": {
-        "name": "Keshav Encon Pvt. Ltd.",
-        "type": "company",
-        "role": "SDE Intern",
-        "teamSize": 3
-      },
-      "problem": {
-        "summary": "Standard resume builders lacked the intelligent context needed to match industrial data standards and 3NF database efficiency.",
-        "constraints": [
-          "Local LLM deployment limits",
-          "Processing 10,000+ resume datasets"
-        ],
-        "whyItMatters": "Users need resumes that are not just formatted, but content-optimized for modern ATS systems."
-      },
-      "solution": {
-        "approach": "Fine-tuned Mistral LLM and utilized Gemma API for data extraction, backed by a 3NF normalized database.",
-        "architecture": "RESTful API architecture using Java Spring Boot and JDBC for direct data handling.",
-        "designPatterns": ["Repository Pattern", "Observer Pattern"],
-        "tradeoffs": "Fine-tuning locally increased initial dev time but eliminated recurring API costs for LLM inference."
-      },
-      "features": [
-        {
-          "title": "LLM Fine-tuning",
-          "description": "Fine-tuned Mistral LLM on a dataset of 45,000+ resumes.",
-          "impact": "Highly accurate resume content generation and parsing",
-          "custom": {
-            "datasetSize": "45,000+ records"
-          }
-        },
-        {
-          "title": "Dynamic Data Extraction",
-          "description": "Automated extraction of fields from resumes using Gemma API and Google Colab.",
-          "impact": "Processed 10,000+ resumes into structured format",
-          "custom": {}
-        }
-      ],
-      "challenges": [
-        {
-          "challenge": "Structuring unstructured resume data into a 3NF database.",
-          "solution": "Conducted field analysis across 50+ websites to define industrial-standard entities.",
-          "learning": "Data cleaning is 70% of the effort in AI-driven applications.",
-          "custom": {}
-        }
-      ],
-      "techStack": {
-        "languages": ["Java", "Python"],
-        "frameworks": ["Spring Boot", "JPA"],
-        "databases": ["MySQL (3NF)"],
-        "orms": ["Hibernate"],
-        "cloud": ["Google Colab"],
-        "devOps": ["Git"],
-        "tools": ["Mistral LLM", "Gemma API", "JDBC"],
-        "custom": {
-          "ai_tools": "Mistral, Gemma"
-        }
-      },
-      "metrics": {
-        "performance": "Real-time data updates and parsing",
-        "scale": "Handled 10,000+ resume uploads",
-        "reliability": "Strict 3NF data integrity",
-        "custom": {
-          "research_scope": "50+ competitor websites analyzed"
-        }
-      },
-      "media": {
-        "coverImage": {
-          "url": "/images/projects/resumee-cover.png",
-          "alt": "ResumeeAI Dashboard"
-        },
-        "gallery": [],
-        "videos": []
-      },
-      "links": {
-        "github": "https://github.com/kuldeepsinhjhala",
-        "demo": "",
-        "documentation": "",
-        "blog": ""
-      },
-      "tags": ["LLM", "NLP", "Spring Boot", "Fine-tuning"],
-      "skillsGained": ["Mistral Fine-tuning", "Database Normalization (3NF)", "Web Scraping/Analysis"],
-      "confidentiality": {
-        "hasRestrictions": false,
-        "notes": ""
-      },
-      "custom": {
-        "heading": "Project Achievements",
-        "image": "/images/projects/resumee-custom.png",
-        "data": [
-          "Fine-tuned Mistral LLM on 45,000+ resume dataset",
-          "Processed 10,000+ resumes into structured 3NF format",
-          "Analyzed 50+ competitor websites for industrial standards",
-          "Eliminated recurring API costs through local LLM deployment"
-        ]
-      }
-    },
-    {
       "id": "industrial-crm",
+      "sequence": 1,
+      "logo": "keshav_encon_logo.png",
       "title": "Custom Industrial CRM",
-      "slug": "industrial-crm",
-      "shortDescription": "A scalable Customer Relationship Management tool designed for industrial standards and maintenance.",
-      "longDescription": "Designed and implemented a custom CRM from scratch, focusing on 3NF principles to ensure robust data integrity and maintainability for long-term industrial use.",
+      "shortDescription": "A scalable Customer Relationship Management system designed from scratch following industrial standards and 3NF database principles.",
+      "longDescription": "Designed and implemented a custom CRM system from scratch for Keshav Encon, focusing on 3NF normalization principles to ensure robust data integrity and long-term maintainability. Conducted field analysis across 50+ websites to design an industry-standard schema aligned with real-world CRM workflows and client requirements.",
       "category": "backend",
-      "type": "internship",
-      "status": "completed",
+      "type": "professional",
       "duration": {
         "durationText": "2024",
         "working": "false"
       },
       "organization": {
-        "name": "Keshav Encon",
+        "name": "Keshav Encon Private Limited",
         "type": "company",
-        "role": "Backend Intern",
+        "role": "Founding Software Developer Engineer",
         "teamSize": 2
       },
       "problem": {
-        "summary": "Off-the-shelf CRMs often fail to meet specific industrial data relationship requirements and are hard to scale.",
-        "constraints": ["Adherence to 3NF", "Meticulous architecture for maintainability"],
-        "whyItMatters": "Industrial clients need systems that can scale without requiring frequent database refactoring."
+        "summary": "Off-the-shelf CRMs failed to meet specific industrial data relationship requirements and were difficult to scale or maintain long-term.",
+        "constraints": [
+          "Strict adherence to 3NF for data integrity",
+          "Schema must align with industrial workflows and client requirements",
+          "Maintainability and extensibility for future modules"
+        ]
       },
       "solution": {
-        "approach": "Built a custom database schema aligned with specific industrial workflows and client requirements.",
-        "architecture": "Layered architecture emphasizing service-repository separation.",
-        "designPatterns": ["Repository Pattern"],
-        "tradeoffs": "Custom development took longer than configuration but resulted in 100% feature alignment."
+        "approach": "Built a custom database schema aligned with specific industrial workflows and client requirements after analyzing data fields from 50+ websites.",
+        "architecture": "Modular backend with JWT-based authentication and a layered service-repository separation.",
+        "designPatterns": [
+          "Repository Pattern",
+          "Modular Backend"
+        ],
+        "tradeoffs": "Custom development took longer than off-the-shelf configuration but resulted in 100% feature alignment and full data integrity control."
       },
       "features": [
         {
-          "title": "Custom Database Design",
-          "description": "Implemented a from-scratch database following 3NF principles for high integrity.",
-          "impact": "Eliminated data redundancy and improved search speed",
-          "custom": {}
+          "title": "Industry-Standard Schema Design",
+          "description": "Analyzed data fields from 50+ websites to design a CRM schema aligned with industrial standards.",
+          "impact": "Eliminated data redundancy and ensured strong data integrity"
+        },
+        {
+          "title": "JWT-Based Authentication",
+          "description": "Implemented JWT-based auth for secure access control across the CRM.",
+          "impact": "Secure and maintainable access management"
         }
       ],
       "challenges": [
         {
-          "challenge": "Aligning technical schema with complex client business logic.",
-          "solution": "Used detailed entity-relationship modeling before coding.",
-          "learning": "Architecture is as important as the code itself.",
-          "custom": {}
+          "challenge": "Aligning the technical schema with complex client business logic and industrial workflows.",
+          "solution": "Used detailed entity-relationship modeling and analyzed 50+ reference websites before writing any code.",
+          "learning": "Architecture and requirement analysis are as important as the code itself."
         }
       ],
       "techStack": {
-        "languages": ["SQL", "JavaScript"],
-        "frameworks": ["Node.js", "Express"],
-        "databases": ["PostgreSQL"],
-        "orms": ["Sequelize"],
+        "languages": ["JavaScript", "SQL"],
+        "frameworks": ["Node.js", "Express.js"],
+        "databases": ["MSSQL", "PostgreSQL"],
+        "orms": ["Sequelize ORM"],
         "cloud": [],
         "devOps": ["Git"],
-        "tools": ["VS Code"],
-        "custom": {}
+        "tools": ["REST APIs", "Postman", "VS Code"]
       },
       "metrics": {
-        "performance": "Optimized for fast client data retrieval",
+        "performance": "Optimized for fast client data retrieval with normalized schema",
         "scale": "Easily extensible for new modules",
-        "reliability": "Robust data integrity via 3NF",
-        "custom": {}
+        "reliability": "Robust data integrity via 3NF normalization"
       },
       "media": {
-        "coverImage": {
-          "url": "/images/projects/crm-cover.png",
-          "alt": "CRM System"
+        "images": [
+        ],
+        "documents": [],
+        "links": []
+      },
+      "skillsGained": ["Requirement Analysis", "3NF Normalization", "System Architecture", "Industrial Schema Design"],
+      "confidentiality": {
+        "hasRestrictions": true,
+        "notes": "Core architecture and client data details are proprietary to Keshav Encon Private Limited."
+      }
+    },
+    {
+      "id": "talent-pulse-ai",
+      "sequence": 2,
+      "logo": "talent_pulse.png",
+      "title": "TalentPulseAI",
+      "shortDescription": "An AI-powered online skill assessment platform for recruiters and companies with automated question generation and complex performance tracking.",
+      "longDescription": "TalentPulseAI is a comprehensive skill assessment ecosystem built for recruiters and companies. It features a scalable relational database with 50+ normalized tables, a Gemini LLM-powered question generation module that automated 80% of manual content creation, custom OAuth 2.0 authentication built from scratch, and a hybrid ORM + raw SQL backend that improved complex query performance by 30%. The platform supports multi-level RBAC, React.js frontend integration, and is deployed on Firebase and AWS.",
+      "category": "fullstack",
+      "type": "professional",
+      "duration": {
+        "durationText": "Oct 2025 - Dec 2025",
+        "working": "false"
+      },
+      "organization": {
+        "name": "Keshav Encon Private Limited",
+        "type": "company",
+        "role": "Founding Software Developer Engineer",
+        "teamSize": 5
+      },
+      "problem": {
+        "summary": "Manual question creation was slow and error-prone, while complex assessment reporting queries suffered from high latency across large relational datasets.",
+        "constraints": [
+          "Need for high-concurrency handling across 50+ relational tables",
+          "Zero third-party dependency for OAuth 2.0 implementation",
+          "Complex multi-level access control for recruiters and companies"
+        ]
+      },
+      "solution": {
+        "approach": "Built a Node.js and Express.js backend with a hybrid ORM + raw SQL data access layer, custom OAuth 2.0 flows, and Gemini LLM integration for automated question generation.",
+        "architecture": "Scalable relational backend with 50+ normalized tables, hybrid ORM + raw SQL for performance-critical paths, RBAC, and modular REST API design.",
+        "designPatterns": [
+          "Hybrid ORM + Raw SQL",
+          "RBAC (Role-Based Access Control)",
+          "Modular REST API Architecture"
+        ],
+        "tradeoffs": "Used raw SQL for complex reporting queries to gain 30% performance improvement at the cost of some database abstraction."
+      },
+      "features": [
+        {
+          "title": "AI-Powered Question Generation",
+          "description": "Developed a Gemini LLM-powered question generation module that automated the manual assessment content creation workflow.",
+          "impact": "Automated 80% of manual content creation; reduced question preparation time from hours to minutes"
         },
-        "gallery": [],
-        "videos": []
+        {
+          "title": "Custom OAuth 2.0 Authentication",
+          "description": "Engineered Google and LinkedIn OAuth 2.0 authentication flows from scratch without any third-party security libraries, with JWT-based token management.",
+          "impact": "Full control over auth handshake with higher security and zero external dependencies"
+        },
+        {
+          "title": "Hybrid ORM + Raw SQL Backend",
+          "description": "Designed and developed 100+ RESTful APIs using Node.js and Express.js with a hybrid Sequelize ORM + raw SQL approach for performance-critical paths.",
+          "impact": "30% improvement in complex query execution time"
+        },
+        {
+          "title": "Scalable Relational Database",
+          "description": "Designed a complete relational database schema with 50+ normalized tables, indexed relationships, and optimized constraints.",
+          "impact": "Enterprise-ready architecture with high-performance query execution and long-term scalability"
+        },
+        {
+          "title": "Multi-Level RBAC",
+          "description": "Implemented Role-Based Access Control across the platform with multi-level permission hierarchies for secure and controlled access.",
+          "impact": "Secure, role-specific access to sensitive company and recruiter data"
+        },
+        {
+          "title": "Product Research & Feature Scoping",
+          "description": "Conducted in-depth feature research and product benchmarking to define functional scope and roadmap, finalizing 25+ core features.",
+          "impact": "Well-defined roadmap aligned with company objectives and recruiter workflows"
+        }
+      ],
+      "challenges": [
+        {
+          "challenge": "Optimizing complex queries across 50+ relational tables with high concurrency requirements.",
+          "solution": "Implemented a hybrid approach — Sequelize ORM for standard operations and raw SQL for performance-critical assessment reporting paths.",
+          "learning": "ORM abstraction has real limits in high-performance data reporting; knowing when to drop to raw SQL is a critical engineering decision."
+        },
+        {
+          "challenge": "Implementing OAuth 2.0 for Google and LinkedIn without third-party libraries.",
+          "solution": "Built the full OAuth 2.0 handshake and JWT token management from scratch using Node.js and Express.js middleware.",
+          "learning": "Understanding the OAuth 2.0 spec deeply enables more secure and controllable auth implementations than using black-box libraries."
+        }
+      ],
+      "techStack": {
+        "languages": ["JavaScript", "SQL"],
+        "frameworks": ["Node.js", "Express.js", "React.js", "Sequelize ORM"],
+        "databases": ["MSSQL"],
+        "orms": ["Sequelize ORM"],
+        "cloud": ["AWS EC2", "AWS RDS", "Firebase"],
+        "devOps": ["Git"],
+        "tools": ["REST APIs", "Gemini LLM API", "Postman", "Swagger"]
       },
-      "links": {
-        "github": "https://github.com/kuldeepsinhjhala",
-        "demo": "",
-        "documentation": "",
-        "blog": ""
+      "metrics": {
+        "performance": "30% improvement in complex query execution time via hybrid ORM + raw SQL approach",
+        "scale": "Enterprise-ready architecture with 50+ normalized tables and 100+ REST APIs",
+        "reliability": "Full RBAC, secure JWT-based session management, and zero third-party OAuth dependency"
       },
-      "tags": ["CRM", "Database Design", "Backend"],
-      "skillsGained": ["Requirement Analysis", "3NF Normalization", "System Architecture"],
+      "media": {
+        "images": [
+        ],
+        "documents": [],
+        "links": ["https://talentpulseai.com"]
+      },
+      "skillsGained": ["Gemini LLM API Integration", "Enterprise System Design", "OAuth 2.0 from Scratch", "Hybrid ORM + Raw SQL", "Production AWS Deployment"],
+      "confidentiality": {
+        "hasRestrictions": true,
+        "notes": "Core architecture and live deployment details are proprietary to Keshav Encon Private Limited."
+      }
+    },
+    {
+      "id": "resumee-ai",
+      "sequence": 3,
+      "logo": "resumeeai.png",
+      "title": "ResumeeAI",
+      "shortDescription": "An AI-powered resume builder with ATS checking, live resume sharing, and a locally fine-tuned Mistral-7B LLM trained on 45,000+ resumes.",
+      "longDescription": "ResumeeAI is an AI-based resume building portal developed during the final year internship at Keshav Encon. The platform features ATS checking, live resume sharing, and an AI generation engine powered by a locally fine-tuned Mistral-7B LLM trained on 45,000+ resumes. After transitioning to full-time, the AI response time was reduced from 30s to 20s, Gemini API cost was cut by 100% by replacing external dependency with the fine-tuned local model, and the overall backend architecture and platform performance were significantly improved. The project received Best Project recognition from The Maharaja Sayajirao University of Baroda.",
+      "category": "fullstack",
+      "type": "professional",
+      "duration": {
+        "durationText": "Nov 2023 - Oct 2025",
+        "working": "false"
+      },
+      "organization": {
+        "name": "Keshav Encon Private Limited",
+        "type": "company",
+        "role": "Founding Software Developer Engineer",
+        "teamSize": 3
+      },
+      "problem": {
+        "summary": "Standard resume builders lacked the intelligence to match industrial data standards, had poor ATS alignment, and relied on expensive external AI APIs with high latency.",
+        "constraints": [
+          "Local LLM fine-tuning and deployment constraints on GPU infrastructure",
+          "Processing and structuring 45,000+ resume datasets for training",
+          "Eliminating external AI API dependency to reduce cost and latency"
+        ]
+      },
+      "solution": {
+        "approach": "Fine-tuned a local Mistral-7B LLM on 45,000+ resumes using structured resume template JSON data. Built the full backend from scratch including system architecture, database schema, RESTful APIs, OAuth 2.0 authentication, and AI integration using Node.js, Express.js, MSSQL, and Sequelize ORM.",
+        "architecture": "Scalable relational backend with 50+ normalized tables, JWT + OAuth 2.0 auth, React.js frontend, and locally hosted fine-tuned LLM replacing external API dependency.",
+        "designPatterns": [
+          "Repository Pattern",
+          "Modular REST API Architecture",
+          "RBAC (Role-Based Access Control)"
+        ],
+        "tradeoffs": "Fine-tuning locally increased initial development time but eliminated recurring Gemini API costs entirely and reduced AI response latency from 30s to 20s."
+      },
+      "features": [
+        {
+          "title": "Fine-Tuned Local Mistral-7B LLM",
+          "description": "Fine-tuned a local Mistral-7B model on 45,000+ resumes using structured resume template JSON data, then integrated it into the platform to power all AI features.",
+          "impact": "Reduced AI response time from 30s to 20s; eliminated Gemini API cost by 100% and removed external AI dependency"
+        },
+        {
+          "title": "ATS Checking & Live Resume Sharing",
+          "description": "Built ATS compatibility checking and live resume sharing functionality into the platform.",
+          "impact": "Improved resume quality and real-world usability for job seekers"
+        },
+        {
+          "title": "Custom OAuth 2.0 Authentication",
+          "description": "Implemented OAuth 2.0 authentication with Google and LinkedIn from scratch without third-party libraries, with JWT-based authorization and backend middleware for API security.",
+          "impact": "Secure, zero-dependency auth with full control over the authentication flow"
+        },
+        {
+          "title": "Scalable Relational Database",
+          "description": "Designed a complete relational database schema with 50+ normalized tables, indexed relationships, and optimized constraints from scratch.",
+          "impact": "High-performance query execution and long-term data scalability"
+        },
+        {
+          "title": "Gemini LLM API Integration",
+          "description": "Integrated Gemini AI API during the internship phase to power AI features before transitioning to the locally fine-tuned model.",
+          "impact": "Rapid AI feature delivery during early product development"
+        },
+        {
+          "title": "Platform Research & Architecture",
+          "description": "Researched 5+ resume builder platforms to understand workflows and product expectations. Designed the full system architecture including database schema and table associations.",
+          "impact": "Well-informed product design aligned with industry standards"
+        }
+      ],
+      "challenges": [
+        {
+          "challenge": "Replacing the external Gemini API dependency with a locally hosted fine-tuned model without degrading AI quality.",
+          "solution": "Fine-tuned Mistral-7B on 45,000+ structured resumes and deployed it on high-end NVIDIA GPU infrastructure, then integrated it as a drop-in replacement for the Gemini API.",
+          "learning": "Fine-tuning domain-specific LLMs on structured datasets can outperform general-purpose external APIs while eliminating recurring cost and latency."
+        },
+        {
+          "challenge": "Structuring 45,000+ unstructured resumes into training-ready JSON data.",
+          "solution": "Designed a structured resume template JSON schema and built a pipeline to normalize resume data into that format at scale.",
+          "learning": "Data preparation is the most critical and time-intensive step in any LLM fine-tuning project."
+        }
+      ],
+      "techStack": {
+        "languages": ["JavaScript", "Python", "SQL"],
+        "frameworks": ["Node.js", "Express.js", "React.js", "Redux.js", "Sequelize ORM", "Tailwind CSS"],
+        "databases": ["MSSQL"],
+        "orms": ["Sequelize ORM"],
+        "cloud": ["AWS EC2", "AWS RDS", "AWS S3", "AWS ELB", "AWS CloudFront"],
+        "devOps": ["Git"],
+        "tools": ["Mistral-7B (fine-tuned)", "Gemini LLM API", "REST APIs", "Postman", "NVIDIA GPU Infrastructure"]
+      },
+      "metrics": {
+        "performance": "AI response time reduced from 30s to 20s after fine-tuning local Mistral-7B",
+        "scale": "Trained on 45,000+ resumes; 50+ normalized tables in relational schema",
+        "reliability": "100% Gemini API cost eliminated; zero external AI dependency post fine-tuning"
+      },
+      "media": {
+        "images": [
+        ],
+        "documents": [
+          {
+            "label": "Best Project Recognition Certificate",
+            "url": "https://d2dhxmagz6qgkm.cloudfront.net/images/1775327896122-best_project_final_year.jpg"
+          }
+        ],
+        "links": ["https://resumeeai.com"]
+      },
+      "skillsGained": ["LLM Fine-tuning (Mistral-7B)", "Database Normalization (3NF)", "OAuth 2.0 from Scratch", "Full-Stack Architecture", "AWS Deployment"],
+      "confidentiality": {
+        "hasRestrictions": false,
+        "notes": "Project was built during internship. Received Best Project recognition from The Maharaja Sayajirao University of Baroda."
+      }
+    },
+    {
+      "id": "uninest-ai",
+      "sequence": 4,
+      "logo": "uninest_logo.svg",
+      "title": "UninestAI",
+      "shortDescription": "A student placement and university management portal connecting students, universities, and companies — built on a transaction-safe Stored Procedure framework with 100+ SP-driven APIs.",
+      "longDescription": "UninestAI is a student placement and university management portal connecting students, universities, and companies. The backend is built on a transaction-safe Stored Procedure framework with structured error handling and inter-procedure communication. The system features a normalized MSSQL schema with optimized indexing, 100+ SP-driven REST APIs, Role-Based Access Control, and comprehensive Swagger documentation for cross-team efficiency. Business requirements were translated into well-defined technical workflows and execution plans before any development began.",
+      "category": "fullstack",
+      "type": "professional",
+      "duration": {
+        "durationText": "Dec 2025 - Present",
+        "working": "true"
+      },
+      "organization": {
+        "name": "Keshav Encon Private Limited",
+        "type": "company",
+        "role": "Founding Software Developer Engineer",
+        "teamSize": 5
+      },
+      "problem": {
+        "summary": "No unified portal existed to manage and connect the full lifecycle of student placement — bridging students, universities, and companies in one system with secure, role-specific access.",
+        "constraints": [
+          "Complex multi-entity relationships between students, universities, and companies",
+          "Need for transaction-safe data operations with structured error handling",
+          "Multi-level RBAC for different user types across the portal"
+        ]
+      },
+      "solution": {
+        "approach": "Conducted end-to-end feature research and translated business requirements into technical execution plans. Built a transaction-safe Stored Procedure framework as the core data layer, with a modular REST API architecture on top.",
+        "architecture": "Normalized MSSQL schema with optimized indexing, transaction-safe SP framework with inter-procedure communication, modular REST API architecture, and RBAC for secure role-specific access.",
+        "designPatterns": [
+          "Stored Procedure-Driven Architecture",
+          "RBAC (Role-Based Access Control)",
+          "Modular REST API Design"
+        ],
+        "tradeoffs": "SP-driven architecture adds initial complexity in procedure design but provides stronger transaction safety, structured error handling, and better performance for complex multi-table operations."
+      },
+      "features": [
+        {
+          "title": "Transaction-Safe Stored Procedure Framework",
+          "description": "Built a structured Stored Procedure framework with transaction safety, error handling, and inter-procedure communication to manage complex data operations reliably.",
+          "impact": "Improved reliability and consistency of complex multi-table data operations"
+        },
+        {
+          "title": "100+ SP-Driven REST APIs",
+          "description": "Designed a scalable, modular REST API architecture and developed 100+ APIs with SP-driven backend logic, with clear request and response contracts.",
+          "impact": "Maintainable and extensible API layer supporting long-term platform growth"
+        },
+        {
+          "title": "Normalized MSSQL Schema",
+          "description": "Designed and implemented a normalized MSSQL database schema with optimized indexing and efficient relational mapping across all core platform modules.",
+          "impact": "High data integrity, optimized query performance, and clean relational structure"
+        },
+        {
+          "title": "RBAC for University Users",
+          "description": "Implemented Role-Based Access Control ensuring secure, reliable, and role-specific feature access for students, university administrators, and companies.",
+          "impact": "Secure multi-entity access management across the portal"
+        },
+        {
+          "title": "Swagger (OpenAPI) Documentation",
+          "description": "Created comprehensive OpenAPI (Swagger) documentation for all APIs to streamline frontend integration and improve cross-team development efficiency.",
+          "impact": "Significantly reduced frontend integration time and improved cross-team collaboration"
+        },
+        {
+          "title": "Business Requirement Translation",
+          "description": "Conducted feature research and translated business requirements into well-defined technical workflows and execution plans before development.",
+          "impact": "Clear technical direction aligned with business goals from day one"
+        }
+      ],
+      "challenges": [
+        {
+          "challenge": "Designing a transaction-safe data layer that handles complex operations across multiple entities (students, universities, companies) reliably.",
+          "solution": "Built a Stored Procedure framework with structured error handling and inter-procedure communication, ensuring atomic transactions across complex multi-table operations.",
+          "learning": "SP-driven architecture, when designed well, provides transaction safety and performance advantages that are difficult to replicate purely through ORM layers."
+        }
+      ],
+      "techStack": {
+        "languages": ["JavaScript", "T-SQL", "SQL"],
+        "frameworks": ["Node.js", "Express.js"],
+        "databases": ["MSSQL"],
+        "orms": [],
+        "cloud": [],
+        "devOps": ["Git"],
+        "tools": ["Stored Procedures", "REST APIs", "Swagger (OpenAPI)", "Postman", "SSMS"]
+      },
+      "metrics": {
+        "performance": "100+ SP-driven APIs with optimized indexing and relational mapping",
+        "scale": "Normalized schema supporting multi-entity relationships across students, universities, and companies",
+        "reliability": "Transaction-safe SP framework with structured error handling and inter-procedure communication"
+      },
+      "media": {
+        "images": [
+          {
+          }
+        ],
+        "documents": [],
+        "links": ["https://uninestai.com"]
+      },
+      "skillsGained": ["Stored Procedure Architecture", "T-SQL", "OpenAPI/Swagger Documentation", "Business Requirement Analysis", "RBAC Design"],
+      "confidentiality": {
+        "hasRestrictions": true,
+        "notes": "Core architecture and deployment details are proprietary to Keshav Encon Private Limited."
+      }
+    },
+    {
+      "id": "portfolio-website",
+      "sequence": 5,
+      "logo": "Lion logo.png",
+      "title": "Portfolio Website",
+      "shortDescription": "A personal portfolio website with a JSON-driven architecture, CI/CD pipeline, and AWS S3 + CloudFront secured document delivery.",
+      "longDescription": "A personal portfolio website built from scratch to showcase projects, skills, and professional experience. Instead of hardcoding content into HTML/CSS, the entire portfolio is driven by structured JSON files — one per section. Any content update only requires editing the corresponding JSON, and the UI renders it automatically without touching any frontend code. The site is hosted on Vercel with a CI/CD pipeline configured so that every push to the main branch triggers an automatic build and goes live within 10 seconds. Documents and assets are stored in a private AWS S3 bucket wrapped with CloudFront — all public S3 access is blocked, and files are only accessible through the CloudFront distribution.",
+      "category": "fullstack",
+      "type": "personal",
+      "duration": {
+        "durationText": "2025 - Present",
+        "working": "false"
+      },
+      "organization": {
+        "name": null,
+        "type": "personal",
+        "role": "Solo Developer",
+        "teamSize": 1
+      },
+      "problem": {
+        "summary": "Needed a professional online presence that was easy to maintain long-term — updating content shouldn't require touching UI code, and documents needed secure delivery without exposing raw S3 URLs.",
+        "constraints": [
+          "Content updates must not require UI code changes",
+          "Documents must be securely served without exposing the S3 bucket publicly",
+          "Deployments should be instant with zero manual steps"
+        ]
+      },
+      "solution": {
+        "approach": "Built a JSON-driven architecture where each portfolio section reads from its own JSON file. The UI dynamically renders whatever is in the JSON, so content and presentation are fully decoupled. Hosted on Vercel with GitHub CI/CD for automatic deployments, and documents served via CloudFront-wrapped private S3.",
+        "architecture": "React.js SPA with section-level JSON data files, Vercel hosting with GitHub-integrated CI/CD, and AWS S3 + CloudFront for secure private document delivery.",
+        "designPatterns": [
+          "Data-Driven UI (JSON as content layer)",
+          "CI/CD Pipeline",
+          "CDN-Backed Private Asset Delivery"
+        ],
+        "tradeoffs": "JSON-driven approach adds a small layer of data-fetching logic on the frontend but eliminates the need to ever touch UI code for content updates — a worthwhile trade for long-term maintainability."
+      },
+      "features": [
+        {
+          "title": "JSON-Driven Content Architecture",
+          "description": "Each section of the portfolio (projects, experience, skills, etc.) is backed by its own JSON file. The React UI reads and renders it dynamically — no hardcoded content anywhere.",
+          "impact": "Content updates require zero UI code changes; just update the JSON and it reflects live"
+        },
+        {
+          "title": "CI/CD with Vercel + GitHub",
+          "description": "Configured a CI/CD pipeline where every push to the main branch is automatically picked up by Vercel, which builds and deploys the latest version.",
+          "impact": "New version goes live within 10 seconds of pushing to main — zero manual deployment steps"
+        },
+        {
+          "title": "Private S3 Bucket with CloudFront",
+          "description": "All documents and assets are stored in a private AWS S3 bucket with all public access blocked. Files are served exclusively through a CloudFront distribution, keeping the bucket secure.",
+          "impact": "Secure document delivery — S3 bucket is never exposed publicly, all access goes through CloudFront"
+        }
+      ],
+      "challenges": [
+        {
+          "challenge": "Keeping the S3 bucket fully private while still serving documents publicly through the portfolio.",
+          "solution": "Configured CloudFront as the only access point to the S3 bucket using an Origin Access Control (OAC) policy, blocking all direct S3 public access.",
+          "learning": "CloudFront + private S3 is a clean pattern for serving assets securely without exposing storage infrastructure."
+        }
+      ],
+      "techStack": {
+        "languages": ["JavaScript", "HTML", "CSS"],
+        "frameworks": ["React.js", "Tailwind CSS"],
+        "databases": [],
+        "orms": [],
+        "cloud": ["AWS S3", "AWS CloudFront", "Vercel"],
+        "devOps": ["Git", "GitHub", "CI/CD (Vercel)"],
+        "tools": []
+      },
+      "metrics": {
+        "performance": "Deployments go live within 10 seconds of a push to main",
+        "scale": "Fully decoupled content layer — any section can be updated by editing a single JSON file",
+        "reliability": "Private S3 bucket with CloudFront — zero public S3 exposure, secure asset delivery"
+      },
+      "media": {
+        "images": [
+        ],
+        "documents": [],
+        "links": ["https://kuldeepsinhjhala.com/"]
+      },
+      "skillsGained": ["JSON-Driven UI Architecture", "CI/CD Pipeline Setup", "AWS S3 + CloudFront (Private Bucket)", "Vercel Deployment"],
       "confidentiality": {
         "hasRestrictions": false,
         "notes": ""
-      },
-      "custom": {
-        "heading": "Technical Highlights",
-        "image": "/images/projects/crm-custom.png",
-        "data": [
-          "Designed custom database schema following 3NF principles",
-          "Built from-scratch architecture for 100% feature alignment",
-          "Implemented service-repository separation pattern",
-          "Created easily extensible system for new modules"
-        ]
       }
     }
   ]

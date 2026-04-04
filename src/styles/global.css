@@ -39,6 +39,14 @@
   --c-shadow:   #020C1B;
 }
 
+html,
+body,
+#root {
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+}
+
 body {
   background-color: var(--c-bg);
   color: var(--c-body);
@@ -182,6 +190,14 @@ body {
   overflow: hidden;
 }
 
+/* Soft gold halo on page / section titles (subtle, theme-aligned) */
+.section-heading-highlight {
+  padding-top: 3px;
+  text-shadow:
+    0 0 22px rgba(201, 166, 107, 0.14),
+    0 0 44px rgba(201, 166, 107, 0.07);
+}
+
 /* Dotted background pattern for section pages */
 .bg-dotted {
   background-color: var(--c-shadow);
@@ -265,53 +281,86 @@ button:disabled {
   border-color: var(--c-gold);
 }
 
-/* Custom Cursor Styles - Dot + Soft Ring */
-.cursor-dot {
-  width: 8px;
-  height: 8px;
-  background: #ffffff;
-  border-radius: 50%;
+/* Custom cursor: ring + centered dot (see CustomCursor.jsx) */
+.custom-cursor {
   position: fixed;
+  left: 0;
+  top: 0;
+  width: 28px;
+  height: 28px;
+  border: 1.5px solid rgba(201, 166, 107, 0.42);
+  border-radius: 50%;
   pointer-events: none;
-  z-index: 9999;
-  transition: transform 0.05s linear;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
   will-change: transform;
 }
 
-.cursor-ring {
-  width: 30px;
-  height: 30px;
-  border: 1px solid rgba(255, 255, 255, 0.4);
+.custom-cursor__dot {
+  width: 5px;
+  height: 5px;
   border-radius: 50%;
-  position: fixed;
-  pointer-events: none;
-  z-index: 9998;
-  transition: width 0.2s ease-out, height 0.2s ease-out, border-width 0.2s ease-out, opacity 0.2s ease-out, transform 0.15s ease-out;
-  will-change: transform, width, height, border-width, opacity;
-  transform: translate(-15px, -15px);
+  background: var(--c-gold);
+  flex-shrink: 0;
+  transition:
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
 }
 
-/* Custom cursor disabled – native system cursor is always visible.
-   To re-enable the custom cursor, uncomment the block below and add <CustomCursor /> in App.jsx */
+.custom-cursor--clickable .custom-cursor__dot {
+  box-shadow:
+    0 0 6px 2px rgba(201, 166, 107, 0.95),
+    0 0 14px 4px rgba(201, 166, 107, 0.55),
+    0 0 24px 6px rgba(201, 166, 107, 0.25);
+  transform: scale(1.2);
+}
 
-/*
+.custom-cursor--clickable {
+  border-color: rgba(201, 166, 107, 0.72);
+  box-shadow: 0 0 14px rgba(201, 166, 107, 0.18);
+}
+
+.custom-cursor--hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
 @media (pointer: fine) {
   * {
     cursor: none !important;
   }
-  input[type="text"], input[type="email"], input[type="password"], input[type="search"],
-  input[type="url"], input[type="tel"], input[type="number"], textarea, [contenteditable="true"] {
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="search"],
+  input[type="url"],
+  input[type="tel"],
+  input[type="number"],
+  textarea,
+  [contenteditable="true"] {
     cursor: text !important;
   }
-  button:disabled, input:disabled, textarea:disabled, select:disabled {
+  button:disabled,
+  input:disabled,
+  textarea:disabled,
+  select:disabled {
     cursor: not-allowed !important;
   }
-  textarea[resize], iframe {
+  textarea[resize],
+  iframe {
     cursor: auto !important;
   }
 }
+
 @media (pointer: coarse) {
-  .cursor-dot, .cursor-ring { display: none !important; }
-  * { cursor: auto !important; }
+  .custom-cursor {
+    display: none !important;
+  }
+  * {
+    cursor: auto !important;
+  }
 }
-*/

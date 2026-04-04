@@ -1,163 +1,107 @@
 import { useEffect, useRef } from 'react'
 
+const CLICKABLE_SELECTOR = [
+  'a[href]',
+  'button',
+  '[role="button"]',
+  '.cursor-pointer',
+  '.clickable',
+  '[onclick]',
+  'input[type="submit"]',
+  'input[type="button"]',
+  'input[type="reset"]',
+  'input[type="checkbox"]',
+  'input[type="radio"]',
+  'label[for]',
+  'select',
+  'summary',
+  '[tabindex]:not([tabindex="-1"])',
+].join(', ')
+
+function isTextField(el) {
+  if (!el?.matches) return false
+  if (el.matches('textarea, [contenteditable="true"]')) return true
+  if (!el.matches('input')) return false
+  const t = (el.getAttribute('type') || 'text').toLowerCase()
+  return ['text', 'email', 'password', 'search', 'url', 'tel', 'number'].includes(t)
+}
+
+function closestClickable(el) {
+  if (!el?.closest) return null
+  const node = el.closest(CLICKABLE_SELECTOR)
+  if (!node) return null
+  if (node.matches(':disabled') || node.getAttribute('aria-disabled') === 'true') return null
+  if (node.matches('a[href]')) {
+    const href = node.getAttribute('href')
+    if (href == null || href === '') return null
+  }
+  return node
+}
+
 /**
- * CustomCursor - Professional dot + ring cursor with hover effects
- * Disabled on touch devices for accessibility
+ * Custom cursor: thin ring + centered dot; dot glows on clickable targets.
+ * Disabled on coarse pointers (touch).
  */
 function CustomCursor() {
-  const dotRef = useRef(null)
-  const ringRef = useRef(null)
-  const isHoveringRef = useRef(false)
-  const animationFrameRef = useRef(null)
-  const ringSizeRef = useRef(30)
+  const rootRef = useRef(null)
 
   useEffect(() => {
-    // Disable on touch devices
-    if (window.matchMedia('(pointer: coarse)').matches) {
-      return
-    }
+    if (window.matchMedia('(pointer: coarse)').matches) return
 
-    const dot = dotRef.current
-    const ring = ringRef.current
+    const root = rootRef.current
+    if (!root) return
 
-    if (!dot || !ring) return
+    const size = 28
+    const half = size / 2
 
-    let mouseX = 0
-    let mouseY = 0
-    let ringX = window.innerWidth / 2
-    let ringY = window.innerHeight / 2
-
-    // Smooth ring follow with easing (higher value = less lag, faster follow)
-    const ease = 0.35
-
-    const updateRing = () => {
-      const dx = mouseX - ringX
-      const dy = mouseY - ringY
-      
-      ringX += dx * ease
-      ringY += dy * ease
-
-      const size = ringSizeRef.current
-      ring.style.transform = `translate(${ringX - size / 2}px, ${ringY - size / 2}px)`
-
-      animationFrameRef.current = requestAnimationFrame(updateRing)
+    const setPosition = (clientX, clientY) => {
+      root.style.transform = `translate(${clientX - half}px, ${clientY - half}px)`
     }
 
     const handleMouseMove = (e) => {
-      mouseX = e.clientX
-      mouseY = e.clientY
-
-      // Dot follows instantly (offset by half of dot size: 8px / 2 = 4px)
-      dot.style.transform = `translate(${mouseX - 4}px, ${mouseY - 4}px)`
-
-      // Start ring animation if not already running
-      if (!animationFrameRef.current) {
-        updateRing()
-      }
+      setPosition(e.clientX, e.clientY)
     }
 
-    const handleMouseDown = () => {
-      if (ring) {
-        const currentSize = ringSizeRef.current
-        ring.style.transform = `translate(${ringX - currentSize / 2}px, ${ringY - currentSize / 2}px) scale(0.9)`
-        ring.style.transition = 'transform 0.1s ease-out'
-      }
-    }
-
-    const handleMouseUp = () => {
-      if (ring) {
-        const currentSize = ringSizeRef.current
-        ring.style.transform = `translate(${ringX - currentSize / 2}px, ${ringY - currentSize / 2}px) scale(1)`
-        ring.style.transition = 'transform 0.2s ease-out'
-      }
-    }
-
-    // Handle hover states for clickable elements
-    const handleMouseEnter = () => {
-      if (ring && !isHoveringRef.current) {
-        isHoveringRef.current = true
-        ringSizeRef.current = 44
-        ring.style.width = '44px'
-        ring.style.height = '44px'
-        ring.style.borderWidth = '1.5px'
-        ring.style.opacity = '0.6'
-        ring.style.transition = 'width 0.2s ease-out, height 0.2s ease-out, border-width 0.2s ease-out, opacity 0.2s ease-out'
-      }
-    }
-
-    const handleMouseLeave = () => {
-      if (ring && isHoveringRef.current) {
-        isHoveringRef.current = false
-        ringSizeRef.current = 30
-        ring.style.width = '30px'
-        ring.style.height = '30px'
-        ring.style.borderWidth = '1px'
-        ring.style.opacity = '0.4'
-        ring.style.transition = 'width 0.2s ease-out, height 0.2s ease-out, border-width 0.2s ease-out, opacity 0.2s ease-out'
-      }
-    }
-
-    // Add event listeners
-    document.addEventListener('mousemove', handleMouseMove)
-    document.addEventListener('mousedown', handleMouseDown)
-    document.addEventListener('mouseup', handleMouseUp)
-
-    // Use event delegation for better performance
-    const handleDocumentMouseOver = (e) => {
-      const target = e.target
-
-      // Check if hovering over text input/textarea (use native cursor)
-      const isTextInput = target.matches('input[type="text"], input[type="email"], input[type="password"], input[type="search"], input[type="url"], input[type="tel"], input[type="number"], textarea, [contenteditable="true"]')
-      
-      if (isTextInput) {
-        if (dot) dot.style.display = 'none'
-        if (ring) ring.style.display = 'none'
+    const updateHover = (target) => {
+      const textNode = target.closest?.('input, textarea, [contenteditable="true"]')
+      if (textNode && isTextField(textNode)) {
+        root.classList.add('custom-cursor--hidden')
+        root.classList.remove('custom-cursor--clickable')
         return
       }
 
-      // Show cursor for other elements
-      if (dot) dot.style.display = 'block'
-      if (ring) ring.style.display = 'block'
+      root.classList.remove('custom-cursor--hidden')
 
-      // Check if hovering over clickable element
-      const isClickable = target.matches('a, button, [role="button"], .cursor-pointer, [onClick], input[type="submit"], input[type="button"], input[type="reset"], label[for], select, [tabindex]:not([tabindex="-1"])') ||
-        target.closest('a, button, [role="button"], .cursor-pointer, [onClick], input[type="submit"], input[type="button"], input[type="reset"], label[for], select')
-
-      if (isClickable) {
-        handleMouseEnter()
+      if (closestClickable(target)) {
+        root.classList.add('custom-cursor--clickable')
       } else {
-        handleMouseLeave()
+        root.classList.remove('custom-cursor--clickable')
       }
     }
 
-    document.addEventListener('mouseover', handleDocumentMouseOver)
+    const handleMouseOver = (e) => {
+      updateHover(e.target)
+    }
 
-    // Initialize ring position
-    updateRing()
+    setPosition(window.innerWidth / 2, window.innerHeight / 2)
 
-    // Cleanup
+    document.addEventListener('mousemove', handleMouseMove)
+    document.addEventListener('mouseover', handleMouseOver)
+
     return () => {
       document.removeEventListener('mousemove', handleMouseMove)
-      document.removeEventListener('mousedown', handleMouseDown)
-      document.removeEventListener('mouseup', handleMouseUp)
-      document.removeEventListener('mouseover', handleDocumentMouseOver)
-      
-      if (animationFrameRef.current) {
-        cancelAnimationFrame(animationFrameRef.current)
-      }
+      document.removeEventListener('mouseover', handleMouseOver)
     }
   }, [])
 
-  // Don't render on touch devices
   if (typeof window !== 'undefined' && window.matchMedia('(pointer: coarse)').matches) {
     return null
   }
 
   return (
-    <>
-      <div ref={dotRef} className="cursor-dot" />
-      <div ref={ringRef} className="cursor-ring" />
-    </>
+    <div ref={rootRef} className="custom-cursor" aria-hidden="true">
+      <span className="custom-cursor__dot" />
+    </div>
   )
 }
 

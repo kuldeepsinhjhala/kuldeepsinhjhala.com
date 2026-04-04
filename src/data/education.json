@@ -1,19 +1,17 @@
 {
   "meta": {
-    "title": "Education",
-    "subtitle": "Academic background, certifications, and continuous learning journey",
-    "description": "Detailed overview of formal education, academic projects, certifications, and online courses that shaped my foundation as a software engineer and backend-focused full stack developer."
+    "title": "Education"
   },
   "degrees": [
     {
       "id": "bachelor-computer-science",
+      "sequence": 3,
       "degree": "Bachelor of Engineering (B.E.)",
       "field": "Computer Science & Engineering",
       "level": "bachelor",
       "institution": {
         "name": "The Maharaja Sayajirao University of Baroda (MSU)",
         "type": "university",
-        "affiliation": "MSU Baroda",
         "location": {
           "city": "Vadodara",
           "state": "Gujarat",
@@ -34,61 +32,62 @@
         "grade": "First class with distinction",
         "rank": null
       },
-      "description": "Bachelor of Engineering in Computer Science & Engineering with a focus on backend development, system design, databases, and scalable application architecture. Sept 2022 – May 2025.",
+      "description": "Bachelor of Engineering in Computer Science & Engineering from The Maharaja Sayajirao University of Baroda (Sep 2022 – May 2025). Worked on production-grade software products throughout the degree — built ResumeeAI as a final year project during 7th and 8th semester, receiving Best Project recognition from the university. Founded and led Code Vimarsh, a student-led technical community, as Vice President during the final years.",
       "relevantCoursework": [
         "Software Engineering",
         "Web Technologies",
-        "Database Systems",
+        "Database Management Systems",
         "Cloud Computing",
+        "Operating Systems",
+        "Computer Networks",
+        "Data Structures & Algorithms",
         "System Design"
       ],
-      "projects": [],
+      "projects": [
+        {
+          "name": "ResumeeAI",
+          "description": "AI-based resume builder built as a final year project during 7th and 8th semester at Keshav Encon. Designed system architecture, database schema, RESTful APIs, OAuth 2.0 authentication, and integrated Gemini AI and locally fine-tuned Mistral-7B LLM.",
+          "outcome": "Received Best Project recognition from The Maharaja Sayajirao University of Baroda."
+        }
+      ],
       "achievements": [
-        "Strong academic performance while working on backend-focused projects",
-        "Applied theoretical concepts to real-world software systems"
+        "Best Project Award — ResumeeAI recognized as Best Final Year Project by The Maharaja Sayajirao University of Baroda",
+        "Founded and led Code Vimarsh — a student-led technical community at MSU with 300–400 students at inauguration",
+        "Built an alumni guidance network at Code Vimarsh with professionals from Google, Microsoft, and cybersecurity domains"
       ],
       "certifications": [],
       "status": {
-        "completed": false,
-        "current": true
+        "completed": true,
+        "current": false
       },
-      "custom": {
-        "scholarships": [],
-        "exchangePrograms": []
-      },
-      "marksheets": [
-        {
-          "id": "bachelor-sem1",
-          "name": "Semester 1 Marksheet",
-          "semester": "1",
-          "year": "2022",
-          "image": "/images/marksheets/bachelor-sem1.jpg"
-        },
-        {
-          "id": "bachelor-sem2",
-          "name": "Semester 2 Marksheet",
-          "semester": "2",
-          "year": "2023",
-          "image": "/images/marksheets/bachelor-sem2.jpg"
-        }
-      ],
-      "degreeDocuments": [
-        {
-          "id": "bachelor-degree",
-          "name": "Degree Certificate",
-          "image": "/images/degree/bachelor-degree.jpg"
-        }
-      ]
+      "media": {
+        "images": [
+          {
+            "url": "https://d2dhxmagz6qgkm.cloudfront.net/images/1775330950581-MSU-Degree.jpg",
+            "alt": "The Maharaja Sayajirao University of Baroda",
+            "label": "MSU Degree"
+          }
+        ],
+        "documents": [
+          {
+            "label": "Best Project Recognition Certificate",
+            "url": "https://d2dhxmagz6qgkm.cloudfront.net/images/1775327896122-best_project_final_year.jpg"
+          }
+        ],
+        "links": [
+          "https://www.msubaroda.ac.in"
+        ]
+      }
     },
     {
       "id": "diploma-computer-engineering",
+      "sequence": 2,
       "degree": "Diploma in Computer Science",
       "field": "Computer Science and Engineering",
       "level": "diploma",
       "institution": {
         "name": "Gujarat Technological University (GTU)",
         "type": "university",
-        "affiliation": "GTU",
         "location": {
           "city": "Ahmedabad",
           "state": "Gujarat",
@@ -103,24 +102,29 @@
         "graduationDate": "2022-06-15"
       },
       "performance": {
+        "gpa": "9.67",
+        "gpaScale": "10",
         "percentage": null,
         "grade": "9.67 CGPA",
-        "rank": null
+        "rank": "Institute Topper (1st)"
       },
-      "description": "Completed a diploma in Computer Science (Jan 2019 – Jun 2022). Built a solid foundation in programming, databases, and core engineering subjects.",
+      "description": "Diploma in Computer Science from Gujarat Technological University (Jan 2019 – Jun 2022). Graduated as Institute Topper with 9.67 CGPA, achieving 10 SPI in both 5th and 6th semester. Built a strong foundation in programming, databases, computer networks, and core engineering subjects. Won the Inter-College Web Development competition during the diploma.",
       "relevantCoursework": [
         "Programming Fundamentals",
         "Data Structures",
         "Database Management Systems",
         "Computer Networks",
-        "Operating Systems"
+        "Operating Systems",
+        "Web Development",
+        "Software Engineering"
       ],
       "projects": [],
       "achievements": [
-        "Institute Topper (1st)",
-        "Sem 5th & 6th — 10 SPI",
-        "Inter-college Web Development Winner",
-        "Fireless Cooking Winner"
+        "Institute Topper — 1st rank at GTU Diploma",
+        "10 SPI in 5th Semester (Dec 2021)",
+        "10 SPI in 6th Semester (Jun 2022)",
+        "Inter-College Web Development Winner",
+        "Academic Ranking in GTU Diploma Examination"
       ],
       "certifications": [
         {
@@ -137,46 +141,64 @@
         "current": false
       },
       "custom": {
-        "scholarships": [],
-        "exchangePrograms": [],
         "testScores": [
-          { "semester": "6", "score": "10 SPI", "date": "2022-06", "description": "10 SPI in 6th semester of Diploma in Computer Engineering." },
-          { "semester": "5", "score": "10 SPI", "date": "2021-12", "description": "10 SPI in 5th semester of Diploma Engineering." }
+          {
+            "semester": "6",
+            "score": "10 SPI",
+            "date": "2022-06",
+            "description": "10 SPI in 6th semester of Diploma in Computer Engineering."
+          },
+          {
+            "semester": "5",
+            "score": "10 SPI",
+            "date": "2021-12",
+            "description": "10 SPI in 5th semester of Diploma Engineering."
+          }
         ]
       },
-      "marksheets": [
-        {
-          "id": "diploma-sem1",
-          "name": "Semester 1 Marksheet",
-          "semester": "1",
-          "year": "2019",
-          "image": "/images/marksheets/diploma-sem1.jpg"
-        },
-        {
-          "id": "diploma-sem2",
-          "name": "Semester 2 Marksheet",
-          "semester": "2",
-          "year": "2020",
-          "image": "/images/marksheets/diploma-sem2.jpg"
-        }
-      ],
-      "degreeDocuments": [
-        {
-          "id": "diploma-degree",
-          "name": "Degree Certificate",
-          "image": "/images/degree/diploma-degree.jpg"
-        }
-      ]
+      "media": {
+        "images": [
+        ],
+        "documents": [
+          {
+            "label": "Diploma Degree",
+            "url": "https://d2dhxmagz6qgkm.cloudfront.net/images/1775331252040-gtu-degree.jpg"
+          },
+          {
+            "label": "5th Semester Marksheet 10 SPI",
+            "url": "https://d2dhxmagz6qgkm.cloudfront.net/images/1775331301479-gtu-marksheet-sem-5.jpg"
+          },
+          {
+            "label": "6th Semester Marksheet 10 SPI",
+            "url": "https://d2dhxmagz6qgkm.cloudfront.net/images/1775331336294-gtu-marksheet-sem-6.jpg"
+          },
+          {
+            "label": "12th Equivalency Certificate",
+            "url": "https://d2dhxmagz6qgkm.cloudfront.net/images/1775331188859-gtu-12-equivalency-certificate.jpg"
+          },
+          {
+            "label": "CGPA to Percentage Certificate",
+            "url": "https://d2dhxmagz6qgkm.cloudfront.net/images/1775331219676-gtu-cgpa-to-percentage.jpg"
+          },
+          {
+            "label": "Secured 1st rank in SPI, 32nd rank in CGPA, and 38th rank in CPI in the GTU Diploma examination, reflecting consistent academic excellence and strong overall performance.",
+            "url": "https://d2dhxmagz6qgkm.cloudfront.net/images/1775331378519-gtu-rank-certificate.jpg"
+          }
+        ],
+        "links": [
+          "https://www.gtu.ac.in"
+        ]
+      }
     },
     {
       "id": "school-baroda-high-school-alkapuri",
+      "sequence": 1,
       "degree": "Primary and Secondary Schooling",
       "field": "LKG to 10th",
       "level": "school",
       "institution": {
         "name": "Baroda High School, Alkapuri",
         "type": "school",
-        "affiliation": "GSEB",
         "location": {
           "city": "Vadodara",
           "state": "Gujarat",
@@ -196,7 +218,7 @@
         "grade": "83%",
         "rank": null
       },
-      "description": "Primary and secondary schooling from LKG to 10th at Baroda High School, Alkapuri (2007 – 2019). Highly involved in NCC activities and gave my best in studies with true hard work and discipline, aimed a good score in academics as well as achieved a lot at national level.",
+      "description": "Primary and secondary schooling from LKG to 10th at Baroda High School, Alkapuri (2007 – 2019). Highly involved in NCC activities under the Indian Navy wing, representing Gujarat Directorate at the Republic Day Camp (RDC) in Delhi 2018 and marching at the Prime Minister Rally. Maintained strong academics alongside national-level extracurricular commitments.",
       "relevantCoursework": [
         "Mathematics",
         "Science",
@@ -206,9 +228,10 @@
       ],
       "projects": [],
       "achievements": [
-        "Indian Navy — NCC (National Cadet Corps) India",
-        "Attended RDC Delhi (Republic Day Camp) 2018",
-        "Marched in PM Delhi (Prime Minister) Rally",
+        "NCC (National Cadet Corps) — Indian Navy wing, 2 Gujarat Naval Unit",
+        "Selected to represent Gujarat Directorate at RDC (Republic Day Camp) Delhi 2018 after 6 months of training",
+        "Marched at PM (Prime Minister) Rally, Cariappa Parade Ground, Delhi 2018",
+        "Met Admiral Sunil Lanba, 23rd Chief of the Naval Staff of the Indian Navy",
         "Gujarat Best Cadet",
         "Head of Computer Department, BHS Alkapuri Higher Secondary Section"
       ],
@@ -218,7 +241,7 @@
           "name": "NCC ex-cadet | RDC (Republic Day Camp) Delhi 2018 | PM (Prime Minister) Rally Delhi",
           "issuer": "NCC (National Cadet Corps) Ministry of Defence India",
           "issueDate": "2018-01",
-          "description": "It gave me a chance to stay with our Indian Officers at Delhi, also met Admiral Sunil Lanba, 23rd Chief of the Naval Staff of the Indian Navy. Also marched on CARIAPPA PARADE GROUND in Prime Minister Rally 2018. Got a chance to meet Prime Minister of India. With hardwork, dedication and training period of 6 months I got selected and represented Gujarat Directorate of NCC, from 2 Gujarat Naval Unit NCC.",
+          "description": "Selected to represent Gujarat Directorate of NCC from 2 Gujarat Naval Unit NCC after 6 months of rigorous training. Stayed with Indian Officers at Delhi, met Admiral Sunil Lanba (23rd Chief of the Naval Staff of the Indian Navy), and marched on Cariappa Parade Ground at the Prime Minister Rally 2018. Got a chance to meet the Prime Minister of India.",
           "status": "active"
         }
       ],
@@ -230,31 +253,27 @@
         "medium": "English",
         "board": "GSEB"
       },
-      "marksheets": [
-        {
-          "id": "school-10th",
-          "name": "10th Standard Marksheet",
-          "semester": null,
-          "year": "2019",
-          "image": "/images/marksheets/school-10th.jpg"
-        }
-      ],
-      "degreeDocuments": [
-        {
-          "id": "school-10th-cert",
-          "name": "10th Passing Certificate",
-          "image": "/images/degree/school-10th.jpg"
-        }
-      ]
+      "media": {
+        "images": [
+        ],
+        "documents": [
+          {
+            "label": "NCC A Certificate",
+            "url": "https://d2dhxmagz6qgkm.cloudfront.net/images/1775331445881-ncc-A-certificate.jpg"
+          },
+          {
+            "label": "NCC RDC Certificate 1",
+            "url": "https://d2dhxmagz6qgkm.cloudfront.net/images/1775331478535-ncc-certificate-1.jpg"
+          },
+          {
+            "label": "NCC RDC Certificate 2",
+            "url": "https://d2dhxmagz6qgkm.cloudfront.net/images/1775331499979-ncc-certificate-2.jpg"
+          }
+        ],
+        "links": [
+          "https://barodahighschool.com/"
+        ]
+      }
     }
-  ],
-  "certifications": [],
-  "onlineCourses": [],
-  "skillsGained": [
-    "Problem Solving",
-    "Backend Development",
-    "Database Design",
-    "System Thinking",
-    "Software Engineering Fundamentals"
   ]
 }

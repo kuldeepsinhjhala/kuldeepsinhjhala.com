@@ -1,13 +1,23 @@
-import { useMemo } from 'react'
+import { useId, useMemo } from 'react'
 import AchievementCard from './AchievementCard'
 import SkillsList from './SkillsList'
-import ReflectionCard from './ReflectionCard'
+import { isJourneyItemHighlighted } from '../../utils/journeyItemUtils'
+import { getJourneyOrgLogoImgStyle, resolveJourneyLogo } from '../../utils/resolveJourneyLogo'
+import { isExpandCardClickIgnoredTarget } from '../../utils/expandCardClick'
+import MediaPreviewGrid from '../media/MediaPreviewGrid'
+import {
+  combinedMediaPreviewEntries,
+  mediaBlockHasRenderableContent,
+  partitionDocumentEntries,
+} from '../../utils/projectMedia'
 
 /**
  * JourneyTimelineItem - Reusable component for displaying a timeline entry
- * Shows all details of a journey milestone including time, organization, activities, achievements, skills, and reflections
+ * Shows all details of a journey milestone including time, organization, activities, achievements, and skills.
+ * @param {boolean} [expanded=true] When `onToggle` is set, controls open state.
+ * @param {() => void} [onToggle] If set, summary + chevron expand/collapse (single card).
  */
-function JourneyTimelineItem({ item = {}, index = 0 }) {
+function JourneyTimelineItem({ item = {}, index = 0, expanded = true, onToggle }) {
   if (!item || !item.id) return null
 
   // Get icon component
@@ -58,54 +68,71 @@ function JourneyTimelineItem({ item = {}, index = 0 }) {
     if (time.startDate && time.endDate) {
       return `${formatDate(time.startDate)} - ${formatDate(time.endDate)}`
     }
-    if (time.year && time.month) {
-      return `${time.month} ${time.year}`
-    }
-    if (time.year) {
-      return time.year
-    }
     return ''
   }, [item.time])
 
-  const isFeatured = item.status?.featured || item.status?.highlighted
+  const isHighlighted = isJourneyItemHighlighted(item)
   const iconName = item.icon || 'briefcase'
   const color = item.color || 'blue'
+  const orgLogoSrc = resolveJourneyLogo(item.organization?.logo)
+  const mediaExtLinks = Array.isArray(item.media?.links) ? item.media.links : []
+  const hasMediaBlock = mediaBlockHasRenderableContent(item.media)
+  const previewEntries = combinedMediaPreviewEntries(item.media)
+  const { otherDocuments } = partitionDocumentEntries(item.media?.documents)
+
+  const collapsible = typeof onToggle === 'function'
+  const isOpen = collapsible ? expanded : true
+  const panelId = useId()
 
   return (
     <div
       className={`
         relative bg-card/90 backdrop-blur-sm border rounded-lg p-3 sm:p-4 md:p-6 lg:p-8
         transition-all duration-300 shadow-lg
-        ${isFeatured ? 'border-gold ring-2 ring-gold/30' : 'border-gold/20'}
-        ${isFeatured ? 'hover:ring-gold/50' : 'hover:border-gold hover:ring-1 hover:ring-gold/50'}
+        ${isHighlighted ? 'border-gold ring-2 ring-gold/30' : 'border-gold/20'}
+        ${isHighlighted ? 'hover:ring-gold/50' : 'hover:border-gold hover:ring-1 hover:ring-gold/50'}
+        ${collapsible && !isOpen ? 'cursor-pointer' : ''}
       `}
       style={{
         boxShadow: '0 10px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(201, 166, 107, 0.05)'
       }}
+      onClick={
+        collapsible && !isOpen
+          ? (e) => {
+              if (isExpandCardClickIgnoredTarget(e.target)) return
+              onToggle?.()
+            }
+          : undefined
+      }
     >
-      {/* Featured Badge - Stacked on small screens, absolute on larger screens */}
-      {isFeatured && (
-        <div className="relative mb-3 sm:mb-0 sm:absolute sm:top-2 sm:left-2 md:top-3 md:left-3 lg:top-4 lg:left-4 z-10 flex justify-start">
-          <span className="px-2 py-1 bg-gold/20 backdrop-blur-sm text-gold text-xs font-medium rounded border border-gold/30 shadow-sm whitespace-nowrap">
-            Featured
-          </span>
-        </div>
-      )}
+      {/* Header + optional chevron (same card; no nested card) */}
+      <div className="flex items-start gap-3 sm:gap-4 min-w-0 mb-6">
+        <div className="flex flex-col md:flex-row gap-4 md:gap-6 flex-1 min-w-0">
+          {/* Org logo / type icon: road view hides until expanded (JourneyRoad passes onToggle). */}
+          {(!collapsible || isOpen) && (
+            <div className="flex-shrink-0">
+              <div className="w-12 h-12 rounded-lg bg-gold/10 flex items-center justify-center text-gold overflow-hidden border border-gold/15">
+                {orgLogoSrc ? (
+                  <img
+                    src={orgLogoSrc}
+                    alt={item.organization?.name ? `${item.organization.name} logo` : 'Organization logo'}
+                    className="w-full h-full object-contain p-1"
+                    style={getJourneyOrgLogoImgStyle(item.organization?.logo)}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                ) : (
+                  getIcon(iconName)
+                )}
+              </div>
+            </div>
+          )}
 
-      {/* Header Section */}
-      <div className="flex flex-col md:flex-row gap-4 md:gap-6 mb-6">
-        {/* Icon */}
-        <div className="flex-shrink-0">
-          <div className="w-12 h-12 rounded-lg bg-gold/10 flex items-center justify-center text-gold">
-            {getIcon(iconName)}
-          </div>
-        </div>
-
-        {/* Title and Time */}
-        <div className="flex-1 min-w-0">
+          {/* Title and Time */}
+          <div className="flex-1 min-w-0">
           {/* Time Period - Stack vertically on small screens */}
           {timePeriod && (
-            <div className={`mb-2 ${isFeatured ? 'sm:pr-12 md:pr-0' : ''}`}>
+            <div className="mb-2">
               <div className="flex flex-col sm:flex-row items-start sm:items-center gap-1 sm:gap-2">
                 <span className="inline-block px-2 sm:px-3 py-1 bg-gold/10 text-gold text-xs font-medium rounded border border-gold/20 break-words">
                   {timePeriod}
@@ -175,16 +202,66 @@ function JourneyTimelineItem({ item = {}, index = 0 }) {
               </span>
             </div>
           )}
+          </div>
         </div>
+
+        {collapsible && (
+          <button
+            type="button"
+            onClick={() => onToggle?.()}
+            className="flex-shrink-0 flex items-center justify-center min-h-9 min-w-9 mt-0.5 rounded-md text-gold/90 hover:text-gold hover:bg-gold/10 border border-transparent hover:border-gold/20 transition-colors"
+            aria-expanded={isOpen}
+            aria-controls={collapsible ? panelId : undefined}
+            aria-label={isOpen ? `Collapse ${item.title || 'journey step'}` : `Expand ${item.title || 'journey step'}`}
+          >
+            <svg
+              className={`w-4 h-4 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              aria-hidden
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+        )}
       </div>
 
       {/* Description */}
       {item.description && (
-        <p className="text-body text-sm md:text-base mb-6 leading-relaxed">
+        <p
+          className={`text-body text-sm md:text-base mb-6 leading-relaxed ${
+            collapsible && !isOpen ? 'line-clamp-2' : ''
+          }`}
+        >
           {item.description}
         </p>
       )}
 
+      {/* Collapsed: skill preview only */}
+      {collapsible && !isOpen && item.skills && Array.isArray(item.skills) && item.skills.length > 0 && (
+        <div className="flex flex-wrap gap-2 mb-2 justify-center md:justify-start">
+          {item.skills.slice(0, 2).map((skill, idx) => (
+            <span
+              key={idx}
+              className="px-2 py-1 bg-card/80 backdrop-blur-sm text-body text-xs rounded border border-gold/10 shadow-sm"
+            >
+              {skill}
+            </span>
+          ))}
+          {item.skills.length > 2 && (
+            <span className="px-2 py-1 text-body text-xs self-center">+{item.skills.length - 2} more</span>
+          )}
+        </div>
+      )}
+
+      {/* Expanded (or non-collapsible): full body */}
+      <div
+        id={collapsible ? panelId : undefined}
+        role={collapsible ? 'region' : undefined}
+        aria-label={collapsible ? `Details for ${item.title || 'journey step'}` : undefined}
+        className={collapsible && !isOpen ? 'hidden' : undefined}
+      >
       {/* Activities */}
       {item.activities && Array.isArray(item.activities) && item.activities.length > 0 && (
         <div className="mb-6">
@@ -212,46 +289,110 @@ function JourneyTimelineItem({ item = {}, index = 0 }) {
         </div>
       )}
 
-      {/* Skills */}
-      {item.skills && Array.isArray(item.skills) && item.skills.length > 0 && (
+      {/* Skills (full list when open; collapsible preview handled above) */}
+      {item.skills && Array.isArray(item.skills) && item.skills.length > 0 && (!collapsible || isOpen) && (
         <div className="mb-6">
           <SkillsList skills={item.skills} />
         </div>
       )}
 
-      {/* Reflection */}
-      {item.reflection && (
-        <div className="mb-6">
-          <ReflectionCard reflection={item.reflection} />
+      {/* Media: images, documents, links */}
+      {hasMediaBlock && (
+        <div className="pt-4 border-t border-gold/10 space-y-4">
+          {previewEntries.length > 0 && (
+            <div>
+              <h4 className="text-head text-sm font-semibold mb-2">Media</h4>
+              <MediaPreviewGrid
+                entries={previewEntries}
+                resolveSrc={(u) => resolveJourneyLogo(u) || u}
+                imgStyle={(raw) => getJourneyOrgLogoImgStyle(raw)}
+                defaultAlt="Journey media"
+              />
+            </div>
+          )}
+          {otherDocuments.length > 0 && (
+            <div>
+              <h4 className="text-head text-sm font-semibold mb-2">Documents</h4>
+              <div className="flex flex-wrap gap-2">
+                {otherDocuments.map((entry, idx) => {
+                  const rawUrl = entry?.url
+                  if (!rawUrl) return null
+                  const url = resolveJourneyLogo(rawUrl) || rawUrl
+                  const label = entry.label || 'Document'
+                  return (
+                    <a
+                      key={idx}
+                      href={url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-3 py-1.5 bg-card/80 backdrop-blur-sm text-body text-xs rounded border border-gold/10 hover:border-gold/30 hover:text-gold hover:ring-1 hover:ring-gold/30 transition-all shadow-sm"
+                      style={{
+                        boxShadow:
+                          '0 2px 8px rgba(0, 0, 0, 0.15), 0 0 5px rgba(201, 166, 107, 0.03)',
+                      }}
+                    >
+                      <span className="flex items-center gap-1.5">
+                        <svg
+                          className="w-3.5 h-3.5 flex-shrink-0 text-gold"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"
+                          />
+                        </svg>
+                        {label}
+                      </span>
+                    </a>
+                  )
+                })}
+              </div>
+            </div>
+          )}
+          {mediaExtLinks.length > 0 && (
+            <div>
+              <h4 className="text-head text-sm font-semibold mb-2">Links</h4>
+              <div className="flex flex-wrap gap-2">
+                {mediaExtLinks.map((link, idx) => (
+                  <a
+                    key={idx}
+                    href={link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-3 py-1.5 bg-card/80 backdrop-blur-sm text-body text-xs rounded border border-gold/10 hover:border-gold/30 hover:text-gold hover:ring-1 hover:ring-gold/30 transition-all shadow-sm cursor-pointer"
+                    style={{
+                      boxShadow:
+                        '0 2px 8px rgba(0, 0, 0, 0.15), 0 0 5px rgba(201, 166, 107, 0.03)',
+                    }}
+                  >
+                    <span className="flex items-center gap-1">
+                      <svg
+                        className="w-3 h-3"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                        />
+                      </svg>
+                      {new URL(link).hostname.replace('www.', '')}
+                    </span>
+                  </a>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       )}
-
-      {/* Media Links */}
-      {item.media?.links && Array.isArray(item.media.links) && item.media.links.length > 0 && (
-        <div className="pt-4 border-t border-gold/10">
-          <div className="flex flex-wrap gap-2">
-            {item.media.links.map((link, idx) => (
-              <a
-                key={idx}
-                href={link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-3 py-1.5 bg-card/80 backdrop-blur-sm text-body text-xs rounded border border-gold/10 hover:border-gold/30 hover:text-gold hover:ring-1 hover:ring-gold/30 transition-all shadow-sm cursor-pointer"
-                style={{
-                  boxShadow: '0 2px 8px rgba(0, 0, 0, 0.15), 0 0 5px rgba(201, 166, 107, 0.03)'
-                }}
-              >
-                <span className="flex items-center gap-1">
-                  <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                  </svg>
-                  {new URL(link).hostname.replace('www.', '')}
-                </span>
-              </a>
-            ))}
-          </div>
-        </div>
-      )}
+      </div>
     </div>
   )
 }

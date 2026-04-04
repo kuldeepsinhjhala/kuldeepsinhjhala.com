@@ -1,80 +1,42 @@
 {
   "meta": {
-    "title": "Kuldeepsinh Jhala | Full Stack Developer (Node.js & AWS)",
-    "subtitle": "End-to-end software engineer building scalable, secure, cloud-native systems",
-    "description": "Personal portfolio of Kuldeepsinh Jhala, a software engineer with 2+ years of experience delivering complete software solutions — from requirements gathering to AWS cloud deployment — with strong backend, frontend, and system design expertise.",
+    "title": "Kuldeepsinh Jhala | AI-Driven Full Stack Developer (Node.js & AWS)",
     "language": "en",
-    "lastUpdated": "2026-01-21",
-    "version": "v1.1"
+    "lastUpdated": "2026-04-04",
+    "version": "v1.3"
   },
   "hero": {
     "greeting": "Hi, my name is",
     "name": "Kuldeepsinh Jhala",
-    "designation": "Full Stack Developer",
-    "tagline": "Designing, building, and deploying complete software systems on the cloud",
-    "subtitle": "Backend-focused full stack engineer with strong frontend development and AWS deployment experience.",
-    "description": "I am a software engineer experienced in delivering end-to-end software solutions — from understanding client requirements and designing system architecture to building secure, scalable applications and deploying them on AWS cloud infrastructure. My work focuses on clean and maintainable code, scalable backend systems, well-structured frontend applications, and production-ready deployments.",
+    "designation": "AI-Driven Full Stack Developer",
+    "tagline": "Building scalable AI-powered software systems with strong backend architecture",
+    "description": "Software engineer with end-to-end product development experience — from requirement analysis and system design to building scalable backend systems, integrating AI (LLMs), and deploying production-grade applications on AWS. Focused on clean architecture, high-performance databases, secure authentication, and automation of manual workflows using AI.",
     "profile": {
       "image": "/images/profile/kuldeep-profile.png",
       "alt": "Kuldeepsinh Jhala profile photo"
+    },
+    "slogan": {
+      "line1": "कर्मण्येवाधिकारस्ते",
+      "line2": "Obsessed with execution. Detached from outcomes.",
+      "line3": "~Bhagwat gita."
     }
   },
   "stats": [
     {
       "id": "experience",
       "label": "Years of Experience",
-      "value": "2",
+      "value": "2.5",
       "suffix": "+",
-      "description": "Professional experience building, deploying, and maintaining full stack software systems.",
       "icon": "briefcase"
     },
     {
       "id": "projects",
-      "label": "End-to-End Deployments",
-      "value": "2",
+      "label": "End-to-End Products Built",
+      "value": "3",
       "suffix": "+",
-      "description": "Projects delivered from requirements gathering to AWS cloud deployment.",
       "icon": "layers"
-    },
-    {
-      "id": "cloud",
-      "label": "Cloud Projects",
-      "value": "1",
-      "suffix": "+",
-      "description": "Production deployments using AWS EC2, RDS, dynamoDB, lambda functions, and S3.",
-      "icon": "cloud"
     }
   ],
-  "currentFocus": {
-    "label": "My Expertise",
-    "items": [
-      {
-        "title": "AI Applications with LLMs",
-        "description": "Design and build applications powered by large language models to solve real-world problems. Work includes prompt design, data processing pipelines, API integration, and building systems that convert unstructured information into structured outputs and actionable insights.",
-        "icon": "Brain"
-      },
-      {
-        "title": "End-to-End Software Delivery",
-        "description": "Translate client requirements into complete software systems. Handle architecture design, backend development (Node.js), frontend interfaces (React), database design (MSSQL/DynamoDB), AWS deployment (Lambda, EC2, RDS, S3), logging, and full technical documentation.",
-        "icon": "Workflow"
-      },
-      {
-        "title": "Scalable Backend Architecture",
-        "description": "Build scalable backend systems using Node.js with a clean layered architecture (routes, controllers, services, repositories, models). Develop secure REST APIs with JWT authentication and role-based access control. Design efficient database structures using MSSQL, ORM, and stored procedures, while implementing proper logging, error handling, and maintainable documentation.",
-        "icon": "server"
-      },
-      {
-        "title": "AWS Production Deployments",
-        "description": "Deploy and manage production applications on AWS using EC2, RDS, S3, and Lambda. Configure servers, manage databases, handle environment setup, monitoring, logging, and maintain secure and reliable cloud infrastructure for scalable applications.",
-        "icon": "cloud"
-      },
-      {
-        "title": "Frontend Performance & Structure",
-        "description": "Build structured React applications with clear component separation and maintainable codebases. Implement validations, basic security practices, and optimize performance through efficient state management and reusable components while considering SEO-friendly structure and accessibility.",
-        "icon": "zap"
-      }
-    ]
-  },
   "techStack": {
     "title": "Technology Stack",
     "categories": [
@@ -82,17 +44,12 @@
         "name": "Frontend",
         "items": [
           "React",
-          "Next.js",
-          "TypeScript",
-          "Redux / Zustand",
+          "Redux",
           "Tailwind CSS",
           "Responsive Design",
           "Component Architecture",
-          "Performance Optimization",
-          "SEO & Accessibility",
-          "Client-side State Management",
           "API Integration",
-          "Frontend Security & Validation"
+          "Frontend Validation & Security"
         ]
       },
       {
@@ -101,65 +58,56 @@
           "Node.js",
           "Express.js",
           "REST API Design",
-          "Microservices Architecture",
+          "Modular Architecture",
           "JWT Authentication",
-          "OAuth & Secure Sessions",
-          "Role-Based Access Control (RBAC)",
-          "Feature-Based Authorization",
+          "OAuth 2.0 (Custom Implementation)",
+          "RBAC (Role-Based Access Control)",
           "Middleware Architecture",
           "API Security & Rate Limiting",
-          "MSSQL Database Design",
-          "Stored Procedures",
-          "ORM Integration",
-          "DynamoDB",
           "Logging & Error Handling"
+        ]
+      },
+      {
+        "name": "AI",
+        "items": [
+          "LLM Integration (Gemini, Mistral-7B)",
+          "LLM Fine-Tuning (45K+ Dataset)",
+          "AI Workflow Automation",
+          "Prompt Engineering",
+          "AI-powered Feature Development",
+          "Local Model Deployment",
+          "AI Cost Optimization"
         ]
       },
       {
         "name": "Database",
         "items": [
           "Microsoft SQL Server (MSSQL)",
+          "PostgreSQL",
           "Relational Database Design",
-          "Data Modeling & Normalization",
-          "Stored Procedures",
-          "Raw SQL Queries",
-          "Query Optimization",
-          "Indexing Strategies",
-          "ORM Integration",
-          "Transaction Management",
-          "Database Performance Tuning"
+          "Data Modeling & Normalization (3NF)",
+          "Stored Procedures (T-SQL)",
+          "Raw SQL Optimization",
+          "Indexing & Performance Tuning",
+          "Sequelize ORM (Hybrid Usage)",
+          "Transaction Management"
         ]
       },
       {
-        "name": "Cloud & DevOps",
+        "name": "Cloud & Deployment",
         "items": [
           "AWS EC2",
           "AWS RDS",
           "AWS S3",
-          "AWS DynamoDB",
-          "AWS Lambda",
-          "AWS Load Balancer",
-          "Serverless Architecture",
-          "Nginx Reverse Proxy",
+          "AWS CloudFront",
+          "AWS ELB",
           "Linux Server Management",
-          "Environment Configuration",
-          "Application Logging & Monitoring",
-          "Production Deployment"
-        ]
-      },
-      {
-        "name": "Hosting & Deployment",
-        "items": [
-          "AWS EC2 Production Deployment",
+          "Nginx Configuration",
           "Firebase Hosting",
-          "Nginx Server Configuration",
+          "CI/CD (Vercel)",
           "Domain & DNS Configuration",
           "SSL / HTTPS Setup",
-          "Environment Variables Management",
-          "CI/CD Friendly Deployment",
-          "Production Environment Setup",
-          "Server Security Configuration",
-          "Zero-Downtime Deployment"
+          "Production Deployment"
         ]
       },
       {
@@ -167,43 +115,36 @@
         "items": [
           "Git",
           "GitHub",
-          "Git Workflow (Branching & PRs)",
           "Postman",
+          "Swagger (OpenAPI)",
           "VS Code",
-          "Nginx",
-          "Docker (Basic)",
-          "API Testing & Debugging",
           "Cursor AI",
-          "AI-assisted Development"
+          "AI-assisted Development",
+          "Claude Code"
         ]
       }
     ]
   },
   "quickLinks": [
     {
-      "label": "View Projects",
-      "icon": "folder",
-      "url": "/projects"
-    },
-    {
-      "label": "Read Blogs",
-      "icon": "book",
-      "url": "/blog"
-    },
-    {
-      "label": "My Journey",
-      "icon": "map",
-      "url": "/journey"
-    },
-    {
-      "label": "Contact Me",
+      "label": "contact me",
       "icon": "mail",
       "url": "/contact"
     },
     {
-      "label": "GitHub Profile",
+      "label": "github profile",
       "icon": "github",
       "url": "https://github.com/kuldeepsinhjhala"
+    },
+    {
+      "label": "resume",
+      "icon": "document",
+      "url": "/resume"
+    },
+    {
+      "label": "projects",
+      "icon": "folder",
+      "url": "/projects"
     }
   ]
 }

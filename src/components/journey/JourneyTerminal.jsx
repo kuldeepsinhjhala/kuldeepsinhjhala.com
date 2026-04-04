@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react'
 import JourneyTimelineItem from './JourneyTimelineItem'
 import logo from '../../assets/Lion logo.png'
+import { getJourneyMilestoneYearLabel, isJourneyItemHighlighted } from '../../utils/journeyItemUtils'
 
 /**
  * JourneyTerminal - Terminal-style horizontal scroll component for journey timeline
@@ -74,12 +75,6 @@ function JourneyTerminal({ timeline = [], className = '' }) {
       const end = time.endDate === 'present' ? 'Present' : formatDate(time.endDate)
       return `${start} - ${end}`
     }
-    if (time.year && time.month) {
-      return `${time.month} ${time.year}`
-    }
-    if (time.year) {
-      return time.year
-    }
     return ''
   }
 
@@ -137,7 +132,8 @@ function JourneyTerminal({ timeline = [], className = '' }) {
           <div className="flex gap-4 min-w-max pb-4">
             {timeline.map((item, index) => {
               const isSelected = selectedItem?.id === item.id && isExpanded
-              const isFeatured = item.status?.featured || item.status?.highlighted
+              const isHighlighted = isJourneyItemHighlighted(item)
+              const milestoneYear = getJourneyMilestoneYearLabel(item.time)
 
               if (isSelected) {
                 // Expanded Card View
@@ -177,14 +173,14 @@ function JourneyTerminal({ timeline = [], className = '' }) {
                     className={`
                       flex-shrink-0 w-72 md:w-80 cursor-pointer
                       transition-all duration-300
-                      ${isFeatured ? 'ring-2 ring-gold/30' : ''}
+                      ${isHighlighted ? 'ring-2 ring-gold/30' : ''}
                     `}
                   >
                     <div
                       className={`
                         bg-card/90 backdrop-blur-sm border rounded-lg p-5
                         transition-all duration-300 shadow-lg
-                        ${isFeatured ? 'border-gold' : 'border-gold/20'}
+                        ${isHighlighted ? 'border-gold' : 'border-gold/20'}
                         hover:border-gold hover:ring-1 hover:ring-gold/50 hover:scale-105
                         h-full
                       `}
@@ -192,23 +188,14 @@ function JourneyTerminal({ timeline = [], className = '' }) {
                         boxShadow: '0 10px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(201, 166, 107, 0.05)'
                       }}
                     >
-                      {/* Featured Badge */}
-                      {isFeatured && (
-                        <div className="absolute -top-2 right-4">
-                          <span className="px-2 py-1 bg-gold/20 backdrop-blur-sm text-gold text-xs font-medium rounded border border-gold/30 shadow-sm">
-                            Featured
-                          </span>
-                        </div>
-                      )}
-
                       {/* Icon and Year */}
                       <div className="flex items-center gap-3 mb-3">
                         <div className="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center text-gold border-2 border-gold/30">
                           {getIcon(item.icon || 'briefcase')}
                         </div>
-                        {item.time?.year && (
+                        {milestoneYear && (
                           <span className="px-2 py-1 bg-gold/10 text-gold text-xs font-bold rounded border border-gold/20">
-                            {item.time.year}
+                            {milestoneYear}
                           </span>
                         )}
                       </div>

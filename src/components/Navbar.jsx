@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom'
 import { useTabs } from '../context/TabContext'
 import { useNavbar } from '../context/NavbarContext'
 import logo from '../assets/Lion logo.png'
+import { SECTION_FLOW } from '../config/sectionFlow'
 
 function Navbar() {
   const location = useLocation()
@@ -10,18 +11,7 @@ function Navbar() {
   const { isOpen: isNavbarOpen, setIsOpen: setIsNavbarOpen } = useNavbar()
   const navRef = useRef(null)
 
-  const navItems = [
-    { path: '/', label: 'index.jsx', mobileLabel: 'Home' },
-    { path: '/journey', label: 'journey.jsx', mobileLabel: 'Journey' },
-    { path: '/experience', label: 'experience.jsx', mobileLabel: 'Experience' },
-    { path: '/education', label: 'education.jsx', mobileLabel: 'Education' },
-    { path: '/skills', label: 'skills.jsx', mobileLabel: 'Skills' },
-    { path: '/projects', label: 'projects.jsx', mobileLabel: 'Projects' },
-    { path: '/resume', label: 'resume.jsx', mobileLabel: 'Resume' },
-    // { path: '/blog', label: 'blog.jsx', mobileLabel: 'Blog' }, // Temporarily hidden
-    { path: '/achievements', label: 'achievements.jsx', mobileLabel: 'Achievements' },
-    { path: '/contact', label: 'contact.jsx', mobileLabel: 'Contact' },
-  ]
+  const navItems = SECTION_FLOW
 
   const handleFileClick = (e, item) => {
     e.preventDefault()
@@ -230,34 +220,31 @@ function Navbar() {
         }`}
         style={{ backgroundColor: 'var(--c-card)' }}
       >
-        {/* Close button */}
-        <div className="absolute top-4 right-4 z-10">
-          <button
-            onClick={() => setIsNavbarOpen(false)}
-            className="text-body hover:text-head transition-colors p-1 rounded hover:bg-bg"
-            aria-label="Close File Explorer"
-          >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
-        </div>
-
-        {/* Explorer Header - reduced height so icons align with TabBar top line */}
-        <div className="px-4 py-2 border-b border-gold/10 flex-shrink-0">
-          <div className="flex items-center gap-2">
+        {/* Explorer header + close on one row (mobile) */}
+        <div className="px-3 sm:px-4 py-2 border-b border-gold/10 flex-shrink-0 flex items-center justify-between gap-2 min-h-[44px]">
+          <div className="flex items-center gap-2 min-w-0">
             <img 
               src={logo} 
               alt="Logo" 
-              className="h-5 w-auto object-contain opacity-90"
+              className="h-5 w-auto object-contain flex-shrink-0 opacity-90"
               style={{
                 filter: 'brightness(0) invert(1) sepia(100%) saturate(200%) hue-rotate(20deg)'
               }}
             />
-            <h2 className="text-head text-xs font-semibold uppercase tracking-wider">
+            <h2 className="text-head text-xs font-semibold uppercase tracking-wider truncate">
               Explorer
             </h2>
           </div>
+          <button
+            type="button"
+            onClick={() => setIsNavbarOpen(false)}
+            className="flex-shrink-0 flex items-center justify-center min-h-10 min-w-10 -mr-1 text-body hover:text-head transition-colors rounded-md hover:bg-bg/80 active:bg-bg"
+            aria-label="Close File Explorer"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
         </div>
 
         <div className="p-3 flex-1 overflow-y-auto min-h-0">

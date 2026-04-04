@@ -101,7 +101,7 @@ export const TabProvider = ({ children }) => {
     })
   }, [location.pathname])
 
-  const openTab = useCallback((path, label) => {
+  const openTab = useCallback((path, label, options) => {
     // Set flag to prevent useEffect from creating duplicate tab
     isOpeningTabRef.current = true
     
@@ -128,7 +128,10 @@ export const TabProvider = ({ children }) => {
       
       return updatedTabs
     })
-    navigate(path)
+    const navOpts = {}
+    if (options?.replace) navOpts.replace = true
+    if (options?.state !== undefined) navOpts.state = options.state
+    navigate(path, Object.keys(navOpts).length ? navOpts : undefined)
   }, [navigate])
 
   const closeTab = useCallback((tabId, e) => {

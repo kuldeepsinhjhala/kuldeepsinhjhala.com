@@ -1,8 +1,6 @@
 {
   "meta": {
-    "title": "Tech Insights Blog",
-    "subtitle": "Deep dives into modern software engineering",
-    "description": "A collection of in-depth technical articles covering web development, backend systems, cloud infrastructure, and best practices followed by software engineers."
+    "title": "Tech Insights Blog"
   },
   "settings": {
     "defaultAuthorId": "kuldeep",

@@ -1,241 +1,71 @@
 {
   "meta": {
-    "title": "Work Experience",
-    "subtitle": "Professional experience building scalable backend systems, AI-driven applications, Android apps, and leadership roles across industry and academia.",
-    "description": "Detailed overview of professional work experience including software engineering roles, AI projects, Android development, leadership positions, and technologies used in real-world environments."
-  },
-  "summary": {
-    "headline": "Full Stack Software Engineer | AI-Focused Backend Developer",
-    "overview": "Passionate Full Stack Software Engineer experienced in building scalable backend systems, normalized databases, AI-driven platforms, and modern web and mobile applications. Currently exploring AI Engineering with a focus on LLMs, Generative AI, and intelligent systems.",
-    "currentRole": "Software Development Engineer",
-    "currentCompany": "Keshav Encon Private Limited",
-    "companyUrl": "https://kuldeepsinhjhala.com",
-    "custom": {
-      "availability": "Open to opportunities",
-      "preferredDomains": [
-        "Backend Systems",
-        "AI Engineering",
-        "Cloud Infrastructure",
-        "Full Stack Development"
-      ]
-    }
+    "title": "Work Experience"
   },
   "experiences": [
     {
-      "id": "software-development-engineer-keshav-encon",
-      "role": "Software Development Engineer",
-      "level": "mid",
-      "type": "full-time",
+      "id": "web-developer-sparks-foundation",
+      "sequence": 1,
+      "role": "Web Developer",
+      "type": "internship",
       "company": {
-        "name": "Keshav Encon Private Limited",
-        "industry": "Engineering and Enterprise Software Solutions",
-        "size": "medium",
+        "name": "The Sparks Foundation",
+        "industry": "Non-profit / Education",
+        "size": "small",
         "website": null,
-        "logo": "/images/companies/keshav-encon.png",
-        "description": "An enterprise-focused organization delivering scalable software solutions with strong emphasis on database architecture, backend systems, and real-world problem solving."
+        "logo": "sparks_foundation_logo.png"
       },
       "location": {
-        "city": "Vadodara",
-        "state": "Gujarat",
+        "city": null,
+        "state": null,
         "country": "India",
-        "remote": false,
+        "remote": true,
         "hybrid": false,
-        "onsite": true
+        "onsite": false
       },
       "duration": {
-        "startDate": "2023-12",
-        "endDate": "present",
-        "current": true
+        "startDate": "2022-07",
+        "endDate": "2022-07",
+        "current": false
       },
-      "description": "Working as a Software Development Engineer building scalable systems from scratch, focusing on database normalization, backend architecture, and AI-powered applications.",
+      "description": "Developed a banking website capable of performing fund transfers between accounts.",
       "responsibilities": [
-        "Designed and implemented scalable databases following 3NF principles",
-        "Built backend systems from scratch enabling real-time data updates",
-        "Analyzed data fields from 50+ websites to design industry-standard schemas",
-        "Collaborated with team members to deliver production-grade solutions"
+        "Developed a banking website with account-to-account transfer functionality",
+        "Built using MySQL, PHP, HTML, CSS, and Bootstrap"
       ],
-      "achievements": [
-        {
-          "title": "AI Resume Platform at Scale",
-          "description": "Designed and integrated a normalized database handling data from over 10,000 resumes using LLM-powered processing.",
-          "impact": "scalability",
-          "metrics": {
-            "value": "10000",
-            "unit": "resumes"
-          },
-          "referenceUrl": null,
-          "custom": {
-            "techniques": [
-              "3NF normalization",
-              "LLM integration",
-              "schema optimization"
-            ]
-          }
-        }
-      ],
+      "achievements": [],
       "projects": [
         {
-          "name": "AI Resume Management System",
-          "description": "Built an AI-powered resume platform integrating Gemma API and Google Colab for large-scale resume ingestion and processing.",
-          "role": "Backend Architect",
+          "name": "Banking Website",
+          "description": "Developed a banking website which can perform transfer from one account to another account.",
+          "role": "Web Developer",
           "technologies": [
-            "Node.js",
-            "Python",
-            "MSSQL",
-            "LLM APIs"
+            "MySQL",
+            "PHP",
+            "HTML",
+            "CSS",
+            "Bootstrap"
           ],
-          "outcome": "Enabled dynamic resume uploads and real-time structured data extraction at scale.",
+          "outcome": "Delivered a functional banking web application with transfer capabilities.",
           "url": null,
           "custom": {
-            "architecture": "Normalized relational design",
-            "authentication": "Role-based access"
-          }
-        },
-        {
-          "name": "CRM System",
-          "description": "Designed and implemented a custom CRM database aligned with industrial standards and client requirements.",
-          "role": "Database and Backend Engineer",
-          "technologies": [
-            "SQL",
-            "Node.js",
-            "REST APIs"
-          ],
-          "outcome": "Delivered a scalable and maintainable CRM solution with strong data integrity.",
-          "url": null,
-          "custom": {
-            "architecture": "Modular backend",
-            "authentication": "JWT-based"
-          }
-        },
-        {
-          "name": "Online Examination System",
-          "description": "Developed a normalized examination system with optimized workflows and custom algorithms.",
-          "role": "System Designer",
-          "technologies": [
-            "Backend Algorithms",
-            "Relational Databases"
-          ],
-          "outcome": "Project recognized by organizations like L&T and ABB for innovation and practical application.",
-          "url": null,
-          "custom": {
-            "architecture": "Optimized relational model",
-            "authentication": "Secure login"
+            "architecture": null,
+            "authentication": null
           }
         }
       ],
       "technologies": {
         "languages": [
-          "JavaScript",
-          "Python"
+          "PHP",
+          "HTML",
+          "CSS"
         ],
         "frameworks": [
-          "Node.js",
-          "Flask",
-          "FastAPI"
+          "Bootstrap"
         ],
         "databases": [
-          "MSSQL",
-          "PostgreSQL"
+          "MySQL"
         ],
-        "cloud": [
-          "AWS EC2",
-          "AWS S3"
-        ],
-        "devOps": [
-          "Git"
-        ],
-        "tools": [
-          "REST APIs",
-          "Google Colab"
-        ],
-        "custom": {
-          "monitoring": [
-            "Manual logging"
-          ],
-          "os": [
-            "Linux"
-          ]
-        }
-      },
-      "skills": [
-        "Backend Architecture",
-        "Database Design",
-        "AI Integration"
-      ],
-      "collaboration": {
-        "teamSize": "10",
-        "crossFunctional": true,
-        "stakeholders": [
-          "Clients",
-          "Internal Teams"
-        ],
-        "methodologies": [
-          "Agile"
-        ]
-      },
-      "feedback": {
-        "rating": "5",
-        "review": "Built complex systems from scratch with strong architectural clarity and scalability.",
-        "source": "Internal Review",
-        "sourceUrl": null
-      }
-    },
-    {
-      "id": "vice-president-code-vimarsh",
-      "role": "Vice President",
-      "level": "leadership",
-      "type": "part-time",
-      "company": {
-        "name": "Code Vimarsh",
-        "industry": "Technical Community & Education",
-        "size": "large",
-        "website": null,
-        "logo": "/images/companies/code-vimarsh.png",
-        "description": "A technical student-led community at The Maharaja Sayajirao University of Baroda focused on technology, leadership, and community growth."
-      },
-      "location": {
-        "city": "Vadodara",
-        "state": "Gujarat",
-        "country": "India",
-        "remote": false,
-        "hybrid": false,
-        "onsite": true
-      },
-      "duration": {
-        "startDate": "2024-01",
-        "endDate": "present",
-        "current": true
-      },
-      "description": "Serving as Vice President, leading technical initiatives, mentoring students, and managing large-scale academic and community activities.",
-      "responsibilities": [
-        "Managed an executive board of 14+ members",
-        "Led a community of 300+ students",
-        "Addressed 500+ students through guidance sessions",
-        "Led a web development team of 30+ juniors"
-      ],
-      "achievements": [
-        {
-          "title": "Large-Scale Student Leadership",
-          "description": "Successfully guided and mentored hundreds of students through technical and career-focused initiatives.",
-          "impact": "leadership",
-          "metrics": {
-            "value": "500",
-            "unit": "students"
-          },
-          "referenceUrl": null,
-          "custom": {
-            "techniques": [
-              "Mentorship",
-              "Team leadership"
-            ]
-          }
-        }
-      ],
-      "projects": [],
-      "technologies": {
-        "languages": [],
-        "frameworks": [],
-        "databases": [],
         "cloud": [],
         "devOps": [],
         "tools": [],
@@ -244,41 +74,29 @@
           "os": []
         }
       },
-      "skills": [
-        "Leadership",
-        "Public Speaking",
-        "Team Management"
-      ],
-      "collaboration": {
-        "teamSize": "30",
-        "crossFunctional": true,
-        "stakeholders": [
-          "Students",
-          "University Faculty"
+      "media": {
+        "images": [
         ],
-        "methodologies": [
-          "Community-driven"
-        ]
-      },
-      "feedback": {
-        "rating": "5",
-        "review": "Exceptional leadership and ability to inspire large student communities.",
-        "source": "University Recognition",
-        "sourceUrl": null
+        "documents": [
+          {
+            "label": "Internship Certificate",
+            "url": "https://d2dhxmagz6qgkm.cloudfront.net/images/1775327393541-Sparks_foundation_internship_completion_letter.jpg"
+          }
+        ],
+        "links": ["https://www.thesparksfoundationsingapore.org/"]
       }
     },
     {
       "id": "android-dev-intern-itechnotion",
-      "role": "Android Developer Intern",
-      "level": "entry",
+      "sequence": 2,
+      "role": "Android Developer",
       "type": "internship",
       "company": {
         "name": "iTechNotion Private Limited",
         "industry": "Mobile Application Development",
         "size": "small",
         "website": null,
-        "logo": "/images/companies/itechnotion.png",
-        "description": "A mobile-focused software company delivering Android applications for real-world use cases."
+        "logo": "itechnotion-logo.png"
       },
       "location": {
         "city": "Ahmedabad",
@@ -297,27 +115,11 @@
       "responsibilities": [
         "Implemented Google Maps API",
         "Fetched and integrated data from company APIs",
-        "Designed custom navigation components",
-        "Built advanced splash screens using full-screen UI"
+        "Designed custom navigation bar and implemented functionalities on it",
+        "Built advanced splash screens using full-screen UI",
+        "Created the application following Android Material Design 3 guidelines"
       ],
-      "achievements": [
-        {
-          "title": "Production-Ready Android UI",
-          "description": "Implemented Material Design 3-based UI from Figma designs.",
-          "impact": "usability",
-          "metrics": {
-            "value": "100",
-            "unit": "percent design compliance"
-          },
-          "referenceUrl": null,
-          "custom": {
-            "techniques": [
-              "Material Design 3",
-              "UI/UX implementation"
-            ]
-          }
-        }
-      ],
+      "achievements": [],
       "projects": [
         {
           "name": "City Directory Android Application",
@@ -327,9 +129,10 @@
             "Android",
             "Java",
             "Kotlin",
-            "XML"
+            "XML",
+            "Figma"
           ],
-          "outcome": "Delivered a functional Android application aligned with modern UI standards.",
+          "outcome": "Delivered a functional Android application aligned with modern UI/UX and Material Design 3 standards.",
           "url": null,
           "custom": {
             "architecture": "MVVM",
@@ -340,7 +143,8 @@
       "technologies": {
         "languages": [
           "Java",
-          "Kotlin"
+          "Kotlin",
+          "XML"
         ],
         "frameworks": [
           "Android SDK"
@@ -358,48 +162,454 @@
           ]
         }
       },
-      "skills": [
-        "Android Development",
-        "UI/UX Implementation",
-        "API Integration"
-      ],
-      "collaboration": {
-        "teamSize": "5",
-        "crossFunctional": true,
-        "stakeholders": [
-          "Android Team"
+      "media": {
+        "images": [
         ],
-        "methodologies": [
-          "Agile"
+        "documents": [
+          {
+            "label": "Internship Certificate",
+            "url": "https://d2dhxmagz6qgkm.cloudfront.net/images/1775327131256-itechnotion-internship.jpg"
+          }
+        ],
+        "links": [
+          "https://itechnotion.com/"
         ]
+      }
+    },
+    {
+      "id": "student-ambassador-msu-vision-2020",
+      "sequence": 3,
+      "role": "Student Ambassador",
+      "type": "part-time",
+      "company": {
+        "name": "MSU Vision 2020",
+        "industry": "Higher Education",
+        "size": "large",
+        "website": null,
+        "logo": "msu-vision-logo.png"
       },
-      "feedback": {
-        "rating": "5",
-        "review": "Delivered clean UI and handled complex integrations efficiently.",
-        "source": "Internship Mentor",
-        "sourceUrl": null
+      "location": {
+        "city": "Vadodara",
+        "state": "Gujarat",
+        "country": "India",
+        "remote": false,
+        "hybrid": false,
+        "onsite": true
+      },
+      "duration": {
+        "startDate": "2023-06",
+        "endDate": "2023-08",
+        "current": false
+      },
+      "description": "Led event coordination and execution for university activities under MSU Vision 2020.",
+      "responsibilities": [
+        "Led event coordination and execution for university activities under MSU Vision 2020",
+        "Designed promotional posters to support outreach and event visibility",
+        "Managed on-site crowd movement and engagement for events with 300+ attendees",
+        "Contributed to smooth event delivery through coordination, communication, and problem-solving"
+      ],
+      "achievements": [],
+      "projects": [],
+      "technologies": {
+        "languages": [],
+        "frameworks": [],
+        "databases": [],
+        "cloud": [],
+        "devOps": [],
+        "tools": [],
+        "custom": {
+          "monitoring": [],
+          "os": []
+        }
+      },
+      "media": {
+        "images": [
+        ],
+        "documents": [
+        
+        ],
+        "links": ["https://msuvision2020.org/"]
+      }
+    },
+    {
+      "id": "vice-president-code-vimarsh",
+      "sequence": 4,
+      "role": "Vice President",
+      "type": "part-time",
+      "company": {
+        "name": "Code Vimarsh",
+        "industry": "Technical Community & Education",
+        "size": "large",
+        "website": null,
+        "logo": "code-vimarsh.png"
+      },
+      "location": {
+        "city": "Vadodara",
+        "state": "Gujarat",
+        "country": "India",
+        "remote": false,
+        "hybrid": false,
+        "onsite": true
+      },
+      "duration": {
+        "startDate": "2024-01",
+        "endDate": "2025-04",
+        "current": false
+      },
+      "description": "Founded and established Code Vimarsh at The Maharaja Sayajirao University of Baroda, turning the club's pillars and vision into a working student-led technical community built from the ground up.",
+      "responsibilities": [
+        "Founded and established Code Vimarsh at The Maharaja Sayajirao University of Baroda",
+        "Designed the complete structure, flow, and working model of the club",
+        "Led a team of 11 club executives to run club activities and events",
+        "Led the inauguration of the club with 300–400 student attendees",
+        "Spread awareness about software development and DSA among students",
+        "Contacted and collaborated with multiple MSU alumni for student guidance and exposure",
+        "Organized onsite and online Google meetups for practical industry exposure",
+        "Built an alumni guidance network including professionals from Google, Microsoft, and cybersecurity domains",
+        "Conducted multiple sessions on software development and using AI to improve development speed",
+        "Managed multiple technical and community events during the club's growth",
+        "Trained members before leaving the university and handed over the club smoothly",
+        "Personally mentor students on development, tools, and industry-relevant skills"
+      ],
+      "achievements": [
+        {
+          "title": "Founded and scaled Code Vimarsh into a thriving student-led technical community"
+        },
+        {
+          "title": "Inaugurated club with 300–400 student attendees"
+        },
+        {
+          "title": "Built alumni network with professionals from Google, Microsoft, and cybersecurity"
+        }
+      ],
+      "projects": [],
+      "technologies": {
+        "languages": [],
+        "frameworks": [],
+        "databases": [],
+        "cloud": [],
+        "devOps": [],
+        "tools": [],
+        "custom": {
+          "monitoring": [],
+          "os": []
+        }
+      },
+      "media": {
+        "images": [
+          {
+            "url": "https://d2dhxmagz6qgkm.cloudfront.net/images/1775326303497-code_vimarsh_0.jpg",
+            "alt": "Code Vimarsh logo",
+            "label": "Code Vimarsh"
+          },
+          {
+            "url": "https://d2dhxmagz6qgkm.cloudfront.net/images/1775326358902-code_vimarsh_1.jpg",
+            "alt": "Code Vimarsh logo",
+            "label": "Code Vimarsh"
+          },
+          {
+            "url": "https://d2dhxmagz6qgkm.cloudfront.net/images/1775326792989-code_vimarsh_3.jpg",
+            "alt": "Code Vimarsh logo",
+            "label": "Code Vimarsh"
+          },
+          {
+            "url": "https://d2dhxmagz6qgkm.cloudfront.net/images/1775326447686-code_vimarsh_3.jpg",
+            "alt": "Code Vimarsh logo",
+            "label": "Code Vimarsh"
+          }
+        ],
+        "documents": [
+        ],
+        "links": [
+          "https://codevimarsh.in"
+        ]
+      }
+    },
+    {
+      "id": "founding-sde-intern-keshav-encon",
+      "sequence": 5,
+      "role": "Founding Software Developer Engineer",
+      "type": "internship",
+      "company": {
+        "name": "Keshav Encon Private Limited",
+        "industry": "Engineering and Enterprise Software Solutions",
+        "size": "medium",
+        "website": null,
+        "logo": "keshav_encon_logo.png"
+      },
+      "location": {
+        "city": "Vadodara",
+        "state": "Gujarat",
+        "country": "India",
+        "remote": false,
+        "hybrid": false,
+        "onsite": true
+      },
+      "duration": {
+        "startDate": "2023-11",
+        "endDate": "2024-10",
+        "current": false
+      },
+      "description": "Worked on ResumeeAI (AI-based resume builder) during final year project and internship with the startup. Built the product during 7th and 8th semester and received Best Project recognition from the university.",
+      "responsibilities": [
+        "Developed core backend features using Node.js, Express.js, MSSQL, Sequelize ORM, and React.js",
+        "Researched 5+ resume builder platforms to understand workflows, features, and product expectations",
+        "Designed the system architecture, database schema, and table associations for the platform",
+        "Developed RESTful APIs for core application functionality",
+        "Implemented OAuth 2.0 authentication with Google and LinkedIn without third-party libraries",
+        "Built JWT-based authorization and backend middleware for API security",
+        "Integrated Gemini AI API for AI-powered resume generation and related application features",
+        "Worked across Node.js, Express.js, React.js, MSSQL, Sequelize ORM, Redux, Tailwind CSS, and HTML",
+        "Supported deployment architecture using AWS services including EC2, RDS, S3, ELB, and CloudFront"
+      ],
+      "achievements": [
+        {
+          "title": "Best Project Recognition from The Maharaja Sayajirao University of Baroda"
+        }
+      ],
+      "projects": [
+        {
+          "name": "ResumeeAI",
+          "description": "AI-based resume builder platform built during 7th and 8th semester as final year project. Designed and developed the full backend from scratch including system architecture, database schema, APIs, authentication, and AI integration.",
+          "role": "Backend Architect & Developer",
+          "technologies": [
+            "Node.js",
+            "Express.js",
+            "React.js",
+            "MSSQL",
+            "Sequelize ORM",
+            "Redux",
+            "Tailwind CSS",
+            "Gemini AI API",
+            "OAuth 2.0",
+            "JWT",
+            "AWS EC2",
+            "AWS RDS",
+            "AWS S3",
+            "AWS ELB",
+            "AWS CloudFront"
+          ],
+          "outcome": "Received Best Project recognition from the university. Delivered a production-grade AI-powered resume builder with secure auth and cloud deployment.",
+          "url": null,
+          "custom": {
+            "architecture": "Normalized relational design with REST API",
+            "authentication": "OAuth 2.0 + JWT"
+          }
+        }
+      ],
+      "technologies": {
+        "languages": [
+          "JavaScript"
+        ],
+        "frameworks": [
+          "Node.js",
+          "Express.js",
+          "React.js",
+          "Sequelize ORM",
+          "Redux",
+          "Tailwind CSS"
+        ],
+        "databases": [
+          "MSSQL"
+        ],
+        "cloud": [
+          "AWS EC2",
+          "AWS RDS",
+          "AWS S3",
+          "AWS ELB",
+          "AWS CloudFront"
+        ],
+        "devOps": [
+          "Git"
+        ],
+        "tools": [
+          "REST APIs",
+          "Gemini AI API",
+          "Swagger",
+          "Postman"
+        ],
+        "custom": {
+          "monitoring": [],
+          "os": [
+            "Linux"
+          ]
+        }
+      },
+      "media": {
+        "images": [
+          {
+            "url": "https://d2dhxmagz6qgkm.cloudfront.net/images/1775324943779-keshav-encon-certificate.jpg",
+            "alt": "Keshav Encon internship certificate",
+            "label": "keshav-encon-internship-certificate"
+          }
+        ],
+        "documents": [],
+        "links": [
+          "https://keshavencon.com"
+        ]
+      }
+    },
+    {
+      "id": "founding-sde-fulltime-keshav-encon",
+      "sequence": 6,
+      "role": "Founding Software Developer Engineer",
+      "type": "full-time",
+      "company": {
+        "name": "Keshav Encon Private Limited",
+        "industry": "Engineering and Enterprise Software Solutions",
+        "size": "medium",
+        "website": "https://keshavencon.com",
+        "logo": "keshav_encon_logo.png"
+      },
+      "location": {
+        "city": "Vadodara",
+        "state": "Gujarat",
+        "country": "India",
+        "remote": false,
+        "hybrid": false,
+        "onsite": true
+      },
+      "duration": {
+        "startDate": "2024-10",
+        "endDate": "present",
+        "current": true
+      },
+      "description": "Working full-time on three products: ResumeeAI, TalentPulseAI, and UninestAI. Building scalable backend systems, AI integrations, and production-grade REST APIs using Node.js, Express.js, MSSQL, Sequelize ORM, Stored Procedures, and T-SQL.",
+      "responsibilities": [
+        "Working full-time on three products: ResumeeAI, TalentPulseAI, and UninestAI",
+        "Built backend systems using Node.js, Express.js, MSSQL, Sequelize ORM, Stored Procedures, and T-SQL"
+      ],
+      "achievements": [
+        {
+          "title": "Reduced Gemini API cost by 100% by fine-tuning a local Mistral-7B model on 45,000+ resumes"
+        },
+        {
+          "title": "Reduced AI response time from 30s to 20s on high-end NVIDIA GPU infrastructure"
+        },
+        {
+          "title": "Improved complex query performance by 30% using a hybrid ORM + raw SQL approach on TalentPulseAI"
+        },
+        {
+          "title": "Automated 80% of manual content creation using a Gemini-powered question generation module"
+        }
+      ],
+      "projects": [
+        {
+          "name": "ResumeeAI",
+          "description": "Continued development of ResumeeAI as a full-time engineer after internship. Fine-tuned a local Mistral-7B model on 45,000+ resumes using structured resume template JSON data, significantly reducing latency and eliminating dependency on external AI services.",
+          "role": "Backend Engineer & AI Integration",
+          "technologies": [
+            "Node.js",
+            "Express.js",
+            "MSSQL",
+            "Sequelize ORM",
+            "Mistral-7B",
+            "Python",
+            "NVIDIA GPU Infrastructure"
+          ],
+          "outcome": "Reduced AI response time from 30s to 20s. Reduced Gemini API cost by 100% and removed dependency on external AI services.",
+          "url": null,
+          "custom": {
+            "architecture": "Normalized relational design with fine-tuned local LLM",
+            "authentication": "OAuth 2.0 + JWT"
+          }
+        },
+        {
+          "name": "TalentPulseAI",
+          "description": "AI-based online skill assessment platform for recruiters and companies. Designed a scalable database with 50+ normalized tables and developed 60+ REST APIs. Implemented a Gemini-powered question generation module that automated 80% of manual content creation.",
+          "role": "Backend Architect & Developer",
+          "technologies": [
+            "Node.js",
+            "Express.js",
+            "MSSQL",
+            "Sequelize ORM",
+            "Raw SQL",
+            "OAuth 2.0",
+            "JWT",
+            "React.js",
+            "Firebase",
+            "AWS EC2",
+            "AWS RDS",
+            "Gemini AI"
+          ],
+          "outcome": "Improved complex query performance by 30%. Automated 80% of manual content creation. Reduced question preparation time from hours to minutes.",
+          "url": null,
+          "custom": {
+            "architecture": "Scalable normalized DB with 50+ tables, hybrid ORM + raw SQL",
+            "authentication": "OAuth 2.0 + JWT + RBAC"
+          }
+        },
+        {
+          "name": "UninestAI",
+          "description": "Student placement and university management portal connecting students, universities, and companies. Translated business requirements into technical workflows, designed normalized MSSQL schema, and built a transaction-safe Stored Procedure framework with 100+ SP-driven APIs.",
+          "role": "Backend Architect & Database Engineer",
+          "technologies": [
+            "Node.js",
+            "Express.js",
+            "MSSQL",
+            "T-SQL",
+            "Stored Procedures",
+            "REST APIs",
+            "Swagger",
+            "RBAC"
+          ],
+          "outcome": "Delivered a modular REST API architecture with structured error handling, inter-procedure communication, and Swagger documentation improving frontend integration and cross-team efficiency.",
+          "url": null,
+          "custom": {
+            "architecture": "Modular SP-driven REST API with optimized relational schema",
+            "authentication": "RBAC"
+          }
+        }
+      ],
+      "technologies": {
+        "languages": [
+          "JavaScript",
+          "Python",
+          "T-SQL"
+        ],
+        "frameworks": [
+          "Node.js",
+          "Express.js",
+          "React.js",
+          "Sequelize ORM"
+        ],
+        "databases": [
+          "MSSQL"
+        ],
+        "cloud": [
+          "AWS EC2",
+          "AWS RDS",
+          "AWS S3",
+          "AWS CloudFront",
+          "AWS ELB",
+          "Firebase"
+        ],
+        "devOps": [
+          "Git"
+        ],
+        "tools": [
+          "REST APIs",
+          "Swagger",
+          "Postman",
+          "Gemini AI",
+          "Mistral-7B"
+        ],
+        "custom": {
+          "monitoring": [],
+          "os": [
+            "Linux"
+          ]
+        }
+      },
+      "media": {
+        "images": [
+        ],
+        "documents": [
+        ],
+        "links": [
+          "https://keshavencon.com"
+        ]
       }
     }
-  ],
-  "totalExperience": {
-    "years": "2",
-    "months": "2"
-  },
-  "skillsSummary": {
-    "primary": [
-      "Backend Development",
-      "Database Architecture",
-      "AI Integration"
-    ],
-    "secondary": [
-      "React.js",
-      "Android Development"
-    ],
-    "tools": [
-      "Git",
-      "AWS",
-      "REST APIs"
-    ],
-    "portfolioUrl": "https://kuldeepsinhjhala.com"
-  }
+  ]
 }

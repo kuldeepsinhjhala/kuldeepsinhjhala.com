@@ -196,7 +196,7 @@ function Blog() {
   // Loading state
   if (loading) {
     return (
-      <div className="bg-dotted min-h-screen p-4 md:p-8 lg:p-12">
+      <div className="bg-dotted px-4 pb-2 pt-0 md:px-8 md:pb-4 md:pt-0 lg:px-12 lg:pb-6 lg:pt-0">
         <div className="flex items-center justify-center min-h-[60vh]">
           <div className="text-center">
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gold mx-auto mb-4"></div>
@@ -210,10 +210,10 @@ function Blog() {
   // No data state
   if (!data) {
     return (
-      <div className="bg-dotted min-h-screen p-4 md:p-8 lg:p-12">
+      <div className="bg-dotted px-4 pb-2 pt-0 md:px-8 md:pb-4 md:pt-0 lg:px-12 lg:pb-6 lg:pt-0">
         <div className="max-w-7xl mx-auto">
           <div className="text-center py-12">
-            <h1 className="text-head text-3xl font-bold mb-4">Blog</h1>
+            <h1 className="section-heading-highlight text-head text-3xl font-bold mb-4">Blog</h1>
             <p className="text-body">No blog data available.</p>
           </div>
         </div>
@@ -224,25 +224,19 @@ function Blog() {
   // Get meta information
   const meta = data.meta || {}
   const title = meta.title || 'Blog'
-  const subtitle = meta.subtitle || ''
 
   return (
-    <div className="bg-dotted min-h-screen p-4 md:p-8 lg:p-12">
+    <div className="bg-dotted px-4 pb-2 pt-0 md:px-8 md:pb-4 md:pt-0 lg:px-12 lg:pb-6 lg:pt-0">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <header className="mb-8 md:mb-12">
-          <h1 className="text-head text-4xl md:text-5xl font-bold mb-2">
+        <header className="mb-8 md:mb-12 text-center">
+          <h1 className="section-heading-highlight text-head text-4xl md:text-5xl font-bold mb-2">
             {title}
           </h1>
-          {subtitle && (
-            <p className="text-body text-lg md:text-xl">
-              {subtitle}
-            </p>
-          )}
         </header>
 
         {/* Search and Filters Section */}
-        <div className="mb-8 space-y-6">
+        <div className="mb-4 space-y-6">
           {/* Search */}
           {settings.enableSearch && (
             <BlogSearch
@@ -389,7 +383,7 @@ function Blog() {
 
               {/* Pagination */}
               {settings.enablePagination && totalPages > 1 && (
-                <div className="mt-8">
+                <div className="mt-4">
                   <BlogPagination
                     currentPage={currentPage}
                     totalPages={totalPages}

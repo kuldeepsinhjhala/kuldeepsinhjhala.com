@@ -1,8 +1,6 @@
 {
   "meta": {
-    "title": "Get In Touch",
-    "subtitle": "Feel free to reach out for collaboration, freelance work, or technical discussions. I am always open to meaningful conversations and opportunities.",
-    "description": "Contact page for Kuldeepsinh Jhala. Reach out via email, LinkedIn, or WhatsApp for software development, cloud, and full-stack related opportunities."
+    "title": "Get In Touch"
   },
   "contact": {
     "email": {
@@ -49,28 +47,5 @@
       "label": "Medium",
       "icon": "medium"
     }
-  },
-  "preferredContact": [
-    {
-      "method": "email",
-      "label": "Email",
-      "description": "Best way to reach me for detailed discussions, project proposals, or formal communication.",
-      "icon": "mail",
-      "priority": 1
-    },
-    {
-      "method": "linkedin",
-      "label": "LinkedIn",
-      "description": "Connect with me professionally for networking, job opportunities, or collaboration.",
-      "icon": "linkedin",
-      "priority": 2
-    },
-    {
-      "method": "whatsapp",
-      "label": "WhatsApp",
-      "description": "Quick communication for urgent queries or short discussions.",
-      "icon": "whatsapp",
-      "priority": 3
-    }
-  ]
+  }
 }

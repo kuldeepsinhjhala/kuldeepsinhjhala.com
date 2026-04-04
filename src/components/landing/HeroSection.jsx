@@ -1,13 +1,33 @@
-import { useNavigate } from 'react-router-dom'
 import { useTabs } from '../../context/TabContext'
 import kuldeepImage from '../../assets/kuldeep.png'
+
+/** Blurred copy of the photo only inside the same frame as the sharp image (clipped). */
+function HeroProfileImage({ hero, imageClassName = '' }) {
+  const alt = hero.profile?.alt || hero.name || 'Kuldeepsinh Jhala'
+  return (
+    <div
+      className={`relative inline-block overflow-hidden rounded-lg border-2 border-gold/20 shadow-lg transition-all duration-300 hover:border-gold hover:ring-2 hover:ring-inset hover:ring-gold/50 ${imageClassName}`}
+    >
+      <img
+        src={kuldeepImage}
+        alt=""
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 z-0 h-full w-full scale-110 object-cover blur-2xl opacity-50 sm:blur-3xl sm:opacity-45"
+      />
+      <img
+        src={kuldeepImage}
+        alt={alt}
+        className="relative z-[1] block h-full w-full object-cover"
+      />
+    </div>
+  )
+}
 
 /**
  * HeroSection - Reusable hero section component
  * Displays greeting, name, designation, tagline, description, profile image, and quick links
  */
 function HeroSection({ hero = {}, quickLinks = [], meta = {}, className = '' }) {
-  const navigate = useNavigate()
   const { openTab } = useTabs()
 
   // Page routes mapping for tab labels
@@ -63,14 +83,26 @@ function HeroSection({ hero = {}, quickLinks = [], meta = {}, className = '' }) 
           <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
         </svg>
       ),
+      document: (
+        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+        </svg>
+      ),
     }
     return icons[iconName] || null
   }
 
+  const slogan = hero.slogan || {}
+
+  const filteredQuickLinks = (quickLinks || []).filter(
+    (link) => link.url !== '/blog' && link.label !== 'Read Blogs'
+  )
+
   return (
-    <section className={`flex flex-col lg:flex-row items-center lg:items-start gap-8 lg:gap-6 xl:gap-8 ${className}`}>
+    <section className={`flex flex-col gap-8 lg:gap-6 xl:gap-8 ${className}`}>
+      <div className="flex flex-col lg:flex-row items-center lg:items-start gap-8 lg:gap-6 xl:gap-8 w-full">
       {/* Content - Text and Image */}
-      <div className="flex-1 w-full">
+      <div className="flex-1 w-full min-w-0">
         {/* Text Content */}
         <div className="text-center lg:text-left mb-8 lg:mb-0">
           {hero.greeting && (
@@ -80,36 +112,34 @@ function HeroSection({ hero = {}, quickLinks = [], meta = {}, className = '' }) 
           )}
           
           {hero.name && (
-            <h1 className="text-head text-4xl md:text-5xl lg:text-6xl font-bold mb-3 md:mb-4 text-center lg:text-left">
+            <h1 className="section-heading-highlight text-head text-4xl md:text-5xl lg:text-6xl font-bold mb-3 md:mb-4 text-center lg:text-left">
               {hero.name}
             </h1>
           )}
 
-          {/* Profile Image - Below name on mobile/tablet only */}
-          <div className="flex items-center justify-center lg:hidden mb-4">
-            <div className="relative">
-              <img 
-                src={kuldeepImage} 
-                alt={hero.profile?.alt || hero.name || 'Kuldeepsinh Jhala'} 
-                className="
-                  w-70 h-70
-                  rounded-full object-cover
-                  border-2 border-gold/20
-                  hover:border-gold hover:ring-2 hover:ring-gold/50
-                  transition-all duration-300
-                  shadow-lg
-                "
-              />
-              
-              {/* Decorative glow effect */}
-              <div 
-                className="absolute inset-0 -z-10 blur-2xl opacity-20"
-                style={{
-                  background: 'radial-gradient(circle, rgba(201, 166, 107, 0.4) 0%, transparent 70%)',
-                  transform: 'scale(1.2)'
-                }}
-              />
-            </div>
+          {/* Profile image + slogan — below name on mobile/tablet only */}
+          <div className="relative -top-[3px] flex flex-col items-center lg:hidden mb-4 mt-4 w-70 max-w-full mx-auto">
+            <HeroProfileImage hero={hero} imageClassName="w-70 h-70 max-w-full" />
+            {(slogan.line1 || slogan.line2 || slogan.line3) && (
+              <div className="w-full mt-4 space-y-1.5">
+                {slogan.line1 && (
+                  <p
+                    className="text-gold text-sm sm:text-base font-medium text-center leading-snug"
+                    lang="sa"
+                  >
+                    {slogan.line1}
+                  </p>
+                )}
+                {slogan.line2 && (
+                  <p className="text-body text-xs sm:text-sm text-center leading-relaxed">
+                    {slogan.line2}
+                  </p>
+                )}
+                {slogan.line3 && (
+                  <p className="text-body/80 text-xs text-right">{slogan.line3}</p>
+                )}
+              </div>
+            )}
           </div>
           
           {hero.designation && (
@@ -131,201 +161,86 @@ function HeroSection({ hero = {}, quickLinks = [], meta = {}, className = '' }) 
           )}
           
           {hero.description && (
-            <p className="text-body text-sm md:text-base mb-6 md:mb-8 max-w-2xl mx-auto lg:mx-0 text-justify lg:text-left">
+            <p className="text-body text-sm md:text-base mb-0 max-w-2xl mx-auto lg:mx-0 text-justify lg:text-left">
               {hero.description}
             </p>
           )}
-
-          {/* Quick Links - Mobile/Tablet only */}
-          {quickLinks && quickLinks.length > 0 && (
-            <div className="flex flex-col sm:flex-row sm:flex-wrap gap-2 sm:gap-3 md:gap-4 justify-center lg:justify-start lg:hidden w-full">
-              {quickLinks
-                .filter((link) => link.url !== '/blog' && link.label !== 'Read Blogs') // Commented out Read Blogs button
-                .map((link, index) => (
-                <button
-                  key={index}
-                  onClick={() => handleLinkClick(link.url)}
-                  className="
-                    w-full sm:w-auto
-                    px-4 py-3 sm:py-2 md:px-5 md:py-2.5 
-                    bg-card/90 backdrop-blur-sm border border-gold/20 rounded
-                    text-head text-sm font-medium
-                    hover:border-gold hover:bg-gold/10 hover:ring-1 hover:ring-gold/50
-                    transition-all duration-200 shadow-lg cursor-pointer
-                    flex items-center justify-center gap-2
-                    flex-1 sm:flex-initial
-                  "
-                  style={{
-                    boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2), 0 0 10px rgba(201, 166, 107, 0.05)'
-                  }}
-                >
-                  {link.icon && getIcon(link.icon)}
-                  <span>{link.label}</span>
-                  <svg
-                    className="w-4 h-4"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9 5l7 7-7 7"
-                    />
-                  </svg>
-                </button>
-              ))}
-              {/* Read Blogs button - Commented out
-              {quickLinks
-                .filter((link) => link.url === '/blog' || link.label === 'Read Blogs')
-                .map((link, index) => (
-                <button
-                  key={index}
-                  onClick={() => handleLinkClick(link.url)}
-                  className="
-                    w-full sm:w-auto
-                    px-4 py-3 sm:py-2 md:px-5 md:py-2.5 
-                    bg-card/90 backdrop-blur-sm border border-gold/20 rounded
-                    text-head text-sm font-medium
-                    hover:border-gold hover:bg-gold/10 hover:ring-1 hover:ring-gold/50
-                    transition-all duration-200 shadow-lg cursor-pointer
-                    flex items-center justify-center gap-2
-                    flex-1 sm:flex-initial
-                  "
-                  style={{
-                    boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2), 0 0 10px rgba(201, 166, 107, 0.05)'
-                  }}
-                >
-                  {link.icon && getIcon(link.icon)}
-                  <span>{link.label}</span>
-                  <svg
-                    className="w-4 h-4"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9 5l7 7-7 7"
-                    />
-                  </svg>
-                </button>
-              ))}
-              */}
-            </div>
-          )}
         </div>
       </div>
 
-      {/* Right Content - Profile Image and Quick Links (Desktop only) */}
-      <div className="hidden lg:flex flex-col items-center flex-shrink-0">
-        <div className="relative mb-4 lg:mb-6">
-          <img 
-            src={kuldeepImage} 
-            alt={hero.profile?.alt || hero.name || 'Kuldeepsinh Jhala'} 
-            className="
-              w-48 h-48 lg:w-56 lg:h-56 xl:w-64 xl:h-64
-              rounded-full object-cover
-              border-2 border-gold/20
-              hover:border-gold hover:ring-2 hover:ring-gold/50
-              transition-all duration-300
-              shadow-lg
-            "
-          />
-          
-          {/* Decorative glow effect */}
-          <div 
-            className="absolute inset-0 -z-10 blur-2xl opacity-20"
-            style={{
-              background: 'radial-gradient(circle, rgba(201, 166, 107, 0.4) 0%, transparent 70%)',
-              transform: 'scale(1.2)'
-            }}
-          />
-        </div>
-
-        {/* Quick Links - Desktop only (below image) */}
-        {quickLinks && quickLinks.length > 0 && (
-          <div className="flex flex-col gap-2 lg:gap-3 w-full max-w-[280px]">
-            {quickLinks
-              .filter((link) => link.url !== '/blog' && link.label !== 'Read Blogs') // Commented out Read Blogs button
-              .map((link, index) => (
-              <button
-                key={index}
-                onClick={() => handleLinkClick(link.url)}
-                className="
-                  px-3 py-2 lg:px-4 lg:py-2
-                  bg-card/90 backdrop-blur-sm border border-gold/20 rounded
-                  text-head text-xs lg:text-sm font-medium
-                  hover:border-gold hover:bg-gold/10 hover:ring-1 hover:ring-gold/50
-                  transition-all duration-200 shadow-lg cursor-pointer
-                  flex items-center justify-center gap-2
-                  w-full
-                "
-                style={{
-                  boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2), 0 0 10px rgba(201, 166, 107, 0.05)'
-                }}
+      {/* Right column — profile image + slogan (desktop); width matches photo */}
+      <div className="relative -top-[3px] hidden lg:flex flex-col items-stretch flex-shrink-0 lg:mt-4 xl:mt-6">
+        <HeroProfileImage
+          hero={hero}
+          imageClassName="w-48 h-48 lg:w-56 lg:h-56 xl:w-64 xl:h-64"
+        />
+        {(slogan.line1 || slogan.line2 || slogan.line3) && (
+          <div className="mt-4 w-48 lg:w-56 xl:w-64 space-y-1.5">
+            {slogan.line1 && (
+              <p
+                className="text-gold text-sm xl:text-base font-medium text-left leading-snug"
+                lang="sa"
               >
-                {link.icon && getIcon(link.icon)}
-                <span className="whitespace-nowrap">{link.label}</span>
-                <svg
-                  className="w-3 h-3 lg:w-4 lg:h-4 flex-shrink-0"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 5l7 7-7 7"
-                  />
-                </svg>
-              </button>
-            ))}
-            {/* Read Blogs button - Commented out
-            {quickLinks
-              .filter((link) => link.url === '/blog' || link.label === 'Read Blogs')
-              .map((link, index) => (
-              <button
-                key={index}
-                onClick={() => handleLinkClick(link.url)}
-                className="
-                  px-3 py-2 lg:px-4 lg:py-2
-                  bg-card/90 backdrop-blur-sm border border-gold/20 rounded
-                  text-head text-xs lg:text-sm font-medium
-                  hover:border-gold hover:bg-gold/10 hover:ring-1 hover:ring-gold/50
-                  transition-all duration-200 shadow-lg cursor-pointer
-                  flex items-center justify-center gap-2
-                  w-full
-                "
-                style={{
-                  boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2), 0 0 10px rgba(201, 166, 107, 0.05)'
-                }}
-              >
-                {link.icon && getIcon(link.icon)}
-                <span className="whitespace-nowrap">{link.label}</span>
-                <svg
-                  className="w-3 h-3 lg:w-4 lg:h-4 flex-shrink-0"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 5l7 7-7 7"
-                  />
-                </svg>
-              </button>
-            ))}
-            */}
+                {slogan.line1}
+              </p>
+            )}
+            {slogan.line2 && (
+              <p className="text-body text-xs xl:text-sm text-left leading-relaxed">
+                {slogan.line2}
+              </p>
+            )}
+            {slogan.line3 && (
+              <p className="text-body/80 text-xs text-right">{slogan.line3}</p>
+            )}
           </div>
         )}
       </div>
+      </div>
+
+      {/* Quick links: max-width 600px → 2 per row; min-width 601px → one row (Landing hero) */}
+      {filteredQuickLinks.length > 0 && (
+        <div className="grid grid-cols-2 w-full gap-2 sm:gap-3 md:gap-4 shrink-0 mb-8 md:mb-10 lg:mb-12 min-[601px]:flex min-[601px]:flex-row min-[601px]:flex-nowrap">
+          {filteredQuickLinks.map((link, index) => (
+            <button
+              key={index}
+              type="button"
+              onClick={() => handleLinkClick(link.url)}
+              className="
+                w-full min-w-0 min-[601px]:flex-1 min-[601px]:basis-0 min-h-[3rem] sm:min-h-[3.25rem]
+                px-2 sm:px-3 md:px-4 py-2.5 sm:py-3
+                bg-card/90 backdrop-blur-sm border border-gold/20 rounded
+                text-head text-xs sm:text-sm md:text-base font-medium
+                hover:border-gold hover:bg-gold/10 hover:ring-1 hover:ring-gold/50
+                transition-all duration-200 shadow-lg cursor-pointer
+                flex flex-row items-center justify-center gap-1.5 sm:gap-2
+              "
+              style={{
+                boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2), 0 0 10px rgba(201, 166, 107, 0.05)',
+              }}
+            >
+              {link.icon && (
+                <span className="text-gold shrink-0 [&_svg]:w-4 [&_svg]:h-4 sm:[&_svg]:w-5 sm:[&_svg]:h-5">
+                  {getIcon(link.icon)}
+                </span>
+              )}
+              <span className="min-w-0 flex-1 text-center truncate">{link.label}</span>
+              <svg
+                className="w-4 h-4 shrink-0 hidden sm:block"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
+            </button>
+          ))}
+        </div>
+      )}
     </section>
   )
 }

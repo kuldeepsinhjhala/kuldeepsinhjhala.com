@@ -6,6 +6,9 @@ export default {
   ],
   theme: {
     extend: {
+      spacing: {
+        70: '17.5rem',
+      },
       colors: {
         'bg': 'var(--c-bg)',
         'card': 'var(--c-card)',

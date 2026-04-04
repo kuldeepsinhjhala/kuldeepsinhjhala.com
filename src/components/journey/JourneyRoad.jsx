@@ -1,11 +1,14 @@
 import { useState } from 'react'
 import JourneyTimelineItem from './JourneyTimelineItem'
+import { getJourneyMilestoneYearLabel, isJourneyItemHighlighted } from '../../utils/journeyItemUtils'
+import { getJourneyOrgLogoImgStyle, resolveJourneyLogo } from '../../utils/resolveJourneyLogo'
 
 /**
  * JourneyRoad - Road visualization component for journey timeline
  * Creates a visual road/path with timeline items as milestones
+ * @param {boolean} [showContinuationBadge=true] — When false (e.g. parent shows only first N items), hides the “Journey Continues…” end marker.
  */
-function JourneyRoad({ timeline = [], className = '' }) {
+function JourneyRoad({ timeline = [], className = '', showContinuationBadge = true }) {
   const [expandedItems, setExpandedItems] = useState({})
 
   if (!timeline || timeline.length === 0) return null
@@ -50,10 +53,12 @@ function JourneyRoad({ timeline = [], className = '' }) {
       ></div>
 
       {/* Timeline Items */}
-      <div className="relative space-y-16 md:space-y-20 lg:space-y-32 pb-8">
+      <div className="relative space-y-8 md:space-y-10 lg:space-y-16 pb-8">
         {timeline.map((item, index) => {
-          const isFeatured = item.status?.featured || item.status?.highlighted
+          const isHighlighted = isJourneyItemHighlighted(item)
           const isExpanded = expandedItems[item.id || index]
+          const milestoneYear = getJourneyMilestoneYearLabel(item.time)
+          const milestoneLogoSrc = resolveJourneyLogo(item.organization?.logo)
           
           return (
             <div
@@ -63,7 +68,7 @@ function JourneyRoad({ timeline = [], className = '' }) {
               {/* Road Marker/Milestone - Top Center */}
               <div className="relative z-10 flex-shrink-0 mb-4">
                 {/* Background circle to hide dotted line behind glow */}
-                {(isFeatured || isExpanded) && (
+                {(isHighlighted || isExpanded) && (
                   <div 
                     className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full z-0"
                     style={{
@@ -79,37 +84,48 @@ function JourneyRoad({ timeline = [], className = '' }) {
                     relative w-16 h-16 md:w-20 md:h-20 rounded-full
                     flex items-center justify-center
                     border-4 transition-all duration-300
-                    ${isFeatured ? 'border-gold ring-4 ring-gold/30 scale-110 bg-gold/20' : 'border-gold/40 bg-card/90 backdrop-blur-sm'}
+                    ${isHighlighted ? 'border-gold ring-4 ring-gold/30 scale-110 bg-card' : 'border-gold/40 bg-card'}
                     shadow-lg cursor-pointer hover:scale-105 z-10
                     ${isExpanded ? 'ring-4 ring-gold/50' : ''}
                   `}
                   style={{
-                    boxShadow: isFeatured 
+                    boxShadow: isHighlighted 
                       ? '0 0 30px rgba(201, 166, 107, 0.5), 0 10px 30px rgba(0, 0, 0, 0.3)'
                       : '0 10px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(201, 166, 107, 0.05)'
                   }}
                   onClick={() => toggleExpand(item.id || index)}
                 >
                   {/* Inner Circle Glow */}
-                  {isFeatured && (
+                  {isHighlighted && (
                     <div className="absolute inset-0 rounded-full bg-gold/10 animate-pulse"></div>
                   )}
                   
-                  {/* Icon */}
-                  <div className="relative z-10 text-gold text-xl md:text-2xl">
-                    {getIcon(item.icon || 'briefcase')}
+                  {/* Icon or company logo */}
+                  <div className="relative z-10 text-gold text-xl md:text-2xl w-10 h-10 md:w-12 md:h-12 flex items-center justify-center overflow-hidden rounded-full">
+                    {milestoneLogoSrc ? (
+                      <img
+                        src={milestoneLogoSrc}
+                        alt={item.organization?.name ? `${item.organization.name} logo` : ''}
+                        className="w-full h-full object-contain p-1.5"
+                        style={getJourneyOrgLogoImgStyle(item.organization?.logo)}
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    ) : (
+                      getIcon(item.icon || 'briefcase')
+                    )}
                   </div>
                   
-                  {/* Year Badge */}
-                  {item.time?.year && (
-                    <div 
+                  {/* Year badge from startDate */}
+                  {milestoneYear && (
+                    <div
                       className="absolute -bottom-2 left-1/2 -translate-x-1/2 px-2 py-0.5 text-gold text-xs font-bold rounded border-2 border-gold whitespace-nowrap shadow-lg z-20"
                       style={{
                         backgroundColor: '#0A192F',
-                        opacity: 1
+                        opacity: 1,
                       }}
                     >
-                      {item.time.year}
+                      {milestoneYear}
                     </div>
                   )}
 
@@ -126,160 +142,29 @@ function JourneyRoad({ timeline = [], className = '' }) {
                 </div>
               </div>
 
-              {/* Content Card - Centered below milestone - Only show if not expanded */}
-              {!isExpanded && (
-                <div className="w-full max-w-[90%] md:w-[500px] lg:w-[600px] mx-auto px-2 sm:px-4 md:px-0 mb-4 md:mb-0">
-                  <div
-                    className={`
-                      relative bg-card/90 backdrop-blur-sm border rounded-lg p-3 sm:p-4 md:p-5 lg:p-6
-                      transition-all duration-300 shadow-lg
-                      ${isFeatured ? 'border-gold ring-2 ring-gold/30' : 'border-gold/20'}
-                      hover:border-gold hover:ring-1 hover:ring-gold/50
-                      cursor-pointer
-                    `}
-                    style={{
-                      boxShadow: '0 10px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(201, 166, 107, 0.05)'
-                    }}
-                    onClick={() => toggleExpand(item.id || index)}
-                  >
-                    {/* Featured Badge - Stacked on small screens, absolute on larger screens */}
-                    {isFeatured && (
-                      <div className="relative mb-3 sm:mb-0 sm:absolute sm:top-2 sm:right-2 md:top-3 md:right-3 lg:top-4 lg:right-4 z-10 flex justify-center sm:justify-end">
-                        <span className="px-2 py-1 bg-gold/20 backdrop-blur-sm text-gold text-xs font-medium rounded border border-gold/30 shadow-sm whitespace-nowrap">
-                          Featured
-                        </span>
-                      </div>
-                    )}
-
-                    {/* Time Period - Stack vertically on small screens */}
-                    {item.time && (
-                      <div className={`mb-3 text-center ${isFeatured ? 'sm:pt-0' : ''}`}>
-                        <div className="flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2">
-                          <span className="inline-block px-2 sm:px-3 py-1 bg-gold/10 text-gold text-xs font-medium rounded border border-gold/20 break-words">
-                            {formatTimePeriod(item.time)}
-                          </span>
-                          {item.time.duration && (
-                            <span className="text-body text-xs whitespace-nowrap">
-                              ({item.time.duration})
-                            </span>
-                          )}
-                        </div>
-                      </div>
-                    )}
-
-                    {/* Title */}
-                    {item.title && (
-                      <h3 className="text-head text-base sm:text-lg md:text-xl font-bold mb-2 text-center break-words">
-                        {item.title}
-                      </h3>
-                    )}
-
-                    {/* Subtitle */}
-                    {item.subtitle && (
-                      <p className="text-gold text-xs sm:text-sm mb-3 text-center break-words">
-                        {item.subtitle}
-                      </p>
-                    )}
-
-                    {/* Organization */}
-                    {item.organization && (
-                      <div className="flex items-center justify-center gap-2 mb-3 text-body text-sm">
-                        <span>
-                          {item.organization.role || ''}
-                          {item.organization.name && ` at `}
-                          {item.organization.name && (
-                            <span className="text-head font-medium">
-                              {item.organization.name}
-                            </span>
-                          )}
-                        </span>
-                      </div>
-                    )}
-
-                    {/* Description - Truncated */}
-                    {item.description && (
-                      <p className="text-body text-xs sm:text-sm mb-4 leading-relaxed line-clamp-2 text-center break-words">
-                        {item.description}
-                      </p>
-                    )}
-
-                    {/* Skills Preview - Limited */}
-                    {item.skills && Array.isArray(item.skills) && item.skills.length > 0 && (
-                      <div className="flex flex-wrap gap-2 mb-4 justify-center">
-                        {item.skills.slice(0, 2).map((skill, idx) => (
-                          <span
-                            key={idx}
-                            className="px-2 py-1 bg-card/80 backdrop-blur-sm text-body text-xs rounded border border-gold/10 shadow-sm"
-                          >
-                            {skill}
-                          </span>
-                        ))}
-                        {item.skills.length > 2 && (
-                          <span className="px-2 py-1 text-body text-xs">
-                            +{item.skills.length - 2} more
-                          </span>
-                        )}
-                      </div>
-                    )}
-
-                    {/* View Details Button */}
-                    <button 
-                      onClick={(e) => {
-                        e.stopPropagation()
-                        toggleExpand(item.id || index)
-                      }}
-                      className="w-full mt-4 px-4 py-2 bg-gold/10 hover:bg-gold/20 text-gold text-sm font-medium rounded border border-gold/20 hover:border-gold transition-all duration-200 flex items-center justify-center gap-2"
-                    >
-                      <span>View Details</span>
-                      <svg 
-                        className="w-4 h-4 transition-transform"
-                        fill="none" 
-                        stroke="currentColor" 
-                        viewBox="0 0 24 24"
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-              )}
-
-              {/* Expanded Details - Centered on the road */}
-              {isExpanded && (
-                <div className="w-full max-w-[95%] md:w-[800px] lg:w-[900px] mx-auto mt-4 mb-8 md:mb-12 px-2 sm:px-4 md:px-0">
-                  <div className="bg-card/95 backdrop-blur-sm border-2 border-gold rounded-lg p-3 sm:p-4 md:p-6 lg:p-8 shadow-xl relative">
-                    {/* Close Button */}
-                    <button
-                      onClick={() => toggleExpand(item.id || index)}
-                      className="absolute top-2 right-2 sm:top-3 sm:right-3 md:top-4 md:right-4 z-30 text-gold hover:text-gold/80 transition-colors rounded-full p-1.5 sm:p-2 border border-gold/20 hover:border-gold shadow-lg flex-shrink-0"
-                      style={{
-                        backgroundColor: 'var(--c-card)'
-                      }}
-                      aria-label="Close"
-                    >
-                      <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                      </svg>
-                    </button>
-                    {/* Add padding-top to prevent overlap with close button on small screens */}
-                    <div className="pt-10 sm:pt-12 md:pt-0">
-                      <JourneyTimelineItem item={item} index={index} />
-                    </div>
-                  </div>
-                </div>
-              )}
+              {/* Single card: summary + chevron; expand/collapse in place (no nested card) */}
+              <div className="w-full max-w-[95%] md:max-w-3xl lg:max-w-4xl mx-auto px-2 sm:px-4 md:px-0 mb-2 md:mb-4 lg:mb-6">
+                <JourneyTimelineItem
+                  item={item}
+                  index={index}
+                  expanded={Boolean(isExpanded)}
+                  onToggle={() => toggleExpand(item.id || index)}
+                />
+              </div>
             </div>
           )
         })}
       </div>
 
-      {/* Road End Marker */}
-      <div className="relative mt-8 flex justify-center">
-        <div className="w-24 h-1 bg-gold/30 rounded-full"></div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 px-3 py-1 bg-card/90 backdrop-blur-sm border border-gold/20 rounded text-gold text-xs font-medium shadow-lg">
-          Journey Continues...
+      {/* Road end marker — hidden when timeline is truncated (Show more in parent) */}
+      {showContinuationBadge && (
+        <div className="relative mt-8 flex justify-center">
+          <div className="w-24 h-1 bg-gold/30 rounded-full"></div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 px-3 py-1 bg-card/90 backdrop-blur-sm border border-gold/20 rounded text-gold text-xs font-medium shadow-lg">
+            Journey Continues...
+          </div>
         </div>
-      </div>
+      )}
     </div>
   )
 }
@@ -309,36 +194,6 @@ function getIcon(iconName) {
     ),
   }
   return icons[iconName] || icons.briefcase
-}
-
-// Helper function to format time period
-function formatTimePeriod(time) {
-  if (time.startDate && time.endDate) {
-    const start = formatDate(time.startDate)
-    const end = time.endDate === 'present' ? 'Present' : formatDate(time.endDate)
-    return `${start} - ${end}`
-  }
-  if (time.year && time.month) {
-    return `${time.month} ${time.year}`
-  }
-  if (time.year) {
-    return time.year
-  }
-  return ''
-}
-
-// Helper function to format date
-function formatDate(dateString) {
-  if (!dateString || dateString === 'present') return 'Present'
-  try {
-    const date = new Date(dateString)
-    return date.toLocaleDateString('en-US', { 
-      year: 'numeric', 
-      month: 'short'
-    })
-  } catch {
-    return dateString
-  }
 }
 
 export default JourneyRoad

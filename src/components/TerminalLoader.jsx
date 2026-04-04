@@ -3,12 +3,12 @@ import logo from '../assets/Lion logo.png'
 
 function TerminalLoader({ 
   lines = [
-    '[INFO] Booting the server',
-    '[INFO] Authenticating database handshake',
-    '[INFO] Establishing connection to database',
-    '[INFO] Syncing models and Stored Procedures',
-    '[INFO] Loading portfolio data',
-  '[INFO] Application ready: Kuldeep\'s Portfolio is live'
+    '[INFO] Booting',
+    '[INFO] Authenticating',
+    '[INFO] Connecting',
+    '[INFO] Syncing',
+    '[INFO] Loading',
+    '[INFO] Ready',
   ],
   speed = 25,
   show = true,
