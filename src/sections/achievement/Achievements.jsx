@@ -102,7 +102,7 @@ function Achievements() {
         {/* Achievements Grid */}
         {achievementsList.length > 0 ? (
           <section className="mb-8 md:mb-12">
-            <div className="grid grid-cols-1 gap-3 sm:gap-4 items-start">
+            <div className="grid grid-cols-1 gap-3 sm:gap-4 items-stretch">
               {visibleAchievements.map((achievement, index) => {
                 const cardKey = achievement.id ?? `achievement-${index}`
                 return (

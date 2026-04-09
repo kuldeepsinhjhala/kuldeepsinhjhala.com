@@ -149,7 +149,7 @@ function JourneyRoad({ timeline = [], className = '', showContinuationBadge = tr
               </div>
 
               {/* Single card: summary + chevron; expand/collapse in place (no nested card) */}
-              <div className="w-full max-w-[95%] md:max-w-3xl lg:max-w-4xl mx-auto px-2 sm:px-4 md:px-0 mb-2 md:mb-4 lg:mb-6">
+              <div className="w-full max-w-7xl mx-auto px-0 sm:px-0 mb-2 md:mb-4 lg:mb-6">
                 <JourneyTimelineItem
                   item={item}
                   index={index}

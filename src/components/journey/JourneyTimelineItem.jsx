@@ -87,7 +87,7 @@ function JourneyTimelineItem({ item = {}, index = 0, expanded = true, onToggle }
   return (
     <div
       className={`
-        relative bg-card/90 backdrop-blur-sm border rounded-lg p-3 sm:p-4 md:p-6 lg:p-8
+        relative w-full bg-card/90 backdrop-blur-sm border rounded-lg p-3 sm:p-5 md:p-6
         transition-all duration-300 shadow-lg
         ${isHighlighted ? 'border-gold ring-2 ring-gold/30' : 'border-gold/20'}
         ${isHighlighted ? 'hover:ring-gold/50' : 'hover:border-gold hover:ring-1 hover:ring-gold/50'}

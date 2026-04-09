@@ -63,7 +63,7 @@ function Contact() {
 
   return (
     <div className="bg-dotted px-4 pt-0 pb-[min(28vh,10rem)] md:pb-[min(26vh,9rem)] lg:pb-24 xl:pb-28 md:px-8 lg:px-12">
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-7xl mx-auto">
         <header className="mb-10 md:mb-14 text-center">
           {meta.title && (
             <h2 className="section-heading-highlight text-head text-4xl md:text-5xl font-bold mb-2">{meta.title}</h2>
@@ -79,7 +79,7 @@ function Contact() {
               >
                 Contact details
               </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="w-full">
                 <ContactInfoCard contact={contact} />
               </div>
             </section>
@@ -89,7 +89,7 @@ function Contact() {
             <section aria-labelledby="social-heading">
               <h2
                 id="social-heading"
-                className="section-heading-highlight text-head text-xl md:text-2xl font-bold mb-3 md:mb-4"
+                className="section-heading-highlight text-head text-xl md:text-2xl font-bold mb-6 md:mb-8"
               >
                 Social media
               </h2>
