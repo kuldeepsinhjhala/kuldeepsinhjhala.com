@@ -47,7 +47,7 @@ function Landing() {
       <div className="bg-dotted min-h-screen px-4 pb-4 pt-8 md:px-8 md:pb-8 md:pt-12 lg:px-12 lg:pb-12 lg:pt-16">
         <div className="max-w-7xl mx-auto">
           <div className="text-center py-12">
-            <h1 className="section-heading-highlight text-head text-3xl font-bold mb-4">Landing</h1>
+            <h2 className="section-heading-highlight text-head text-3xl font-bold mb-4">Landing</h2>
             <p className="text-body">No landing data available.</p>
           </div>
         </div>

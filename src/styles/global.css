@@ -361,8 +361,7 @@ button:disabled {
   select:disabled {
     cursor: not-allowed !important;
   }
-  textarea[resize],
-  iframe {
+  textarea[resize] {
     cursor: auto !important;
   }
 }

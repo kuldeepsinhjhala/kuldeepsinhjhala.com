@@ -108,7 +108,13 @@ function AchievementCard({ achievement = {}, expanded = false, onToggle }) {
               {orgLogoSrc && (
                 <img
                   src={orgLogoSrc}
-                  alt=""
+                  alt={
+                    achievement.organization?.name
+                      ? `${achievement.organization.name} logo`
+                      : achievement.title
+                        ? `Logo for ${achievement.title}`
+                        : 'Organization logo'
+                  }
                   className="w-4 h-4 rounded object-contain flex-shrink-0"
                   style={
                     String(achievement.organization.logo).includes('Msu_logo')

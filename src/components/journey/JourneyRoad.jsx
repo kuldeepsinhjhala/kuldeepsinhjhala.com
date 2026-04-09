@@ -105,7 +105,13 @@ function JourneyRoad({ timeline = [], className = '', showContinuationBadge = tr
                     {milestoneLogoSrc ? (
                       <img
                         src={milestoneLogoSrc}
-                        alt={item.organization?.name ? `${item.organization.name} logo` : ''}
+                        alt={
+                          item.organization?.name
+                            ? `${item.organization.name} logo`
+                            : item.title
+                              ? `Milestone: ${item.title}`
+                              : 'Journey milestone'
+                        }
                         className="w-full h-full object-contain p-1.5"
                         style={getJourneyOrgLogoImgStyle(item.organization?.logo)}
                         loading="lazy"

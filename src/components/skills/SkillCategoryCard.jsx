@@ -34,7 +34,7 @@ function SkillCategoryCard({ category = {} }) {
     >
       <div className="flex items-start gap-3 sm:gap-4 min-w-0">
         <div className="flex-1 min-w-0">
-          <h2 className="text-head text-2xl md:text-3xl font-bold">{category.name}</h2>
+          <h3 className="text-head text-2xl md:text-3xl font-bold">{category.name}</h3>
         </div>
         {hasExpandableContent && (
           <button

@@ -410,7 +410,7 @@
     {
       "id": "portfolio-website",
       "sequence": 5,
-      "logo": "Lion logo.png",
+      "logo": "lion-logo-sm.png",
       "title": "Portfolio Website",
       "shortDescription": "A personal portfolio website with a JSON-driven architecture, CI/CD pipeline, and AWS S3 + CloudFront secured document delivery.",
       "longDescription": "A personal portfolio website built from scratch to showcase projects, skills, and professional experience. Instead of hardcoding content into HTML/CSS, the entire portfolio is driven by structured JSON files — one per section. Any content update only requires editing the corresponding JSON, and the UI renders it automatically without touching any frontend code. The site is hosted on Vercel with a CI/CD pipeline configured so that every push to the main branch triggers an automatic build and goes live within 10 seconds. Documents and assets are stored in a private AWS S3 bucket wrapped with CloudFront — all public S3 access is blocked, and files are only accessible through the CloudFront distribution.",

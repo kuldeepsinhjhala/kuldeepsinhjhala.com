@@ -29,9 +29,9 @@ function SkillCard({ skill = {} }) {
       }
     >
       <div className="flex items-center gap-3 min-w-0">
-        <h3 className="text-head text-lg md:text-xl font-semibold flex-1 min-w-0">
+        <h4 className="text-head text-lg md:text-xl font-semibold flex-1 min-w-0">
           {skill.name}
-        </h3>
+        </h4>
         {hasDescription && (
           <button
             type="button"

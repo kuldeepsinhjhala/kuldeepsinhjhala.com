@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
-import logo from '../assets/Lion logo.png'
+import logoHero from '../assets/lion-logo-hero.png'
+import logoSm from '../assets/lion-logo-sm.png'
 
 function TerminalLoader({ 
   lines = [
@@ -169,8 +170,10 @@ function TerminalLoader({
         {/* Logo with simple animation */}
         <div className="relative">
           <img 
-            src={logo} 
+            src={logoHero} 
             alt="Kuldeepsinh Jhala Logo" 
+            width={512}
+            height={497}
             className="h-32 md:h-48 lg:h-64 w-auto object-contain opacity-0"
             style={{
               filter: 'brightness(0) invert(1) sepia(100%) saturate(200%) hue-rotate(20deg)',
@@ -210,8 +213,10 @@ function TerminalLoader({
           </div>
           <div className="flex items-center gap-1.5 text-body/50 text-xs font-mono">
             <img 
-              src={logo} 
+              src={logoSm} 
               alt="Logo" 
+              width={128}
+              height={124}
               className="h-3 w-auto object-contain opacity-90"
               style={{
                 filter: 'brightness(0) invert(1) sepia(100%) saturate(200%) hue-rotate(20deg)'

@@ -1,5 +1,6 @@
 import { useRef } from 'react'
 import { Routes, Route } from 'react-router-dom'
+import Seo from '../components/Seo'
 import { TabProvider } from '../context/TabContext'
 import { UnifiedPortfolioScroll } from './UnifiedPortfolioScroll'
 // import { CopilotProvider, useCopilot } from '../context/CopilotContext' // Temporarily disabled copilot
@@ -46,6 +47,7 @@ function AppContent() {
 function AppRoutes() {
   return (
     <TabProvider>
+      <Seo />
       {/* Temporarily disabled copilot */}
       {/* <CopilotProvider> */}
         <NavbarProvider>

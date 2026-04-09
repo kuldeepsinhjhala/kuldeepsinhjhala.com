@@ -53,7 +53,7 @@ function Contact() {
       <div className="bg-dotted px-4 pb-2 pt-0 md:px-8 md:pb-2 md:pt-0 lg:px-12 lg:pb-3 lg:pt-0">
         <div className="max-w-7xl mx-auto">
           <div className="text-center py-12">
-            <h1 className="section-heading-highlight text-head text-3xl font-bold mb-4">Contact</h1>
+            <h2 className="section-heading-highlight text-head text-3xl font-bold mb-4">Contact</h2>
             <p className="text-body">No contact data available.</p>
           </div>
         </div>
@@ -66,7 +66,7 @@ function Contact() {
       <div className="max-w-5xl mx-auto">
         <header className="mb-10 md:mb-14 text-center">
           {meta.title && (
-            <h1 className="section-heading-highlight text-head text-4xl md:text-5xl font-bold mb-2">{meta.title}</h1>
+            <h2 className="section-heading-highlight text-head text-4xl md:text-5xl font-bold mb-2">{meta.title}</h2>
           )}
         </header>
 

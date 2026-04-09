@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react'
 import JourneyTimelineItem from './JourneyTimelineItem'
-import logo from '../../assets/Lion logo.png'
+import logo from '../../assets/lion-logo-sm.png'
 import { getJourneyMilestoneYearLabel, isJourneyItemHighlighted } from '../../utils/journeyItemUtils'
 
 /**
@@ -111,6 +111,8 @@ function JourneyTerminal({ timeline = [], className = '' }) {
             <img 
               src={logo} 
               alt="Logo" 
+              width={128}
+              height={124}
               className="h-3 w-auto object-contain opacity-90"
               style={{
                 filter: 'brightness(0) invert(1) sepia(100%) saturate(200%) hue-rotate(20deg)'

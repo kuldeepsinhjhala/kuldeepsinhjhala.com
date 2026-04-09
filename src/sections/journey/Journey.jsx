@@ -114,7 +114,7 @@ function Journey() {
       <div className="bg-dotted px-4 pb-2 pt-0 md:px-8 md:pb-4 md:pt-0 lg:px-12 lg:pb-6 lg:pt-0">
         <div className="max-w-7xl mx-auto">
           <div className="text-center py-12">
-            <h1 className="section-heading-highlight text-head text-3xl font-bold mb-4">Journey</h1>
+            <h2 className="section-heading-highlight text-head text-3xl font-bold mb-4">Journey</h2>
             <p className="text-body">No journey data available.</p>
           </div>
         </div>
@@ -128,9 +128,9 @@ function Journey() {
         {/* Header */}
         <header className="mb-8 md:mb-12 text-center">
           {meta.title && (
-            <h1 className="section-heading-highlight text-head text-4xl md:text-5xl font-bold mb-2">
+            <h2 className="section-heading-highlight text-head text-4xl md:text-5xl font-bold mb-2">
               {meta.title}
-            </h1>
+            </h2>
           )}
         </header>
 
