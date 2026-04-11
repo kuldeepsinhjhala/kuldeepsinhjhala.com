@@ -308,7 +308,7 @@
       "sequence": 4,
       "logo": "uninest_logo.svg",
       "title": "UninestAI",
-      "shortDescription": "A student placement and university management portal connecting students, universities, and companies — built on a transaction-safe Stored Procedure framework with 100+ SP-driven APIs.",
+      "shortDescription": "A student placement and university management portal connecting students, universities, and companies — built on a transaction-safe Stored Procedure with 100+ SP-driven APIs.",
       "longDescription": "UninestAI is a student placement and university management portal connecting students, universities, and companies. The backend is built on a transaction-safe Stored Procedure framework with structured error handling and inter-procedure communication. The system features a normalized MSSQL schema with optimized indexing, 100+ SP-driven REST APIs, Role-Based Access Control, and comprehensive Swagger documentation for cross-team efficiency. Business requirements were translated into well-defined technical workflows and execution plans before any development began.",
       "category": "fullstack",
       "type": "professional",
@@ -320,18 +320,21 @@
         "name": "Keshav Encon Private Limited",
         "type": "company",
         "role": "Founding Software Developer Engineer",
-        "teamSize": 5
+        "teamSize": 4
       },
       "problem": {
-        "summary": "No unified portal existed to manage and connect the full lifecycle of student placement — bridging students, universities, and companies in one system with secure, role-specific access.",
+        "summary": "Only few enterprise level portals existed to manage and connect the full lifecycle of student placement — bridging students, universities, and companies in one system with secure, role-specific access. Current portals are not completely dynamic as per university requirements.",
         "constraints": [
+          "Need for a completely dynamic portal as per university requirements are different",
+          "Unique structure of portal as per university requirements",
+          "Different features and role based access as per university requirements are difffernt",
           "Complex multi-entity relationships between students, universities, and companies",
           "Need for transaction-safe data operations with structured error handling",
           "Multi-level RBAC for different user types across the portal"
         ]
       },
       "solution": {
-        "approach": "Conducted end-to-end feature research and translated business requirements into technical execution plans. Built a transaction-safe Stored Procedure framework as the core data layer, with a modular REST API architecture on top.",
+        "approach": "Conducted end-to-end feature research and translated business requirements into technical execution plans. Built a transaction-safe Stored Procedure with dynamic features and role based access as per university requirements, with a modular REST API architecture on top.",
         "architecture": "Normalized MSSQL schema with optimized indexing, transaction-safe SP framework with inter-procedure communication, modular REST API architecture, and RBAC for secure role-specific access.",
         "designPatterns": [
           "Stored Procedure-Driven Architecture",
@@ -382,11 +385,11 @@
       "techStack": {
         "languages": ["JavaScript", "T-SQL", "SQL"],
         "frameworks": ["Node.js", "Express.js"],
-        "databases": ["MSSQL"],
+        "databases": ["MSSQL", "Stored Procedures"],
         "orms": [],
         "cloud": [],
         "devOps": ["Git"],
-        "tools": ["Stored Procedures", "REST APIs", "Swagger (OpenAPI)", "Postman", "SSMS"]
+        "tools": ["REST APIs", "Swagger (OpenAPI)", "Postman", "SSMS"]
       },
       "metrics": {
         "performance": "100+ SP-driven APIs with optimized indexing and relational mapping",
