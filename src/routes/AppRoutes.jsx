@@ -3,14 +3,14 @@ import { Routes, Route } from 'react-router-dom'
 import Seo from '../components/Seo'
 import { TabProvider } from '../context/TabContext'
 import { UnifiedPortfolioScroll } from './UnifiedPortfolioScroll'
-// import { CopilotProvider, useCopilot } from '../context/CopilotContext' // Temporarily disabled copilot
+import { CopilotProvider } from '../context/CopilotContext'
 import { NavbarProvider } from '../context/NavbarContext'
 import Navbar from '../components/Navbar'
 import SearchBar from '../components/SearchBar'
 import TabBar from '../components/TabBar'
 import CustomCursor from '../components/CustomCursor'
-// import CopilotButton from '../components/CopilotButton' // Temporarily disabled copilot
-// import CopilotPanel from '../components/CopilotPanel' // Temporarily disabled copilot
+import CopilotButton from '../components/CopilotButton'
+import CopilotPanel from '../components/CopilotPanel'
 function AppContent() {
   const mainRef = useRef(null)
 
@@ -37,9 +37,8 @@ function AppContent() {
             </Routes>
           </main>
         </div>
-        {/* Temporarily disabled copilot */}
-        {/* <CopilotButton /> */}
-        {/* <CopilotPanel /> */}
+        <CopilotButton />
+        <CopilotPanel />
       </div>
   )
 }
@@ -48,12 +47,11 @@ function AppRoutes() {
   return (
     <TabProvider>
       <Seo />
-      {/* Temporarily disabled copilot */}
-      {/* <CopilotProvider> */}
+      <CopilotProvider>
         <NavbarProvider>
           <AppContent />
         </NavbarProvider>
-      {/* </CopilotProvider> */}
+      </CopilotProvider>
     </TabProvider>
   )
 }

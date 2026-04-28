@@ -1,7 +1,6 @@
 import { useState, useRef, useEffect } from 'react'
 import { useCopilot } from '../context/CopilotContext'
-
-const API_BASE_URL = 'http://localhost:3000'
+import { sendChatMessage } from '../services/copilotApi'
 
 function CopilotPanel() {
   const { isOpen, setIsOpen } = useCopilot()
@@ -44,49 +43,28 @@ function CopilotPanel() {
     setIsLoading(true)
 
     try {
-      // Build conversation history (exclude the initial welcome message and current message)
-      // Format: array of { role: 'user' | 'assistant', content: string }
-      const conversationHistory = messages
+      // Build conversation messages in the format expected by the AI endpoint.
+      // Excludes the initial welcome message and includes the current user input as last entry.
+      const conversationMessages = messages
         .filter(msg => msg.id !== 1) // Exclude initial welcome message
         .map(msg => ({
           role: msg.role,
           content: msg.content
         }))
+      conversationMessages.push({ role: 'user', content: currentInput })
 
-      let response
       try {
-        response = await fetch(`${API_BASE_URL}/api/kuldeep-copilot`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            message: currentInput,
-            conversationHistory: conversationHistory
-          }),
-        })
-      } catch (fetchError) {
-        // Network error - server is likely down or unreachable
-        console.error('Network error - backend server unreachable:', fetchError)
-        throw new Error('NETWORK_ERROR')
-      }
-
-      if (!response.ok) {
-        const errorData = await response.json().catch(() => ({}))
-        throw new Error(errorData.message || errorData.error || `HTTP error! status: ${response.status}`)
-      }
-
-      const data = await response.json()
-      
-      if (data.success && data.message) {
+        const data = await sendChatMessage(conversationMessages)
         const aiMessage = {
           id: Date.now() + 1,
           role: 'assistant',
-          content: data.message
+          content: data.text
         }
         setMessages(prev => [...prev, aiMessage])
-      } else {
-        throw new Error('Invalid response from server')
+      } catch (fetchError) {
+        // Network/API parsing error - server is likely down or unreachable
+        console.error('Network or API error from AI endpoint:', fetchError)
+        throw new Error('NETWORK_ERROR')
       }
     } catch (error) {
       console.error('Error sending message to AI:', error)
