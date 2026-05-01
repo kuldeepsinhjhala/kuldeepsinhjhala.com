@@ -12,50 +12,103 @@
           "id": "javascript",
           "name": "JavaScript",
           "description": "Primary language for full-stack development — used extensively across all backend systems (Node.js), frontend (React.js, Redux), and scripting.",
-          "learnedFrom": ["Keshav Encon internship and full-time", "ResumeeAI", "TalentPulseAI", "UninestAI", "Portfolio Website"],
-          "usedIn": ["All professional projects at Keshav Encon", "Portfolio Website"]
+          "learnedFrom": [
+            "Keshav Encon internship and full-time",
+            "ResumeeAI",
+            "TalentPulseAI",
+            "UninestAI",
+            "Portfolio Website"
+          ],
+          "usedIn": [
+            "All professional projects at Keshav Encon",
+            "Portfolio Website"
+          ]
         },
         {
           "id": "python",
           "name": "Python",
           "description": "Used for AI/ML workflows including LLM fine-tuning pipelines and data processing scripts for the Mistral-7B training dataset.",
-          "learnedFrom": ["ResumeeAI fine-tuning pipeline", "Keshav Encon full-time"],
-          "usedIn": ["Mistral-7B fine-tuning on 45,000+ resumes", "Data preprocessing pipelines"]
+          "learnedFrom": [
+            "ResumeeAI fine-tuning pipeline",
+            "Keshav Encon full-time"
+          ],
+          "usedIn": [
+            "Mistral-7B fine-tuning on 45,000+ resumes",
+            "Data preprocessing pipelines"
+          ]
         },
         {
           "id": "sql",
           "name": "SQL",
           "description": "Used for relational database design, raw query writing, stored procedures, and performance optimization across MSSQL-backed systems.",
-          "learnedFrom": ["GTU Diploma", "All Keshav Encon projects"],
-          "usedIn": ["ResumeeAI", "TalentPulseAI", "UninestAI", "Custom Industrial CRM"]
+          "learnedFrom": [
+            "GTU Diploma",
+            "All Keshav Encon projects"
+          ],
+          "usedIn": [
+            "ResumeeAI",
+            "TalentPulseAI",
+            "UninestAI",
+            "Custom Industrial CRM"
+          ]
         },
         {
           "id": "tsql",
           "name": "T-SQL (Transact-SQL)",
           "description": "Used T-SQL for writing Stored Procedures, complex business logic, inter-procedure communication, and transaction-safe data operations in MSSQL.",
-          "learnedFrom": ["UninestAI", "Keshav Encon full-time"],
-          "usedIn": ["UninestAI — 100+ SP-driven APIs", "Transaction-safe SP framework"]
+          "learnedFrom": [
+            "UninestAI",
+            "Keshav Encon full-time"
+          ],
+          "usedIn": [
+            "UninestAI — 100+ SP-driven APIs",
+            "Transaction-safe SP framework"
+          ]
         },
         {
           "id": "java",
           "name": "Java",
           "description": "Used Java for Android application development during internship at iTechNotion.",
-          "learnedFrom": ["iTechNotion internship", "Udemy Android Bootcamp"],
-          "usedIn": ["City Directory Android Application"]
+          "learnedFrom": [
+            "iTechNotion internship",
+            "Udemy Android Bootcamp"
+          ],
+          "usedIn": [
+            "City Directory Android Application"
+          ]
         },
         {
           "id": "kotlin",
           "name": "Kotlin",
           "description": "Learned and applied Kotlin for Android development — built Android applications with modern Kotlin syntax and patterns.",
-          "learnedFrom": ["Udemy Kotlin for Beginners course", "iTechNotion internship"],
-          "usedIn": ["City Directory Android Application"]
+          "learnedFrom": [
+            "Udemy Kotlin for Beginners course",
+            "iTechNotion internship"
+          ],
+          "usedIn": [
+            "City Directory Android Application"
+          ]
         },
         {
           "id": "html-css",
           "name": "HTML & CSS",
           "description": "Used for building web UI layouts across multiple projects — from early internship to the Portfolio Website.",
-          "learnedFrom": ["The Sparks Foundation internship", "GTU Diploma"],
-          "usedIn": ["Banking Website", "ResumeeAI frontend", "Portfolio Website"]
+          "learnedFrom": [
+            "The Sparks Foundation internship",
+            "GTU Diploma"
+          ],
+          "usedIn": [
+            "Banking Website",
+            "ResumeeAI frontend",
+            "Portfolio Website"
+          ]
+        },
+        {
+          "id": "typescript",
+          "name": "Typescript",
+          "description": "Strong TypeScript proficiency with experience building scalable backend services and cleanly structured applications. Skilled in leveraging static typing, generics, and advanced type inference to improve code reliability and maintainability. Comfortable designing type-safe APIs, integrating with modern frameworks, and enforcing best practices such as strict typing, modular architecture, and reusable abstractions. Experienced in debugging complex type issues and optimizing developer experience through better tooling and type design.",
+          "learnedFrom": "https://www.typescriptlang.org/",
+          "usedIn": ""
         }
       ]
     },
@@ -68,64 +121,122 @@
           "id": "nodejs",
           "name": "Node.js",
           "description": "Primary backend runtime — used to build scalable REST APIs, authentication flows, middleware layers, and business logic across all production systems at Keshav Encon.",
-          "learnedFrom": ["Keshav Encon internship", "Namaste Node.js course"],
-          "usedIn": ["ResumeeAI", "TalentPulseAI", "UninestAI", "Custom Industrial CRM"]
+          "learnedFrom": [
+            "Keshav Encon internship",
+            "Namaste Node.js course"
+          ],
+          "usedIn": [
+            "ResumeeAI",
+            "TalentPulseAI",
+            "UninestAI",
+            "Custom Industrial CRM"
+          ]
         },
         {
           "id": "expressjs",
           "name": "Express.js",
           "description": "Used Express.js for routing, middleware-driven authentication and authorization, error handling, and modular REST API architecture across all backend projects.",
-          "learnedFrom": ["Keshav Encon internship and full-time"],
-          "usedIn": ["ResumeeAI", "TalentPulseAI", "UninestAI", "Custom Industrial CRM"]
+          "learnedFrom": [
+            "Keshav Encon internship and full-time"
+          ],
+          "usedIn": [
+            "ResumeeAI",
+            "TalentPulseAI",
+            "UninestAI",
+            "Custom Industrial CRM"
+          ]
         },
         {
           "id": "rest-api",
           "name": "REST API Design",
           "description": "Designed and developed 100+ RESTful APIs across multiple platforms — defining clear request/response contracts, modular routing, and maintainable API architecture.",
-          "learnedFrom": ["Keshav Encon internship and full-time"],
-          "usedIn": ["TalentPulseAI — 100+ APIs", "UninestAI — 100+ SP-driven APIs", "ResumeeAI"]
+          "learnedFrom": [
+            "Keshav Encon internship and full-time"
+          ],
+          "usedIn": [
+            "TalentPulseAI — 100+ APIs",
+            "UninestAI — 100+ SP-driven APIs",
+            "ResumeeAI"
+          ]
         },
         {
           "id": "stored-procedures",
           "name": "Stored Procedures",
           "description": "Built a transaction-safe Stored Procedure framework with structured error handling and inter-procedure communication for UninestAI. Designed 100+ SP-driven REST APIs.",
-          "learnedFrom": ["UninestAI", "Keshav Encon full-time"],
-          "usedIn": ["UninestAI backend data layer"]
+          "learnedFrom": [
+            "UninestAI",
+            "Keshav Encon full-time"
+          ],
+          "usedIn": [
+            "UninestAI backend data layer"
+          ]
         },
         {
           "id": "oauth2",
           "name": "OAuth 2.0",
           "description": "Engineered OAuth 2.0 authentication flows for Google and LinkedIn from scratch without third-party libraries — handling the full auth handshake, token exchange, and session management.",
-          "learnedFrom": ["ResumeeAI", "TalentPulseAI"],
-          "usedIn": ["ResumeeAI", "TalentPulseAI"]
+          "learnedFrom": [
+            "ResumeeAI",
+            "TalentPulseAI"
+          ],
+          "usedIn": [
+            "ResumeeAI",
+            "TalentPulseAI"
+          ]
         },
         {
           "id": "jwt",
           "name": "JWT (JSON Web Tokens)",
           "description": "Implemented JWT-based authorization and secure session management, combined with backend middleware for API security across all platforms.",
-          "learnedFrom": ["Keshav Encon internship and full-time"],
-          "usedIn": ["ResumeeAI", "TalentPulseAI", "UninestAI", "Custom Industrial CRM"]
+          "learnedFrom": [
+            "Keshav Encon internship and full-time"
+          ],
+          "usedIn": [
+            "ResumeeAI",
+            "TalentPulseAI",
+            "UninestAI",
+            "Custom Industrial CRM"
+          ]
         },
         {
           "id": "rbac",
           "name": "RBAC (Role-Based Access Control)",
           "description": "Designed and implemented multi-level Role-Based Access Control across platforms — defining permission hierarchies for different user roles to ensure secure and controlled access.",
-          "learnedFrom": ["TalentPulseAI", "UninestAI"],
-          "usedIn": ["TalentPulseAI", "UninestAI", "ResumeeAI"]
+          "learnedFrom": [
+            "TalentPulseAI",
+            "UninestAI"
+          ],
+          "usedIn": [
+            "TalentPulseAI",
+            "UninestAI",
+            "ResumeeAI"
+          ]
         },
         {
           "id": "system-architecture",
           "name": "System Architecture & Design",
           "description": "Conducted end-to-end system design — from translating business requirements into technical execution plans, designing database schemas, API contracts, authentication flows, and deployment architecture.",
-          "learnedFrom": ["All Keshav Encon products"],
-          "usedIn": ["ResumeeAI", "TalentPulseAI", "UninestAI"]
+          "learnedFrom": [
+            "All Keshav Encon products"
+          ],
+          "usedIn": [
+            "ResumeeAI",
+            "TalentPulseAI",
+            "UninestAI"
+          ]
         },
         {
           "id": "swagger",
           "name": "Swagger / OpenAPI",
           "description": "Created comprehensive OpenAPI (Swagger) documentation to streamline frontend integration and improve cross-team development efficiency.",
-          "learnedFrom": ["UninestAI", "TalentPulseAI"],
-          "usedIn": ["UninestAI API documentation", "TalentPulseAI"]
+          "learnedFrom": [
+            "UninestAI",
+            "TalentPulseAI"
+          ],
+          "usedIn": [
+            "UninestAI API documentation",
+            "TalentPulseAI"
+          ]
         }
       ]
     },
@@ -138,43 +249,73 @@
           "id": "react",
           "name": "React.js",
           "description": "Built component-driven frontend applications with React — rendering dynamic content, consuming backend APIs, and managing UI state across production platforms.",
-          "learnedFrom": ["Keshav Encon internship"],
-          "usedIn": ["ResumeeAI frontend", "TalentPulseAI frontend integration", "Portfolio Website"]
+          "learnedFrom": [
+            "Keshav Encon internship"
+          ],
+          "usedIn": [
+            "ResumeeAI frontend",
+            "TalentPulseAI frontend integration",
+            "Portfolio Website"
+          ]
         },
         {
           "id": "redux",
           "name": "Redux.js",
           "description": "Used Redux for predictable global state management in the ResumeeAI frontend — managing shared state across complex UI flows.",
-          "learnedFrom": ["Keshav Encon internship"],
-          "usedIn": ["ResumeeAI frontend"]
+          "learnedFrom": [
+            "Keshav Encon internship"
+          ],
+          "usedIn": [
+            "ResumeeAI frontend"
+          ]
         },
         {
           "id": "tailwindcss",
           "name": "Tailwind CSS",
           "description": "Used Tailwind CSS to rapidly build responsive, consistent, and scalable UI layouts with utility-first styling.",
-          "learnedFrom": ["ResumeeAI", "Portfolio Website"],
-          "usedIn": ["ResumeeAI frontend", "Portfolio Website"]
+          "learnedFrom": [
+            "ResumeeAI",
+            "Portfolio Website"
+          ],
+          "usedIn": [
+            "ResumeeAI frontend",
+            "Portfolio Website"
+          ]
         },
         {
           "id": "bootstrap",
           "name": "Bootstrap",
           "description": "Used Bootstrap for building responsive UI layouts during early web development work.",
-          "learnedFrom": ["The Sparks Foundation internship"],
-          "usedIn": ["Banking Website — The Sparks Foundation"]
+          "learnedFrom": [
+            "The Sparks Foundation internship"
+          ],
+          "usedIn": [
+            "Banking Website — The Sparks Foundation"
+          ]
         },
         {
           "id": "android-dev",
           "name": "Android Development",
           "description": "Built Android applications using Java and Kotlin with Material Design 3 guidelines — implemented Google Maps API, custom navigation, and API-based dynamic data.",
-          "learnedFrom": ["iTechNotion internship", "Udemy Android Bootcamp", "Kotlin for Beginners course"],
-          "usedIn": ["City Directory Application — iTechNotion"]
+          "learnedFrom": [
+            "iTechNotion internship",
+            "Udemy Android Bootcamp",
+            "Kotlin for Beginners course"
+          ],
+          "usedIn": [
+            "City Directory Application — iTechNotion"
+          ]
         },
         {
           "id": "figma",
           "name": "Figma",
           "description": "Used Figma for UI/UX design and prototyping during Android application development.",
-          "learnedFrom": ["iTechNotion internship"],
-          "usedIn": ["City Directory Android Application"]
+          "learnedFrom": [
+            "iTechNotion internship"
+          ],
+          "usedIn": [
+            "City Directory Android Application"
+          ]
         }
       ]
     },
@@ -187,50 +328,90 @@
           "id": "mssql",
           "name": "Microsoft SQL Server (MSSQL)",
           "description": "Designed normalized relational schemas with 50+ tables, wrote raw SQL and T-SQL, built Stored Procedure frameworks, and optimized indexing and query performance for production-grade systems.",
-          "learnedFrom": ["All Keshav Encon products"],
-          "usedIn": ["ResumeeAI", "TalentPulseAI", "UninestAI", "Custom Industrial CRM"]
+          "learnedFrom": [
+            "All Keshav Encon products"
+          ],
+          "usedIn": [
+            "ResumeeAI",
+            "TalentPulseAI",
+            "UninestAI",
+            "Custom Industrial CRM"
+          ]
         },
         {
           "id": "sequelize",
           "name": "Sequelize ORM",
           "description": "Used Sequelize ORM for model definition, associations, and standard CRUD operations — combined with raw SQL for performance-critical paths (hybrid approach improved query performance by 30%).",
-          "learnedFrom": ["Keshav Encon internship and full-time"],
-          "usedIn": ["ResumeeAI", "TalentPulseAI", "Custom Industrial CRM"]
+          "learnedFrom": [
+            "Keshav Encon internship and full-time"
+          ],
+          "usedIn": [
+            "ResumeeAI",
+            "TalentPulseAI",
+            "Custom Industrial CRM"
+          ]
         },
         {
           "id": "raw-sql",
           "name": "Raw SQL & Query Optimization",
           "description": "Wrote complex raw SQL queries for performance-critical reporting paths — improved complex query execution by 30% on TalentPulseAI using a hybrid ORM + raw SQL approach.",
-          "learnedFrom": ["TalentPulseAI", "Keshav Encon full-time"],
-          "usedIn": ["TalentPulseAI", "UninestAI"]
+          "learnedFrom": [
+            "TalentPulseAI",
+            "Keshav Encon full-time"
+          ],
+          "usedIn": [
+            "TalentPulseAI",
+            "UninestAI"
+          ]
         },
         {
           "id": "mysql",
           "name": "MySQL",
           "description": "Used MySQL for relational database operations during early web development internship.",
-          "learnedFrom": ["The Sparks Foundation internship", "GTU Diploma"],
-          "usedIn": ["Banking Website — The Sparks Foundation"]
+          "learnedFrom": [
+            "The Sparks Foundation internship",
+            "GTU Diploma"
+          ],
+          "usedIn": [
+            "Banking Website — The Sparks Foundation"
+          ]
         },
         {
           "id": "mongodb",
           "name": "MongoDB & Mongoose",
           "description": "Studied MongoDB and Mongoose as part of the Namaste Node.js course — covering NoSQL data modeling, queries, and Mongoose schema design.",
-          "learnedFrom": ["Namaste Node.js course"],
-          "usedIn": ["Course projects and learning"]
+          "learnedFrom": [
+            "Namaste Node.js course"
+          ],
+          "usedIn": [
+            "Course projects and learning"
+          ]
         },
         {
           "id": "db-normalization",
           "name": "Database Normalization (3NF)",
           "description": "Applied 3NF normalization principles to design robust, redundancy-free relational schemas — analyzed 50+ reference websites to design industry-standard schemas for CRM and AI platforms.",
-          "learnedFrom": ["Custom Industrial CRM", "ResumeeAI", "TalentPulseAI"],
-          "usedIn": ["All Keshav Encon products"]
+          "learnedFrom": [
+            "Custom Industrial CRM",
+            "ResumeeAI",
+            "TalentPulseAI"
+          ],
+          "usedIn": [
+            "All Keshav Encon products"
+          ]
         },
         {
           "id": "ssms",
           "name": "SSMS (SQL Server Management Studio)",
           "description": "Used SSMS for database management, query execution, stored procedure development, and performance analysis.",
-          "learnedFrom": ["Keshav Encon full-time"],
-          "usedIn": ["UninestAI", "TalentPulseAI", "ResumeeAI"]
+          "learnedFrom": [
+            "Keshav Encon full-time"
+          ],
+          "usedIn": [
+            "UninestAI",
+            "TalentPulseAI",
+            "ResumeeAI"
+          ]
         }
       ]
     },
@@ -243,22 +424,38 @@
           "id": "llm-finetuning",
           "name": "LLM Fine-Tuning (Mistral-7B)",
           "description": "Fine-tuned a local Mistral-7B model on 45,000+ resumes using structured JSON training data — eliminated 100% of Gemini API cost and reduced AI response time from 30s to 20s on NVIDIA GPU infrastructure.",
-          "learnedFrom": ["ResumeeAI full-time phase at Keshav Encon"],
-          "usedIn": ["ResumeeAI — local AI inference engine"]
+          "learnedFrom": [
+            "ResumeeAI full-time phase at Keshav Encon"
+          ],
+          "usedIn": [
+            "ResumeeAI — local AI inference engine"
+          ]
         },
         {
           "id": "gemini-ai",
           "name": "Gemini AI API",
           "description": "Integrated Gemini LLM API for AI-powered resume generation and automated question generation — built a module that automated 80% of manual content creation on TalentPulseAI.",
-          "learnedFrom": ["ResumeeAI internship", "TalentPulseAI"],
-          "usedIn": ["ResumeeAI (early phase)", "TalentPulseAI question generation module"]
+          "learnedFrom": [
+            "ResumeeAI internship",
+            "TalentPulseAI"
+          ],
+          "usedIn": [
+            "ResumeeAI (early phase)",
+            "TalentPulseAI question generation module"
+          ]
         },
         {
           "id": "llm-integration",
           "name": "LLM Application Integration",
           "description": "Experience integrating large language models into production software systems — both via external APIs (Gemini) and locally hosted fine-tuned models (Mistral-7B).",
-          "learnedFrom": ["ResumeeAI", "TalentPulseAI"],
-          "usedIn": ["ResumeeAI", "TalentPulseAI"]
+          "learnedFrom": [
+            "ResumeeAI",
+            "TalentPulseAI"
+          ],
+          "usedIn": [
+            "ResumeeAI",
+            "TalentPulseAI"
+          ]
         }
       ]
     },
@@ -271,71 +468,120 @@
           "id": "aws-ec2",
           "name": "AWS EC2",
           "description": "Deployed and managed backend applications on AWS EC2 Linux instances — configured instances, set up networking and security groups.",
-          "learnedFrom": ["ResumeeAI deployment", "TalentPulseAI deployment"],
-          "usedIn": ["ResumeeAI", "TalentPulseAI"]
+          "learnedFrom": [
+            "ResumeeAI deployment",
+            "TalentPulseAI deployment"
+          ],
+          "usedIn": [
+            "ResumeeAI",
+            "TalentPulseAI"
+          ]
         },
         {
           "id": "aws-rds",
           "name": "AWS RDS",
           "description": "Used AWS RDS for managed relational database hosting with proper networking, security group configuration, and connection management.",
-          "learnedFrom": ["ResumeeAI deployment", "TalentPulseAI deployment"],
-          "usedIn": ["ResumeeAI", "TalentPulseAI"]
+          "learnedFrom": [
+            "ResumeeAI deployment",
+            "TalentPulseAI deployment"
+          ],
+          "usedIn": [
+            "ResumeeAI",
+            "TalentPulseAI"
+          ]
         },
         {
           "id": "aws-s3",
           "name": "AWS S3",
           "description": "Used AWS S3 for secure file and asset storage — configured private buckets with CloudFront Origin Access Control for secure delivery.",
-          "learnedFrom": ["ResumeeAI", "Portfolio Website"],
-          "usedIn": ["ResumeeAI", "Portfolio Website — private document delivery"]
+          "learnedFrom": [
+            "ResumeeAI",
+            "Portfolio Website"
+          ],
+          "usedIn": [
+            "ResumeeAI",
+            "Portfolio Website — private document delivery"
+          ]
         },
         {
           "id": "aws-cloudfront",
           "name": "AWS CloudFront",
           "description": "Configured CloudFront as a CDN and as the only access layer over private S3 buckets — implemented Origin Access Control (OAC) to block all direct S3 public access.",
-          "learnedFrom": ["ResumeeAI", "Portfolio Website"],
-          "usedIn": ["ResumeeAI", "Portfolio Website — secure document CDN"]
+          "learnedFrom": [
+            "ResumeeAI",
+            "Portfolio Website"
+          ],
+          "usedIn": [
+            "ResumeeAI",
+            "Portfolio Website — secure document CDN"
+          ]
         },
         {
           "id": "aws-elb",
           "name": "AWS ELB (Elastic Load Balancer)",
           "description": "Used AWS ELB as part of the deployment architecture for load distribution across backend services.",
-          "learnedFrom": ["ResumeeAI deployment"],
-          "usedIn": ["ResumeeAI"]
+          "learnedFrom": [
+            "ResumeeAI deployment"
+          ],
+          "usedIn": [
+            "ResumeeAI"
+          ]
         },
         {
           "id": "firebase",
           "name": "Firebase",
           "description": "Used Firebase for frontend hosting of TalentPulseAI — configured deployment and environment management.",
-          "learnedFrom": ["TalentPulseAI deployment"],
-          "usedIn": ["TalentPulseAI frontend"]
+          "learnedFrom": [
+            "TalentPulseAI deployment"
+          ],
+          "usedIn": [
+            "TalentPulseAI frontend"
+          ]
         },
         {
           "id": "vercel",
           "name": "Vercel",
           "description": "Used Vercel for hosting the Portfolio Website with GitHub-integrated CI/CD — every push to main triggers an automatic build and goes live within 10 seconds.",
-          "learnedFrom": ["Portfolio Website"],
-          "usedIn": ["Portfolio Website — CI/CD pipeline"]
+          "learnedFrom": [
+            "Portfolio Website"
+          ],
+          "usedIn": [
+            "Portfolio Website — CI/CD pipeline"
+          ]
         },
         {
           "id": "cicd",
           "name": "CI/CD Pipelines",
           "description": "Configured CI/CD pipeline using Vercel and GitHub — automated build and deployment on every push to the main branch with zero manual steps.",
-          "learnedFrom": ["Portfolio Website"],
-          "usedIn": ["Portfolio Website"]
+          "learnedFrom": [
+            "Portfolio Website"
+          ],
+          "usedIn": [
+            "Portfolio Website"
+          ]
         },
         {
           "id": "git",
           "name": "Git & GitHub",
           "description": "Used Git for version control and GitHub for repository management, collaboration, and CI/CD integration across all professional projects.",
-          "learnedFrom": ["Keshav Encon internship and full-time"],
-          "usedIn": ["All projects"]
+          "learnedFrom": [
+            "Keshav Encon internship and full-time"
+          ],
+          "usedIn": [
+            "All projects"
+          ]
         },
         {
           "id": "linux",
           "name": "Linux",
           "description": "Managed and operated Linux-based servers (Ubuntu) for backend deployments on AWS EC2.",
-          "learnedFrom": ["AWS EC2 deployments at Keshav Encon"],
-          "usedIn": ["ResumeeAI", "TalentPulseAI AWS deployments"]
+          "learnedFrom": [
+            "AWS EC2 deployments at Keshav Encon"
+          ],
+          "usedIn": [
+            "ResumeeAI",
+            "TalentPulseAI AWS deployments"
+          ]
         }
       ]
     },
@@ -348,36 +594,56 @@
           "id": "postman",
           "name": "Postman",
           "description": "Used Postman extensively for API testing, debugging, and documentation across all backend projects.",
-          "learnedFrom": ["Keshav Encon internship and full-time"],
-          "usedIn": ["All backend API development"]
+          "learnedFrom": [
+            "Keshav Encon internship and full-time"
+          ],
+          "usedIn": [
+            "All backend API development"
+          ]
         },
         {
           "id": "vscode",
           "name": "VS Code",
           "description": "Primary code editor for all JavaScript, Python, and web development work.",
-          "learnedFrom": ["All projects"],
-          "usedIn": ["All projects"]
+          "learnedFrom": [
+            "All projects"
+          ],
+          "usedIn": [
+            "All projects"
+          ]
         },
         {
           "id": "cursor",
           "name": "Cursor",
           "description": "Used Cursor (AI-powered IDE) to improve development speed and productivity.",
-          "learnedFrom": ["Keshav Encon full-time"],
-          "usedIn": ["All recent professional development"]
+          "learnedFrom": [
+            "Keshav Encon full-time"
+          ],
+          "usedIn": [
+            "All recent professional development"
+          ]
         },
         {
           "id": "claude-code",
           "name": "Claude Code",
           "description": "Used Claude Code (agentic coding CLI) to accelerate development workflows and problem-solving.",
-          "learnedFrom": ["Keshav Encon full-time"],
-          "usedIn": ["Professional development workflow"]
+          "learnedFrom": [
+            "Keshav Encon full-time"
+          ],
+          "usedIn": [
+            "Professional development workflow"
+          ]
         },
         {
           "id": "google-maps-api",
           "name": "Google Maps API",
           "description": "Integrated Google Maps API for real-time map rendering and location-based features in Android application.",
-          "learnedFrom": ["iTechNotion internship"],
-          "usedIn": ["City Directory Android Application"]
+          "learnedFrom": [
+            "iTechNotion internship"
+          ],
+          "usedIn": [
+            "City Directory Android Application"
+          ]
         }
       ]
     },
@@ -390,57 +656,100 @@
           "id": "ownership",
           "name": "End-to-End Ownership",
           "description": "Took complete ownership of software products from requirement analysis and system design through development, deployment, and performance optimization — across three production platforms at Keshav Encon.",
-          "learnedFrom": ["Full product lifecycle at Keshav Encon"],
-          "usedIn": ["ResumeeAI", "TalentPulseAI", "UninestAI"]
+          "learnedFrom": [
+            "Full product lifecycle at Keshav Encon"
+          ],
+          "usedIn": [
+            "ResumeeAI",
+            "TalentPulseAI",
+            "UninestAI"
+          ]
         },
         {
           "id": "system-design-thinking",
           "name": "Requirement Analysis & System Design",
           "description": "Translated business requirements into well-defined technical execution plans — designed system architecture, database schemas, API contracts, and workflows before writing code.",
-          "learnedFrom": ["All Keshav Encon products"],
-          "usedIn": ["UninestAI", "TalentPulseAI", "ResumeeAI"]
+          "learnedFrom": [
+            "All Keshav Encon products"
+          ],
+          "usedIn": [
+            "UninestAI",
+            "TalentPulseAI",
+            "ResumeeAI"
+          ]
         },
         {
           "id": "problem-solving",
           "name": "Problem Solving",
           "description": "Strong ability to analyze complex technical problems, debug production issues, and implement efficient solutions — demonstrated through 30% query optimization, AI latency reduction, and cost elimination.",
-          "learnedFrom": ["Production systems at Keshav Encon"],
-          "usedIn": ["Backend debugging", "Architecture decisions", "Performance optimization"]
+          "learnedFrom": [
+            "Production systems at Keshav Encon"
+          ],
+          "usedIn": [
+            "Backend debugging",
+            "Architecture decisions",
+            "Performance optimization"
+          ]
         },
         {
           "id": "leadership",
           "name": "Leadership",
           "description": "Founded and led Code Vimarsh — a student-led technical community at MSU — managing a team of 11 executives, 300+ students, and building an alumni network with professionals from Google, Microsoft, and cybersecurity. Also led a team of 4 engineers at Keshav Encon.",
-          "learnedFrom": ["Code Vimarsh VP role", "Keshav Encon team leadership"],
-          "usedIn": ["Code Vimarsh", "Keshav Encon team collaboration"]
+          "learnedFrom": [
+            "Code Vimarsh VP role",
+            "Keshav Encon team leadership"
+          ],
+          "usedIn": [
+            "Code Vimarsh",
+            "Keshav Encon team collaboration"
+          ]
         },
         {
           "id": "mentorship",
           "name": "Mentorship & Teaching",
           "description": "Mentored students on software development, tools, and industry-relevant skills at MSU. Conducted sessions on software development and AI-assisted development workflows.",
-          "learnedFrom": ["Code Vimarsh VP role"],
-          "usedIn": ["Code Vimarsh sessions and mentorship"]
+          "learnedFrom": [
+            "Code Vimarsh VP role"
+          ],
+          "usedIn": [
+            "Code Vimarsh sessions and mentorship"
+          ]
         },
         {
           "id": "communication",
           "name": "Client & Team Communication",
           "description": "Experience understanding client requirements, clarifying expectations, and translating business needs into technical solutions. Coordinated cross-team development through Swagger documentation and structured API contracts.",
-          "learnedFrom": ["Keshav Encon client projects"],
-          "usedIn": ["UninestAI", "TalentPulseAI cross-team work"]
+          "learnedFrom": [
+            "Keshav Encon client projects"
+          ],
+          "usedIn": [
+            "UninestAI",
+            "TalentPulseAI cross-team work"
+          ]
         },
         {
           "id": "community-building",
           "name": "Community Building & Event Management",
           "description": "Founded Code Vimarsh from scratch, organized large-scale technical events with 300–400 attendees, managed Google meetups, weekly contests, and community growth initiatives.",
-          "learnedFrom": ["Code Vimarsh VP role", "MSU Vision 2020 Student Ambassador"],
-          "usedIn": ["Code Vimarsh", "MSU Vision 2020 events"]
+          "learnedFrom": [
+            "Code Vimarsh VP role",
+            "MSU Vision 2020 Student Ambassador"
+          ],
+          "usedIn": [
+            "Code Vimarsh",
+            "MSU Vision 2020 events"
+          ]
         },
         {
           "id": "discipline",
           "name": "Discipline & Resilience",
           "description": "Developed strong discipline and resilience through NCC training — selected to represent Gujarat Directorate at RDC Delhi 2018 and the PM Rally after 6 months of rigorous training.",
-          "learnedFrom": ["NCC — Indian Navy wing, 2 Gujarat Naval Unit"],
-          "usedIn": ["All professional and academic endeavors"]
+          "learnedFrom": [
+            "NCC — Indian Navy wing, 2 Gujarat Naval Unit"
+          ],
+          "usedIn": [
+            "All professional and academic endeavors"
+          ]
         }
       ]
     }
