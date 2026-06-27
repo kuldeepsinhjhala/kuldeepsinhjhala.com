@@ -1,14 +1,14 @@
 {
   "meta": {
-    "title": "Kuldeepsinh Jhala | AI-Driven Full Stack Developer (Node.js & AWS)",
+    "title": "Kuldeepsinh Jhala | Senior Software Engineer & AI-Driven Full Stack Developer (Node.js & AWS)",
     "language": "en",
-    "lastUpdated": "2026-04-04",
-    "version": "v1.3"
+    "lastUpdated": "2026-06-28",
+    "version": "v1.4"
   },
   "hero": {
     "greeting": "Hi, my name is",
     "name": "Kuldeepsinh Jhala",
-    "designation": "AI-Driven Full Stack Developer",
+    "designation": "Senior Software Engineer | AI-Driven Full Stack Developer",
     "tagline": "Building scalable AI-powered software systems with strong backend architecture",
     "description": "Software engineer with end-to-end product development experience — from requirement analysis and system design to building scalable backend systems, integrating AI (LLMs), and deploying production-grade applications on AWS. Focused on clean architecture, high-performance databases, secure authentication, and automation of manual workflows using AI.",
     "profile": {

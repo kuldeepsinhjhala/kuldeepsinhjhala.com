@@ -471,10 +471,10 @@
       },
       "duration": {
         "startDate": "2024-10",
-        "endDate": "present",
-        "current": true
+        "endDate": "2026-05",
+        "current": false
       },
-      "description": "Working full-time on three products: ResumeeAI, TalentPulseAI, and UninestAI. Building scalable backend systems, AI integrations, and production-grade REST APIs using Node.js, Express.js, MSSQL, Sequelize ORM, Stored Procedures, and T-SQL.",
+      "description": "Worked full-time on three products: ResumeeAI, TalentPulseAI, and UninestAI. Built scalable backend systems, AI integrations, and production-grade REST APIs using Node.js, Express.js, MSSQL, Sequelize ORM, Stored Procedures, and T-SQL.",
       "responsibilities": [
         "Working full-time on three products: ResumeeAI, TalentPulseAI, and UninestAI",
         "Built backend systems using Node.js, Express.js, MSSQL, Sequelize ORM, Stored Procedures, and T-SQL"
@@ -609,6 +609,79 @@
         "links": [
           "https://keshavencon.com"
         ]
+      }
+    },
+    {
+      "id": "senior-software-engineer-futentia",
+      "sequence": 7,
+      "role": "Senior Software Engineer",
+      "type": "full-time",
+      "company": {
+        "name": "Futentia Solutions Private Limited",
+        "industry": "Software Development & IT Solutions",
+        "size": "medium",
+        "website": null,
+        "logo": "futentia_logo.png"
+      },
+      "location": {
+        "city": "Vadodara",
+        "state": "Gujarat",
+        "country": "India",
+        "remote": false,
+        "hybrid": false,
+        "onsite": true
+      },
+      "duration": {
+        "startDate": "2026-06",
+        "endDate": "present",
+        "current": true
+      },
+      "description": "Working as a Senior Software Engineer building scalable, AI-driven full stack software systems with a strong focus on backend architecture, performance, and clean system design.",
+      "responsibilities": [
+        "Design and build scalable backend systems and production-grade REST APIs",
+        "Architect database schemas and optimize query performance",
+        "Integrate AI/LLM capabilities into product features and workflows"
+      ],
+      "achievements": [],
+      "projects": [],
+      "technologies": {
+        "languages": [
+          "JavaScript"
+        ],
+        "frameworks": [
+          "Node.js",
+          "Express.js",
+          "React.js",
+          "Next.js",
+          "Nest.js"
+        ],
+        "databases": [
+          "MSSQL",
+          "PostgreSQL"
+        ],
+        "cloud": [
+          "AWS"
+        ],
+        "devOps": [
+          "Git"
+        ],
+        "tools": [
+          "REST APIs",
+          "Postman"
+        ],
+        "custom": {
+          "monitoring": [],
+          "os": [
+            "MacOS"
+          ]
+        }
+      },
+      "media": {
+        "images": [
+        ],
+        "documents": [
+        ],
+        "links": []
       }
     }
   ]
