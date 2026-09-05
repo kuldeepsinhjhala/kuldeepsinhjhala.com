@@ -37,7 +37,7 @@ function TabBar() {
   }, [])
 
   return (
-    <div className="block sticky z-30 bg-card border-b border-gold/10" style={{ top: '48px', height: '36px' }}>
+    <div className="block bg-card border-b border-gold/10" style={{ height: '36px' }}>
       <div 
         ref={scrollContainerRef}
         className="overflow-x-auto overflow-y-hidden h-full tab-scrollbar tab-scrollbar-visible"

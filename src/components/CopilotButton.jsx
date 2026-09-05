@@ -1,12 +1,12 @@
 import { useCopilot } from '../context/CopilotContext'
 import { useNavbar } from '../context/NavbarContext'
+import { isCopilotVisible } from '../config/systemVisibility'
 
 function CopilotButton() {
   const { isOpen, setIsOpen } = useCopilot()
   const { isOpen: isNavbarOpen } = useNavbar()
 
-  // Hide button when panel is open or navbar is open (on mobile)
-  if (isOpen || isNavbarOpen) return null
+  if (!isCopilotVisible() || isOpen || isNavbarOpen) return null
 
   return (
     <button

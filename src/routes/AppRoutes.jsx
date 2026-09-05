@@ -11,6 +11,8 @@ import TabBar from '../components/TabBar'
 import CustomCursor from '../components/CustomCursor'
 import CopilotButton from '../components/CopilotButton'
 import CopilotPanel from '../components/CopilotPanel'
+import { isCopilotVisible } from '../config/systemVisibility'
+
 function AppContent() {
   const mainRef = useRef(null)
 
@@ -18,12 +20,7 @@ function AppContent() {
     <div className="flex h-screen overflow-hidden">
       <CustomCursor />
       <Navbar />
-      <div 
-        className="flex-1 flex flex-col h-screen min-h-0 overflow-hidden transition-all duration-300"
-        style={{ 
-          marginLeft: 'var(--navbar-width, 0px)'
-        }}
-      >
+      <div className="flex-1 flex flex-col h-screen min-h-0 min-w-0 overflow-hidden">
           <div className="flex-shrink-0">
             <SearchBar />
             <TabBar />
@@ -37,8 +34,12 @@ function AppContent() {
             </Routes>
           </main>
         </div>
-        <CopilotButton />
-        <CopilotPanel />
+        {isCopilotVisible() && (
+          <>
+            <CopilotButton />
+            <CopilotPanel />
+          </>
+        )}
       </div>
   )
 }

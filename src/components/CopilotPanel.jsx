@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react'
 import { useCopilot } from '../context/CopilotContext'
 import { sendChatMessage } from '../services/copilotApi'
+import { isCopilotVisible } from '../config/systemVisibility'
 
 function CopilotPanel() {
   const { isOpen, setIsOpen } = useCopilot()
@@ -181,6 +182,8 @@ function CopilotPanel() {
       </div>
     </div>
   )
+
+  if (!isCopilotVisible()) return null
 
   return (
     <>

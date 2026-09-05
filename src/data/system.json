@@ -1,0 +1,13 @@
+{
+  "index": true,
+  "skills": true,
+  "experience": true,
+  "resume": true,
+  "projects": true,
+  "achievements": true,
+  "journey": true,
+  "education": true,
+  "contact": true,
+  "blog": false,
+  "copilot": false
+}

@@ -1,4 +1,5 @@
 import { useTabs } from '../../context/TabContext'
+import { isPathVisible } from '../../config/sectionFlow'
 import kuldeepImage from '../../assets/kuldeep.png'
 
 /** Blurred copy of the photo only inside the same frame as the sharp image (clipped). */
@@ -39,7 +40,7 @@ function HeroSection({ hero = {}, quickLinks = [], meta = {}, className = '' }) 
     '/skills': 'skills.jsx',
     '/projects': 'projects.jsx',
     '/resume': 'resume.jsx',
-    // '/blog': 'blog.jsx', // Temporarily hidden
+    '/blog': 'blog.jsx',
     '/achievements': 'achievements.jsx',
     '/contact': 'contact.jsx'
   }
@@ -49,11 +50,13 @@ function HeroSection({ hero = {}, quickLinks = [], meta = {}, className = '' }) 
     
     if (url.startsWith('http')) {
       window.open(url, '_blank', 'noopener,noreferrer')
-    } else {
-      // Use openTab to add the page as a tab
-      const label = pageRoutes[url] || url.replace('/', '').replace('.jsx', '') + '.jsx'
-      openTab(url, label)
+      return
     }
+
+    if (!isPathVisible(url)) return
+
+    const label = pageRoutes[url] || url.replace('/', '').replace('.jsx', '') + '.jsx'
+    openTab(url, label)
   }
 
   const getIcon = (iconName) => {
@@ -94,9 +97,13 @@ function HeroSection({ hero = {}, quickLinks = [], meta = {}, className = '' }) 
 
   const slogan = hero.slogan || {}
 
-  const filteredQuickLinks = (quickLinks || []).filter(
-    (link) => link.url !== '/blog' && link.label !== 'Read Blogs'
-  )
+  const filteredQuickLinks = (quickLinks || []).filter((link) => {
+    if (!link?.url) return false
+    if (link.url.startsWith('http') || link.url.startsWith('mailto:') || link.url.startsWith('tel:')) {
+      return true
+    }
+    return isPathVisible(link.url)
+  })
 
   return (
     <section className={`flex flex-col gap-8 lg:gap-6 xl:gap-8 ${className}`}>

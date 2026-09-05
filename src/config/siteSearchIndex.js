@@ -1,4 +1,4 @@
-import { SECTION_FLOW } from './sectionFlow'
+import { VISIBLE_SECTION_FLOW } from './sectionFlow'
 import landing from '../data/landing.json'
 import journey from '../data/journey.json'
 import experience from '../data/experience.json'
@@ -8,6 +8,7 @@ import project from '../data/project.json'
 import resume from '../data/resume.json'
 import achievements from '../data/achievements.json'
 import contact from '../data/contact.json'
+import blog from '../data/blog.json'
 import emailSignatureHtml from '../data/EmailSignature.html?raw'
 
 const DATA_BY_PATH = {
@@ -19,6 +20,7 @@ const DATA_BY_PATH = {
   '/projects': project,
   '/resume': resume,
   '/achievements': achievements,
+  '/blog': blog,
   '/contact': contact,
 }
 
@@ -63,7 +65,7 @@ function pageIdentitySegments(path, label, mobileLabel) {
 function buildPages() {
   const emailChunks = htmlToSearchableChunks(emailSignatureHtml)
 
-  return SECTION_FLOW.map(({ path, label, mobileLabel }) => {
+  return VISIBLE_SECTION_FLOW.map(({ path, label, mobileLabel }) => {
     const data = DATA_BY_PATH[path]
     const fromJson = data ? collectStringValues(data) : []
     const extra =

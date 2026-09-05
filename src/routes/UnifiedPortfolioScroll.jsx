@@ -1,7 +1,8 @@
 import { useLayoutEffect, useEffect, useRef, useCallback } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { applySearchHighlights, clearSearchHighlights } from '../utils/searchHighlightDom'
-import { SECTION_FLOW } from '../config/sectionFlow'
+import { VISIBLE_SECTION_FLOW, FIRST_VISIBLE_SECTION, isPathVisible } from '../config/sectionFlow'
+import { isVisible } from '../config/systemVisibility'
 import { useTabs } from '../context/TabContext'
 import Landing from '../sections/landing/Landing'
 import Journey from '../sections/journey/Journey'
@@ -12,6 +13,7 @@ import Projects from '../sections/projects/Projects'
 import Resume from '../sections/resume/Resume'
 import Contact from '../sections/contact/Contact'
 import Achievements from '../sections/achievement/Achievements'
+import Blog from '../sections/blog/Blog'
 
 const SECTION_COMPONENTS = {
   '/': Landing,
@@ -22,6 +24,7 @@ const SECTION_COMPONENTS = {
   '/projects': Projects,
   '/resume': Resume,
   '/achievements': Achievements,
+  '/blog': Blog,
   '/contact': Contact,
 }
 
@@ -104,6 +107,10 @@ export function UnifiedPortfolioScroll({ scrollContainerRef }) {
   )
 
   useLayoutEffect(() => {
+    if (!isPathVisible(location.pathname) && FIRST_VISIBLE_SECTION) {
+      navigate(FIRST_VISIBLE_SECTION.path, { replace: true })
+      return
+    }
     if (scrollSpyNavRef.current) {
       scrollSpyNavRef.current = false
       prevSyncedPathRef.current = location.pathname
@@ -114,7 +121,7 @@ export function UnifiedPortfolioScroll({ scrollContainerRef }) {
     if (!isInitial && !pathChanged) return
     prevSyncedPathRef.current = location.pathname
     scrollSectionIntoView(location.pathname)
-  }, [location.pathname, scrollSectionIntoView])
+  }, [location.pathname, scrollSectionIntoView, navigate])
 
   useEffect(() => {
     const main = scrollContainerRef.current
@@ -155,7 +162,7 @@ export function UnifiedPortfolioScroll({ scrollContainerRef }) {
       if (programmaticScrollRef.current) return
       const path = activePathForScrollLine(main)
       if (!path || path === pathnameRef.current) return
-      const entry = SECTION_FLOW.find((s) => s.path === path)
+      const entry = VISIBLE_SECTION_FLOW.find((s) => s.path === path)
       if (!entry) return
       scrollSpyNavRef.current = true
       openTab(entry.path, entry.label, { replace: true })
@@ -185,7 +192,8 @@ export function UnifiedPortfolioScroll({ scrollContainerRef }) {
 
   return (
     <div className="w-full">
-      {SECTION_FLOW.map(({ path }) => {
+      {VISIBLE_SECTION_FLOW.map(({ path, id }) => {
+        if (!isVisible(id)) return null
         const Cmp = SECTION_COMPONENTS[path]
         if (!Cmp) return null
         const slug = pathToFlowSlug(path)

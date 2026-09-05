@@ -1,5 +1,6 @@
 import { createContext, useContext, useState, useCallback, useEffect, useRef } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
+import { FIRST_VISIBLE_SECTION, isPathVisible } from '../config/sectionFlow'
 
 const TabContext = createContext()
 
@@ -11,39 +12,61 @@ export const useTabs = () => {
   return context
 }
 
+function fallbackTab() {
+  const section = FIRST_VISIBLE_SECTION
+  if (!section) {
+    return { id: 'index', path: '/', label: 'index.jsx', isActive: true }
+  }
+  return {
+    id: section.id,
+    path: section.path,
+    label: section.label,
+    isActive: true,
+  }
+}
+
+function visibleTabsOnly(tabs) {
+  const kept = (Array.isArray(tabs) ? tabs : []).filter((tab) => isPathVisible(tab.path))
+  if (kept.length === 0) return [fallbackTab()]
+  if (!kept.some((tab) => tab.isActive)) {
+    return kept.map((tab, index) => ({ ...tab, isActive: index === 0 }))
+  }
+  return kept
+}
+
 export const TabProvider = ({ children }) => {
   const navigate = useNavigate()
   const location = useLocation()
   
   // Initialize tabs - check if first load or refresh
   const initializeTabs = () => {
+    const home = fallbackTab()
     const isFirstLoad = !localStorage.getItem('hasVisited')
     const savedTabs = localStorage.getItem('savedTabs')
     const savedActivePath = localStorage.getItem('activePath')
     
     if (isFirstLoad) {
-      // First load: always start with index.jsx
       localStorage.setItem('hasVisited', 'true')
-      localStorage.setItem('savedTabs', JSON.stringify([{ id: 'index', path: '/', label: 'index.jsx', isActive: true }]))
-      localStorage.setItem('activePath', '/')
-      return [{ id: 'index', path: '/', label: 'index.jsx', isActive: true }]
+      localStorage.setItem('savedTabs', JSON.stringify([home]))
+      localStorage.setItem('activePath', home.path)
+      return [home]
     } else if (savedTabs && savedActivePath) {
-      // Refresh: restore saved tabs and active path
       try {
         const parsedTabs = JSON.parse(savedTabs)
-        const restoredTabs = parsedTabs.map(tab => ({
+        const restoredTabs = visibleTabsOnly(parsedTabs.map(tab => ({
           ...tab,
-          isActive: tab.path === savedActivePath
-        }))
+          isActive: tab.path === savedActivePath && isPathVisible(tab.path)
+        })))
+        const active = restoredTabs.find((tab) => tab.isActive) || restoredTabs[0]
+        localStorage.setItem('savedTabs', JSON.stringify(restoredTabs))
+        localStorage.setItem('activePath', active.path)
         return restoredTabs
-      } catch (e) {
-        // Fallback if parsing fails
-        return [{ id: 'index', path: '/', label: 'index.jsx', isActive: true }]
+      } catch {
+        return [home]
       }
     }
     
-    // Default fallback
-    return [{ id: 'index', path: '/', label: 'index.jsx', isActive: true }]
+    return [home]
   }
 
   const [tabs, setTabs] = useState(initializeTabs)
@@ -51,17 +74,14 @@ export const TabProvider = ({ children }) => {
 
   // Handle first load vs refresh
   useEffect(() => {
-    const isFirstLoad = !localStorage.getItem('hasVisited')
+    const home = fallbackTab()
     const savedActivePath = localStorage.getItem('activePath')
-    
-    if (isFirstLoad) {
-      // First load: always navigate to index
-      if (location.pathname !== '/') {
-        navigate('/', { replace: true })
-      }
-    } else if (savedActivePath && savedActivePath !== location.pathname) {
-      // Refresh: navigate to saved active path
-      navigate(savedActivePath, { replace: true })
+    const targetPath = isPathVisible(savedActivePath) ? savedActivePath : home.path
+
+    if (targetPath && targetPath !== location.pathname) {
+      navigate(targetPath, { replace: true })
+    } else if (!isPathVisible(location.pathname)) {
+      navigate(home.path, { replace: true })
     }
   }, []) // Only run on mount
 
@@ -73,27 +93,28 @@ export const TabProvider = ({ children }) => {
       return
     }
 
+    if (!isPathVisible(location.pathname)) {
+      return
+    }
+
     setTabs(prevTabs => {
       const currentPath = location.pathname
-      const hasTab = prevTabs.some(tab => tab.path === currentPath)
+      const visiblePrev = visibleTabsOnly(prevTabs)
+      const hasTab = visiblePrev.some(tab => tab.path === currentPath)
       
       let updatedTabs
       if (hasTab) {
-        // Update active tab
-        updatedTabs = prevTabs.map(tab => ({
+        updatedTabs = visiblePrev.map(tab => ({
           ...tab,
           isActive: tab.path === currentPath
         }))
       } else {
-        // Route changed but no tab exists (e.g., from mobile menu or direct navigation)
-        // Don't auto-create tab, just update active state
-        updatedTabs = prevTabs.map(tab => ({
+        updatedTabs = visiblePrev.map(tab => ({
           ...tab,
           isActive: tab.path === currentPath
         }))
       }
       
-      // Save to localStorage
       localStorage.setItem('savedTabs', JSON.stringify(updatedTabs))
       localStorage.setItem('activePath', currentPath)
       
@@ -102,55 +123,54 @@ export const TabProvider = ({ children }) => {
   }, [location.pathname])
 
   const openTab = useCallback((path, label, options) => {
-    // Set flag to prevent useEffect from creating duplicate tab
+    const targetPath = isPathVisible(path) ? path : fallbackTab().path
+    const targetLabel = isPathVisible(path) ? label : fallbackTab().label
+
     isOpeningTabRef.current = true
     
     setTabs(prevTabs => {
-      // Check if tab already exists
-      const existingTab = prevTabs.find(tab => tab.path === path)
+      const visiblePrev = visibleTabsOnly(prevTabs)
+      const existingTab = visiblePrev.find(tab => tab.path === targetPath)
       let updatedTabs
       
       if (existingTab) {
-        // Switch to existing tab
-        updatedTabs = prevTabs.map(tab => ({
+        updatedTabs = visiblePrev.map(tab => ({
           ...tab,
-          isActive: tab.path === path
+          isActive: tab.path === targetPath
         }))
       } else {
-        // Add new tab and make it active, keep existing tabs
-        const newTab = { id: path.replace('/', '') || 'index', path, label, isActive: true }
-        updatedTabs = prevTabs.map(tab => ({ ...tab, isActive: false })).concat(newTab)
+        const newTab = { id: targetPath.replace('/', '') || 'index', path: targetPath, label: targetLabel, isActive: true }
+        updatedTabs = visiblePrev.map(tab => ({ ...tab, isActive: false })).concat(newTab)
       }
       
-      // Save to localStorage
       localStorage.setItem('savedTabs', JSON.stringify(updatedTabs))
-      localStorage.setItem('activePath', path)
+      localStorage.setItem('activePath', targetPath)
       
       return updatedTabs
     })
     const navOpts = {}
     if (options?.replace) navOpts.replace = true
     if (options?.state !== undefined) navOpts.state = options.state
-    navigate(path, Object.keys(navOpts).length ? navOpts : undefined)
+    navigate(targetPath, Object.keys(navOpts).length ? navOpts : undefined)
   }, [navigate])
 
   const closeTab = useCallback((tabId, e) => {
     e?.stopPropagation()
     setTabs(prevTabs => {
-      const tabToClose = prevTabs.find(tab => tab.id === tabId)
-      const filteredTabs = prevTabs.filter(tab => tab.id !== tabId)
+      const visiblePrev = visibleTabsOnly(prevTabs)
+      const tabToClose = visiblePrev.find(tab => tab.id === tabId)
+      const filteredTabs = visiblePrev.filter(tab => tab.id !== tabId)
       let updatedTabs
       
       if (filteredTabs.length === 0) {
-        // If closing last tab, open index
-        updatedTabs = [{ id: 'index', path: '/', label: 'index.jsx', isActive: true }]
+        const home = fallbackTab()
+        updatedTabs = [home]
         localStorage.setItem('savedTabs', JSON.stringify(updatedTabs))
-        localStorage.setItem('activePath', '/')
-        navigate('/')
+        localStorage.setItem('activePath', home.path)
+        navigate(home.path)
         return updatedTabs
       }
 
-      // If closing active tab, activate another one
       if (tabToClose?.isActive) {
         const newActiveIndex = Math.max(0, filteredTabs.length - 1)
         updatedTabs = filteredTabs.map((tab, index) => ({
@@ -172,9 +192,10 @@ export const TabProvider = ({ children }) => {
 
   const switchTab = useCallback((tabId) => {
     setTabs(prevTabs => {
-      const tab = prevTabs.find(t => t.id === tabId)
-      if (tab) {
-        const updatedTabs = prevTabs.map(t => ({
+      const visiblePrev = visibleTabsOnly(prevTabs)
+      const tab = visiblePrev.find(t => t.id === tabId)
+      if (tab && isPathVisible(tab.path)) {
+        const updatedTabs = visiblePrev.map(t => ({
           ...t,
           isActive: t.id === tabId
         }))
@@ -183,7 +204,7 @@ export const TabProvider = ({ children }) => {
         navigate(tab.path)
         return updatedTabs
       }
-      return prevTabs
+      return visiblePrev
     })
   }, [navigate])
 
@@ -197,4 +218,3 @@ export const TabProvider = ({ children }) => {
     </TabContext.Provider>
   )
 }
-

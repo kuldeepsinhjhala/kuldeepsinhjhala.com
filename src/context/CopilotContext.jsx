@@ -1,4 +1,5 @@
 import { createContext, useContext, useState, useEffect, useRef } from 'react'
+import { isCopilotVisible } from '../config/systemVisibility'
 
 const CopilotContext = createContext()
 
@@ -20,6 +21,7 @@ export const CopilotProvider = ({ children }) => {
 
   // Auto-open panel on mount, then close after 1 second as a hint
   useEffect(() => {
+    if (!isCopilotVisible()) return
     // Only show hint once per session
     if (hasShownHint.current) return
 

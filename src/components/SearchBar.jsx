@@ -2,6 +2,7 @@ import { useState, useEffect, useRef, useMemo, useCallback } from 'react'
 import { useTabs } from '../context/TabContext'
 import { useNavbar } from '../context/NavbarContext'
 import { searchSiteSuggestions } from '../config/siteSearchIndex'
+import { isVisible } from '../config/systemVisibility'
 import contactData from '../data/contact.json'
 import resumeData from '../data/resume.json'
 
@@ -238,11 +239,14 @@ function SearchBar() {
     }
   }, [resumeDownloadUrl])
 
+  const handleOpenBlog = useCallback(() => {
+    openTab('/blog', 'blog.jsx')
+  }, [openTab])
+
   const quickActions = useMemo(() => {
     const actions = []
     
-    // Add Download Resume action only if resume URL is available
-    if (resumeDownloadUrl) {
+    if (resumeDownloadUrl && isVisible('resume')) {
       actions.push({
         id: 1,
         label: 'Download Resume',
@@ -257,44 +261,42 @@ function SearchBar() {
         }
       })
     }
-    
-    // Add Contact Kuldeep action
-    actions.push({
-      id: 2,
-      label: 'Contact Kuldeep',
-      icon: (
-        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-        </svg>
-      ),
-      onClick: () => {
-        // Open contact modal and close quick actions
-        setIsQuickActionsOpen(false)
-        setIsContactOpen(true)
-      }
-    })
-    
-    // Add Social Media action
-    actions.push({
-      id: 3,
-      label: 'Social Media',
-      icon: (
-        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-6.414-2.485a4 4 0 106.364 6.364l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
-        </svg>
-      ),
-      onClick: () => {
-        // Open social media modal and close quick actions
-        setIsQuickActionsOpen(false)
-        setIsSocialMediaOpen(true)
-      }
-    })
-    
+
+    if (isVisible('contact')) {
+      actions.push({
+        id: 2,
+        label: 'Contact Kuldeep',
+        icon: (
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+          </svg>
+        ),
+        onClick: () => {
+          setIsQuickActionsOpen(false)
+          setIsContactOpen(true)
+        }
+      })
+
+      actions.push({
+        id: 3,
+        label: 'Social Media',
+        icon: (
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-6.414-2.485a4 4 0 106.364 6.364l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+          </svg>
+        ),
+        onClick: () => {
+          setIsQuickActionsOpen(false)
+          setIsSocialMediaOpen(true)
+        }
+      })
+    }
+
     return actions
   }, [resumeDownloadUrl, handleDownloadResume])
 
   return (
-    <div className="block sticky top-0 z-40 bg-card border-b border-gold/10 px-2 max-[425px]:px-3 sm:px-4" style={{ height: '48px' }}>
+    <div className="block bg-card border-b border-gold/10 px-2 max-[425px]:px-3 sm:px-4" style={{ height: '48px' }}>
       <div className="flex items-center h-full w-full max-[425px]:w-full gap-2">
         {/* Hamburger Menu - File Explorer Toggle */}
         <button
@@ -430,7 +432,7 @@ function SearchBar() {
           </svg>
           <span className="hidden min-[510px]:inline">Quick Actions</span>
         </button>
-        {resumeDownloadUrl && (
+        {resumeDownloadUrl && isVisible('resume') && (
           <button
             onClick={handleDownloadResume}
             className="flex items-center gap-1.5 px-2 min-[425px]:px-3 py-2 bg-bg border border-gold/20 rounded text-head hover:border-gold hover:ring-1 hover:ring-gold/50 transition-all flex-shrink-0 text-xs font-medium cursor-pointer"
@@ -440,6 +442,18 @@ function SearchBar() {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
             </svg>
             <span className="hidden sm:inline">Download Resume</span>
+          </button>
+        )}
+        {isVisible('blog') && (
+          <button
+            onClick={handleOpenBlog}
+            className="flex items-center gap-1.5 px-2 min-[425px]:px-3 py-2 bg-bg border border-gold/20 rounded text-head hover:border-gold hover:ring-1 hover:ring-gold/50 transition-all flex-shrink-0 text-xs font-medium cursor-pointer"
+            aria-label="Blog"
+          >
+            <svg className="w-4 h-4 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-1H9M7 16h6M7 8h6v4H7V8z" />
+            </svg>
+            <span className="hidden sm:inline">Blog</span>
           </button>
         )}
       </div>

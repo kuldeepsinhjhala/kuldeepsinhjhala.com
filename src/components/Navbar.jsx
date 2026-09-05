@@ -1,17 +1,16 @@
-import { useEffect, useRef } from 'react'
+import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import { useTabs } from '../context/TabContext'
 import { useNavbar } from '../context/NavbarContext'
 import logo from '../assets/lion-logo-sm.png'
-import { SECTION_FLOW } from '../config/sectionFlow'
+import { VISIBLE_SECTION_FLOW } from '../config/sectionFlow'
 
 function Navbar() {
   const location = useLocation()
   const { openTab, tabs } = useTabs()
   const { isOpen: isNavbarOpen, setIsOpen: setIsNavbarOpen } = useNavbar()
-  const navRef = useRef(null)
 
-  const navItems = SECTION_FLOW
+  const navItems = VISIBLE_SECTION_FLOW
 
   const handleFileClick = (e, item) => {
     e.preventDefault()
@@ -60,22 +59,6 @@ function Navbar() {
       }
     })
   }, [location.pathname])
-
-  // Update CSS variable with navbar width
-  useEffect(() => {
-    const updateNavbarWidth = () => {
-      if (navRef.current && window.innerWidth >= 768) {
-        const width = navRef.current.offsetWidth
-        document.documentElement.style.setProperty('--navbar-width', `${width}px`)
-      } else {
-        document.documentElement.style.setProperty('--navbar-width', '0px')
-      }
-    }
-    
-    updateNavbarWidth()
-    window.addEventListener('resize', updateNavbarWidth)
-    return () => window.removeEventListener('resize', updateNavbarWidth)
-  }, [])
 
   // File icon SVG
   const FileIcon = () => (
@@ -136,7 +119,7 @@ function Navbar() {
   return (
     <>
       {/* Desktop Code Editor Navbar */}
-      <nav ref={navRef} className="hidden md:block bg-card border-r border-gold/20 w-auto min-w-fit h-screen fixed left-0 top-0 flex flex-col overflow-hidden">
+      <nav className="hidden md:flex md:flex-col bg-card border-r border-gold/20 w-auto min-w-fit h-screen flex-shrink-0 overflow-hidden relative z-20">
         {/* Explorer Header - reduced height so icons align with TabBar top line */}
         <div className="px-4 py-0 flex-shrink-0 pt-2 pb-0 ">
           <div className="flex items-center gap-2">

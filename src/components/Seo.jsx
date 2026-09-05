@@ -1,6 +1,7 @@
 import { Helmet } from 'react-helmet-async'
 import { useLocation } from 'react-router-dom'
 import { SITE_ORIGIN } from '../config/site'
+import { isPathVisible, FIRST_VISIBLE_SECTION } from '../config/sectionFlow'
 import landingData from '../data/landing.json'
 import contactData from '../data/contact.json'
 
@@ -58,6 +59,12 @@ const ROUTE_SEO = {
       'Degrees, coursework, and certifications supporting full-stack and AI-focused engineering.',
     keywords: 'Education, Degree, Computer Science, Certifications',
   },
+  '/blog': {
+    title: 'Blog | Kuldeepsinh Jhala',
+    description:
+      'Articles on software engineering, AI, and building production web systems.',
+    keywords: 'Blog, Software Engineering, AI, Web Development',
+  },
   '/contact': {
     title: 'Contact | Kuldeepsinh Jhala',
     description:
@@ -94,7 +101,8 @@ function buildPersonJsonLd() {
 
 export default function Seo() {
   const { pathname } = useLocation()
-  const path = normalizePath(pathname)
+  const rawPath = normalizePath(pathname)
+  const path = isPathVisible(rawPath) ? rawPath : (FIRST_VISIBLE_SECTION?.path || '/')
   const meta = ROUTE_SEO[path] || ROUTE_SEO['/']
   const canonicalUrl = `${SITE_ORIGIN}${path === '/' ? '/' : path}`
   const ogImageUrl = `${SITE_ORIGIN}/og-image.png`
