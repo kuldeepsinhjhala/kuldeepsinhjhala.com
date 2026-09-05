@@ -10,14 +10,11 @@ function getAchievementSequenceRank(a) {
   return Number.isFinite(n) ? n : null
 }
 
-const INITIAL_VISIBLE_COUNT = 2
-
 function Achievements() {
   const [data, setData] = useState(null)
   const [loading, setLoading] = useState(true)
   /** Only one achievement expanded at a time (avoids row layout glitches). */
   const [expandedAchievementId, setExpandedAchievementId] = useState(null)
-  const [showAllAchievements, setShowAllAchievements] = useState(false)
 
   // Load data
   useEffect(() => {
@@ -33,8 +30,6 @@ function Achievements() {
   }, [])
 
   // Get data with fallbacks
-  const meta = useMemo(() => data?.meta || {}, [data])
-
   const achievementsList = useMemo(() => {
     if (!data?.achievements || !Array.isArray(data.achievements)) return []
 
@@ -52,17 +47,10 @@ function Achievements() {
       .reverse()
   }, [data])
 
-  const visibleAchievements = useMemo(() => {
-    if (showAllAchievements || achievementsList.length <= INITIAL_VISIBLE_COUNT) return achievementsList
-    return achievementsList.slice(0, INITIAL_VISIBLE_COUNT)
-  }, [achievementsList, showAllAchievements])
-
-  const hasMoreAchievements = achievementsList.length > INITIAL_VISIBLE_COUNT
-
   // Loading state
   if (loading) {
     return (
-      <div className="bg-dotted px-4 pb-2 pt-0 md:px-8 md:pb-4 md:pt-0 lg:px-12 lg:pb-6 lg:pt-0">
+      <div className="bg-dotted pb-2 pt-8 md:pb-4 md:pt-10 lg:pb-6 lg:pt-12">
         <div className="flex items-center justify-center min-h-[60vh]">
           <div className="text-center">
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gold mx-auto mb-4"></div>
@@ -76,10 +64,9 @@ function Achievements() {
   // No data state
   if (!data) {
     return (
-      <div className="bg-dotted px-4 pb-2 pt-0 md:px-8 md:pb-4 md:pt-0 lg:px-12 lg:pb-6 lg:pt-0">
-        <div className="max-w-7xl mx-auto">
+      <div className="bg-dotted pb-2 pt-8 md:pb-4 md:pt-10 lg:pb-6 lg:pt-12">
+        <div className="site-shell">
           <div className="text-center py-12">
-            <h2 className="section-heading-highlight text-head text-3xl font-bold mb-4">Achievements</h2>
             <p className="text-body">No achievements data available.</p>
           </div>
         </div>
@@ -88,22 +75,12 @@ function Achievements() {
   }
 
   return (
-    <div className="bg-dotted px-4 pb-2 pt-0 md:px-8 md:pb-4 md:pt-0 lg:px-12 lg:pb-6 lg:pt-0">
-      <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <header className="mb-8 md:mb-12 text-center">
-          {meta.title && (
-            <h2 className="section-heading-highlight text-head text-4xl md:text-5xl font-bold mb-2">
-              {meta.title}
-            </h2>
-          )}
-        </header>
-
-        {/* Achievements Grid */}
+    <div className="bg-dotted pb-2 pt-8 md:pb-4 md:pt-10 lg:pb-6 lg:pt-12">
+      <div className="site-shell">
         {achievementsList.length > 0 ? (
           <section className="mb-8 md:mb-12">
             <div className="grid grid-cols-1 gap-3 sm:gap-4 items-stretch">
-              {visibleAchievements.map((achievement, index) => {
+              {achievementsList.map((achievement, index) => {
                 const cardKey = achievement.id ?? `achievement-${index}`
                 return (
                   <AchievementCard
@@ -119,29 +96,12 @@ function Achievements() {
                 )
               })}
             </div>
-            {hasMoreAchievements && (
-              <div className="flex justify-center mt-4 md:mt-5">
-                <button
-                  type="button"
-                  onClick={() => {
-                    setShowAllAchievements((v) => {
-                      const next = !v
-                      if (!next) setExpandedAchievementId(null)
-                      return next
-                    })
-                  }}
-                  className="px-6 py-2.5 bg-gold/10 hover:bg-gold/20 text-gold text-sm font-medium rounded-lg border border-gold/20 hover:border-gold transition-all duration-200"
-                >
-                  {showAllAchievements ? 'Show less' : 'Show more'}
-                </button>
-              </div>
-            )}
           </section>
         ) : (
           <div
             className="bg-card/90 backdrop-blur-sm border border-gold/20 rounded-lg p-12 text-center shadow-lg"
             style={{
-              boxShadow: '0 10px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(201, 166, 107, 0.05)',
+              boxShadow: '0 10px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(87, 6, 140, 0.05)',
             }}
           >
             <svg

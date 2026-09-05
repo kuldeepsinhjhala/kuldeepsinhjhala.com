@@ -14,7 +14,7 @@ function SkillsList({ skills = [], className = '' }) {
             key={index}
             className="px-3 py-1.5 bg-card/80 backdrop-blur-sm text-body text-xs rounded border border-gold/10 hover:border-gold/30 hover:text-head transition-colors shadow-sm"
             style={{
-              boxShadow: '0 2px 8px rgba(0, 0, 0, 0.15), 0 0 5px rgba(201, 166, 107, 0.03)'
+              boxShadow: '0 2px 8px rgba(0, 0, 0, 0.15), 0 0 5px rgba(87, 6, 140, 0.03)'
             }}
           >
             {skill}

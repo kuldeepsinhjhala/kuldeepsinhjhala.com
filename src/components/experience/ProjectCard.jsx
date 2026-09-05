@@ -10,7 +10,7 @@ function ProjectCard({ project = {} }) {
     <div
       className="bg-card/80 backdrop-blur-sm border border-gold/10 rounded-lg p-4 shadow-md h-full"
       style={{
-        boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2), 0 0 10px rgba(201, 166, 107, 0.05)'
+        boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2), 0 0 10px rgba(87, 6, 140, 0.05)'
       }}
     >
       {/* Project Name */}

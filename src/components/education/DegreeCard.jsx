@@ -92,7 +92,7 @@ function DegreeCard({ degree = {}, index = 0, expanded, onToggle }) {
     <div
       className={`bg-card/90 backdrop-blur-sm border border-gold/20 rounded-lg p-3 sm:p-5 md:p-6 shadow-lg ${collapsible && !showDetails ? 'cursor-pointer' : ''}`}
       style={{
-        boxShadow: '0 10px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(201, 166, 107, 0.05)'
+        boxShadow: '0 10px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(87, 6, 140, 0.05)'
       }}
       onClick={
         collapsible && !showDetails

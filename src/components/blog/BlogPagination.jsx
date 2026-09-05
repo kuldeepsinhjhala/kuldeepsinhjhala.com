@@ -72,7 +72,7 @@ function BlogPagination({
           }
         `}
         style={currentPage !== 1 ? {
-          boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2), 0 0 10px rgba(201, 166, 107, 0.05)'
+          boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2), 0 0 10px rgba(87, 6, 140, 0.05)'
         } : {}}
         aria-label="Previous page"
       >
@@ -119,7 +119,7 @@ function BlogPagination({
                 }
               `}
               style={!isActive ? {
-                boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2), 0 0 10px rgba(201, 166, 107, 0.05)'
+                boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2), 0 0 10px rgba(87, 6, 140, 0.05)'
               } : {}}
               aria-label={`Go to page ${page}`}
               aria-current={isActive ? 'page' : undefined}
@@ -142,7 +142,7 @@ function BlogPagination({
           }
         `}
         style={currentPage !== totalPages ? {
-          boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2), 0 0 10px rgba(201, 166, 107, 0.05)'
+          boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2), 0 0 10px rgba(87, 6, 140, 0.05)'
         } : {}}
         aria-label="Next page"
       >

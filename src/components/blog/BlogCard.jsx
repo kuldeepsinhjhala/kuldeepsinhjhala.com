@@ -2,13 +2,13 @@ import { useMemo } from 'react'
 
 /**
  * BlogCard - Reusable component for displaying blog post cards
- * Can be used in Blog section, Featured posts, Related posts, etc.
+ * Layout slots are fixed so title, tags, name, date, read time, and level
+ * stay in the same place on every card.
  */
 function BlogCard({ post, author, onClick, className = '' }) {
-  // Safely get post data with fallbacks
   const postData = useMemo(() => {
     if (!post) return null
-    
+
     return {
       id: post.id || '',
       title: post?.content?.title || 'Untitled',
@@ -17,9 +17,8 @@ function BlogCard({ post, author, onClick, className = '' }) {
       coverImage: post?.media?.coverImage || null,
       thumbnail: post?.media?.thumbnail || null,
       publishedDate: post?.dates?.published || '',
-      updatedDate: post?.dates?.updated || '',
       readTime: post?.reading?.readTimeMinutes || 0,
-      difficulty: post?.reading?.difficulty || 'beginner',
+      difficulty: post?.reading?.difficulty || '',
       category: post?.taxonomy?.category || '',
       tags: post?.taxonomy?.tags || [],
       featured: post?.status?.featured || false,
@@ -27,7 +26,6 @@ function BlogCard({ post, author, onClick, className = '' }) {
     }
   }, [post])
 
-  // Get author info with fallback
   const authorInfo = useMemo(() => {
     if (!author) {
       return {
@@ -53,10 +51,10 @@ function BlogCard({ post, author, onClick, className = '' }) {
     if (!dateString) return ''
     try {
       const date = new Date(dateString)
-      return date.toLocaleDateString('en-US', { 
-        year: 'numeric', 
-        month: 'short', 
-        day: 'numeric' 
+      return date.toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric',
       })
     } catch {
       return dateString
@@ -74,131 +72,125 @@ function BlogCard({ post, author, onClick, className = '' }) {
 
   const imageSrc = postData.coverImage?.src || postData.thumbnail || null
   const imageAlt = postData.coverImage?.alt || postData.title
+  const visibleTags = postData.tags.slice(0, 3)
+  const extraTagCount = Math.max(0, postData.tags.length - 3)
 
   return (
     <article
       className={`
-        group relative bg-card/90 backdrop-blur-sm border border-gold/20 rounded-lg overflow-hidden
+        group relative flex h-full flex-col overflow-hidden rounded-lg
+        bg-card/90 backdrop-blur-sm border border-gold/20
         hover:border-gold hover:ring-1 hover:ring-gold/50
         transition-all duration-300 cursor-pointer shadow-lg
         ${postData.featured ? 'ring-2 ring-gold/30' : ''}
-        ${postData.pinned ? 'border-l-4 border-l-gold' : ''}
         ${className}
       `}
       style={{
-        boxShadow: '0 10px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(201, 166, 107, 0.05)'
+        boxShadow: '0 10px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(87, 6, 140, 0.05)',
       }}
       onClick={handleClick}
     >
-      {/* Featured/Pinned Badge */}
       {(postData.featured || postData.pinned) && (
-        <div className="absolute top-3 right-3 z-10 flex gap-2">
+        <div className="absolute top-2 right-2 z-10 flex gap-1.5">
           {postData.pinned && (
-            <span className="px-2 py-1 bg-gold/20 backdrop-blur-sm text-gold text-xs font-medium rounded border border-gold/30 shadow-sm">
+            <span className="px-1.5 py-0.5 bg-gold/20 backdrop-blur-sm text-gold text-[10px] font-medium rounded border border-gold/30 shadow-sm">
               Pinned
             </span>
           )}
           {postData.featured && (
-            <span className="px-2 py-1 bg-success/20 backdrop-blur-sm text-success text-xs font-medium rounded border border-success/30 shadow-sm">
+            <span className="px-1.5 py-0.5 bg-success/20 backdrop-blur-sm text-success text-[10px] font-medium rounded border border-success/30 shadow-sm">
               Featured
             </span>
           )}
         </div>
       )}
 
-      {/* Cover Image */}
-      {imageSrc && (
-        <div className="relative w-full h-48 overflow-hidden bg-card">
+      <div className="relative h-32 w-full shrink-0 overflow-hidden bg-card">
+        {imageSrc && (
           <img
             src={imageSrc}
             alt={imageAlt}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
             onError={(e) => {
               e.target.style.display = 'none'
             }}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-bg/80 to-transparent" />
-        </div>
-      )}
+        )}
+        <div className="absolute inset-0 bg-gradient-to-t from-bg/80 to-transparent" />
+      </div>
 
-      {/* Content */}
-      <div className="p-6">
-        {/* Category */}
-        {postData.category && (
-          <div className="mb-2">
-            <span className="inline-block px-2 py-1 bg-gold/20 backdrop-blur-sm text-gold text-xs font-medium rounded border border-gold/30 shadow-sm">
+      <div className="grid flex-1 grid-rows-[1.25rem_2.5rem_2rem_1.5rem_1fr_2.75rem] gap-y-1.5 p-4">
+        <div className="flex h-5 items-center">
+          {postData.category ? (
+            <span className="inline-block truncate px-1.5 py-0.5 bg-gold/20 backdrop-blur-sm text-gold text-[10px] font-medium rounded border border-gold/30 shadow-sm">
               {postData.category}
             </span>
-          </div>
-        )}
+          ) : (
+            <span className="invisible text-[10px]">category</span>
+          )}
+        </div>
 
-        {/* Title */}
-        <h3 className="text-head text-xl font-bold mb-2 group-hover:text-gold transition-colors line-clamp-2">
+        <h3 className="h-10 overflow-hidden text-base font-bold leading-5 text-head line-clamp-2 group-hover:text-gold transition-colors">
           {postData.title}
         </h3>
 
-        {/* Excerpt */}
-        {postData.excerpt && (
-          <p className="text-body text-sm mb-4 line-clamp-3">
-            {postData.excerpt}
-          </p>
-        )}
+        <p className="h-8 overflow-hidden text-xs leading-4 text-body line-clamp-2">
+          {postData.excerpt || '\u00a0'}
+        </p>
 
-        {/* Tags */}
-        {postData.tags && postData.tags.length > 0 && (
-          <div className="flex flex-wrap gap-2 mb-4">
-            {postData.tags.slice(0, 3).map((tag, index) => (
-              <span
-                key={index}
-                className="px-2 py-1 bg-card/90 backdrop-blur-sm text-body text-xs rounded border border-gold/10 shadow-sm"
-              >
-                #{tag}
-              </span>
-            ))}
-            {postData.tags.length > 3 && (
-              <span className="px-2 py-1 text-body text-xs">
-                +{postData.tags.length - 3} more
-              </span>
-            )}
-          </div>
-        )}
+        <div className="flex h-6 items-center gap-1.5 overflow-hidden">
+          {visibleTags.map((tag) => (
+            <span
+              key={tag}
+              className="shrink-0 px-1.5 py-0.5 bg-card/90 backdrop-blur-sm text-body text-[10px] rounded border border-gold/10 shadow-sm"
+            >
+              #{tag}
+            </span>
+          ))}
+          {extraTagCount > 0 && (
+            <span className="shrink-0 px-1.5 py-0.5 text-body text-[10px]">
+              +{extraTagCount} more
+            </span>
+          )}
+        </div>
 
-        {/* Footer */}
-        <div className="flex items-center justify-between pt-4 border-t border-gold/10">
-          {/* Author */}
-          <div className="flex items-center gap-2">
-            {authorInfo.avatar && (
-              <img
-                src={authorInfo.avatar}
-                alt={authorInfo.name}
-                className="w-8 h-8 rounded-full object-cover"
-                onError={(e) => {
-                  e.target.style.display = 'none'
-                }}
-              />
-            )}
-            <div>
-              <p className="text-head text-xs font-medium">{authorInfo.name}</p>
-              {postData.publishedDate && (
-                <p className="text-body text-xs">
-                  {formatDate(postData.publishedDate)}
-                </p>
+        <div aria-hidden="true" />
+
+        <div className="flex h-11 items-center justify-between gap-2 border-t border-gold/10">
+          <div className="flex min-w-0 items-center gap-2">
+            <div className="flex h-6 w-6 shrink-0 items-center justify-center overflow-hidden rounded-full bg-gold/15 text-[10px] font-semibold text-gold">
+              {authorInfo.avatar ? (
+                <img
+                  src={authorInfo.avatar}
+                  alt={authorInfo.name}
+                  className="h-full w-full object-cover"
+                  onError={(e) => {
+                    e.target.style.display = 'none'
+                  }}
+                />
+              ) : (
+                authorInfo.name.charAt(0)
               )}
+            </div>
+            <div className="min-w-0">
+              <p className="h-4 truncate text-[11px] font-medium leading-4 text-head">
+                {authorInfo.name}
+              </p>
+              <p className="h-4 text-[11px] leading-4 text-body">
+                {formatDate(postData.publishedDate) || '\u00a0'}
+              </p>
             </div>
           </div>
 
-          {/* Reading Time & Difficulty */}
-          <div className="flex items-center gap-3 text-xs">
-            {postData.readTime > 0 && (
-              <span className="text-body">
-                {postData.readTime} min read
-              </span>
-            )}
-            {postData.difficulty && (
-              <span className={`font-medium ${getDifficultyColor(postData.difficulty)}`}>
-                {postData.difficulty}
-              </span>
-            )}
+          <div className="flex shrink-0 items-center gap-2 text-[11px]">
+            <span className="w-[4.75rem] text-right text-body">
+              {postData.readTime > 0 ? `${postData.readTime} min read` : '\u00a0'}
+            </span>
+            <span
+              className={`w-[5.5rem] truncate text-right font-medium capitalize ${getDifficultyColor(postData.difficulty)}`}
+            >
+              {postData.difficulty || '\u00a0'}
+            </span>
           </div>
         </div>
       </div>
@@ -207,4 +199,3 @@ function BlogCard({ post, author, onClick, className = '' }) {
 }
 
 export default BlogCard
-

@@ -196,7 +196,7 @@ function Blog() {
   // Loading state
   if (loading) {
     return (
-      <div className="bg-dotted px-4 pb-2 pt-0 md:px-8 md:pb-4 md:pt-0 lg:px-12 lg:pb-6 lg:pt-0">
+      <div className="bg-dotted pb-2 pt-8 md:pb-4 md:pt-10 lg:pb-6 lg:pt-12">
         <div className="flex items-center justify-center min-h-[60vh]">
           <div className="text-center">
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gold mx-auto mb-4"></div>
@@ -210,10 +210,9 @@ function Blog() {
   // No data state
   if (!data) {
     return (
-      <div className="bg-dotted px-4 pb-2 pt-0 md:px-8 md:pb-4 md:pt-0 lg:px-12 lg:pb-6 lg:pt-0">
-        <div className="max-w-7xl mx-auto">
+      <div className="bg-dotted pb-2 pt-8 md:pb-4 md:pt-10 lg:pb-6 lg:pt-12">
+        <div className="site-shell">
           <div className="text-center py-12">
-            <h2 className="section-heading-highlight text-head text-3xl font-bold mb-4">Blog</h2>
             <p className="text-body">No blog data available.</p>
           </div>
         </div>
@@ -221,178 +220,117 @@ function Blog() {
     )
   }
 
-  // Get meta information
-  const meta = data.meta || {}
-  const title = meta.title || 'Blog'
-
   return (
-    <div className="bg-dotted px-4 pb-2 pt-0 md:px-8 md:pb-4 md:pt-0 lg:px-12 lg:pb-6 lg:pt-0">
-      <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <header className="mb-8 md:mb-12 text-center">
-          <h2 className="section-heading-highlight text-head text-4xl md:text-5xl font-bold mb-2">
-            {title}
-          </h2>
-        </header>
-
-        {/* Search and Filters Section */}
-        <div className="mb-4 space-y-6">
-          {/* Search */}
-          {settings.enableSearch && (
-            <BlogSearch
-              onSearch={setSearchTerm}
-              placeholder="Search posts by title, content, or tags..."
-              className="w-full"
+    <div className="bg-dotted pb-2 pt-8 md:pb-4 md:pt-10 lg:pb-6 lg:pt-12">
+      <div className="site-shell">
+        <div className="mb-4">
+          <div className="mb-3 flex flex-col gap-2 sm:flex-row sm:items-center">
+            {settings.enableSearch && (
+              <BlogSearch
+                onSearch={setSearchTerm}
+                placeholder="Search posts..."
+                className="w-full sm:max-w-56 md:max-w-64"
+              />
+            )}
+            <BlogFilters
+              className="sm:ml-auto"
+              categories={categories}
+              tags={tags}
+              selectedCategory={selectedCategory}
+              selectedTags={selectedTags}
+              onCategoryChange={setSelectedCategory}
+              onTagChange={setSelectedTags}
+              enableCategories={settings.enableCategories}
+              enableTags={settings.enableTags}
+              sortBy={sortBy}
+              sortOrder={sortOrder}
+              onSortChange={(nextSortBy, nextSortOrder) => {
+                setSortBy(nextSortBy)
+                setSortOrder(nextSortOrder)
+              }}
             />
+          </div>
+
+          <div className="mb-3 flex items-center justify-between">
+            <p className="text-body text-xs">
+              Showing {paginatedPosts.length} of {filteredPosts.length} post{filteredPosts.length !== 1 ? 's' : ''}
+              {searchTerm && (
+                <span className="ml-2">
+                  for "<span className="text-head font-medium">{searchTerm}</span>"
+                </span>
+              )}
+            </p>
+          </div>
+
+          {paginatedPosts.length > 0 ? (
+            <div className="grid grid-cols-1 items-stretch gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {paginatedPosts.map((post) => {
+                const authorId = post?.authorId || data?.settings?.defaultAuthorId
+                const author = authorId ? authorsMap[authorId] : defaultAuthor
+
+                return (
+                  <BlogCard
+                    key={post.id || Math.random()}
+                    post={post}
+                    author={author}
+                    onClick={handlePostClick}
+                  />
+                )
+              })}
+            </div>
+          ) : (
+            <div
+              className="bg-card/90 backdrop-blur-sm border border-gold/20 rounded-lg p-12 text-center shadow-lg"
+              style={{
+                boxShadow: '0 10px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(87, 6, 140, 0.05)'
+              }}
+            >
+              <svg
+                className="w-16 h-16 text-body/50 mx-auto mb-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+              <h3 className="text-head text-xl font-semibold mb-2">No posts found</h3>
+              <p className="text-body">
+                {searchTerm || selectedCategory || selectedTags.length > 0
+                  ? 'Try adjusting your filters or search terms.'
+                  : 'No blog posts available yet.'}
+              </p>
+              {(searchTerm || selectedCategory || selectedTags.length > 0) && (
+                <button
+                  onClick={() => {
+                    setSearchTerm('')
+                    setSelectedCategory('')
+                    setSelectedTags([])
+                  }}
+                  className="mt-4 px-4 py-2 bg-gold/20 backdrop-blur-sm text-gold rounded border border-gold/30 hover:bg-gold/30 transition-colors shadow-md"
+                  style={{
+                    boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2), 0 0 10px rgba(87, 6, 140, 0.05)'
+                  }}
+                >
+                  Clear all filters
+                </button>
+              )}
+            </div>
           )}
 
-          {/* Filters and Sort */}
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
-            {/* Filters */}
-            <div className="lg:col-span-1">
-              {(settings.enableCategories || settings.enableTags) && (
-                <div 
-                  className="bg-card/90 backdrop-blur-sm border border-gold/20 rounded-lg p-4 md:p-6 shadow-lg"
-                  style={{
-                    boxShadow: '0 10px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(201, 166, 107, 0.05)'
-                  }}
-                >
-                  <BlogFilters
-                    categories={categories}
-                    tags={tags}
-                    selectedCategory={selectedCategory}
-                    selectedTags={selectedTags}
-                    onCategoryChange={setSelectedCategory}
-                    onTagChange={setSelectedTags}
-                    enableCategories={settings.enableCategories}
-                    enableTags={settings.enableTags}
-                  />
-                </div>
-              )}
-
-              {/* Sort Options */}
-              <div 
-                className="mt-4 bg-card/90 backdrop-blur-sm border border-gold/20 rounded-lg p-4 shadow-lg"
-                style={{
-                  boxShadow: '0 10px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(201, 166, 107, 0.05)'
-                }}
-              >
-                <h3 className="text-head text-sm font-semibold mb-3">Sort By</h3>
-                <div className="space-y-2">
-                  <select
-                    value={sortBy}
-                    onChange={(e) => setSortBy(e.target.value)}
-                    className="w-full px-3 py-2 bg-card/90 backdrop-blur-sm border border-gold/20 rounded text-head text-sm focus:outline-none focus:border-gold shadow-md"
-                    style={{
-                      boxShadow: '0 2px 10px rgba(0, 0, 0, 0.15), 0 0 5px rgba(201, 166, 107, 0.03)'
-                    }}
-                  >
-                    <option value="published">Published Date</option>
-                    <option value="updated">Updated Date</option>
-                    <option value="title">Title</option>
-                  </select>
-                  <select
-                    value={sortOrder}
-                    onChange={(e) => setSortOrder(e.target.value)}
-                    className="w-full px-3 py-2 bg-card/90 backdrop-blur-sm border border-gold/20 rounded text-head text-sm focus:outline-none focus:border-gold shadow-md"
-                    style={{
-                      boxShadow: '0 2px 10px rgba(0, 0, 0, 0.15), 0 0 5px rgba(201, 166, 107, 0.03)'
-                    }}
-                  >
-                    <option value="desc">Descending</option>
-                    <option value="asc">Ascending</option>
-                  </select>
-                </div>
-              </div>
+          {settings.enablePagination && totalPages > 1 && (
+            <div className="mt-4">
+              <BlogPagination
+                currentPage={currentPage}
+                totalPages={totalPages}
+                onPageChange={setCurrentPage}
+              />
             </div>
-
-            {/* Posts Grid */}
-            <div className="lg:col-span-3">
-              {/* Results Count */}
-              <div className="mb-6 flex items-center justify-between">
-                <p className="text-body text-sm">
-                  Showing {paginatedPosts.length} of {filteredPosts.length} post{filteredPosts.length !== 1 ? 's' : ''}
-                  {searchTerm && (
-                    <span className="ml-2">
-                      for "<span className="text-head font-medium">{searchTerm}</span>"
-                    </span>
-                  )}
-                </p>
-              </div>
-
-              {/* Posts Grid */}
-              {paginatedPosts.length > 0 ? (
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  {paginatedPosts.map((post) => {
-                    const authorId = post?.authorId || data?.settings?.defaultAuthorId
-                    const author = authorId ? authorsMap[authorId] : defaultAuthor
-
-                    return (
-                      <BlogCard
-                        key={post.id || Math.random()}
-                        post={post}
-                        author={author}
-                        onClick={handlePostClick}
-                      />
-                    )
-                  })}
-                </div>
-              ) : (
-                <div 
-                  className="bg-card/90 backdrop-blur-sm border border-gold/20 rounded-lg p-12 text-center shadow-lg"
-                  style={{
-                    boxShadow: '0 10px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(201, 166, 107, 0.05)'
-                  }}
-                >
-                  <svg
-                    className="w-16 h-16 text-body/50 mx-auto mb-4"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                    />
-                  </svg>
-                  <h3 className="text-head text-xl font-semibold mb-2">No posts found</h3>
-                  <p className="text-body">
-                    {searchTerm || selectedCategory || selectedTags.length > 0
-                      ? 'Try adjusting your filters or search terms.'
-                      : 'No blog posts available yet.'}
-                  </p>
-                  {(searchTerm || selectedCategory || selectedTags.length > 0) && (
-                    <button
-                      onClick={() => {
-                        setSearchTerm('')
-                        setSelectedCategory('')
-                        setSelectedTags([])
-                      }}
-                      className="mt-4 px-4 py-2 bg-gold/20 backdrop-blur-sm text-gold rounded border border-gold/30 hover:bg-gold/30 transition-colors shadow-md"
-                      style={{
-                        boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2), 0 0 10px rgba(201, 166, 107, 0.05)'
-                      }}
-                    >
-                      Clear all filters
-                    </button>
-                  )}
-                </div>
-              )}
-
-              {/* Pagination */}
-              {settings.enablePagination && totalPages > 1 && (
-                <div className="mt-4">
-                  <BlogPagination
-                    currentPage={currentPage}
-                    totalPages={totalPages}
-                    onPageChange={setCurrentPage}
-                  />
-                </div>
-              )}
-            </div>
-          </div>
+          )}
         </div>
       </div>
     </div>

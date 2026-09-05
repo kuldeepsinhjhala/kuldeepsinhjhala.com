@@ -44,7 +44,7 @@ function ProjectMediaSection({
         embedded
           ? undefined
           : {
-              boxShadow: '0 10px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(201, 166, 107, 0.05)',
+              boxShadow: '0 10px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(87, 6, 140, 0.05)',
             }
       }
     >
@@ -88,7 +88,7 @@ function ProjectMediaSection({
                   className="px-3 py-1.5 bg-card/80 backdrop-blur-sm text-body text-xs rounded border border-gold/10 hover:border-gold/30 hover:text-gold hover:ring-1 hover:ring-gold/30 transition-all shadow-sm"
                   style={{
                     boxShadow:
-                      '0 2px 8px rgba(0, 0, 0, 0.15), 0 0 5px rgba(201, 166, 107, 0.03)',
+                      '0 2px 8px rgba(0, 0, 0, 0.15), 0 0 5px rgba(87, 6, 140, 0.03)',
                   }}
                 >
                   <span className="flex items-center gap-1.5">
@@ -134,7 +134,7 @@ function ProjectMediaSection({
                   className="px-3 py-1.5 bg-card/80 backdrop-blur-sm text-body text-xs rounded border border-gold/10 hover:border-gold/30 hover:text-gold hover:ring-1 hover:ring-gold/30 transition-all shadow-sm"
                   style={{
                     boxShadow:
-                      '0 2px 8px rgba(0, 0, 0, 0.15), 0 0 5px rgba(201, 166, 107, 0.03)',
+                      '0 2px 8px rgba(0, 0, 0, 0.15), 0 0 5px rgba(87, 6, 140, 0.03)',
                   }}
                 >
                   <span className="flex items-center gap-1">

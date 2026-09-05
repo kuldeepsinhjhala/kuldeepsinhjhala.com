@@ -1,4 +1,4 @@
-import { useTabs } from '../../context/TabContext'
+import { useNavigate } from 'react-router-dom'
 import { isPathVisible } from '../../config/sectionFlow'
 import kuldeepImage from '../../assets/kuldeep.png'
 
@@ -29,34 +29,23 @@ function HeroProfileImage({ hero, imageClassName = '' }) {
  * Displays greeting, name, designation, tagline, description, profile image, and quick links
  */
 function HeroSection({ hero = {}, quickLinks = [], meta = {}, className = '' }) {
-  const { openTab } = useTabs()
-
-  // Page routes mapping for tab labels
-  const pageRoutes = {
-    '/': 'index.jsx',
-    '/journey': 'journey.jsx',
-    '/experience': 'experience.jsx',
-    '/education': 'education.jsx',
-    '/skills': 'skills.jsx',
-    '/projects': 'projects.jsx',
-    '/resume': 'resume.jsx',
-    '/blog': 'blog.jsx',
-    '/achievements': 'achievements.jsx',
-    '/contact': 'contact.jsx'
-  }
+  const navigate = useNavigate()
 
   const handleLinkClick = (url) => {
     if (!url) return
-    
+
     if (url.startsWith('http')) {
       window.open(url, '_blank', 'noopener,noreferrer')
       return
     }
 
-    if (!isPathVisible(url)) return
+    if (url.startsWith('mailto:') || url.startsWith('tel:')) {
+      window.location.href = url
+      return
+    }
 
-    const label = pageRoutes[url] || url.replace('/', '').replace('.jsx', '') + '.jsx'
-    openTab(url, label)
+    if (!isPathVisible(url)) return
+    navigate(url)
   }
 
   const getIcon = (iconName) => {
@@ -95,8 +84,6 @@ function HeroSection({ hero = {}, quickLinks = [], meta = {}, className = '' }) 
     return icons[iconName] || null
   }
 
-  const slogan = hero.slogan || {}
-
   const filteredQuickLinks = (quickLinks || []).filter((link) => {
     if (!link?.url) return false
     if (link.url.startsWith('http') || link.url.startsWith('mailto:') || link.url.startsWith('tel:')) {
@@ -106,8 +93,8 @@ function HeroSection({ hero = {}, quickLinks = [], meta = {}, className = '' }) 
   })
 
   return (
-    <section className={`flex flex-col gap-8 lg:gap-6 xl:gap-8 ${className}`}>
-      <div className="flex flex-col lg:flex-row items-center lg:items-start gap-8 lg:gap-6 xl:gap-8 w-full">
+    <section className={`flex flex-col gap-5 lg:gap-6 ${className}`}>
+      <div className="flex flex-col lg:flex-row items-center lg:items-start gap-6 lg:gap-8 w-full">
       {/* Content - Text and Image */}
       <div className="flex-1 w-full min-w-0">
         {/* Text Content */}
@@ -119,34 +106,14 @@ function HeroSection({ hero = {}, quickLinks = [], meta = {}, className = '' }) 
           )}
           
           {hero.name && (
-            <h1 className="section-heading-highlight text-head text-4xl md:text-5xl lg:text-6xl font-bold mb-3 md:mb-4 text-center lg:text-left">
+            <h1 className="text-head text-4xl md:text-5xl lg:text-6xl font-bold mb-3 md:mb-4 text-center lg:text-left">
               {hero.name}
             </h1>
           )}
 
-          {/* Profile image + slogan — below name on mobile/tablet only */}
+          {/* Profile image — below name on mobile/tablet only */}
           <div className="relative -top-[3px] flex flex-col items-center lg:hidden mb-4 mt-4 w-70 max-w-full mx-auto">
             <HeroProfileImage hero={hero} imageClassName="w-70 h-70 max-w-full" />
-            {(slogan.line1 || slogan.line2 || slogan.line3) && (
-              <div className="w-full mt-4 space-y-1.5">
-                {slogan.line1 && (
-                  <p
-                    className="text-gold text-sm sm:text-base font-medium text-center leading-snug"
-                    lang="sa"
-                  >
-                    {slogan.line1}
-                  </p>
-                )}
-                {slogan.line2 && (
-                  <p className="text-body text-xs sm:text-sm text-center leading-relaxed">
-                    {slogan.line2}
-                  </p>
-                )}
-                {slogan.line3 && (
-                  <p className="text-body/80 text-xs text-right">{slogan.line3}</p>
-                )}
-              </div>
-            )}
           </div>
           
           {hero.designation && (
@@ -168,82 +135,44 @@ function HeroSection({ hero = {}, quickLinks = [], meta = {}, className = '' }) 
           )}
           
           {hero.description && (
-            <p className="text-body text-sm md:text-base mb-0 max-w-2xl mx-auto lg:mx-0 text-justify lg:text-left">
+            <p className="text-body text-sm md:text-base mb-0 max-w-2xl mx-auto lg:mx-0 text-justify">
               {hero.description}
             </p>
           )}
         </div>
       </div>
 
-      {/* Right column — profile image + slogan (desktop); width matches photo */}
-      <div className="relative -top-[3px] hidden lg:flex flex-col items-stretch flex-shrink-0 lg:mt-4 xl:mt-6">
+      {/* Right column — profile image (desktop); width matches photo */}
+      <div className="hidden lg:flex flex-col items-stretch flex-shrink-0">
         <HeroProfileImage
           hero={hero}
           imageClassName="w-48 h-48 lg:w-56 lg:h-56 xl:w-64 xl:h-64"
         />
-        {(slogan.line1 || slogan.line2 || slogan.line3) && (
-          <div className="mt-4 w-48 lg:w-56 xl:w-64 space-y-1.5">
-            {slogan.line1 && (
-              <p
-                className="text-gold text-sm xl:text-base font-medium text-left leading-snug"
-                lang="sa"
-              >
-                {slogan.line1}
-              </p>
-            )}
-            {slogan.line2 && (
-              <p className="text-body text-xs xl:text-sm text-left leading-relaxed">
-                {slogan.line2}
-              </p>
-            )}
-            {slogan.line3 && (
-              <p className="text-body/80 text-xs text-right">{slogan.line3}</p>
-            )}
-          </div>
-        )}
       </div>
       </div>
 
-      {/* Quick links: max-width 600px → 2 per row; min-width 601px → one row (Landing hero) */}
       {filteredQuickLinks.length > 0 && (
-        <div className="grid grid-cols-2 w-full gap-2 sm:gap-3 md:gap-4 shrink-0 mb-8 md:mb-10 lg:mb-12 min-[601px]:flex min-[601px]:flex-row min-[601px]:flex-nowrap">
+        <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2">
           {filteredQuickLinks.map((link, index) => (
             <button
               key={index}
               type="button"
               onClick={() => handleLinkClick(link.url)}
               className="
-                w-full min-w-0 min-[601px]:flex-1 min-[601px]:basis-0 min-h-[3rem] sm:min-h-[3.25rem]
-                px-2 sm:px-3 md:px-4 py-2.5 sm:py-3
+                h-8 px-3
                 bg-card/90 backdrop-blur-sm border border-gold/20 rounded
-                text-head text-xs sm:text-sm md:text-base font-medium
+                text-head text-xs font-medium
                 hover:border-gold hover:bg-gold/10 hover:ring-1 hover:ring-gold/50
-                transition-all duration-200 shadow-lg cursor-pointer
-                flex flex-row items-center justify-center gap-1.5 sm:gap-2
+                transition-all duration-200 cursor-pointer
+                inline-flex items-center justify-center gap-1.5
               "
-              style={{
-                boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2), 0 0 10px rgba(201, 166, 107, 0.05)',
-              }}
             >
               {link.icon && (
-                <span className="text-gold shrink-0 [&_svg]:w-4 [&_svg]:h-4 sm:[&_svg]:w-5 sm:[&_svg]:h-5">
+                <span className="text-gold shrink-0 [&_svg]:w-3.5 [&_svg]:h-3.5">
                   {getIcon(link.icon)}
                 </span>
               )}
-              <span className="min-w-0 flex-1 text-center truncate">{link.label}</span>
-              <svg
-                className="w-4 h-4 shrink-0 hidden sm:block"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 5l7 7-7 7"
-                />
-              </svg>
+              <span className="whitespace-nowrap">{link.label}</span>
             </button>
           ))}
         </div>

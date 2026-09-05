@@ -30,7 +30,7 @@ function Landing() {
   // Loading state
   if (loading) {
     return (
-      <div className="bg-dotted min-h-screen px-4 pb-4 pt-8 md:px-8 md:pb-8 md:pt-12 lg:px-12 lg:pb-12 lg:pt-16">
+      <div className="bg-dotted min-h-full pt-8 pb-4 md:pt-10 md:pb-8 lg:pt-12 lg:pb-12">
         <div className="flex items-center justify-center min-h-[60vh]">
           <div className="text-center">
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gold mx-auto mb-4"></div>
@@ -44,10 +44,9 @@ function Landing() {
   // No data state
   if (!data) {
     return (
-      <div className="bg-dotted min-h-screen px-4 pb-4 pt-8 md:px-8 md:pb-8 md:pt-12 lg:px-12 lg:pb-12 lg:pt-16">
-        <div className="max-w-7xl mx-auto">
+      <div className="bg-dotted min-h-full pt-8 pb-4 md:pt-10 md:pb-8 lg:pt-12 lg:pb-12">
+        <div className="site-shell">
           <div className="text-center py-12">
-            <h2 className="section-heading-highlight text-head text-3xl font-bold mb-4">Landing</h2>
             <p className="text-body">No landing data available.</p>
           </div>
         </div>
@@ -56,22 +55,20 @@ function Landing() {
   }
 
   return (
-    <div className="bg-dotted min-h-screen px-4 pb-4 pt-8 md:px-8 md:pb-8 md:pt-12 lg:px-12 lg:pb-12 lg:pt-16">
-      <div className="max-w-7xl mx-auto">
-        {/* Hero Section */}
-        <section className="pt-4 md:pt-6 lg:pt-8 mb-16 md:mb-24">
+    <div className="bg-dotted min-h-full pt-8 pb-4 md:pt-10 md:pb-8 lg:pt-12 lg:pb-12">
+      <div className="site-shell">
+        <section className="mb-4 md:mb-5">
           <HeroSection hero={hero} quickLinks={quickLinks} meta={meta} />
         </section>
 
-        {/* Tech Stack Section */}
         {techStack && techStack.categories && techStack.categories.length > 0 && (
-          <section className="mb-12 sm:mb-16 md:mb-24">
+          <section>
             {techStack.title && (
-              <h2 className="section-heading-highlight text-head text-xl sm:text-2xl md:text-3xl font-bold mb-6 sm:mb-8 text-center md:text-left">
+              <h2 className="section-heading-highlight text-head text-base sm:text-lg font-semibold mb-3 sm:mb-4 text-center md:text-left">
                 {techStack.title}
               </h2>
             )}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6 items-start">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-3 items-start">
               {techStack.categories.map((category, index) => {
                 const cardKey = category.name || `tech-${index}`
                 return (

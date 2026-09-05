@@ -15,6 +15,9 @@ export default {
         'head': 'var(--c-head)',
         'body': 'var(--c-body)',
         'gold': 'var(--c-gold)',
+        'deep': 'var(--c-deep)',
+        'ultra': 'var(--c-ultra)',
+        'magenta': 'var(--c-magenta)',
         'success': 'var(--c-success)',
         'error': 'var(--c-error)',
         'shadow': 'var(--c-shadow)',
@@ -23,4 +26,3 @@ export default {
   },
   plugins: [],
 }
-

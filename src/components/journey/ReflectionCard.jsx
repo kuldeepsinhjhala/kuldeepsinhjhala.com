@@ -13,7 +13,7 @@ function ReflectionCard({ reflection = {}, className = '' }) {
         ${className}
       `}
       style={{
-        boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2), 0 0 10px rgba(201, 166, 107, 0.05)'
+        boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2), 0 0 10px rgba(87, 6, 140, 0.05)'
       }}
     >
       <h4 className="text-head text-sm font-semibold mb-4">Reflection</h4>

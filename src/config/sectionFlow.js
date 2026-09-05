@@ -1,9 +1,9 @@
-import { isVisible } from './systemVisibility'
-
 /**
- * Linear order: file explorer nav, stacked scroll sections, and scroll-spy URL sync.
+ * Canonical order for the top navbar and page routes.
  * Visibility is controlled in src/data/system.json (true = shown, false = hidden).
  */
+import { isVisible } from './systemVisibility'
+
 export const SECTION_FLOW = [
   { id: 'index', path: '/', label: 'index.jsx', mobileLabel: 'Home' },
   { id: 'skills', path: '/skills', label: 'skills.jsx', mobileLabel: 'Skills' },

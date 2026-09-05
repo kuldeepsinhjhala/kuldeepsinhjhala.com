@@ -28,7 +28,7 @@ function ProjectFilters({
               onChange={(e) => onCategoryChange(e.target.value)}
               className="w-full px-3 py-2 bg-card/90 backdrop-blur-sm border border-gold/20 rounded text-head text-sm focus:outline-none focus:border-gold hover:border-gold/40 cursor-pointer shadow-md transition-colors"
               style={{
-                boxShadow: '0 2px 10px rgba(0, 0, 0, 0.15), 0 0 5px rgba(201, 166, 107, 0.03)'
+                boxShadow: '0 2px 10px rgba(0, 0, 0, 0.15), 0 0 5px rgba(87, 6, 140, 0.03)'
               }}
             >
               <option value="">All Categories</option>
@@ -52,7 +52,7 @@ function ProjectFilters({
               onChange={(e) => onTypeChange(e.target.value)}
               className="w-full px-3 py-2 bg-card/90 backdrop-blur-sm border border-gold/20 rounded text-head text-sm focus:outline-none focus:border-gold hover:border-gold/40 cursor-pointer shadow-md transition-colors"
               style={{
-                boxShadow: '0 2px 10px rgba(0, 0, 0, 0.15), 0 0 5px rgba(201, 166, 107, 0.03)'
+                boxShadow: '0 2px 10px rgba(0, 0, 0, 0.15), 0 0 5px rgba(87, 6, 140, 0.03)'
               }}
             >
               <option value="">All Types</option>
@@ -76,7 +76,7 @@ function ProjectFilters({
               onChange={(e) => onStatusChange(e.target.value)}
               className="w-full px-3 py-2 bg-card/90 backdrop-blur-sm border border-gold/20 rounded text-head text-sm focus:outline-none focus:border-gold hover:border-gold/40 cursor-pointer shadow-md transition-colors"
               style={{
-                boxShadow: '0 2px 10px rgba(0, 0, 0, 0.15), 0 0 5px rgba(201, 166, 107, 0.03)'
+                boxShadow: '0 2px 10px rgba(0, 0, 0, 0.15), 0 0 5px rgba(87, 6, 140, 0.03)'
               }}
             >
               <option value="">All Statuses</option>

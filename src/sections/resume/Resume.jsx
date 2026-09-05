@@ -2,7 +2,7 @@ import { useState, useMemo } from 'react'
 import resumeData from '../../data/resume.json'
 
 const cardShadow = {
-  boxShadow: '0 10px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(201, 166, 107, 0.05)',
+  boxShadow: '0 10px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(87, 6, 140, 0.05)',
 }
 
 function Resume() {
@@ -45,12 +45,8 @@ function Resume() {
     'px-4 sm:px-5 py-2.5 md:py-3 bg-gold/20 hover:bg-gold/30 text-gold rounded-lg border border-gold/30 transition-colors inline-flex items-center justify-center gap-2 font-medium text-sm md:text-base shadow-md'
 
   return (
-    <div className="bg-dotted px-4 pb-2 pt-0 md:px-8 md:pb-4 md:pt-0 lg:px-12 lg:pb-6 lg:pt-0">
-      <div className="max-w-7xl mx-auto">
-        <header className="mb-8 md:mb-12 text-center">
-          <h2 className="section-heading-highlight text-head text-4xl md:text-5xl font-bold mb-2">Resume</h2>
-        </header>
-
+    <div className="bg-dotted pb-2 pt-8 md:pb-4 md:pt-10 lg:pb-6 lg:pt-12">
+      <div className="site-shell">
         <section className="mb-8 md:mb-12" aria-label="Resume actions">
           <div
             className="bg-card/90 backdrop-blur-sm border border-gold/20 rounded-lg p-6 md:p-8 shadow-lg w-full"

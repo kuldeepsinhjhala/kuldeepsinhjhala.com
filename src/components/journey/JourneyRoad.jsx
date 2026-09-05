@@ -3,12 +3,36 @@ import JourneyTimelineItem from './JourneyTimelineItem'
 import { getJourneyMilestoneYearLabel, isJourneyItemHighlighted } from '../../utils/journeyItemUtils'
 import { getJourneyOrgLogoImgStyle, resolveJourneyLogo } from '../../utils/resolveJourneyLogo'
 
+function RoadSegment() {
+  return (
+    <>
+      <div className="absolute left-1/2 top-8 md:top-10 -bottom-8 md:-bottom-10 lg:-bottom-16 -translate-x-1/2 w-2 md:w-3 pointer-events-none">
+        <div className="absolute inset-0 bg-gold/30 rounded-full" />
+        <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-gold/40" />
+        <div className="absolute right-0 top-0 bottom-0 w-0.5 bg-gold/40" />
+        <div
+          className="absolute left-1/2 top-0 bottom-0 -translate-x-1/2 w-0.5"
+          style={{
+            backgroundImage:
+              'repeating-linear-gradient(to bottom, transparent, transparent 15px, rgba(87, 6, 140, 0.6) 15px, rgba(87, 6, 140, 0.6) 20px)',
+          }}
+        />
+      </div>
+      <div
+        className="absolute left-1/2 top-8 md:top-10 -bottom-8 md:-bottom-10 lg:-bottom-16 -translate-x-1/2 w-2 md:w-3 blur-sm opacity-30 pointer-events-none"
+        style={{
+          background: 'linear-gradient(to bottom, rgba(87, 6, 140, 0.2), rgba(87, 6, 140, 0.1))',
+        }}
+      />
+    </>
+  )
+}
+
 /**
  * JourneyRoad - Road visualization component for journey timeline
  * Creates a visual road/path with timeline items as milestones
- * @param {boolean} [showContinuationBadge=true] — When false (e.g. parent shows only first N items), hides the “Journey Continues…” end marker.
  */
-function JourneyRoad({ timeline = [], className = '', showContinuationBadge = true }) {
+function JourneyRoad({ timeline = [], className = '' }) {
   const [expandedItems, setExpandedItems] = useState({})
 
   if (!timeline || timeline.length === 0) return null
@@ -26,45 +50,20 @@ function JourneyRoad({ timeline = [], className = '', showContinuationBadge = tr
 
   return (
     <div className={`relative ${className}`}>
-      {/* Road Path - Vertical road with center line - Always centered */}
-      <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-2 md:w-3">
-        {/* Road Base - Darker road surface */}
-        <div className="absolute inset-0 bg-gold/30 rounded-full"></div>
-        
-        {/* Road Edges */}
-        <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-gold/40"></div>
-        <div className="absolute right-0 top-0 bottom-0 w-0.5 bg-gold/40"></div>
-        
-        {/* Road Center Line (dashed) */}
-        <div 
-          className="absolute left-1/2 top-0 bottom-0 -translate-x-1/2 w-0.5"
-          style={{
-            backgroundImage: 'repeating-linear-gradient(to bottom, transparent, transparent 15px, rgba(201, 166, 107, 0.6) 15px, rgba(201, 166, 107, 0.6) 20px)',
-          }}
-        ></div>
-      </div>
-
-      {/* Road Shadow/Glow Effect - Always centered */}
-      <div 
-        className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-2 md:w-3 blur-sm opacity-30"
-        style={{
-          background: 'linear-gradient(to bottom, rgba(201, 166, 107, 0.2), rgba(201, 166, 107, 0.1))',
-        }}
-      ></div>
-
-      {/* Timeline Items */}
-      <div className="relative space-y-8 md:space-y-10 lg:space-y-16 pb-8">
+      <div className="relative space-y-8 md:space-y-10 lg:space-y-16">
         {timeline.map((item, index) => {
           const isHighlighted = isJourneyItemHighlighted(item)
           const isExpanded = expandedItems[item.id || index]
           const milestoneYear = getJourneyMilestoneYearLabel(item.time)
           const milestoneLogoSrc = resolveJourneyLogo(item.organization?.logo)
-          
+          const isLast = index === timeline.length - 1
+
           return (
             <div
               key={item.id || index}
               className="relative flex flex-col items-center"
             >
+              {!isLast && <RoadSegment />}
               {/* Road Marker/Milestone - Top Center */}
               <div className="relative z-10 flex-shrink-0 mb-4">
                 {/* Background circle to hide dotted line behind glow */}
@@ -74,7 +73,7 @@ function JourneyRoad({ timeline = [], className = '', showContinuationBadge = tr
                     style={{
                       width: 'calc(100% + 24px)',
                       height: 'calc(100% + 24px)',
-                      backgroundColor: '#0A192F',
+                      backgroundColor: '#FFFFFF',
                     }}
                   ></div>
                 )}
@@ -90,8 +89,8 @@ function JourneyRoad({ timeline = [], className = '', showContinuationBadge = tr
                   `}
                   style={{
                     boxShadow: isHighlighted 
-                      ? '0 0 30px rgba(201, 166, 107, 0.5), 0 10px 30px rgba(0, 0, 0, 0.3)'
-                      : '0 10px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(201, 166, 107, 0.05)'
+                      ? '0 0 30px rgba(87, 6, 140, 0.5), 0 10px 30px rgba(0, 0, 0, 0.3)'
+                      : '0 10px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(87, 6, 140, 0.05)'
                   }}
                   onClick={() => toggleExpand(item.id || index)}
                 >
@@ -127,7 +126,7 @@ function JourneyRoad({ timeline = [], className = '', showContinuationBadge = tr
                     <div
                       className="absolute -bottom-2 left-1/2 -translate-x-1/2 px-2 py-0.5 text-gold text-xs font-bold rounded border-2 border-gold whitespace-nowrap shadow-lg z-20"
                       style={{
-                        backgroundColor: '#0A192F',
+                        backgroundColor: '#FFFFFF',
                         opacity: 1,
                       }}
                     >
@@ -139,7 +138,7 @@ function JourneyRoad({ timeline = [], className = '', showContinuationBadge = tr
                   <div 
                     className="absolute -top-2 -right-2 w-6 h-6 rounded-full border-2 border-gold flex items-center justify-center text-gold text-xs font-bold shadow-lg z-20"
                     style={{
-                      backgroundColor: '#0A192F',
+                      backgroundColor: '#FFFFFF',
                       opacity: 1
                     }}
                   >
@@ -161,16 +160,6 @@ function JourneyRoad({ timeline = [], className = '', showContinuationBadge = tr
           )
         })}
       </div>
-
-      {/* Road end marker — hidden when timeline is truncated (Show more in parent) */}
-      {showContinuationBadge && (
-        <div className="relative mt-8 flex justify-center">
-          <div className="w-24 h-1 bg-gold/30 rounded-full"></div>
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 px-3 py-1 bg-card/90 backdrop-blur-sm border border-gold/20 rounded text-gold text-xs font-medium shadow-lg">
-            Journey Continues...
-          </div>
-        </div>
-      )}
     </div>
   )
 }

@@ -2,65 +2,94 @@
 
 /*
   COLOR SYSTEM - Use ONLY these colors throughout the website
-  
+
   Usage in Tailwind classes:
-  - bg-bg, bg-card, bg-gold, etc.
-  - text-head, text-body, text-gold, etc.
-  - border-gold, border-card, etc.
-  
-  Usage in inline styles:
-  - style={{ color: 'var(--c-head)' }}
-  - style={{ backgroundColor: 'var(--c-bg)' }}
-  
-  Core Palette (95% usage):
-  - bg: Global background (#0A192F)
-  - card: Component backgrounds (#112240)
-  - head: Primary text/headings (#E6F1FF)
-  - body: Secondary text/paragraphs (#8892B0)
-  - gold: Accent color for buttons/borders (#C9A66B)
-  
-  Functional Palette (5% usage):
-  - success: Success states (#64FFDA)
-  - error: Error states (#FF6B6B)
-  - shadow: Drop shadows (#020C1B)
+  - bg-bg, bg-card, bg-gold, bg-deep, bg-ultra, bg-magenta
+  - text-head, text-body, text-gold, text-ultra
+  - border-gold, border-card
+
+  Core Palette:
+  - bg: Page background (#FFFFFF)
+  - card: Card / subtle surface (#eee6f3)
+  - head: Headings and strong text (#1E0635)
+  - body: Secondary text (#7B7B7B)
+  - gold: NYU Violet brand (legacy class name) (#57068C)
+  - deep: Footer, CTA hover (#330662)
+  - ultra: Hover / active micro-accent (#8900E1)
+  - magenta: Rare accent only (#FB0F78)
+
+  Functional:
+  - success, error, shadow
 */
 
 :root {
-  /* THEME */
-  --c-bg:       #0A192F;
-  --c-card:     #112240;
-  --c-head:     #E6F1FF;
-  --c-body:     #8892B0;
-  --c-gold:     #C9A66B;
+  --c-bg:       #FFFFFF;
+  --c-card:     #eee6f3;
+  --c-head:     #1E0635;
+  --c-body:     #7B7B7B;
+  --c-gold:     #57068C;
+  --c-deep:     #330662;
+  --c-ultra:    #8900E1;
+  --c-magenta:  #FB0F78;
 
-  /* UTILITY */
   --c-success:  #64FFDA;
   --c-error:    #FF6B6B;
-  --c-shadow:   #020C1B;
+  --c-shadow:   #f7f3fb;
+}
+
+@theme {
+  --color-bg: var(--c-bg);
+  --color-card: var(--c-card);
+  --color-head: var(--c-head);
+  --color-body: var(--c-body);
+  --color-gold: var(--c-gold);
+  --color-deep: var(--c-deep);
+  --color-ultra: var(--c-ultra);
+  --color-magenta: var(--c-magenta);
+  --color-success: var(--c-success);
+  --color-error: var(--c-error);
+  --color-shadow: var(--c-shadow);
 }
 
 html,
 body,
 #root {
   height: 100%;
-  min-height: 0;
   overflow: hidden;
 }
 
 body {
   background-color: var(--c-bg);
   color: var(--c-body);
-  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-family: Inter, system-ui, sans-serif;
 }
 
-/* Custom scrollbar for code editor style */
+.site-shell {
+  width: 100%;
+  max-width: 80rem;
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+@media (min-width: 768px) {
+  .site-shell {
+    padding-inline: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .site-shell {
+    padding-inline: 3rem;
+  }
+}
+
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--c-card);
+  background: var(--c-shadow);
 }
 
 ::-webkit-scrollbar-thumb {
@@ -69,71 +98,9 @@ body {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--c-head);
+  background: var(--c-ultra);
 }
 
-/* Tab bar horizontal scrollbar */
-.tab-scrollbar {
-  scrollbar-width: thin;
-  scrollbar-color: transparent transparent;
-}
-
-.tab-scrollbar::-webkit-scrollbar {
-  height: 4px;
-}
-
-.tab-scrollbar::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.tab-scrollbar::-webkit-scrollbar-thumb {
-  background: transparent;
-  border-radius: 2px;
-}
-
-.tab-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: transparent;
-}
-
-/* Show scrollbar on hover or when scrolling */
-.tab-scrollbar-hover:hover,
-.tab-scrollbar-hover.scrolling {
-  scrollbar-color: var(--c-gold) var(--c-card);
-}
-
-.tab-scrollbar-hover:hover::-webkit-scrollbar-track,
-.tab-scrollbar-hover.scrolling::-webkit-scrollbar-track {
-  background: var(--c-card);
-}
-
-.tab-scrollbar-hover:hover::-webkit-scrollbar-thumb,
-.tab-scrollbar-hover.scrolling::-webkit-scrollbar-thumb {
-  background: var(--c-gold);
-}
-
-.tab-scrollbar-hover:hover::-webkit-scrollbar-thumb:hover,
-.tab-scrollbar-hover.scrolling::-webkit-scrollbar-thumb:hover {
-  background: var(--c-head);
-}
-
-/* Tab bar scrollbar always visible */
-.tab-scrollbar-visible {
-  scrollbar-color: var(--c-gold) var(--c-card);
-}
-
-.tab-scrollbar-visible::-webkit-scrollbar-track {
-  background: var(--c-card);
-}
-
-.tab-scrollbar-visible::-webkit-scrollbar-thumb {
-  background: var(--c-gold);
-}
-
-.tab-scrollbar-visible::-webkit-scrollbar-thumb:hover {
-  background: var(--c-head);
-}
-
-/* Tooltip animation */
 @keyframes fade-in {
   from {
     opacity: 0;
@@ -149,7 +116,6 @@ body {
   animation: fade-in 0.2s ease-out forwards;
 }
 
-/* Line clamp utilities for text truncation */
 .line-clamp-2 {
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -164,36 +130,22 @@ body {
   overflow: hidden;
 }
 
-/* Soft gold halo on page / section titles (subtle, theme-aligned) */
 .section-heading-highlight {
   padding-top: 3px;
   text-shadow:
-    0 0 22px rgba(201, 166, 107, 0.14),
-    0 0 44px rgba(201, 166, 107, 0.07);
+    0 0 22px rgba(87, 6, 140, 0.08),
+    0 0 44px rgba(87, 6, 140, 0.04);
 }
 
-/* Contact footer — Om symbol (stronger gold glow) */
-.om-symbol-glow {
-  color: var(--c-gold);
-  text-shadow:
-    0 0 8px rgba(201, 166, 107, 0.85),
-    0 0 18px rgba(201, 166, 107, 0.55),
-    0 0 32px rgba(201, 166, 107, 0.35),
-    0 0 48px rgba(201, 166, 107, 0.18);
-  filter: drop-shadow(0 0 6px rgba(201, 166, 107, 0.4));
-}
-
-/* Dotted background pattern for section pages */
 .bg-dotted {
-  background-color: var(--c-shadow);
-  background-image: radial-gradient(circle at 1px 1px, rgba(201, 166, 107, 0.05) 1px, transparent 0);
+  background-color: var(--c-bg);
+  background-image: radial-gradient(circle at 1px 1px, rgba(87, 6, 140, 0.08) 1px, transparent 0);
   background-size: 20px 20px;
 }
 
-/* Journey Terminal Horizontal Scrollbar */
 .journey-terminal-scroll {
   scrollbar-width: thin;
-  scrollbar-color: rgba(201, 166, 107, 0.3) transparent;
+  scrollbar-color: rgba(87, 6, 140, 0.3) transparent;
 }
 
 .journey-terminal-scroll::-webkit-scrollbar {
@@ -206,35 +158,42 @@ body {
 }
 
 .journey-terminal-scroll::-webkit-scrollbar-thumb {
-  background-color: rgba(201, 166, 107, 0.3);
+  background-color: rgba(87, 6, 140, 0.3);
   border-radius: 4px;
   border: 2px solid transparent;
   background-clip: padding-box;
 }
 
 .journey-terminal-scroll::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(201, 166, 107, 0.5);
+  background-color: rgba(137, 0, 225, 0.5);
 }
 
-/* Global clickable element styles */
 a, button, [role="button"], [onclick], .clickable {
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 }
 
-/* Links - default hover state */
 a:not(button):hover {
-  color: var(--c-gold);
+  color: var(--c-ultra);
   text-decoration: underline;
 }
 
-/* Buttons - enhanced hover states */
-button:not(:disabled):hover:not(.nav-item-button) {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(201, 166, 107, 0.2);
+nav a:hover,
+header a:hover,
+footer a:hover {
+  text-decoration: none;
 }
 
-/* Navbar buttons - simple border only, no glow */
+header a:hover,
+footer a:hover {
+  color: #ffffff;
+}
+
+button:not(:disabled):hover:not(.nav-item-button) {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(87, 6, 140, 0.12);
+}
+
 .nav-item-button:hover {
   transform: none !important;
   box-shadow: none !important;
@@ -249,102 +208,17 @@ button:disabled {
   opacity: 0.5;
 }
 
-/* Clickable cards and containers */
 [onclick]:hover, .clickable:hover {
-  border-color: var(--c-gold) !important;
-  box-shadow: 0 4px 20px rgba(201, 166, 107, 0.15) !important;
+  border-color: var(--c-ultra) !important;
+  box-shadow: 0 4px 20px rgba(87, 6, 140, 0.12) !important;
 }
 
-/* Interactive elements with gold theme hover */
 .hover-gold:hover {
-  color: var(--c-gold);
-  border-color: var(--c-gold);
+  color: var(--c-ultra);
+  border-color: var(--c-ultra);
 }
 
 .hover-gold-bg:hover {
-  background-color: rgba(201, 166, 107, 0.1);
-  border-color: var(--c-gold);
-}
-
-/* Custom cursor: ring + centered dot (see CustomCursor.jsx) */
-.custom-cursor {
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 28px;
-  height: 28px;
-  border: 1.5px solid rgba(201, 166, 107, 0.42);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 99999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-sizing: border-box;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
-  will-change: transform;
-}
-
-.custom-cursor__dot {
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: var(--c-gold);
-  flex-shrink: 0;
-  transition:
-    box-shadow 0.2s ease,
-    transform 0.2s ease;
-}
-
-.custom-cursor--clickable .custom-cursor__dot {
-  box-shadow:
-    0 0 6px 2px rgba(201, 166, 107, 0.95),
-    0 0 14px 4px rgba(201, 166, 107, 0.55),
-    0 0 24px 6px rgba(201, 166, 107, 0.25);
-  transform: scale(1.2);
-}
-
-.custom-cursor--clickable {
-  border-color: rgba(201, 166, 107, 0.72);
-  box-shadow: 0 0 14px rgba(201, 166, 107, 0.18);
-}
-
-.custom-cursor--hidden {
-  opacity: 0;
-  pointer-events: none;
-}
-
-@media (pointer: fine) {
-  * {
-    cursor: none !important;
-  }
-  input[type="text"],
-  input[type="email"],
-  input[type="password"],
-  input[type="search"],
-  input[type="url"],
-  input[type="tel"],
-  input[type="number"],
-  textarea,
-  [contenteditable="true"] {
-    cursor: text !important;
-  }
-  button:disabled,
-  input:disabled,
-  textarea:disabled,
-  select:disabled {
-    cursor: not-allowed !important;
-  }
-  textarea[resize] {
-    cursor: auto !important;
-  }
-}
-
-@media (pointer: coarse) {
-  .custom-cursor {
-    display: none !important;
-  }
-  * {
-    cursor: auto !important;
-  }
+  background-color: rgba(137, 0, 225, 0.08);
+  border-color: var(--c-ultra);
 }

@@ -1,6 +1,5 @@
 import { useState, useRef, useEffect } from 'react'
 import JourneyTimelineItem from './JourneyTimelineItem'
-import logo from '../../assets/lion-logo-sm.png'
 import { getJourneyMilestoneYearLabel, isJourneyItemHighlighted } from '../../utils/journeyItemUtils'
 
 /**
@@ -108,16 +107,6 @@ function JourneyTerminal({ timeline = [], className = '' }) {
             <span className="text-body text-xs font-mono ml-2">journey-terminal</span>
           </div>
           <div className="flex items-center gap-1.5 text-body/50 text-xs font-mono">
-            <img 
-              src={logo} 
-              alt="Logo" 
-              width={128}
-              height={124}
-              className="h-3 w-auto object-contain opacity-90"
-              style={{
-                filter: 'brightness(0) invert(1) sepia(100%) saturate(200%) hue-rotate(20deg)'
-              }}
-            />
             <span>kuldeepsinhjhala.com</span>
           </div>
         </div>
@@ -187,7 +176,7 @@ function JourneyTerminal({ timeline = [], className = '' }) {
                         h-full
                       `}
                       style={{
-                        boxShadow: '0 10px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(201, 166, 107, 0.05)'
+                        boxShadow: '0 10px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(87, 6, 140, 0.05)'
                       }}
                     >
                       {/* Icon and Year */}

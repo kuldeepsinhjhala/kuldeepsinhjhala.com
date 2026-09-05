@@ -1,61 +1,49 @@
-import { useRef } from 'react'
-import { Routes, Route } from 'react-router-dom'
+import { useEffect, useRef } from 'react'
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom'
 import Seo from '../components/Seo'
-import { TabProvider } from '../context/TabContext'
-import { UnifiedPortfolioScroll } from './UnifiedPortfolioScroll'
-import { CopilotProvider } from '../context/CopilotContext'
-import { NavbarProvider } from '../context/NavbarContext'
 import Navbar from '../components/Navbar'
-import SearchBar from '../components/SearchBar'
-import TabBar from '../components/TabBar'
-import CustomCursor from '../components/CustomCursor'
-import CopilotButton from '../components/CopilotButton'
-import CopilotPanel from '../components/CopilotPanel'
-import { isCopilotVisible } from '../config/systemVisibility'
+import SocialIcons from '../components/SocialIcons'
+import { VISIBLE_SECTION_FLOW, FIRST_VISIBLE_SECTION } from '../config/sectionFlow'
+import { SECTION_COMPONENTS } from './sectionComponents'
 
-function AppContent() {
-  const mainRef = useRef(null)
+function ScrollToTop({ scrollRef }) {
+  const { pathname } = useLocation()
 
-  return (
-    <div className="flex h-screen overflow-hidden">
-      <CustomCursor />
-      <Navbar />
-      <div className="flex-1 flex flex-col h-screen min-h-0 min-w-0 overflow-hidden">
-          <div className="flex-shrink-0">
-            <SearchBar />
-            <TabBar />
-          </div>
-          <main
-            ref={mainRef}
-            className="flex-1 min-h-0 overflow-y-auto overflow-x-hidden scroll-auto"
-          >
-            <Routes>
-              <Route path="*" element={<UnifiedPortfolioScroll scrollContainerRef={mainRef} />} />
-            </Routes>
-          </main>
-        </div>
-        {isCopilotVisible() && (
-          <>
-            <CopilotButton />
-            <CopilotPanel />
-          </>
-        )}
-      </div>
-  )
+  useEffect(() => {
+    scrollRef.current?.scrollTo(0, 0)
+  }, [pathname, scrollRef])
+
+  return null
 }
 
 function AppRoutes() {
+  const fallbackPath = FIRST_VISIBLE_SECTION?.path || '/'
+  const mainRef = useRef(null)
+
   return (
-    <TabProvider>
+    <>
       <Seo />
-      <CopilotProvider>
-        <NavbarProvider>
-          <AppContent />
-        </NavbarProvider>
-      </CopilotProvider>
-    </TabProvider>
+      <ScrollToTop scrollRef={mainRef} />
+      <div className="h-full flex flex-col bg-bg overflow-hidden">
+        <Navbar />
+        <main ref={mainRef} className="flex-1 min-h-0 overflow-y-auto overflow-x-hidden">
+          <Routes>
+            {VISIBLE_SECTION_FLOW.map(({ path }) => {
+              const Page = SECTION_COMPONENTS[path]
+              if (!Page) return null
+              return <Route key={path} path={path} element={<Page />} />
+            })}
+            <Route path="*" element={<Navigate to={fallbackPath} replace />} />
+          </Routes>
+        </main>
+        <footer className="shrink-0 bg-deep text-white">
+          <div className="site-shell py-2.5 flex items-center justify-center">
+            <SocialIcons />
+          </div>
+        </footer>
+      </div>
+    </>
   )
 }
 
 export default AppRoutes
-

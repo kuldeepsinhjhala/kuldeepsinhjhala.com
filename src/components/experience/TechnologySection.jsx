@@ -64,7 +64,7 @@ function TechnologySection({ technologies = {} }) {
               key={category.key}
               className="bg-card/80 backdrop-blur-sm border border-gold/10 rounded-lg p-4 shadow-md"
               style={{
-                boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2), 0 0 10px rgba(201, 166, 107, 0.05)'
+                boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2), 0 0 10px rgba(87, 6, 140, 0.05)'
               }}
             >
               <div className="flex items-center gap-2 mb-3">
@@ -98,7 +98,7 @@ function TechnologySection({ technologies = {} }) {
                 key={key}
                 className="bg-card/80 backdrop-blur-sm border border-gold/10 rounded-lg p-4 shadow-md"
                 style={{
-                  boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2), 0 0 10px rgba(201, 166, 107, 0.05)'
+                  boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2), 0 0 10px rgba(87, 6, 140, 0.05)'
                 }}
               >
                 <h5 className="text-head text-sm font-semibold mb-3 capitalize">

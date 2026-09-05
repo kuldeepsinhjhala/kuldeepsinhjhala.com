@@ -50,7 +50,6 @@ function Education() {
   }, [])
 
   // Get data with fallbacks
-  const meta = useMemo(() => data?.meta || {}, [data])
   const degrees = useMemo(() => {
     if (!data?.degrees || !Array.isArray(data.degrees)) return []
     return [...data.degrees].sort((a, b) => {
@@ -66,7 +65,7 @@ function Education() {
   // Loading state
   if (loading) {
     return (
-      <div className="bg-dotted px-4 pb-2 pt-0 md:px-8 md:pb-4 md:pt-0 lg:px-12 lg:pb-6 lg:pt-0">
+      <div className="bg-dotted pb-2 pt-8 md:pb-4 md:pt-10 lg:pb-6 lg:pt-12">
         <div className="flex items-center justify-center min-h-[60vh]">
           <div className="text-center">
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gold mx-auto mb-4"></div>
@@ -80,10 +79,9 @@ function Education() {
   // No data state
   if (!data) {
     return (
-      <div className="bg-dotted px-4 pb-2 pt-0 md:px-8 md:pb-4 md:pt-0 lg:px-12 lg:pb-6 lg:pt-0">
-        <div className="max-w-7xl mx-auto">
+      <div className="bg-dotted pb-2 pt-8 md:pb-4 md:pt-10 lg:pb-6 lg:pt-12">
+        <div className="site-shell">
           <div className="text-center py-12">
-            <h2 className="section-heading-highlight text-head text-3xl font-bold mb-4">Education</h2>
             <p className="text-body">No education data available.</p>
           </div>
         </div>
@@ -92,18 +90,8 @@ function Education() {
   }
 
   return (
-    <div className="bg-dotted px-4 pb-2 pt-0 md:px-8 md:pb-4 md:pt-0 lg:px-12 lg:pb-6 lg:pt-0">
-      <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <header className="mb-8 md:mb-12 text-center">
-          {meta.title && (
-            <h2 className="section-heading-highlight text-head text-4xl md:text-5xl font-bold mb-2">
-              {meta.title}
-            </h2>
-          )}
-        </header>
-
-        {/* Degrees Section */}
+    <div className="bg-dotted pb-2 pt-8 md:pb-4 md:pt-10 lg:pb-6 lg:pt-12">
+      <div className="site-shell">
         {degrees && degrees.length > 0 && (
           <section className="mb-8 md:mb-12">
             <div className="space-y-6 md:space-y-8">

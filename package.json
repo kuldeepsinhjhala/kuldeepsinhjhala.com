@@ -6,7 +6,6 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "optimize:logo": "node scripts/optimize-lion-logo.mjs",
     "lint": "eslint .",
     "preview": "vite preview"
   },
