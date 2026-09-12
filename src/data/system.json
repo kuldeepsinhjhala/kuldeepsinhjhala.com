@@ -8,6 +8,6 @@
   "journey": true,
   "education": true,
   "contact": true,
-  "blog": true,
+  "blog": false,
   "copilot": false
 }
