@@ -1,22 +1,23 @@
 import { useNavigate } from 'react-router-dom'
 import { isPathVisible } from '../../config/sectionFlow'
-import kuldeepImage from '../../assets/kuldeep.png'
 
 /** Blurred copy of the photo only inside the same frame as the sharp image (clipped). */
 function HeroProfileImage({ hero, imageClassName = '' }) {
   const alt = hero.profile?.alt || hero.name || 'Kuldeepsinh Jhala'
+  const src = hero.profile?.image
+  if (!src) return null
   return (
     <div
       className={`relative inline-block overflow-hidden rounded-lg border-2 border-gold/20 shadow-lg transition-all duration-300 hover:border-gold hover:ring-2 hover:ring-inset hover:ring-gold/50 ${imageClassName}`}
     >
       <img
-        src={kuldeepImage}
+        src={src}
         alt=""
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 z-0 h-full w-full scale-110 object-cover blur-2xl opacity-50 sm:blur-3xl sm:opacity-45"
       />
       <img
-        src={kuldeepImage}
+        src={src}
         alt={alt}
         className="relative z-[1] block h-full w-full object-cover"
       />

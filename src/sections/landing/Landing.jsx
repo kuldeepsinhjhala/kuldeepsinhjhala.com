@@ -2,6 +2,7 @@ import { useState, useEffect, useMemo } from 'react'
 import landingData from '../../data/landing.json'
 import HeroSection from '../../components/landing/HeroSection'
 import TechStackCard from '../../components/landing/TechStackCard'
+import { resolveS3Url } from '../../utils/resolveS3Url'
 
 function Landing() {
   const [data, setData] = useState(null)
@@ -23,7 +24,16 @@ function Landing() {
 
   // Get data with fallbacks
   const meta = useMemo(() => data?.meta || {}, [data])
-  const hero = useMemo(() => data?.hero || {}, [data])
+  const hero = useMemo(() => {
+    const h = data?.hero || {}
+    return {
+      ...h,
+      profile: {
+        ...h.profile,
+        image: resolveS3Url(h.profile?.image),
+      },
+    }
+  }, [data])
   const techStack = useMemo(() => data?.techStack || {}, [data])
   const quickLinks = useMemo(() => data?.quickLinks || [], [data])
 
