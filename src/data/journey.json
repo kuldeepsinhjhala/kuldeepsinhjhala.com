@@ -646,8 +646,8 @@
       "sequence": 9,
       "time": {
         "startDate": "2024-10",
-        "endDate": "present",
-        "duration": "1+ year"
+        "endDate": "2026-05",
+        "duration": "1 year 7 months"
       },
       "type": "career",
       "title": "Founding Software Developer Engineer",
@@ -729,6 +729,72 @@
         "links": [
           "https://keshavencon.com"
         ]
+      },
+      "icon": "briefcase",
+      "color": "gold"
+    },
+    {
+      "id": "senior-software-developer-futentia",
+      "sequence": 10,
+      "time": {
+        "startDate": "2026-06",
+        "endDate": "present",
+        "duration": "Present"
+      },
+      "type": "career",
+      "title": "Senior Software Developer",
+      "subtitle": "Futentia Solution Private Limited",
+      "organization": {
+        "name": "Futentia Solution Private Limited",
+        "type": "company",
+        "role": "Senior Software Developer",
+        "website": "https://futentia.com/",
+        "logo": "futentia_logo"
+      },
+      "location": {
+        "city": "Vadodara",
+        "state": "Gujarat",
+        "country": "India",
+        "mode": "onsite"
+      },
+      "description": "Working as a Senior Software Developer and Technical Lead, leading a cross-functional team across AI, Mobile, and Backend development while owning technical architecture, engineering decisions, and end-to-end delivery of client-facing products. Building production-grade AI-powered and customer-facing applications, designing scalable backend systems, databases, APIs, cloud infrastructure, and CI/CD pipelines.",
+      "activities": [
+        "Technical Lead for a cross-functional team of 3 engineers across AI, Mobile, and Backend development",
+        "Owned technical architecture, engineering decisions, and end-to-end delivery of client-facing products",
+        "Architected and developed Soulness AI, a production-grade AI-powered healthcare application for hospital deployment",
+        "Designed backend architecture, database schema, API contracts, and migration workflows using Node.js, Express.js, Prisma, and PostgreSQL",
+        "Designed and documented RESTful APIs using OpenAPI/Swagger for Backend, Mobile, AI, and external system integrations",
+        "Implemented authentication, authorization, input validation, data protection, and secure API interactions across critical workflows",
+        "Designed and developed a multi-platform restaurant kiosk platform supporting Kiosk, Tablet, and Mobile experiences using NestJS, PostgreSQL, TypeORM, Next.js, and React Native",
+        "Architected a 100+ table relational database and developed 300+ RESTful APIs for complex administrative workflows",
+        "Owned AWS cloud infrastructure and production deployment architecture across EC2, RDS, S3, DynamoDB, MongoDB, and CDN services",
+        "Established containerized CI/CD pipelines using Docker and GitHub Actions with separate Development and Production environments",
+        "Worked directly with clients to gather requirements and translate business problems into technical specifications, system designs, integrations, and production solutions"
+      ],
+      "achievements": [],
+      "skills": [
+        "Node.js",
+        "Express.js",
+        "NestJS",
+        "PostgreSQL",
+        "Prisma",
+        "TypeORM",
+        "REST API Design",
+        "OpenAPI/Swagger",
+        "System Architecture",
+        "AWS",
+        "Docker",
+        "GitHub Actions",
+        "CI/CD",
+        "Next.js",
+        "React Native",
+        "AI/LLM Integration",
+        "Technical Leadership"
+      ],
+      "media": {
+        "images": [],
+        "documents": [],
+        "links": []
       },
       "icon": "briefcase",
       "color": "gold"

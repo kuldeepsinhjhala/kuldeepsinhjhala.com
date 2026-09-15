@@ -1,21 +1,23 @@
 {
   "meta": {
-    "title": "Kuldeepsinh Jhala | Senior Software Engineer & AI-Driven Full Stack Developer (Node.js & AWS)",
+    "title": "Kuldeepsinh Jhala | Senior Software Engineer & AI-Driven Full Stack Developer (Node.js, AWS & System Architecture)",
     "language": "en",
-    "lastUpdated": "2026-06-28",
-    "version": "v1.4"
+    "lastUpdated": "2026-09-16",
+    "version": "v1.5"
   },
+
   "hero": {
     "greeting": "Hi, my name is",
     "name": "Kuldeepsinh Jhala",
     "designation": "Senior Software Engineer | AI-Driven Full Stack Developer",
     "tagline": "Building scalable AI-powered software systems with strong backend architecture",
-    "description": "Software engineer with end-to-end product development experience — from requirement analysis and system design to building scalable backend systems, integrating AI (LLMs), and deploying production-grade applications on AWS. Focused on clean architecture, high-performance databases, secure authentication, and automation of manual workflows using AI.",
+    "description": "Senior software engineer with end-to-end product development experience — from client requirement analysis and system architecture to scalable backend systems, complex database design, AI/LLM integration, and production deployment on AWS. Experienced in leading cross-functional engineering teams, designing 300+ REST APIs and 100+ table databases, building secure applications, and delivering production-grade systems across AI, healthcare, administrative, and customer-facing products.",
     "profile": {
       "image": "kuldeep-profile-photo",
       "alt": "Kuldeepsinh Jhala profile photo"
     }
   },
+
   "stats": [
     {
       "id": "experience",
@@ -25,101 +27,151 @@
       "icon": "briefcase"
     },
     {
-      "id": "projects",
-      "label": "End-to-End Products Built",
-      "value": "3",
+      "id": "apis",
+      "label": "REST APIs Built",
+      "value": "300",
       "suffix": "+",
-      "icon": "layers"
+      "icon": "network"
+    },
+    {
+      "id": "database",
+      "label": "Largest Database",
+      "value": "100",
+      "suffix": "+ tables",
+      "icon": "database"
+    },
+    {
+      "id": "team",
+      "label": "Engineers Led",
+      "value": "3",
+      "suffix": "",
+      "icon": "users"
     }
   ],
+
   "techStack": {
     "title": "Technology Stack",
     "categories": [
       {
         "name": "Frontend",
         "items": [
-          "React",
-          "Redux",
+          "React.js",
+          "Next.js",
+          "React Native",
+          "Redux.js",
           "Tailwind CSS",
-          "Responsive Design",
+          "Responsive UI Development",
           "Component Architecture",
           "API Integration",
           "Frontend Validation & Security"
         ]
       },
+
       {
         "name": "Backend",
         "items": [
           "Node.js",
           "Express.js",
+          "NestJS",
           "REST API Design",
+          "API Architecture",
           "Modular Architecture",
           "JWT Authentication",
-          "OAuth 2.0 (Custom Implementation)",
-          "RBAC (Role-Based Access Control)",
+          "OAuth 2.0",
+          "RBAC",
           "Middleware Architecture",
-          "API Security & Rate Limiting",
-          "Logging & Error Handling"
+          "API Security",
+          "OpenAPI / Swagger",
+          "Logging & Error Handling",
+          "Data Ingestion Pipelines"
         ]
       },
+
       {
         "name": "AI",
         "items": [
-          "LLM Integration (Gemini, Mistral-7B)",
-          "LLM Fine-Tuning (45K+ Dataset)",
-          "AI Workflow Automation",
+          "LLM Integration",
+          "Gemini",
+          "Mistral-7B",
+          "LLM Fine-Tuning",
+          "45K+ Resume Dataset",
+          "RAG",
           "Prompt Engineering",
-          "AI-powered Feature Development",
+          "AI Workflow Automation",
           "Local Model Deployment",
-          "AI Cost Optimization"
+          "AI Cost Optimization",
+          "AI-powered Feature Development"
         ]
       },
+
       {
         "name": "Database",
         "items": [
-          "Microsoft SQL Server (MSSQL)",
           "PostgreSQL",
+          "Microsoft SQL Server (MSSQL)",
+          "MongoDB",
+          "DynamoDB",
           "Relational Database Design",
-          "Data Modeling & Normalization (3NF)",
-          "Stored Procedures (T-SQL)",
+          "Complex Data Modeling",
+          "Database Normalization",
+          "100+ Table Architecture",
+          "Stored Procedures",
+          "T-SQL",
           "Raw SQL Optimization",
           "Indexing & Performance Tuning",
-          "Sequelize ORM (Hybrid Usage)",
+          "Prisma",
+          "TypeORM",
+          "Sequelize ORM",
+          "Database Migrations",
           "Transaction Management"
         ]
       },
+
       {
         "name": "Cloud & Deployment",
         "items": [
           "AWS EC2",
           "AWS RDS",
           "AWS S3",
+          "AWS DynamoDB",
           "AWS CloudFront",
-          "AWS ELB",
+          "AWS Load Balancer",
+          "MongoDB",
+          "Docker",
+          "GitHub Actions",
+          "CI/CD Pipelines",
           "Linux Server Management",
-          "Nginx Configuration",
-          "Firebase Hosting",
-          "CI/CD (Vercel)",
+          "Production Infrastructure",
+          "Environment Management",
           "Domain & DNS Configuration",
           "SSL / HTTPS Setup",
           "Production Deployment"
         ]
       },
+
       {
-        "name": "Tools",
+        "name": "Engineering & Tools",
         "items": [
+          "System Design",
+          "Software Architecture",
+          "Technical Leadership",
+          "Client Requirement Analysis",
+          "Code Reviews",
+          "API Documentation",
           "Git",
           "GitHub",
           "Postman",
-          "Swagger (OpenAPI)",
+          "Swagger / OpenAPI",
           "VS Code",
           "Cursor AI",
+          "Claude Code",
           "AI-assisted Development",
-          "Claude Code"
+          "Draw.io"
         ]
       }
     ]
   },
+
   "quickLinks": [
     {
       "label": "contact me",

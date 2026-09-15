@@ -32,7 +32,7 @@ const ROUTE_SEO = {
   '/resume': {
     title: 'Resume | Kuldeepsinh Jhala',
     description:
-      'Download or open my resume on Google Drive — PDF full-stack and AI engineering background.',
+      'Preview and download my resume — PDF covering full-stack and AI engineering background.',
     keywords: 'Resume, CV, PDF, Software Engineer',
   },
   '/projects': {
