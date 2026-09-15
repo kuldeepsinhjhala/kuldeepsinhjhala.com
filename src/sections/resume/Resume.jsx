@@ -116,14 +116,11 @@ function Resume() {
         </button>
       </div>
 
-      <object
-        data={previewSrc}
-        type="application/pdf"
+      <iframe
         title="Resume preview"
-        className="block w-full flex-1 min-h-0 border-0"
-      >
-        <iframe title="Resume preview" src={previewSrc} className="w-full h-full min-h-[80vh] border-0" />
-      </object>
+        src={previewSrc}
+        className="block w-full flex-1 min-h-[80vh] border-0 bg-white"
+      />
     </div>
   )
 }
