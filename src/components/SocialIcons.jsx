@@ -48,14 +48,14 @@ const socialLinks = [
 
 function SocialIcons({ className = '' }) {
   return (
-    <div className={`flex items-center gap-3 ${className}`}>
+    <div className={`flex items-center gap-6 sm:gap-8 ${className}`}>
       {socialLinks.map((link) => (
         <a
           key={link.label}
           href={link.href}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-white/80 hover:text-white hover:no-underline"
+          className="inline-flex p-1 text-white/80 hover:text-white hover:no-underline"
           aria-label={link.label}
         >
           {link.icon}
