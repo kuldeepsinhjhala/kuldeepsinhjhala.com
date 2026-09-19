@@ -87,8 +87,9 @@ function Resume() {
   }
 
   return (
-    <div className="flex flex-col min-h-[calc(100vh-4rem)] w-full bg-white">
-      <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 py-3 px-4 bg-background">
+    <div className="bg-dotted min-h-full py-4 md:py-6 lg:py-8">
+      <div className="site-shell">
+      <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 py-3 px-4 bg-background rounded-t-lg border border-b-0 border-gold/20">
         <a href={resumeLink} download={resumeFilename} onClick={handleDownload} className={actionClass}>
           <svg className="w-4 h-4 md:w-5 md:h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path
@@ -130,11 +131,14 @@ function Resume() {
         </button>
       </div>
 
-      <iframe
-        title="Resume preview"
-        src={previewSrc}
-        className="block w-full flex-1 min-h-[80vh] border-0 bg-white"
-      />
+      <div className="w-full overflow-y-auto overscroll-contain rounded-b-lg border border-gold/20 bg-white [-webkit-overflow-scrolling:touch] max-[425px]:h-[calc(100dvh-11rem)] min-[426px]:min-h-[80vh]">
+        <iframe
+          title="Resume preview"
+          src={previewSrc}
+          className="block w-full border-0 bg-white max-[425px]:h-[1600px] min-[426px]:h-[80vh] min-[426px]:min-h-[80vh]"
+        />
+      </div>
+      </div>
     </div>
   )
 }
