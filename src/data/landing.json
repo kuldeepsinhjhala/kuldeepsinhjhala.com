@@ -1,6 +1,6 @@
 {
   "meta": {
-    "title": "Kuldeepsinh Jhala | Forward-Deployed Software Engineer | Backend, AI, Cloud & System Architecture",
+    "title": "Kuldeepsinh Jhala | Senior Software Engineer | Aspiring Forward-Deployed Software Engineer",
     "language": "en",
     "lastUpdated": "2026-09-19",
     "version": "v1.5"
@@ -8,9 +8,12 @@
   "hero": {
     "greeting": "Hi, my name is",
     "name": "Kuldeepsinh Jhala",
-    "designation": "Forward-Deployed Software Engineer | Backend & AI Systems",
-    "tagline": "Turning complex business problems into production-ready software systems",
-    "description": "Forward-Deployed Software Engineer with 2.10+ years of experience working directly with clients to translate business requirements into scalable software systems — from system architecture and backend services to database design, AI/LLM integrations, cloud infrastructure, and production deployment. Experienced in owning end-to-end delivery, leading cross-functional engineering teams, designing 300+ REST APIs and 100+ table relational databases, building secure and data-intensive systems, and deploying production-grade applications across AI, healthcare, administrative, and customer-facing products.",
+    "designation": [
+      "Senior Software Engineer,",
+      "Aspiring Forward-Deployed Software Engineer"
+    ],
+    "tagline": "Bridging business problems, software architecture, and production systems",
+    "description": "Senior Software Engineer with 2.10+ years of hands-on experience turning complex client requirements into production-grade software systems. Experienced across the full engineering lifecycle, from understanding business problems and designing system architecture to building backend services, complex data models, APIs, AI/LLM integrations, cloud infrastructure, and production deployments. I work closely with clients and cross-functional teams to translate real-world problems into reliable technical solutions, while owning architecture, implementation, integrations, security, and delivery. Experienced in designing 300+ REST APIs and 100+ table relational databases, leading engineering teams, and building AI-powered, healthcare, administrative, and customer-facing products.",
     "profile": {
       "image": "kuldeep-profile-photo",
       "alt": "Kuldeepsinh Jhala profile photo"

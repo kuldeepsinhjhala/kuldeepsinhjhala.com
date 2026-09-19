@@ -19,7 +19,7 @@ function HeroProfileImage({ hero, imageClassName = '' }) {
       <img
         src={src}
         alt={alt}
-        className="relative z-[1] block h-full w-full object-cover"
+        className="relative z-[1] block h-full w-full object-cover object-[center_30%]"
       />
     </div>
   )
@@ -95,7 +95,7 @@ function HeroSection({ hero = {}, quickLinks = [], meta = {}, className = '' }) 
 
   return (
     <section className={`flex flex-col gap-5 lg:gap-6 ${className}`}>
-      <div className="flex flex-col lg:flex-row items-center lg:items-start gap-6 lg:gap-8 w-full">
+      <div className="flex flex-col lg:flex-row items-center gap-6 lg:gap-4 w-full">
       {/* Content - Text and Image */}
       <div className="flex-1 w-full min-w-0">
         {/* Text Content */}
@@ -113,13 +113,17 @@ function HeroSection({ hero = {}, quickLinks = [], meta = {}, className = '' }) 
           )}
 
           {/* Profile image — below name on mobile/tablet only */}
-          <div className="relative -top-[3px] flex flex-col items-center lg:hidden mb-4 mt-4 w-70 max-w-full mx-auto">
-            <HeroProfileImage hero={hero} imageClassName="w-70 h-70 max-w-full" />
+          <div className="relative flex flex-col items-center lg:hidden mb-4 mt-4 w-[22.5rem] max-w-full mx-auto -translate-x-2">
+            <HeroProfileImage hero={hero} imageClassName="w-[22.5rem] h-[22.5rem] max-w-full" />
           </div>
           
           {hero.designation && (
             <h2 className="text-gold text-xl md:text-2xl lg:text-3xl font-semibold mb-3 md:mb-4 text-center lg:text-left">
-              {hero.designation}
+              {(Array.isArray(hero.designation) ? hero.designation : [hero.designation]).map((line) => (
+                <span key={line} className="block">
+                  {line}
+                </span>
+              ))}
             </h2>
           )}
           
@@ -144,10 +148,10 @@ function HeroSection({ hero = {}, quickLinks = [], meta = {}, className = '' }) 
       </div>
 
       {/* Right column — profile image (desktop); width matches photo */}
-      <div className="hidden lg:flex flex-col items-stretch flex-shrink-0">
+      <div className="hidden lg:flex flex-col items-stretch flex-shrink-0 -translate-x-6 xl:-translate-x-8">
         <HeroProfileImage
           hero={hero}
-          imageClassName="w-48 h-48 lg:w-56 lg:h-56 xl:w-64 xl:h-64"
+          imageClassName="w-72 h-72 lg:w-80 lg:h-80 xl:w-[22rem] xl:h-[22rem]"
         />
       </div>
       </div>

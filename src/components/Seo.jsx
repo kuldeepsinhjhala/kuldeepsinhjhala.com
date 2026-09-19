@@ -94,7 +94,9 @@ function buildPersonJsonLd() {
     '@type': 'Person',
     name: landingData?.hero?.name || 'Kuldeepsinh Jhala',
     url: SITE_ORIGIN,
-    jobTitle: landingData?.hero?.designation || 'Software Engineer',
+    jobTitle: Array.isArray(landingData?.hero?.designation)
+      ? landingData.hero.designation.join(' ')
+      : landingData?.hero?.designation || 'Software Engineer',
     sameAs,
   }
 }
