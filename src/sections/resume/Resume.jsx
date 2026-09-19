@@ -1,5 +1,7 @@
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect } from 'react'
 import resumeData from '../../data/resume.json'
+
+const FULL_WIDTH_QUERY = '(min-width: 426px)'
 
 function filenameFromUrl(url) {
   try {
@@ -13,13 +15,25 @@ function filenameFromUrl(url) {
 
 function Resume() {
   const [copied, setCopied] = useState(false)
+  const [fitPageWidth, setFitPageWidth] = useState(() =>
+    typeof window !== 'undefined' ? window.matchMedia(FULL_WIDTH_QUERY).matches : false
+  )
 
   const resumeLink = useMemo(() => resumeData?.resumeLink || '', [])
   const resumeFilename = useMemo(() => filenameFromUrl(resumeLink), [resumeLink])
   const previewSrc = useMemo(() => {
     if (!resumeLink) return ''
-    return `${resumeLink}#toolbar=0&navpanes=0&scrollbar=1`
-  }, [resumeLink])
+    const zoom = fitPageWidth ? '&view=FitH&zoom=page-width' : ''
+    return `${resumeLink}#toolbar=0&navpanes=0&scrollbar=1${zoom}`
+  }, [resumeLink, fitPageWidth])
+
+  useEffect(() => {
+    const media = window.matchMedia(FULL_WIDTH_QUERY)
+    const sync = () => setFitPageWidth(media.matches)
+    sync()
+    media.addEventListener('change', sync)
+    return () => media.removeEventListener('change', sync)
+  }, [])
 
   const handleCopyLink = async () => {
     try {
@@ -73,7 +87,7 @@ function Resume() {
   }
 
   return (
-    <div className="flex flex-col min-h-[calc(100vh-4rem)] bg-white">
+    <div className="flex flex-col min-h-[calc(100vh-4rem)] w-full bg-white">
       <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 py-3 px-4 bg-background">
         <a href={resumeLink} download={resumeFilename} onClick={handleDownload} className={actionClass}>
           <svg className="w-4 h-4 md:w-5 md:h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">

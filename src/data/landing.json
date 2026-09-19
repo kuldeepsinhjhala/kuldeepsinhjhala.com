@@ -1,23 +1,21 @@
 {
   "meta": {
-    "title": "Kuldeepsinh Jhala | Senior Software Engineer & AI-Driven Full Stack Developer (Node.js, AWS & System Architecture)",
+    "title": "Kuldeepsinh Jhala | Forward-Deployed Software Engineer | Backend, AI, Cloud & System Architecture",
     "language": "en",
-    "lastUpdated": "2026-09-16",
+    "lastUpdated": "2026-09-19",
     "version": "v1.5"
   },
-
   "hero": {
     "greeting": "Hi, my name is",
     "name": "Kuldeepsinh Jhala",
-    "designation": "Senior Software Engineer | AI-Driven Full Stack Developer",
-    "tagline": "Building scalable AI-powered software systems with strong backend architecture",
-    "description": "Senior software engineer with end-to-end product development experience — from client requirement analysis and system architecture to scalable backend systems, complex database design, AI/LLM integration, and production deployment on AWS. Experienced in leading cross-functional engineering teams, designing 300+ REST APIs and 100+ table databases, building secure applications, and delivering production-grade systems across AI, healthcare, administrative, and customer-facing products.",
+    "designation": "Forward-Deployed Software Engineer | Backend & AI Systems",
+    "tagline": "Turning complex business problems into production-ready software systems",
+    "description": "Forward-Deployed Software Engineer with 2.10+ years of experience working directly with clients to translate business requirements into scalable software systems — from system architecture and backend services to database design, AI/LLM integrations, cloud infrastructure, and production deployment. Experienced in owning end-to-end delivery, leading cross-functional engineering teams, designing 300+ REST APIs and 100+ table relational databases, building secure and data-intensive systems, and deploying production-grade applications across AI, healthcare, administrative, and customer-facing products.",
     "profile": {
       "image": "kuldeep-profile-photo",
       "alt": "Kuldeepsinh Jhala profile photo"
     }
   },
-
   "stats": [
     {
       "id": "experience",
@@ -48,7 +46,6 @@
       "icon": "users"
     }
   ],
-
   "techStack": {
     "title": "Technology Stack",
     "categories": [
@@ -66,7 +63,6 @@
           "Frontend Validation & Security"
         ]
       },
-
       {
         "name": "Backend",
         "items": [
@@ -86,7 +82,6 @@
           "Data Ingestion Pipelines"
         ]
       },
-
       {
         "name": "AI",
         "items": [
@@ -103,7 +98,6 @@
           "AI-powered Feature Development"
         ]
       },
-
       {
         "name": "Database",
         "items": [
@@ -126,7 +120,6 @@
           "Transaction Management"
         ]
       },
-
       {
         "name": "Cloud & Deployment",
         "items": [
@@ -148,7 +141,6 @@
           "Production Deployment"
         ]
       },
-
       {
         "name": "Engineering & Tools",
         "items": [
@@ -171,7 +163,6 @@
       }
     ]
   },
-
   "quickLinks": [
     {
       "label": "contact me",
