@@ -1,7 +1,6 @@
-import { useState, useMemo, useEffect } from 'react'
+import { useState, useMemo } from 'react'
 import resumeData from '../../data/resume.json'
-
-const FULL_WIDTH_QUERY = '(min-width: 426px)'
+import ResumePdfPreview from './ResumePdfPreview'
 
 function filenameFromUrl(url) {
   try {
@@ -15,25 +14,9 @@ function filenameFromUrl(url) {
 
 function Resume() {
   const [copied, setCopied] = useState(false)
-  const [fitPageWidth, setFitPageWidth] = useState(() =>
-    typeof window !== 'undefined' ? window.matchMedia(FULL_WIDTH_QUERY).matches : false
-  )
 
   const resumeLink = useMemo(() => resumeData?.resumeLink || '', [])
   const resumeFilename = useMemo(() => filenameFromUrl(resumeLink), [resumeLink])
-  const previewSrc = useMemo(() => {
-    if (!resumeLink) return ''
-    const zoom = fitPageWidth ? '&view=FitH&zoom=page-width' : ''
-    return `${resumeLink}#toolbar=0&navpanes=0&scrollbar=1${zoom}`
-  }, [resumeLink, fitPageWidth])
-
-  useEffect(() => {
-    const media = window.matchMedia(FULL_WIDTH_QUERY)
-    const sync = () => setFitPageWidth(media.matches)
-    sync()
-    media.addEventListener('change', sync)
-    return () => media.removeEventListener('change', sync)
-  }, [])
 
   const handleCopyLink = async () => {
     try {
@@ -89,55 +72,51 @@ function Resume() {
   return (
     <div className="bg-dotted min-h-full py-4 md:py-6 lg:py-8">
       <div className="site-shell">
-      <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 py-3 px-4 bg-background rounded-t-lg border border-b-0 border-gold/20">
-        <a href={resumeLink} download={resumeFilename} onClick={handleDownload} className={actionClass}>
-          <svg className="w-4 h-4 md:w-5 md:h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-            />
-          </svg>
-          <span className="whitespace-nowrap">Download PDF</span>
-        </a>
+        <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 py-3 px-4 bg-background rounded-t-lg border border-b-0 border-gold/20">
+          <a href={resumeLink} download={resumeFilename} onClick={handleDownload} className={actionClass}>
+            <svg className="w-4 h-4 md:w-5 md:h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+              />
+            </svg>
+            <span className="whitespace-nowrap">Download PDF</span>
+          </a>
 
-        <button
-          type="button"
-          onClick={handleCopyLink}
-          aria-label="Copy resume link to clipboard"
-          className="px-4 sm:px-5 py-2.5 bg-card/80 hover:bg-card/90 text-gold rounded-lg border border-gold/20 hover:border-gold/30 transition-colors inline-flex items-center justify-center gap-2 font-medium text-sm md:text-base"
-        >
-          {copied ? (
-            <>
-              <svg className="w-4 h-4 md:w-5 md:h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-              </svg>
-              <span className="whitespace-nowrap">Copied!</span>
-            </>
-          ) : (
-            <>
-              <svg className="w-4 h-4 md:w-5 md:h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"
-                />
-              </svg>
-              <span className="whitespace-nowrap">Copy link</span>
-            </>
-          )}
-        </button>
-      </div>
+          <button
+            type="button"
+            onClick={handleCopyLink}
+            aria-label="Copy resume link to clipboard"
+            className="px-4 sm:px-5 py-2.5 bg-card/80 hover:bg-card/90 text-gold rounded-lg border border-gold/20 hover:border-gold/30 transition-colors inline-flex items-center justify-center gap-2 font-medium text-sm md:text-base"
+          >
+            {copied ? (
+              <>
+                <svg className="w-4 h-4 md:w-5 md:h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+                <span className="whitespace-nowrap">Copied!</span>
+              </>
+            ) : (
+              <>
+                <svg className="w-4 h-4 md:w-5 md:h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"
+                  />
+                </svg>
+                <span className="whitespace-nowrap">Copy link</span>
+              </>
+            )}
+          </button>
+        </div>
 
-      <div className="w-full overflow-y-auto overscroll-contain rounded-b-lg border border-gold/20 bg-white [-webkit-overflow-scrolling:touch] max-[425px]:h-[calc(100dvh-11rem)] min-[426px]:min-h-[80vh]">
-        <iframe
-          title="Resume preview"
-          src={previewSrc}
-          className="block w-full border-0 bg-white max-[425px]:h-[1600px] min-[426px]:h-[80vh] min-[426px]:min-h-[80vh]"
-        />
-      </div>
+        <div className="w-full rounded-b-lg border border-gold/20 bg-white overflow-hidden">
+          <ResumePdfPreview url="/resume-file" />
+        </div>
       </div>
     </div>
   )
