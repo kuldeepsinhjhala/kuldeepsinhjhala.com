@@ -4,6 +4,19 @@ import pdfWorker from 'pdfjs-dist/build/pdf.worker.min.mjs?url'
 
 GlobalWorkerOptions.workerSrc = pdfWorker
 
+function isBenignPdfError(error) {
+  const name = error?.name || ''
+  const message = String(error?.message || error || '')
+  return (
+    name === 'RenderingCancelledException' ||
+    name === 'AbortException' ||
+    message.includes('Rendering cancelled') ||
+    message.includes('Worker was terminated') ||
+    message.includes('Transport destroyed') ||
+    message.includes('Unable to send')
+  )
+}
+
 function PdfPage({ pdf, pageNumber, width }) {
   const canvasRef = useRef(null)
 
@@ -17,31 +30,40 @@ function PdfPage({ pdf, pageNumber, width }) {
     let renderTask
 
     async function draw() {
-      const page = await pdf.getPage(pageNumber)
-      if (cancelled) return
+      try {
+        const page = await pdf.getPage(pageNumber)
+        if (cancelled) return
 
-      const dpr = Math.min(window.devicePixelRatio || 1, 2)
-      const base = page.getViewport({ scale: 1 })
-      const scale = width / base.width
-      const viewport = page.getViewport({ scale: scale * dpr })
+        const dpr = Math.min(window.devicePixelRatio || 1, 2)
+        const base = page.getViewport({ scale: 1 })
+        const scale = width / base.width
+        const viewport = page.getViewport({ scale: scale * dpr })
 
-      canvas.width = viewport.width
-      canvas.height = viewport.height
-      canvas.style.width = `${Math.floor(width)}px`
-      canvas.style.height = `${Math.floor(base.height * scale)}px`
+        canvas.width = viewport.width
+        canvas.height = viewport.height
+        canvas.style.width = `${Math.floor(width)}px`
+        canvas.style.height = `${Math.floor(base.height * scale)}px`
 
-      const context = canvas.getContext('2d', { alpha: false })
-      renderTask = page.render({ canvasContext: context, canvas, viewport })
-      await renderTask.promise
+        const context = canvas.getContext('2d', { alpha: false })
+        if (!context || cancelled) return
+
+        renderTask = page.render({ canvasContext: context, viewport })
+        await renderTask.promise
+      } catch (error) {
+        if (cancelled || isBenignPdfError(error)) return
+        console.error('Failed to render PDF page', error)
+      }
     }
 
-    draw().catch((error) => {
-      if (!cancelled) console.error('Failed to render PDF page', error)
-    })
+    draw()
 
     return () => {
       cancelled = true
-      renderTask?.cancel()
+      try {
+        renderTask?.cancel()
+      } catch {
+        // ignore cancel races during route changes
+      }
     }
   }, [pdf, pageNumber, width])
 
@@ -50,6 +72,7 @@ function PdfPage({ pdf, pageNumber, width }) {
 
 export default function ResumePdfPreview({ url }) {
   const containerRef = useRef(null)
+  const pdfRef = useRef(null)
   const [pdf, setPdf] = useState(null)
   const [pageCount, setPageCount] = useState(0)
   const [width, setWidth] = useState(0)
@@ -59,7 +82,9 @@ export default function ResumePdfPreview({ url }) {
     const node = containerRef.current
     if (!node) return undefined
 
+    let active = true
     const updateWidth = () => {
+      if (!active) return
       const next = Math.floor(node.clientWidth)
       setWidth((prev) => (Math.abs(prev - next) > 1 ? next : prev))
     }
@@ -67,7 +92,10 @@ export default function ResumePdfPreview({ url }) {
     updateWidth()
     const observer = new ResizeObserver(updateWidth)
     observer.observe(node)
-    return () => observer.disconnect()
+    return () => {
+      active = false
+      observer.disconnect()
+    }
   }, [])
 
   useEffect(() => {
@@ -75,12 +103,12 @@ export default function ResumePdfPreview({ url }) {
 
     let cancelled = false
     let loadingTask
-    let doc
 
     async function load() {
       setStatus('loading')
       setPdf(null)
       setPageCount(0)
+      pdfRef.current = null
 
       loadingTask = getDocument({
         url,
@@ -88,11 +116,31 @@ export default function ResumePdfPreview({ url }) {
         disableRange: true,
         disableStream: true,
       })
-      doc = await loadingTask.promise
+
+      const doc = await loadingTask.promise
       if (cancelled) {
-        doc.destroy()
+        try {
+          await doc.destroy()
+        } catch {
+          // ignore teardown races
+        }
         return
       }
+
+      pdfRef.current = doc
+
+      // Re-check after storing — navigation may have started during the await
+      if (cancelled) {
+        pdfRef.current = null
+        try {
+          await doc.destroy()
+        } catch {
+          // ignore teardown races
+        }
+        return
+      }
+
+      if (cancelled) return
 
       setPdf(doc)
       setPageCount(doc.numPages)
@@ -100,16 +148,20 @@ export default function ResumePdfPreview({ url }) {
     }
 
     load().catch((error) => {
-      if (!cancelled) {
-        console.error('Failed to load PDF', error)
-        setStatus('error')
-      }
+      if (cancelled || isBenignPdfError(error)) return
+      console.error('Failed to load PDF', error)
+      setStatus('error')
     })
 
     return () => {
       cancelled = true
-      loadingTask?.destroy()
-      doc?.destroy()
+
+      const doc = pdfRef.current
+      pdfRef.current = null
+
+      // Destroy once — resolved doc if ready, otherwise the in-flight loading task
+      const teardown = doc ? doc.destroy() : loadingTask?.destroy?.()
+      Promise.resolve(teardown).catch(() => {})
     }
   }, [url])
 
