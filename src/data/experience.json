@@ -641,13 +641,8 @@
         "Technical Lead for a cross-functional team of 3 engineers across AI, Mobile, and Backend development",
         "Own technical architecture, engineering decisions, technical planning, and end-to-end delivery of client-facing products",
         "Work directly with clients to gather business requirements and translate them into technical specifications, system architecture, workflows, APIs, and implementation plans",
-        "Architected and developed Soulness AI, a production-grade AI-powered healthcare application intended for hospital deployment",
-        "Designed the backend architecture, database schema, API contracts, modular project structure, and database migration workflows for Soulness AI",
-        "Developed Soulness AI backend services using Node.js, Express.js, Prisma, and PostgreSQL",
         "Designed and documented RESTful APIs using OpenAPI/Swagger, establishing standardized contracts across Backend, Mobile, AI, and external system integrations",
         "Implemented backend security controls including authentication, authorization, input validation, data protection, and secure API interactions",
-        "Designed and developed a multi-platform restaurant kiosk platform from scratch supporting Kiosk, Tablet, and Mobile experiences",
-        "Developed core backend systems for the restaurant kiosk platform using NestJS, PostgreSQL, and TypeORM while integrating with Next.js and React Native applications",
         "Architected a 100+ table relational database for complex administrative workflows involving deeply nested entities, hierarchical business rules, and intricate data relationships",
         "Designed and developed 300+ RESTful APIs for complex business and administrative workflows",
         "Developed database procedures and reporting workflows for data-intensive operations",
@@ -684,96 +679,9 @@
             "value": "100+",
             "unit": "database tables"
           }
-        },
-        {
-          "title": "Soulness AI — Production Healthcare Application",
-          "description": "Architected and developed a production-grade AI-powered healthcare application for hospital deployment, covering system architecture, database design, APIs, security controls, integrations, and production infrastructure.",
-          "impact": "product",
-          "metrics": {
-            "value": "1",
-            "unit": "production AI platform"
-          }
-        },
-        {
-          "title": "Multi-Platform Restaurant Kiosk Platform",
-          "description": "Designed and developed a restaurant platform from scratch supporting Kiosk, Tablet, and Mobile experiences across backend and frontend ecosystems.",
-          "impact": "product",
-          "metrics": {
-            "value": "3",
-            "unit": "platform experiences"
-          }
         }
       ],
-      "projects": [
-        {
-          "name": "Soulnest AI",
-          "description": "Production-grade AI-powered healthcare application designed for hospital deployment. Owned the technical architecture and translated client requirements into backend services, database design, API contracts, security controls, integrations, and production infrastructure.",
-          "role": "Technical Lead & Backend Architect",
-          "technologies": [
-            "Node.js",
-            "Express.js",
-            "Prisma",
-            "PostgreSQL",
-            "REST APIs",
-            "OpenAPI",
-            "Swagger",
-            "AI/LLM Integration",
-            "AWS",
-            "Docker"
-          ],
-          "outcome": "Delivered the backend architecture and core technical foundation for a hospital-oriented AI application with secure APIs, structured database design, and production deployment architecture.",
-          "url": null,
-          "custom": {
-            "architecture": "Modular backend architecture with PostgreSQL and Prisma",
-            "authentication": "Authentication + Authorization + Input Validation + Data Protection"
-          }
-        },
-        {
-          "name": "Restaurant Kiosk Platform",
-          "description": "Designed and developed a multi-platform restaurant kiosk ecosystem from scratch supporting Kiosk, Tablet, and Mobile experiences. Owned core backend architecture, database design, APIs, business workflows, and integration with frontend and mobile applications.",
-          "role": "Backend Architect & Software Engineer",
-          "technologies": [
-            "NestJS",
-            "PostgreSQL",
-            "TypeORM",
-            "Next.js",
-            "React Native",
-            "REST APIs",
-            "OpenAPI",
-            "Swagger",
-            "Docker",
-            "AWS"
-          ],
-          "outcome": "Delivered a scalable multi-platform restaurant platform with a structured backend architecture, relational database, and APIs supporting Kiosk, Tablet, and Mobile applications.",
-          "url": null,
-          "custom": {
-            "architecture": "NestJS modular architecture with PostgreSQL and TypeORM",
-            "authentication": "Authentication + Authorization"
-          }
-        },
-        {
-          "name": "Enterprise Administrative Platform",
-          "description": "Architected and developed a complex administrative platform with deeply nested entities, hierarchical business rules, and intricate relational data models. Designed a 100+ table database and developed 300+ REST APIs with database procedures and reporting workflows.",
-          "role": "Software Architect & Backend Engineer",
-          "technologies": [
-            "Node.js",
-            "Express.js",
-            "PostgreSQL",
-            "REST APIs",
-            "Database Design",
-            "Stored Procedures",
-            "OpenAPI",
-            "Swagger",
-            "AWS"
-          ],
-          "outcome": "Delivered a large-scale backend and relational data architecture supporting complex administrative workflows and data-intensive operations.",
-          "url": null,
-          "custom": {
-            "architecture": "100+ table relational architecture with modular REST API design",
-            "authentication": "Authentication + Authorization + RBAC"
-          }
-        }
-      ],
+     
       "technologies": {
         "languages": [
           "JavaScript",

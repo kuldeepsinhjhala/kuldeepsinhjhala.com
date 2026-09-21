@@ -761,11 +761,9 @@
       "activities": [
         "Technical Lead for a cross-functional team of 3 engineers across AI, Mobile, and Backend development",
         "Owned technical architecture, engineering decisions, and end-to-end delivery of client-facing products",
-        "Architected and developed Soulness AI, a production-grade AI-powered healthcare application for hospital deployment",
         "Designed backend architecture, database schema, API contracts, and migration workflows using Node.js, Express.js, Prisma, and PostgreSQL",
         "Designed and documented RESTful APIs using OpenAPI/Swagger for Backend, Mobile, AI, and external system integrations",
         "Implemented authentication, authorization, input validation, data protection, and secure API interactions across critical workflows",
-        "Designed and developed a multi-platform restaurant kiosk platform supporting Kiosk, Tablet, and Mobile experiences using NestJS, PostgreSQL, TypeORM, Next.js, and React Native",
         "Architected a 100+ table relational database and developed 300+ RESTful APIs for complex administrative workflows",
         "Owned AWS cloud infrastructure and production deployment architecture across EC2, RDS, S3, DynamoDB, MongoDB, and CDN services",
         "Established containerized CI/CD pipelines using Docker and GitHub Actions with separate Development and Production environments",
