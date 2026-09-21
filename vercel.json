@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/resume-file",
-      "destination": "https://d2dhxmagz6qgkm.cloudfront.net/resumes/1789795399278-Kuldeepsinh%20Jhala%20_%20Forward-Deployed%20Software%20Engineer.pdf"
+      "destination": "https://d2dhxmagz6qgkm.cloudfront.net/resumes/1790005816300-Kuldeepsinh%20Jhala%20_%20Forward-Deployed%20Software%20Engineer.pdf"
     },
     {
       "source": "/(.*)",
