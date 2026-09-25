@@ -15,6 +15,10 @@ const resumeProxy = {
 
 export default defineConfig({
   plugins: [react(), tailwindcss()],
-  server: { proxy: resumeProxy },
+  server: {
+    proxy: resumeProxy,
+    // Fieldstone saves with a file swap. Polling lets this dev server see those writes on Windows.
+    watch: { usePolling: true, interval: 1000 },
+  },
   preview: { proxy: resumeProxy },
 })

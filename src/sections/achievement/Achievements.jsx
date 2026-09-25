@@ -19,15 +19,13 @@ function Achievements() {
   // Load data
   useEffect(() => {
     try {
-      setTimeout(() => {
-        setData(achievementData)
-        setLoading(false)
-      }, 100)
+      setData(achievementData)
+      setLoading(false)
     } catch (error) {
       console.error('Error loading achievements data:', error)
       setLoading(false)
     }
-  }, [])
+  }, [achievementData])
 
   // Get data with fallbacks
   const achievementsList = useMemo(() => {

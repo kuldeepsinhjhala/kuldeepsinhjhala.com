@@ -9,15 +9,13 @@ function Projects() {
   // Load data
   useEffect(() => {
     try {
-      setTimeout(() => {
-        setData(projectData)
-        setLoading(false)
-      }, 100)
+      setData(projectData)
+      setLoading(false)
     } catch (error) {
       console.error('Error loading project data:', error)
       setLoading(false)
     }
-  }, [])
+  }, [projectData])
 
   // Get data with fallbacks
   const projects = useMemo(() => {

@@ -9,15 +9,13 @@ function Skills() {
   // Load data
   useEffect(() => {
     try {
-      setTimeout(() => {
-        setData(skillsData)
-        setLoading(false)
-      }, 100)
+      setData(skillsData)
+      setLoading(false)
     } catch (error) {
       console.error('Error loading skills data:', error)
       setLoading(false)
     }
-  }, [])
+  }, [skillsData])
 
   // Get data with fallbacks
   const categories = useMemo(() => {

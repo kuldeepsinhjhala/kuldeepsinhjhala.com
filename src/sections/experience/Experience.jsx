@@ -29,15 +29,13 @@ function Experience() {
   // Load data
   useEffect(() => {
     try {
-      setTimeout(() => {
-        setData(experienceData)
-        setLoading(false)
-      }, 100)
+      setData(experienceData)
+      setLoading(false)
     } catch (error) {
       console.error('Error loading experience data:', error)
       setLoading(false)
     }
-  }, [])
+  }, [experienceData])
 
   // Get data with fallbacks
   const experiences = useMemo(() => {

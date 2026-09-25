@@ -12,15 +12,13 @@ function Landing() {
   // Load data
   useEffect(() => {
     try {
-      setTimeout(() => {
-        setData(landingData)
-        setLoading(false)
-      }, 100)
+      setData(landingData)
+      setLoading(false)
     } catch (error) {
       console.error('Error loading landing data:', error)
       setLoading(false)
     }
-  }, [])
+  }, [landingData])
 
   // Get data with fallbacks
   const meta = useMemo(() => data?.meta || {}, [data])

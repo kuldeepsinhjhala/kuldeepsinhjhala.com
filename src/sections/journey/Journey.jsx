@@ -55,15 +55,13 @@ function Journey() {
         }
       }
 
-      setTimeout(() => {
-        setData(parsedData)
-        setLoading(false)
-      }, 100)
+      setData(parsedData)
+      setLoading(false)
     } catch (error) {
       console.error('Error loading journey data:', error)
       setLoading(false)
     }
-  }, [])
+  }, [journeyDataRaw])
 
   // Get data with fallbacks
   const timeline = useMemo(() => {

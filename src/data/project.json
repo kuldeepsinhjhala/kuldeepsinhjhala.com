@@ -59,13 +59,30 @@
         }
       ],
       "techStack": {
-        "languages": ["JavaScript", "SQL"],
-        "frameworks": ["Node.js", "Express.js"],
-        "databases": ["MSSQL", "PostgreSQL"],
-        "orms": ["Sequelize ORM"],
+        "languages": [
+          "JavaScript",
+          "SQL"
+        ],
+        "frameworks": [
+          "Node.js",
+          "Express.js"
+        ],
+        "databases": [
+          "MSSQL",
+          "PostgreSQL"
+        ],
+        "orms": [
+          "Sequelize ORM"
+        ],
         "cloud": [],
-        "devOps": ["Git"],
-        "tools": ["REST APIs", "Postman", "VS Code"]
+        "devOps": [
+          "Git"
+        ],
+        "tools": [
+          "REST APIs",
+          "Postman",
+          "VS Code"
+        ]
       },
       "metrics": {
         "performance": "Optimized for fast client data retrieval with normalized schema",
@@ -73,12 +90,16 @@
         "reliability": "Robust data integrity via 3NF normalization"
       },
       "media": {
-        "images": [
-        ],
+        "images": [],
         "documents": [],
         "links": []
       },
-      "skillsGained": ["Requirement Analysis", "3NF Normalization", "System Architecture", "Industrial Schema Design"],
+      "skillsGained": [
+        "Requirement Analysis",
+        "3NF Normalization",
+        "System Architecture",
+        "Industrial Schema Design"
+      ],
       "confidentiality": {
         "hasRestrictions": true,
         "notes": "Core architecture and client data details are proprietary to Keshav Encon Private Limited."
@@ -166,13 +187,36 @@
         }
       ],
       "techStack": {
-        "languages": ["JavaScript", "SQL"],
-        "frameworks": ["Node.js", "Express.js", "React.js", "Sequelize ORM"],
-        "databases": ["MSSQL"],
-        "orms": ["Sequelize ORM"],
-        "cloud": ["AWS EC2", "AWS RDS", "Firebase"],
-        "devOps": ["Git"],
-        "tools": ["REST APIs", "Gemini LLM API", "Postman", "Swagger"]
+        "languages": [
+          "JavaScript",
+          "SQL"
+        ],
+        "frameworks": [
+          "Node.js",
+          "Express.js",
+          "React.js",
+          "Sequelize ORM"
+        ],
+        "databases": [
+          "MSSQL"
+        ],
+        "orms": [
+          "Sequelize ORM"
+        ],
+        "cloud": [
+          "AWS EC2",
+          "AWS RDS",
+          "Firebase"
+        ],
+        "devOps": [
+          "Git"
+        ],
+        "tools": [
+          "REST APIs",
+          "Gemini LLM API",
+          "Postman",
+          "Swagger"
+        ]
       },
       "metrics": {
         "performance": "30% improvement in complex query execution time via hybrid ORM + raw SQL approach",
@@ -180,12 +224,19 @@
         "reliability": "Full RBAC, secure JWT-based session management, and zero third-party OAuth dependency"
       },
       "media": {
-        "images": [
-        ],
+        "images": [],
         "documents": [],
-        "links": ["https://talentpulseai.com"]
+        "links": [
+          "https://talentpulseai.com"
+        ]
       },
-      "skillsGained": ["Gemini LLM API Integration", "Enterprise System Design", "OAuth 2.0 from Scratch", "Hybrid ORM + Raw SQL", "Production AWS Deployment"],
+      "skillsGained": [
+        "Gemini LLM API Integration",
+        "Enterprise System Design",
+        "OAuth 2.0 from Scratch",
+        "Hybrid ORM + Raw SQL",
+        "Production AWS Deployment"
+      ],
       "confidentiality": {
         "hasRestrictions": true,
         "notes": "Core architecture and live deployment details are proprietary to Keshav Encon Private Limited."
@@ -273,13 +324,42 @@
         }
       ],
       "techStack": {
-        "languages": ["JavaScript", "Python", "SQL"],
-        "frameworks": ["Node.js", "Express.js", "React.js", "Redux.js", "Sequelize ORM", "Tailwind CSS"],
-        "databases": ["MSSQL"],
-        "orms": ["Sequelize ORM"],
-        "cloud": ["AWS EC2", "AWS RDS", "AWS S3", "AWS ELB", "AWS CloudFront"],
-        "devOps": ["Git"],
-        "tools": ["Mistral-7B (fine-tuned)", "Gemini LLM API", "REST APIs", "Postman", "NVIDIA GPU Infrastructure"]
+        "languages": [
+          "JavaScript",
+          "Python",
+          "SQL"
+        ],
+        "frameworks": [
+          "Node.js",
+          "Express.js",
+          "React.js",
+          "Redux.js",
+          "Sequelize ORM",
+          "Tailwind CSS"
+        ],
+        "databases": [
+          "MSSQL"
+        ],
+        "orms": [
+          "Sequelize ORM"
+        ],
+        "cloud": [
+          "AWS EC2",
+          "AWS RDS",
+          "AWS S3",
+          "AWS ELB",
+          "AWS CloudFront"
+        ],
+        "devOps": [
+          "Git"
+        ],
+        "tools": [
+          "Mistral-7B (fine-tuned)",
+          "Gemini LLM API",
+          "REST APIs",
+          "Postman",
+          "NVIDIA GPU Infrastructure"
+        ]
       },
       "metrics": {
         "performance": "AI response time reduced from 30s to 20s after fine-tuning local Mistral-7B",
@@ -287,17 +367,24 @@
         "reliability": "100% Gemini API cost eliminated; zero external AI dependency post fine-tuning"
       },
       "media": {
-        "images": [
-        ],
+        "images": [],
         "documents": [
           {
             "label": "Best Project Recognition Certificate",
             "url": "https://d2dhxmagz6qgkm.cloudfront.net/images/1775327896122-best_project_final_year.jpg"
           }
         ],
-        "links": ["https://resumeeai.com"]
+        "links": [
+          "https://resumeeai.com"
+        ]
       },
-      "skillsGained": ["LLM Fine-tuning (Mistral-7B)", "Database Normalization (3NF)", "OAuth 2.0 from Scratch", "Full-Stack Architecture", "AWS Deployment"],
+      "skillsGained": [
+        "LLM Fine-tuning (Mistral-7B)",
+        "Database Normalization (3NF)",
+        "OAuth 2.0 from Scratch",
+        "Full-Stack Architecture",
+        "AWS Deployment"
+      ],
       "confidentiality": {
         "hasRestrictions": false,
         "notes": "Project was built during internship. Received Best Project recognition from The Maharaja Sayajirao University of Baroda."
@@ -383,13 +470,30 @@
         }
       ],
       "techStack": {
-        "languages": ["JavaScript", "T-SQL", "SQL"],
-        "frameworks": ["Node.js", "Express.js"],
-        "databases": ["MSSQL", "Stored Procedures"],
+        "languages": [
+          "JavaScript",
+          "T-SQL",
+          "SQL"
+        ],
+        "frameworks": [
+          "Node.js",
+          "Express.js"
+        ],
+        "databases": [
+          "MSSQL",
+          "Stored Procedures"
+        ],
         "orms": [],
         "cloud": [],
-        "devOps": ["Git"],
-        "tools": ["REST APIs", "Swagger (OpenAPI)", "Postman", "SSMS"]
+        "devOps": [
+          "Git"
+        ],
+        "tools": [
+          "REST APIs",
+          "Swagger (OpenAPI)",
+          "Postman",
+          "SSMS"
+        ]
       },
       "metrics": {
         "performance": "100+ SP-driven APIs with optimized indexing and relational mapping",
@@ -398,13 +502,20 @@
       },
       "media": {
         "images": [
-          { 
-          } 
+          {}
         ],
         "documents": [],
-        "links": ["https://uninestai.com"]
+        "links": [
+          "https://uninestai.com"
+        ]
       },
-      "skillsGained": ["Stored Procedure Architecture", "T-SQL", "OpenAPI/Swagger Documentation", "Business Requirement Analysis", "RBAC Design"],
+      "skillsGained": [
+        "Stored Procedure Architecture",
+        "T-SQL",
+        "OpenAPI/Swagger Documentation",
+        "Business Requirement Analysis",
+        "RBAC Design"
+      ],
       "confidentiality": {
         "hasRestrictions": true,
         "notes": "Core architecture and deployment details are proprietary to Keshav Encon Private Limited."
@@ -413,7 +524,7 @@
     {
       "id": "portfolio-website",
       "sequence": 5,
-      "title": "Portfolio Website",
+      "title": "Kuldeep's Portfolio Website",
       "shortDescription": "A personal portfolio website with a JSON-driven architecture, CI/CD pipeline, and AWS S3 + CloudFront secured document delivery.",
       "longDescription": "A personal portfolio website built from scratch to showcase projects, skills, and professional experience. Instead of hardcoding content into HTML/CSS, the entire portfolio is driven by structured JSON files — one per section. Any content update only requires editing the corresponding JSON, and the UI renders it automatically without touching any frontend code. The site is hosted on Vercel with a CI/CD pipeline configured so that every push to the main branch triggers an automatic build and goes live within 10 seconds. Documents and assets are stored in a private AWS S3 bucket wrapped with CloudFront — all public S3 access is blocked, and files are only accessible through the CloudFront distribution.",
       "category": "fullstack",
@@ -471,12 +582,27 @@
         }
       ],
       "techStack": {
-        "languages": ["JavaScript", "HTML", "CSS"],
-        "frameworks": ["React.js", "Tailwind CSS"],
+        "languages": [
+          "JavaScript",
+          "HTML",
+          "CSS"
+        ],
+        "frameworks": [
+          "React.js",
+          "Tailwind CSS"
+        ],
         "databases": [],
         "orms": [],
-        "cloud": ["AWS S3", "AWS CloudFront", "Vercel"],
-        "devOps": ["Git", "GitHub", "CI/CD (Vercel)"],
+        "cloud": [
+          "AWS S3",
+          "AWS CloudFront",
+          "Vercel"
+        ],
+        "devOps": [
+          "Git",
+          "GitHub",
+          "CI/CD (Vercel)"
+        ],
         "tools": []
       },
       "metrics": {
@@ -485,12 +611,18 @@
         "reliability": "Private S3 bucket with CloudFront — zero public S3 exposure, secure asset delivery"
       },
       "media": {
-        "images": [
-        ],
+        "images": [],
         "documents": [],
-        "links": ["https://kuldeepsinhjhala.com/"]
+        "links": [
+          "https://kuldeepsinhjhala.com/"
+        ]
       },
-      "skillsGained": ["JSON-Driven UI Architecture", "CI/CD Pipeline Setup", "AWS S3 + CloudFront (Private Bucket)", "Vercel Deployment"],
+      "skillsGained": [
+        "JSON-Driven UI Architecture",
+        "CI/CD Pipeline Setup",
+        "AWS S3 + CloudFront (Private Bucket)",
+        "Vercel Deployment"
+      ],
       "confidentiality": {
         "hasRestrictions": false,
         "notes": ""

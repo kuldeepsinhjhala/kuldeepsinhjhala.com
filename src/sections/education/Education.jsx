@@ -39,15 +39,13 @@ function Education() {
   // Load data
   useEffect(() => {
     try {
-      setTimeout(() => {
-        setData(educationData)
-        setLoading(false)
-      }, 100)
+      setData(educationData)
+      setLoading(false)
     } catch (error) {
       console.error('Error loading education data:', error)
       setLoading(false)
     }
-  }, [])
+  }, [educationData])
 
   // Get data with fallbacks
   const degrees = useMemo(() => {

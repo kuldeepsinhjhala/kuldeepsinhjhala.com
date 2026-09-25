@@ -15,7 +15,7 @@ function filenameFromUrl(url) {
 function Resume() {
   const [copied, setCopied] = useState(false)
 
-  const resumeLink = useMemo(() => resumeData?.resumeLink || '', [])
+  const resumeLink = useMemo(() => resumeData?.resumeLink || '', [resumeData])
   const resumeFilename = useMemo(() => filenameFromUrl(resumeLink), [resumeLink])
 
   const handleCopyLink = async () => {

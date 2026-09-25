@@ -19,16 +19,13 @@ function Blog() {
   // Load data (in real app, this would be an API call)
   useEffect(() => {
     try {
-      // Simulate loading delay for better UX
-      setTimeout(() => {
-        setData(blogData)
-        setLoading(false)
-      }, 100)
+      setData(blogData)
+      setLoading(false)
     } catch (error) {
       console.error('Error loading blog data:', error)
       setLoading(false)
     }
-  }, [])
+  }, [blogData])
 
   // Get settings with fallbacks
   const settings = useMemo(() => {

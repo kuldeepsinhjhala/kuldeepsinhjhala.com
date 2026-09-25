@@ -10,15 +10,13 @@ function Contact() {
   // Load data
   useEffect(() => {
     try {
-      setTimeout(() => {
-        setData(contactData)
-        setLoading(false)
-      }, 100)
+      setData(contactData)
+      setLoading(false)
     } catch (error) {
       console.error('Error loading contact data:', error)
       setLoading(false)
     }
-  }, [])
+  }, [contactData])
 
   // Get data with fallbacks
   const contact = useMemo(() => data?.contact || {}, [data])
