@@ -2,11 +2,9 @@ import { useId } from 'react'
 import ProjectCard from '../experience/ProjectCard'
 import CertificationCard from './CertificationCard'
 import ProjectMediaSection from '../projects/ProjectMediaSection'
-import { getJourneyOrgLogoImgStyle } from '../../utils/resolveJourneyLogo'
+import { resolveJourneyLogo } from '../../utils/resolveJourneyLogo'
+import AdaptiveLogo from '../media/AdaptiveLogo'
 import { isExpandCardClickIgnoredTarget } from '../../utils/expandCardClick'
-import msuLogo from '../../assets/Msu_logo.png'
-import bhsLogo from '../../assets/bhs_logo.jpeg'
-import gtuLogo from '../../assets/Gtu_logo.png'
 
 /**
  * DegreeCard - Displays a single academic degree entry
@@ -19,6 +17,7 @@ function DegreeCard({ degree = {}, index = 0, expanded, onToggle }) {
 
   const collapsible = typeof onToggle === 'function'
   const showDetails = !collapsible || Boolean(expanded)
+  const institutionLogoSrc = resolveJourneyLogo(degree.institution?.logo)
 
   const degreeMediaForSection = (() => {
     const m = degree.media
@@ -126,40 +125,12 @@ function DegreeCard({ degree = {}, index = 0, expanded, onToggle }) {
               <div className="mb-2">
                 <div className="flex items-center gap-2.5 mb-1">
                   {/* Institution Logo */}
-                  {degree.institution.logo && (
-                    <div className="flex-shrink-0">
-                      {degree.institution.logo.includes('Msu_logo') ? (
-                        <img
-                          src={msuLogo}
-                          alt={`${degree.institution.name} logo`}
-                          className="h-10 w-auto object-contain"
-                          style={{
-                            filter: 'brightness(0) invert(1)'
-                          }}
-                        />
-                      ) : degree.institution.logo.includes('bhs_logo') ? (
-                        <img
-                          src={bhsLogo}
-                          alt={`${degree.institution.name} logo`}
-                          className="h-10 w-auto object-contain"
-                        />
-                      ) : degree.institution.logo.includes('Gtu_logo') ? (
-                        <img
-                          src={gtuLogo}
-                          alt={`${degree.institution.name} logo`}
-                          className="h-10 w-auto object-contain"
-                          style={{
-                            filter: 'brightness(0) invert(1)'
-                          }}
-                        />
-                      ) : (
-                        <img
-                          src={degree.institution.logo}
-                          alt={`${degree.institution.name} logo`}
-                          className="h-10 w-auto object-contain"
-                        />
-                      )}
-                    </div>
+                  {institutionLogoSrc && (
+                    <AdaptiveLogo
+                      src={institutionLogoSrc}
+                      alt={`${degree.institution.name} logo`}
+                      className="h-10 w-10 rounded-lg flex-shrink-0"
+                    />
                   )}
                   {/* Institution Name */}
                   <div className="flex-1">
@@ -385,7 +356,6 @@ function DegreeCard({ degree = {}, index = 0, expanded, onToggle }) {
             media={degreeMediaForSection}
             projectTitle={degree.degree || 'Education'}
             embedded
-            imgStyle={(raw) => getJourneyOrgLogoImgStyle(raw)}
           />
         </div>
       )}

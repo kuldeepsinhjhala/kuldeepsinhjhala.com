@@ -2,7 +2,8 @@ import { useId, useMemo } from 'react'
 import AchievementCard from './AchievementCard'
 import SkillsList from './SkillsList'
 import { isJourneyItemHighlighted } from '../../utils/journeyItemUtils'
-import { getJourneyOrgLogoImgStyle, resolveJourneyLogo } from '../../utils/resolveJourneyLogo'
+import { resolveJourneyLogo } from '../../utils/resolveJourneyLogo'
+import AdaptiveLogo from '../media/AdaptiveLogo'
 import { isExpandCardClickIgnoredTarget } from '../../utils/expandCardClick'
 import MediaPreviewGrid from '../media/MediaPreviewGrid'
 import {
@@ -111,20 +112,17 @@ function JourneyTimelineItem({ item = {}, index = 0, expanded = true, onToggle }
           {/* Org logo / type icon: road view hides until expanded (JourneyRoad passes onToggle). */}
           {(!collapsible || isOpen) && (
             <div className="flex-shrink-0">
-              <div className="w-12 h-12 rounded-lg bg-gold/10 flex items-center justify-center text-gold overflow-hidden border border-gold/15">
-                {orgLogoSrc ? (
-                  <img
-                    src={orgLogoSrc}
-                    alt={item.organization?.name ? `${item.organization.name} logo` : 'Organization logo'}
-                    className="w-full h-full object-contain p-1"
-                    style={getJourneyOrgLogoImgStyle(item.organization?.logo)}
-                    loading="lazy"
-                    decoding="async"
-                  />
-                ) : (
-                  getIcon(iconName)
-                )}
-              </div>
+              {orgLogoSrc ? (
+                <AdaptiveLogo
+                  src={orgLogoSrc}
+                  alt={item.organization?.name ? `${item.organization.name} logo` : 'Organization logo'}
+                  className="w-12 h-12 rounded-lg"
+                />
+              ) : (
+                <div className="w-12 h-12 rounded-lg bg-gold/10 flex items-center justify-center text-gold overflow-hidden border border-gold/15">
+                  {getIcon(iconName)}
+                </div>
+              )}
             </div>
           )}
 
@@ -305,7 +303,6 @@ function JourneyTimelineItem({ item = {}, index = 0, expanded = true, onToggle }
               <MediaPreviewGrid
                 entries={previewEntries}
                 resolveSrc={(u) => resolveJourneyLogo(u) || u}
-                imgStyle={(raw) => getJourneyOrgLogoImgStyle(raw)}
                 defaultAlt="Journey media"
               />
             </div>

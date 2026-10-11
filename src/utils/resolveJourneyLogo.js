@@ -43,10 +43,3 @@ export function resolveJourneyLogo(logo) {
   if (t.startsWith('/')) return t
   return null
 }
-
-/** MSU mark is dark-on-transparent; invert on dark journey UI (matches DegreeCard). */
-export function getJourneyOrgLogoImgStyle(logo) {
-  if (!logo || typeof logo !== 'string') return undefined
-  if (logo.includes('Msu_logo')) return { filter: 'brightness(0) invert(1)' }
-  return undefined
-}

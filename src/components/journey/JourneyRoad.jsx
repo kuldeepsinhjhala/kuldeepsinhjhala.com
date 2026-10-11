@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import JourneyTimelineItem from './JourneyTimelineItem'
 import { getJourneyMilestoneYearLabel, isJourneyItemHighlighted } from '../../utils/journeyItemUtils'
-import { getJourneyOrgLogoImgStyle, resolveJourneyLogo } from '../../utils/resolveJourneyLogo'
+import { resolveJourneyLogo } from '../../utils/resolveJourneyLogo'
+import AdaptiveLogo from '../media/AdaptiveLogo'
 
 function RoadSegment() {
   return (
@@ -102,7 +103,7 @@ function JourneyRoad({ timeline = [], className = '' }) {
                   {/* Icon or company logo */}
                   <div className="relative z-10 text-gold text-xl md:text-2xl w-10 h-10 md:w-12 md:h-12 flex items-center justify-center overflow-hidden rounded-full">
                     {milestoneLogoSrc ? (
-                      <img
+                      <AdaptiveLogo
                         src={milestoneLogoSrc}
                         alt={
                           item.organization?.name
@@ -111,10 +112,8 @@ function JourneyRoad({ timeline = [], className = '' }) {
                               ? `Milestone: ${item.title}`
                               : 'Journey milestone'
                         }
-                        className="w-full h-full object-contain p-1.5"
-                        style={getJourneyOrgLogoImgStyle(item.organization?.logo)}
-                        loading="lazy"
-                        decoding="async"
+                        className="h-full w-full rounded-full"
+                        imgClassName="h-full w-full object-contain p-1.5"
                       />
                     ) : (
                       getIcon(item.icon || 'briefcase')

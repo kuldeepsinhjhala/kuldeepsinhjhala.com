@@ -44,10 +44,9 @@ function PdfPage({ pdf, pageNumber, width }) {
         canvas.style.width = `${Math.floor(width)}px`
         canvas.style.height = `${Math.floor(base.height * scale)}px`
 
-        const context = canvas.getContext('2d', { alpha: false })
-        if (!context || cancelled) return
+        if (cancelled) return
 
-        renderTask = page.render({ canvasContext: context, viewport })
+        renderTask = page.render({ canvas, viewport })
         await renderTask.promise
       } catch (error) {
         if (cancelled || isBenignPdfError(error)) return
@@ -72,7 +71,6 @@ function PdfPage({ pdf, pageNumber, width }) {
 
 export default function ResumePdfPreview({ url }) {
   const containerRef = useRef(null)
-  const pdfRef = useRef(null)
   const [pdf, setPdf] = useState(null)
   const [pageCount, setPageCount] = useState(0)
   const [width, setWidth] = useState(0)
@@ -102,44 +100,19 @@ export default function ResumePdfPreview({ url }) {
     if (!url) return undefined
 
     let cancelled = false
-    let loadingTask
+    const loadingTask = getDocument({
+      url,
+      withCredentials: false,
+      disableRange: true,
+      disableStream: true,
+    })
 
     async function load() {
       setStatus('loading')
       setPdf(null)
       setPageCount(0)
-      pdfRef.current = null
-
-      loadingTask = getDocument({
-        url,
-        withCredentials: false,
-        disableRange: true,
-        disableStream: true,
-      })
 
       const doc = await loadingTask.promise
-      if (cancelled) {
-        try {
-          await doc.destroy()
-        } catch {
-          // ignore teardown races
-        }
-        return
-      }
-
-      pdfRef.current = doc
-
-      // Re-check after storing — navigation may have started during the await
-      if (cancelled) {
-        pdfRef.current = null
-        try {
-          await doc.destroy()
-        } catch {
-          // ignore teardown races
-        }
-        return
-      }
-
       if (cancelled) return
 
       setPdf(doc)
@@ -155,13 +128,12 @@ export default function ResumePdfPreview({ url }) {
 
     return () => {
       cancelled = true
-
-      const doc = pdfRef.current
-      pdfRef.current = null
-
-      // Destroy once — resolved doc if ready, otherwise the in-flight loading task
-      const teardown = doc ? doc.destroy() : loadingTask?.destroy?.()
-      Promise.resolve(teardown).catch(() => {})
+      // pdf.js 6 destroys the document through the loading task, not the document proxy.
+      try {
+        Promise.resolve(loadingTask.destroy()).catch(() => {})
+      } catch {
+        // ignore teardown races during route changes
+      }
     }
   }, [url])
 

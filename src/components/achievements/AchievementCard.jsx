@@ -1,31 +1,13 @@
 import { useId } from 'react'
 import ProjectMediaSection from '../projects/ProjectMediaSection'
-import msuLogo from '../../assets/Msu_logo.png'
-import bhsLogo from '../../assets/bhs_logo.jpeg'
-import gtuLogo from '../../assets/Gtu_logo.png'
-import namastedevLogo from '../../assets/namastedev.png'
-import udemyLogo from '../../assets/udemy_logo.webp'
-import nccLogo from '../../assets/ncc.jpg'
+import { resolveJourneyLogo } from '../../utils/resolveJourneyLogo'
+import AdaptiveLogo from '../media/AdaptiveLogo'
 import {
   projectMediaDocuments,
   projectMediaImageList,
   projectMediaLinks,
 } from '../../utils/projectMedia'
 import { isExpandCardClickIgnoredTarget } from '../../utils/expandCardClick'
-
-/** JSON uses filenames like `Msu_logo.png`; map to bundled assets (same as DegreeCard). */
-function resolveAchievementOrgLogoSrc(logoPath) {
-  if (!logoPath) return null
-  const s = String(logoPath)
-  if (s.includes('Msu_logo')) return msuLogo
-  if (s.includes('bhs_logo')) return bhsLogo
-  if (s.includes('Gtu_logo')) return gtuLogo
-  if (s.includes('namastedev')) return namastedevLogo
-  if (s.includes('udemy_logo')) return udemyLogo
-  if (s.includes('ncc')) return nccLogo
-  if (/^https?:\/\//i.test(s) || s.startsWith('/')) return s
-  return null
-}
 
 function achievementEvidenceHasStructuredMedia(media) {
   if (!media || typeof media !== 'object' || Array.isArray(media)) return false
@@ -66,7 +48,7 @@ function AchievementCard({ achievement = {}, expanded = false, onToggle }) {
 
   const orgLogoSrc =
     achievement.organization?.logo &&
-    resolveAchievementOrgLogoSrc(achievement.organization.logo)
+    resolveJourneyLogo(achievement.organization.logo)
 
   const hasEvidenceBody =
     achievement.evidence &&
@@ -106,7 +88,7 @@ function AchievementCard({ achievement = {}, expanded = false, onToggle }) {
           {achievement.organization && (
             <div className="mb-2 flex items-center gap-1.5 min-w-0">
               {orgLogoSrc && (
-                <img
+                <AdaptiveLogo
                   src={orgLogoSrc}
                   alt={
                     achievement.organization?.name
@@ -115,12 +97,8 @@ function AchievementCard({ achievement = {}, expanded = false, onToggle }) {
                         ? `Logo for ${achievement.title}`
                         : 'Organization logo'
                   }
-                  className="w-4 h-4 rounded object-contain flex-shrink-0"
-                  style={
-                    String(achievement.organization.logo).includes('Msu_logo')
-                      ? { filter: 'brightness(0) invert(1)' }
-                      : undefined
-                  }
+                  className="w-4 h-4 rounded flex-shrink-0"
+                  imgClassName="h-full w-full object-contain"
                 />
               )}
               <p className="text-gold text-xs font-medium min-w-0 flex-1 truncate">

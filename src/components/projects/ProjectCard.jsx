@@ -6,7 +6,8 @@ import {
   projectMediaLinks,
 } from '../../utils/projectMedia'
 import { isExpandCardClickIgnoredTarget } from '../../utils/expandCardClick'
-import { getJourneyOrgLogoImgStyle, resolveJourneyLogo } from '../../utils/resolveJourneyLogo'
+import { resolveJourneyLogo } from '../../utils/resolveJourneyLogo'
+import AdaptiveLogo from '../media/AdaptiveLogo'
 
 function techStackHasItems(techStack) {
   if (!techStack || typeof techStack !== 'object') return false
@@ -86,16 +87,12 @@ function ProjectCard({ project = {} }) {
     >
       <div className="flex items-start gap-3 sm:gap-4 min-w-0">
         {projectLogoSrc && (
-          <div className="flex-shrink-0">
-            <img
-              src={projectLogoSrc}
-              alt={project.title ? `${project.title} logo` : 'Project logo'}
-              className="w-11 h-11 sm:w-12 sm:h-12 rounded-lg object-contain bg-gold/5 p-1"
-              style={getJourneyOrgLogoImgStyle(project.logo)}
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
+          <AdaptiveLogo
+            src={projectLogoSrc}
+            alt={project.title ? `${project.title} logo` : 'Project logo'}
+            className="w-11 h-11 sm:w-12 sm:h-12 rounded-lg flex-shrink-0"
+            plate={/resumeeai/i.test(String(project.logo)) ? 'black' : undefined}
+          />
         )}
         <div className="flex-1 min-w-0">
           <div className="mb-3 space-y-1">

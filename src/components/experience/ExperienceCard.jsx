@@ -2,7 +2,8 @@ import { useId, useState } from 'react'
 import TechnologySection from './TechnologySection'
 import ProjectCard from './ProjectCard'
 import AchievementCard from '../journey/AchievementCard'
-import { getJourneyOrgLogoImgStyle, resolveJourneyLogo } from '../../utils/resolveJourneyLogo'
+import { resolveJourneyLogo } from '../../utils/resolveJourneyLogo'
+import AdaptiveLogo from '../media/AdaptiveLogo'
 import { isExpandCardClickIgnoredTarget } from '../../utils/expandCardClick'
 import MediaPreviewGrid from '../media/MediaPreviewGrid'
 import {
@@ -102,16 +103,11 @@ function ExperienceCard({ experience = {} }) {
       {/* Summary row + chevron — logo always visible (collapsed + expanded header) */}
       <div className="flex items-start gap-3 sm:gap-4 min-w-0">
         {companyLogoSrc && (
-          <div className="flex-shrink-0">
-            <img
-              src={companyLogoSrc}
-              alt={experience.company?.name ? `${experience.company.name} logo` : ''}
-              className="w-11 h-11 sm:w-12 sm:h-12 rounded-lg object-contain bg-gold/5 p-1"
-              style={getJourneyOrgLogoImgStyle(experience.company?.logo)}
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
+          <AdaptiveLogo
+            src={companyLogoSrc}
+            alt={experience.company?.name ? `${experience.company.name} logo` : ''}
+            className="w-11 h-11 sm:w-12 sm:h-12 rounded-lg flex-shrink-0"
+          />
         )}
         <div className="flex-1 min-w-0">
           <div className="mb-3 space-y-1">
@@ -299,7 +295,6 @@ function ExperienceCard({ experience = {} }) {
                   <MediaPreviewGrid
                     entries={previewEntries}
                     resolveSrc={(u) => resolveJourneyLogo(u) || u}
-                    imgStyle={(raw) => getJourneyOrgLogoImgStyle(raw)}
                     defaultAlt="Experience media"
                   />
                 </div>
